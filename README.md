@@ -1,1 +1,1 @@
-# So-Yummy-frontend
+# So Yummy Frontend
