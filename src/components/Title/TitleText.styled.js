@@ -21,19 +21,26 @@ export const TitleText = styled.h2`
   }
 `;
 
-export const Wrapper = styled.div`
-  margin-top: 50px;
-  margin-left: 16px;
-  margin-bottom: 50px;
+export const Section = styled.section`
+padding-top: 50px;
+padding-bottom: 50px;
 
-  @media (min-width: 768px) {
-    margin-top: 72px;
-    margin-left: 32px;
-    margin-bottom: 100px;
+@media (min-width: 768px) {
+    padding-top: 72px;
+    padding-bottom: 100px;
   }
   @media (min-width: 1280px) {
-    margin-top: 102px;
+    padding-top: 102px;
+  }
+`
+
+export const Wrapper = styled.div`
+  margin-left: 16px;
+
+  @media (min-width: 768px) {
+    margin-left: 32px;
+  }
+  @media (min-width: 1280px) {
     margin-left: 100px;
-    margin-bottom: 100px;
   }
 `;
