@@ -1,7 +1,8 @@
-import {TitleText} from "./TitleText.styled";
+import {TitleText, Wrapper} from "./TitleText.styled";
 
 export const Title = ({children})=>{
-    return <TitleText>{children}</TitleText>
-
-}
+    return <Wrapper>
+         <TitleText>{children}</TitleText>
+    </Wrapper>
+   }
 
