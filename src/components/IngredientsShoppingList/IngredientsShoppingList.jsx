@@ -7,6 +7,7 @@ import {
   StyledImage,
   StyledQuantity,
   StyledFlexQuantity,
+  StyledListContainerIngridient,
 } from "./StyledIngredientsShoppingList";
 const INGRIDIENTS = [
     {
@@ -61,7 +62,7 @@ const IngredientsShoppingList = () => {
                 <p>Remove</p>
             </StyledIngrsHeadThumb>
         </StyledIngridientsHeader>
-        <ul>
+        <StyledListContainerIngridient>
             {INGRIDIENTS.map(item =>{
                 return (
                     <StyledIngridientsItem key={item._id}>
@@ -78,7 +79,7 @@ const IngredientsShoppingList = () => {
                     </StyledIngridientsItem>
                 )
             })}
-        </ul>
+        </StyledListContainerIngridient>
     </StyledIngridientsContainer>
     )
 }
