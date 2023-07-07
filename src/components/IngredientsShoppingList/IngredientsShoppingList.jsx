@@ -3,6 +3,10 @@ import {
   StyledIngridientsItem,
   StyledIngrsHeadThumb,
   StyledIngridientsContainer,
+  StyledImageCardThumb,
+  StyledImage,
+  StyledQuantity,
+  StyledFlexQuantity,
 } from "./StyledIngredientsShoppingList";
 const INGRIDIENTS = [
     {
@@ -61,16 +65,16 @@ const IngredientsShoppingList = () => {
             {INGRIDIENTS.map(item =>{
                 return (
                     <StyledIngridientsItem key={item._id}>
-                        <div>
-                            <img src={item.img} alt={item.desc} height="60" />
+                        <StyledImageCardThumb>
+                            <StyledImage src={item.img} alt={item.desc} height="60"/>
                             <p>{item.name}</p>
-                        </div>
-                        <div>
-                            <div>
+                        </StyledImageCardThumb>
+                        <StyledFlexQuantity>
+                            <StyledQuantity>
                                 <p>5</p>
-                            </div>
+                            </StyledQuantity>
                             <button>X</button>
-                        </div>
+                        </StyledFlexQuantity>
                     </StyledIngridientsItem>
                 )
             })}

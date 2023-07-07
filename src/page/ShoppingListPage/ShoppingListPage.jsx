@@ -1,11 +1,11 @@
+import { ShoppingPageContainer } from "./ShoppingPageStyled";
 import IngredientsShoppingList from "../../components/IngredientsShoppingList/IngredientsShoppingList";
-
 
 const ShoppingListPage = ()=>{
     return (
-        <div>
+        <ShoppingPageContainer>
             <IngredientsShoppingList/>
-        </div>
+        </ShoppingPageContainer>
     )
 }
 
