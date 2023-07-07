@@ -11,7 +11,7 @@ import {
    REGISTER,
 } from "redux-persist";
 
-import { signupReducer } from "./Slice/signupSlice/signupSlice";
+import { signupReducer } from "./Slice/signup/signupSlice";
 
 const persistConfig = {
    key: "root",
