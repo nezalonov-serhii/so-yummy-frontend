@@ -1,6 +1,13 @@
 import styled from "styled-components";
 
+const StyledIngridientsContainer = styled.div`
+    max-width: 375px;
+    @‌media (max-width: 767px) {
+      
+        & { min-width: 767px;}
 
+    }
+`
 const StyledIngridientsHeader = styled.div`
     display:flex;
     justify-content: space-between;
@@ -8,7 +15,17 @@ const StyledIngridientsHeader = styled.div`
     color:#FAFAFA;
     padding:10px;
     border-radius:8px;
+    & div{
+        display:flex;
+        justify-content: space-between;
+    }
 `
+const StyledIngrsHeadThumb = styled.div`
+    display:flex;
+    justify-content: space-between;
+`
+
+
 const StyledIngridientsItem = styled.li`
     display: flex;
     justify-content: space-between;
@@ -20,5 +37,7 @@ const StyledIngridientsItem = styled.li`
 
 export  {
     StyledIngridientsHeader,
-    StyledIngridientsItem
+    StyledIngridientsItem,
+    StyledIngrsHeadThumb,
+    StyledIngridientsContainer,
 };

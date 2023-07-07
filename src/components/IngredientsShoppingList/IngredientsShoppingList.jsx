@@ -1,6 +1,8 @@
 import {
   StyledIngridientsHeader,
   StyledIngridientsItem,
+  StyledIngrsHeadThumb,
+  StyledIngridientsContainer,
 } from "./StyledIngredientsShoppingList";
 const INGRIDIENTS = [
     {
@@ -47,13 +49,13 @@ const INGRIDIENTS = [
 const IngredientsShoppingList = () => {
 
     return (
-    <div>
+    <StyledIngridientsContainer>
         <StyledIngridientsHeader>
             <p>Product</p>
-            <div>
+            <StyledIngrsHeadThumb>
                 <p>Number</p>
                 <p>Remove</p>
-            </div>
+            </StyledIngrsHeadThumb>
         </StyledIngridientsHeader>
         <ul>
             {INGRIDIENTS.map(item =>{
@@ -73,7 +75,8 @@ const IngredientsShoppingList = () => {
                 )
             })}
         </ul>
-    </div>)
+    </StyledIngridientsContainer>
+    )
 }
 
 

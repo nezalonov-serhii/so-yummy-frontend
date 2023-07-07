@@ -1,4 +1,12 @@
-const ShoppingListPage = () => {
-  return <div>Hi, I'm main page</div>;
-};
+import IngredientsShoppingList from "../../components/IngredientsShoppingList/IngredientsShoppingList";
+
+
+const ShoppingListPage = ()=>{
+    return (
+        <div>
+            <IngredientsShoppingList/>
+        </div>
+    )
+}
+
 export default ShoppingListPage;
