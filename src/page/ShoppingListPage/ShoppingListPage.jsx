@@ -1,4 +1,11 @@
+import IngredientsShoppingList from "../components/IngredientsShoppingList/IngredientsShoppingList";
+
 const ShoppingListPage = () => {
-  return <div>Hi, I'm main page</div>;
+   return (
+      <div>
+         <IngredientsShoppingList />
+      </div>
+   );
 };
+
 export default ShoppingListPage;
