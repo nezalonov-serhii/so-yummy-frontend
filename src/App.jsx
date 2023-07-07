@@ -3,6 +3,7 @@ import { Routes, Route } from "react-router-dom";
 import { lazy, Suspense } from "react";
 import PrivateRoute from "./service/route/PrivateRoute";
 import PublicRoute from "./service/route/PublicRoute";
+
 import SharedLayout from "./components/SharedLayout/SharedLayout";
 
 const AddRecipePage = lazy(() => import("./page/AddRecipePage/AddRecipePage"));
@@ -128,6 +129,7 @@ function App() {
          <Route path="*" element={<SharedLayout />} />
        </Routes>
      </>
+
    );
 }
 

@@ -1,11 +1,13 @@
+
+import { ShoppingPageContainer } from "./ShoppingPageStyled";
 import IngredientsShoppingList from "../../components/IngredientsShoppingList/IngredientsShoppingList";
 
-const ShoppingListPage = () => {
-   return (
-      <div>
-         <IngredientsShoppingList />
-      </div>
-   );
-};
+const ShoppingListPage = ()=>{
+    return (
+        <ShoppingPageContainer>
+            <IngredientsShoppingList/>
+        </ShoppingPageContainer>
+    )
+}
 
 export default ShoppingListPage;

@@ -1,6 +1,14 @@
 import {
-   StyledIngridientsHeader,
-   StyledIngridientsItem,
+  StyledIngridientsHeader,
+  StyledIngridientsItem,
+  StyledIngrsHeadThumb,
+  StyledIngridientsContainer,
+  StyledImageCardThumb,
+  StyledImage,
+  StyledQuantity,
+  StyledFlexQuantity,
+  StyledListContainerIngridient,
+
 } from "./StyledIngredientsShoppingList";
 const INGRIDIENTS = [
    {
@@ -46,35 +54,38 @@ const INGRIDIENTS = [
 ];
 
 const IngredientsShoppingList = () => {
-   return (
-      <div>
-         <StyledIngridientsHeader>
+  
+    return (
+    <StyledIngridientsContainer>
+        <StyledIngridientsHeader>
             <p>Product</p>
-            <div>
-               <p>Number</p>
-               <p>Remove</p>
-            </div>
-         </StyledIngridientsHeader>
-         <ul>
-            {INGRIDIENTS.map((item) => {
-               return (
-                  <StyledIngridientsItem key={item._id}>
-                     <div>
-                        <img src={item.img} alt={item.desc} height="60" />
-                        <p>{item.name}</p>
-                     </div>
-                     <div>
-                        <div>
-                           <p>5</p>
-                        </div>
-                        <button>X</button>
-                     </div>
-                  </StyledIngridientsItem>
-               );
+            <StyledIngrsHeadThumb>
+                <p>Number</p>
+                <p>Remove</p>
+            </StyledIngrsHeadThumb>
+        </StyledIngridientsHeader>
+        <StyledListContainerIngridient>
+            {INGRIDIENTS.map(item =>{
+                return (
+                    <StyledIngridientsItem key={item._id}>
+                        <StyledImageCardThumb>
+                            <StyledImage src={item.img} alt={item.desc} height="60"/>
+                            <p>{item.name}</p>
+                        </StyledImageCardThumb>
+                        <StyledFlexQuantity>
+                            <StyledQuantity>
+                                <p>5</p>
+                            </StyledQuantity>
+                            <button>X</button>
+                        </StyledFlexQuantity>
+                    </StyledIngridientsItem>
+                )
             })}
-         </ul>
-      </div>
-   );
-};
+        </StyledListContainerIngridient>
+    </StyledIngridientsContainer>
+    )
+}
+
+
 
 export default IngredientsShoppingList;
