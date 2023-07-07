@@ -1,3 +1,4 @@
+
 import { ShoppingPageContainer } from "./ShoppingPageStyled";
 import IngredientsShoppingList from "../../components/IngredientsShoppingList/IngredientsShoppingList";
 
