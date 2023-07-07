@@ -1,4 +1,4 @@
-import IngredientsShoppingList from "../components/IngredientsShoppingList/IngredientsShoppingList";
+import IngredientsShoppingList from "../../components/IngredientsShoppingList/IngredientsShoppingList";
 
 const ShoppingListPage = () => {
    return (
