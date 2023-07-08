@@ -24,7 +24,8 @@ function App() {
        return
        <Routes>
          <Route path="/" element={<SharedLayout />}>
-           <Route index element={<WelcomePage />} />
+           {/* <Route index element={<WelcomePage />} />  */}
+           <Route index element={<MainPage />} /> 
            <Route
              path="register"
              element={

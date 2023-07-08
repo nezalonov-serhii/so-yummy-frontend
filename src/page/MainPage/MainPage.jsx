@@ -1,6 +1,9 @@
+import HeroMain from "../../components/HeroMain";
 const MainPage = () => {
   return (
-    <div>Hi, I'm main page</div>
+    <>
+      <HeroMain />
+    </>
   );
 };
 export default MainPage;
