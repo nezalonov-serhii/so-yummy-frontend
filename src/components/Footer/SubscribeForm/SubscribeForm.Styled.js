@@ -215,7 +215,7 @@ export const Btn = styled.button`
   font-size: 14px;
   line-height: 1.14;
   margin-top: 8px;
-  margin-bottom: 44px;
+ 
 
   
   @media screen and (min-width: 768px) {

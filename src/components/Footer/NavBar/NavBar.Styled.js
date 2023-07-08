@@ -30,7 +30,7 @@ export const Styledlink = styled.a`
   font-size: 14px;
   line-height: 1.28;
   letter-spacing: -0.02em;
-  color: var(-dark-text-primary);
+  color: var(--text-light);
   &:hover,
   :focus {
     color: var( --dark-background-footer);
