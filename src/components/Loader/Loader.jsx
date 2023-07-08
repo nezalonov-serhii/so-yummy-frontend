@@ -2,7 +2,7 @@ import { ThreeCircles } from "react-loader-spinner";
 
 const Loader = ({ size = "100" }) => {
    return (
-      <di1v
+      <div
          style={{
             display: "flex",
             justifyContent: "center",
@@ -19,7 +19,7 @@ const Loader = ({ size = "100" }) => {
             innerCircleColor="#8BAA36"
             middleCircleColor="#8BAA36"
          />
-      </di1v>
+      </div>
    );
 };
 
