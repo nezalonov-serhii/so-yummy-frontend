@@ -28,7 +28,7 @@ const RegisterPage = () => {
       };
 
       dispatch(signupThunk(newUser));
-      actions.resetForm();
+      // actions.resetForm();
    };
    const validationSchema = Yup.object({
       name: Yup.string().required("Name is required"),
@@ -38,7 +38,9 @@ const RegisterPage = () => {
             "Invalid email address"
          )
          .required("Email is required"),
-      password: Yup.string().required("Password is required"),
+      password: Yup.string()
+         .required("Password is required")
+         .min(6, "Password must be at least 6 characters"),
    });
 
    return (
@@ -52,57 +54,85 @@ const RegisterPage = () => {
                   onSubmit={handleSubmit}
                >
                   {({ errors, touched }) => (
-                     <AuthForm>
-                        <AuthTitle>Registration</AuthTitle>
-                        <WrapFields>
-                           <WrapField>
-                              <AuthField
-                                 type="text"
-                                 name="name"
-                                 placeholder="Name"
-                                 invalid={errors.name && touched.name}
-                                 valid={!errors.name && touched.name}
-                              />
-                              {errors.name && touched.name && (
-                                 <ErrorMessageStyled>
-                                    {errors.name}
-                                 </ErrorMessageStyled>
-                              )}
-                           </WrapField>
-                           <WrapField>
-                              <AuthField
-                                 type="email"
-                                 name="email"
-                                 placeholder="Email"
-                                 invalid={errors.email && touched.email}
-                                 valid={!errors.email && touched.email}
-                              />
-                              {errors.email && touched.email && (
-                                 <ErrorMessageStyled>
-                                    {errors.email}
-                                 </ErrorMessageStyled>
-                              )}
-                           </WrapField>
-                           <WrapField>
-                              <AuthField
-                                 type="password"
-                                 name="password"
-                                 placeholder="Password"
-                                 invalid={errors.password && touched.password}
-                                 valid={!errors.password && touched.password}
-                              />
-                              {errors.password && touched.password && (
-                                 <ErrorMessageStyled>
-                                    {errors.password}
-                                 </ErrorMessageStyled>
-                              )}
-                           </WrapField>
-                        </WrapFields>
-                        <Button type="submit">Sign up</Button>
-                     </AuthForm>
+                     <div>
+                        <AuthForm>
+                           <AuthTitle>Registration</AuthTitle>
+                           <WrapFields>
+                              <WrapField>
+                                 <AuthField
+                                    type="text"
+                                    name="name"
+                                    placeholder="Name"
+                                    invalid={
+                                       errors.name && touched.name
+                                          ? "invalid"
+                                          : ""
+                                    }
+                                    valid={
+                                       !errors.name && touched.name
+                                          ? "valid"
+                                          : ""
+                                    }
+                                 />
+                                 {errors.name && touched.name && (
+                                    <ErrorMessageStyled>
+                                       {errors.name}
+                                    </ErrorMessageStyled>
+                                 )}
+                              </WrapField>
+                              <WrapField>
+                                 <AuthField
+                                    type="email"
+                                    name="email"
+                                    placeholder="Email"
+                                    autoComplete="username"
+                                    invalid={
+                                       errors.email && touched.email
+                                          ? "invalid"
+                                          : ""
+                                    }
+                                    valid={
+                                       !errors.email && touched.email
+                                          ? "valid"
+                                          : ""
+                                    }
+                                 />
+                                 {errors.email && touched.email && (
+                                    <ErrorMessageStyled>
+                                       {errors.email}
+                                    </ErrorMessageStyled>
+                                 )}
+                              </WrapField>
+                              <WrapField>
+                                 <AuthField
+                                    type="password"
+                                    name="password"
+                                    placeholder="Password"
+                                    autoComplete="current-password"
+                                    invalid={
+                                       errors.password && touched.password
+                                          ? "invalid"
+                                          : ""
+                                    }
+                                    valid={
+                                       touched.password && !errors.password
+                                          ? "valid"
+                                          : ""
+                                    }
+                                 />
+                                 {errors.password && touched.password && (
+                                    <ErrorMessageStyled>
+                                       {errors.password}
+                                    </ErrorMessageStyled>
+                                 )}
+                              </WrapField>
+                           </WrapFields>
+                           <Button type="submit">Sign up</Button>
+                        </AuthForm>
+                        <AuthLink to="/signin">Sign In</AuthLink>
+                     </div>
                   )}
                </Formik>
-               <AuthLink to="/signin">Sign In</AuthLink>
             </Container>
          )}
       </AuthSection>

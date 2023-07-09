@@ -13,15 +13,16 @@ export const AuthSection = styled.section`
    display: flex;
    align-items: center;
    flex-direction: column;
-   padding: 87px 0 120px 0;
+   padding: 87px 0 60px 0;
    min-height: 100vh;
 
    background-image: url(${bgAuthMob});
    background-repeat: no-repeat;
-   background-size: contain;
-   background-position: bottom;
+   background-size: cover;
+   background-position: center;
 
    @media screen and (min-width: 768px) and (max-width: 1280px) {
+      padding: 96px 0 60px 0;
       background-image: url(${bgAuthTab});
    }
    @media screen and (min-width: 1281px) {
@@ -47,9 +48,11 @@ export const Container = styled.div`
       @media screen and (min-width: 768px) and (max-width: 1280px) {
          background-image: url(${bgAuthPanaTab});
          width: 285px;
+         margin-bottom: -12px;
          height: 250px;
       }
       @media screen and (min-width: 1281px) {
+         margin-bottom: 0;
          width: 532px;
          height: 468px;
          background-image: url(${bgAuthPanaDesk});
@@ -141,8 +144,15 @@ export const AuthField = styled(Field)`
       }
    }
 
-   ${(props) => props.invalid && "border-color: red;"}
-   ${(props) => props.valid && " border-color: green;"}
+   ${(props) => {
+      if (props.invalid === "invalid") return "border-color: #E74A3B;";
+      else return "";
+   }}
+
+   ${(props) => {
+      if (props.valid === "valid") return "border-color: #3CBC81;";
+      else return "";
+   }}
 
    @media screen and (min-width: 768px) {
       padding: 12px 16px;
@@ -153,7 +163,6 @@ export const ErrorMessageStyled = styled.p`
    position: absolute;
    bottom: -3px;
    transform: translateY(100%);
-
    color: #e74a3b;
    font-family: Poppins;
    font-size: 14px;
@@ -170,18 +179,27 @@ export const Button = styled.button`
    font-size: 16px;
    text-align: center;
    color: #fafafa;
-   transition: cubic-bezier(0.4, 0, 0.2, 1) 250ms;
+   transition: var(--cubic-bezier) 250ms;
    cursor: pointer;
+
+   &:hover {
+      color: #22252a;
+   }
 `;
 
 export const AuthLink = styled(Link)`
+   display: block;
+   width: max-content;
+   margin: 0 auto;
    color: #fafafa;
+   text-align: center;
    font-family: Poppins;
    font-size: 14px;
    font-style: normal;
    font-weight: 400;
    line-height: normal;
    text-decoration-line: underline;
+
    @media screen and (min-width: 768px) {
       font-size: 16px;
    }
