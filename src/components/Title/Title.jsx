@@ -1,5 +1,5 @@
 import { TitleText, Wrapper, Section } from "./TitleText.styled";
-import { Points } from "../Points/Points";
+import { Points } from  '../../components/Points/Points';
 
 export const Title = ({ children }) => {
   return (
