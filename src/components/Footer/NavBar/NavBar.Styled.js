@@ -5,6 +5,7 @@ import { NavLink } from 'react-router-dom';
 export const Nav = styled.nav`
   margin-bottom: 32px;
   text-align: center;
+  flex-srink: 2;
   @media screen and (min-width: 768px) {
     margin-bottom: 0px;
     margin-left: 175px;
