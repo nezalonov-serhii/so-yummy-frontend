@@ -86,7 +86,8 @@ function App() {
                   element={
                      <Suspense>
                         <PrivateRoute>
-                           <FavoritePage />
+                           <FavoritePage        
+                           />
                         </PrivateRoute>
                      </Suspense>
                   }
