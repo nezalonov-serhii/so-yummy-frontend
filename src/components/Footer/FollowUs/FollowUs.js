@@ -1,9 +1,13 @@
+import {
+  FacebokIcon,
+  YouTubeIcon,
+  TwitterIcon,
+  InstaIcon,
+  FollowList,
+} from "./FollowUs.Styled";
 
-import { FacebokIcon, YouTubeIcon,TwitterIcon, InstaIcon, FollowList } from "./FollowUs.Styled";
-
-export const FollowUs = () => { 
-  
-       return (
+export const FollowUs = () => {
+  return (
     <FollowList>
       <li>
         <a href="https://www.facebook.com/" target="_blank" rel="noreferrer">
@@ -12,12 +16,12 @@ export const FollowUs = () => {
       </li>
       <li>
         <a href="https://www.youtube.com/" target="_blank" rel="noreferrer">
-          <YouTubeIcon/>
+          <YouTubeIcon />
         </a>
       </li>
       <li>
         <a href="https://twitter.com/" target="_blank" rel="noreferrer">
-          <TwitterIcon/>
+          <TwitterIcon />
         </a>
       </li>
       <li>
@@ -27,5 +31,4 @@ export const FollowUs = () => {
       </li>
     </FollowList>
   );
-
-}
+};

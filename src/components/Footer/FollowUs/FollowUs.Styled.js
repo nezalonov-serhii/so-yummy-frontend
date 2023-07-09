@@ -1,6 +1,10 @@
 import styled from "styled-components";
-import {FaFacebook } from "react-icons/fa";
-import { AiFillYoutube, AiOutlineTwitter, AiOutlineInstagram } from "react-icons/ai";
+import { FaFacebook } from "react-icons/fa";
+import {
+  AiFillYoutube,
+  AiOutlineTwitter,
+  AiOutlineInstagram,
+} from "react-icons/ai";
 
 export const FacebokIcon = styled(FaFacebook)`
   width: 20px;
@@ -35,16 +39,16 @@ export const TwitterIcon = styled(AiOutlineTwitter)`
 export const InstaIcon = styled(AiOutlineInstagram)`
   width: 20px;
   height: 20px;
-  color:var(--button-dark-background-primary);
+  color: var(--button-dark-background-primary);
   cursor: pointer;
   &:hover {
     transition: var(--cubic-bezier);
     color: var(--text-light);
   }
 `;
- 
+
 export const FollowList = styled.ul`
- display: flex;
+  display: flex;
   gap: 16px;
   justify-content: center;
   margin-top: 44px;
@@ -53,7 +57,4 @@ export const FollowList = styled.ul`
     margin-top: 40px;
     margin-bottom: 18px;
   }
-  
-
-`
-
+`;

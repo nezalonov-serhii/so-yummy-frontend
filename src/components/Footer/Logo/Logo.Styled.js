@@ -4,14 +4,13 @@ import { PiForkKnifeBold } from "react-icons/pi";
 export const LogoIcon = styled(PiForkKnifeBold)`
   width: 30px;
   height: 30px;
-  color: #8BAA36;
+  color: #8baa36;
 `;
-
 
 export const IconWrapper = styled.div`
   width: 32px;
   height: 32px;
-  background: #EBF3D4;
+  background: #ebf3d4;
   border-radius: 6px;
   display: flex;
   justify-content: center;
@@ -20,7 +19,7 @@ export const IconWrapper = styled.div`
     width: 44px;
     height: 44px;
   }
-   @media (min-width: 1024px){
+  @media (min-width: 1024px) {
     width: 44px;
     height: 44px;
     border-radius: 12px;
@@ -29,9 +28,9 @@ export const IconWrapper = styled.div`
 
 export const Title = styled.h2`
   margin-left: 8px;
- 
+
   font-style: normal;
-  font-weight:700px;
+  font-weight: 700px;
   font-size: 18px;
   line-height: 18px;
   letter-spacing: 0.27px;
@@ -41,7 +40,6 @@ export const Title = styled.h2`
     font-size: 28px;
     margin-left: 12px;
   }
- 
 `;
 
 export const LogoWrapper = styled.div`
@@ -49,18 +47,14 @@ export const LogoWrapper = styled.div`
   align-items: center;
   justify-content: center;
   margin-bottom: 32px;
- 
+
   @‌media (min-width: 768px) {
-      
     padding-top: 0;
     // margin-bottom: 24px;
     justify-content: flex-start;
-    
-   
   }
- @media(min-width: 1024px) {
-  padding-top: 0;
-  margin-bottom: 40px;
- }
-
-`
+  @media (min-width: 1024px) {
+    padding-top: 0;
+    margin-bottom: 40px;
+  }
+`;

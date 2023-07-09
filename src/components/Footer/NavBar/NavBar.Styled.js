@@ -1,6 +1,6 @@
 
 import styled from "styled-components";
-// import { NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 export const Nav = styled.nav`
   margin-bottom: 32px;
@@ -24,7 +24,7 @@ export const ItemNav = styled.li`
   }
 `;
 
-export const Styledlink = styled.a`
+export const Styledlink = styled( NavLink)`
   font-weight: 500;
   font-size: 14px;
   line-height: 1.28;

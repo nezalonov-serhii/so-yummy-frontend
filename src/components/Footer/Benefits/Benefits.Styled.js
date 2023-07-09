@@ -6,7 +6,7 @@ export const BenefList = styled.ul`
     display: block;
     list-style: disc;
   }
-`
+`;
 export const BenefItem = styled.li`
   font-size: 14px;
   line-height: 1.28;
@@ -23,4 +23,4 @@ export const BenefItem = styled.li`
       margin-bottom: 12px;
     }
   }
-`
+`;
