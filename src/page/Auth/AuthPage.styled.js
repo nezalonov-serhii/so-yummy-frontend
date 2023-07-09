@@ -2,27 +2,80 @@ import styled from "styled-components";
 import { Form, Field } from "formik";
 import { Link } from "react-router-dom";
 
+import bgAuthMob from "../../images/Auth/bg-mob.svg";
+import bgAuthTab from "../../images/Auth/bg-tab.svg";
+import bgAuthDesk from "../../images/Auth/bg-desk.svg";
+import bgAuthPanaMob from "../../images/Auth/pana-bg-mob.png";
+import bgAuthPanaTab from "../../images/Auth/pana-bg-tab.png";
+import bgAuthPanaDesk from "../../images/Auth/pana-bg-desk.png";
+
 export const AuthSection = styled.section`
    display: flex;
    align-items: center;
-   justify-content: center;
+   flex-direction: column;
+   padding: 87px 0 60px 0;
+   min-height: 100vh;
 
-   height: 100vh;
-   background-color: gray;
+   background-image: url(${bgAuthMob});
+   background-repeat: no-repeat;
+   background-size: cover;
+   background-position: center;
+
+   @media screen and (min-width: 768px) and (max-width: 1280px) {
+      padding: 96px 0 60px 0;
+      background-image: url(${bgAuthTab});
+   }
+   @media screen and (min-width: 1281px) {
+      background-image: url(${bgAuthDesk});
+   }
 `;
 
 export const Container = styled.div`
    display: flex;
    flex-direction: column;
    align-items: center;
+   &::before {
+      content: "";
+      display: block;
+      margin-bottom: -23px;
+      width: 285px;
+      height: 250px;
+
+      background-image: url(${bgAuthPanaMob});
+      background-repeat: no-repeat;
+      background-size: cover;
+
+      @media screen and (min-width: 768px) and (max-width: 1280px) {
+         background-image: url(${bgAuthPanaTab});
+         width: 285px;
+         margin-bottom: -12px;
+         height: 250px;
+      }
+      @media screen and (min-width: 1281px) {
+         margin-bottom: 0;
+         width: 532px;
+         height: 468px;
+         background-image: url(${bgAuthPanaDesk});
+      }
+   }
+
+   @media screen and (min-width: 1281px) {
+      flex-direction: row;
+   }
 `;
 
 export const AuthForm = styled(Form)`
    margin: 0 auto;
    margin-bottom: 18px;
-   max-width: 335px;
+
+   padding: 32px 28px 40px;
    border-radius: 30px;
    background-color: var(--background-modal);
+
+   @media screen and (max-width: 479px) {
+      max-width: 335px;
+   }
+
    @media screen and (min-width: 768px) and (max-width: 1280px) {
       width: 500px;
       padding: 44px 50px;
@@ -48,16 +101,22 @@ export const AuthTitle = styled.h2`
    }
 `;
 
-export const WrapField = styled.div`
+export const WrapFields = styled.div`
    width: 100%;
    display: flex;
-   gap: 12px;
+   gap: 30px;
    flex-direction: column;
    margin-bottom: 28px;
    @media screen and (min-width: 768px) {
       margin-bottom: 50px;
-      gap: 24px;
+      gap: 30px;
    }
+`;
+
+export const WrapField = styled.div`
+   position: relative;
+   top: 0;
+   left: 0;
 `;
 
 export const AuthField = styled(Field)`
@@ -84,9 +143,29 @@ export const AuthField = styled(Field)`
          font-size: 18px;
       }
    }
+
+   ${(props) => {
+      if (props.invalid === "invalid") return "border-color: #E74A3B;";
+      else return "";
+   }}
+
+   ${(props) => {
+      if (props.valid === "valid") return "border-color: #3CBC81;";
+      else return "";
+   }}
+
    @media screen and (min-width: 768px) {
       padding: 12px 16px;
    }
+`;
+
+export const ErrorMessageStyled = styled.p`
+   position: absolute;
+   bottom: -3px;
+   transform: translateY(100%);
+   color: #e74a3b;
+   font-family: Poppins;
+   font-size: 14px;
 `;
 
 export const Button = styled.button`
@@ -100,21 +179,27 @@ export const Button = styled.button`
    font-size: 16px;
    text-align: center;
    color: #fafafa;
-   transition: cubic-bezier(0.4, 0, 0.2, 1) 250ms;
+   transition: var(--cubic-bezier) 250ms;
    cursor: pointer;
-   @media screen and (min-width: 768px) {
-      height: 56px;
+
+   &:hover {
+      color: #22252a;
    }
 `;
 
 export const AuthLink = styled(Link)`
+   display: block;
+   width: max-content;
+   margin: 0 auto;
    color: #fafafa;
+   text-align: center;
    font-family: Poppins;
    font-size: 14px;
    font-style: normal;
    font-weight: 400;
    line-height: normal;
    text-decoration-line: underline;
+
    @media screen and (min-width: 768px) {
       font-size: 16px;
    }

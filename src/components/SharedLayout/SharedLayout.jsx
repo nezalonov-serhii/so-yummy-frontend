@@ -11,13 +11,13 @@ import Footer from "../../Loyaut/Footer/Footer";
 const SharedLayout = () => {
    const isAuthorize = useSelector(selectToken);
    return (
-      <div>
+      <>
          {isAuthorize && <Header />}
          <Suspense fallback={<Loader />}>
             <Outlet />
          </Suspense>
          {isAuthorize && <Footer />}
-      </div>
+      </>
    );
 };
 
