@@ -26,12 +26,10 @@ const PreviewCategories = () => {
   };
 
   const handleSeeAll = (category) => {
-    // Обработчик нажатия на кнопку "See All" для определенной категории
     console.log(`See All clicked for category: ${category}`);
   };
 
   const handleOtherCategories = () => {
-    // Обработчик нажатия на кнопку "Other Categories"
     console.log("Other Categories clicked");
   };
 
@@ -43,7 +41,6 @@ const PreviewCategories = () => {
             <CategoryList>
               {[...Array(getCardCount())].map((_, cardIndex) => (
                 <CategoryItem key={cardIndex}>
-                  {/* Встроенная карточка рецепта */}
                   <RecipeCard
                     title="Recipe Title"
                     description="Recipe Description"

@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 export const ProductCard = styled.div`
-  /* Стили для карточки продукта */
   border: 1px solid #ccc;
   border-radius: 4px;
   background-color: #fff;
@@ -19,13 +18,11 @@ export const ProductCard = styled.div`
 `;
 
 export const ProductImage = styled.img`
-  /* Стили для изображения продукта */
   width: 100%;
   object-fit: cover;
   border-radius: 4px 4px 0 0;
 `;
 
 export const ProductName = styled.h3`
-  /* Стили для названия продукта */
   margin: 16px;
 `;
