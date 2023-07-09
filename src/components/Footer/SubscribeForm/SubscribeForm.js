@@ -18,7 +18,7 @@ export const SubscribeForm = () => {
     const [isDisabled, setIsDisabled] = useState(true);
     useEffect(() => {
         if (email.trim() !== "") {
-            setIsDisabled(false);
+          setIsDisabled(false);
         } else {
             setIsDisabled(true);
         }
