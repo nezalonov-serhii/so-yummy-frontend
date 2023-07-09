@@ -58,59 +58,61 @@ const RegisterPage = () => {
                   onSubmit={handleSubmit}
                >
                   {({ errors, touched }) => (
-                     <AuthForm>
-                        <AuthTitle>Sign In</AuthTitle>
-                        <WrapFields>
-                           <WrapField>
-                              <AuthField
-                                 type="email"
-                                 name="email"
-                                 placeholder="Email"
-                                 autoComplete="username"
-                                 invalid={
-                                    errors.email && touched.email
-                                       ? "invalid"
-                                       : ""
-                                 }
-                                 valid={
-                                    !errors.email && touched.email
-                                       ? "valid"
-                                       : ""
-                                 }
-                              />
-                              {errors.email && touched.email && (
-                                 <ErrorMessageStyled>
-                                    {errors.email}
-                                 </ErrorMessageStyled>
-                              )}
-                           </WrapField>
-                           <WrapField>
-                              <AuthField
-                                 type="password"
-                                 name="password"
-                                 placeholder="Password"
-                                 autoComplete="current-password"
-                                 invalid={
-                                    errors.password && touched.password
-                                       ? "invalid"
-                                       : ""
-                                 }
-                                 valid={
-                                    touched.password && !errors.password
-                                       ? "valid"
-                                       : ""
-                                 }
-                              />
-                              {errors.password && touched.password && (
-                                 <ErrorMessageStyled>
-                                    {errors.password}
-                                 </ErrorMessageStyled>
-                              )}
-                           </WrapField>
-                        </WrapFields>
-                        <Button type="submit">Sign In</Button>
+                     <div>
+                        <AuthForm>
+                           <AuthTitle>Sign In</AuthTitle>
+                           <WrapFields>
+                              <WrapField>
+                                 <AuthField
+                                    type="email"
+                                    name="email"
+                                    placeholder="Email"
+                                    autoComplete="username"
+                                    invalid={
+                                       errors.email && touched.email
+                                          ? "invalid"
+                                          : ""
+                                    }
+                                    valid={
+                                       !errors.email && touched.email
+                                          ? "valid"
+                                          : ""
+                                    }
+                                 />
+                                 {errors.email && touched.email && (
+                                    <ErrorMessageStyled>
+                                       {errors.email}
+                                    </ErrorMessageStyled>
+                                 )}
+                              </WrapField>
+                              <WrapField>
+                                 <AuthField
+                                    type="password"
+                                    name="password"
+                                    placeholder="Password"
+                                    autoComplete="current-password"
+                                    invalid={
+                                       errors.password && touched.password
+                                          ? "invalid"
+                                          : ""
+                                    }
+                                    valid={
+                                       touched.password && !errors.password
+                                          ? "valid"
+                                          : ""
+                                    }
+                                 />
+                                 {errors.password && touched.password && (
+                                    <ErrorMessageStyled>
+                                       {errors.password}
+                                    </ErrorMessageStyled>
+                                 )}
+                              </WrapField>
+                           </WrapFields>
+                           <Button type="submit">Sign In</Button>
+                        </AuthForm>
                         <AuthLink to="/register">Registration</AuthLink>
-                     </AuthForm>
+                     </div>
                   )}
                </Formik>
             </Container>
