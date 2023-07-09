@@ -168,7 +168,7 @@ export const Input = styled.input`
   font-size: 10px;
   line-height: 1.5;
   padding-left: 42px;
-
+  
   &::placeholder {
     font-size: 10px;
     line-height: 1.5;
@@ -217,6 +217,7 @@ export const Btn = styled.button`
   font-size: 14px;
   line-height: 1.14;
   margin-top: 8px;
+
    &:hover {
     transition: var(--cubic-bezier);
    opacity: 0.9;

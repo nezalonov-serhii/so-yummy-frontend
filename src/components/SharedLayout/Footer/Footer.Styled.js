@@ -1,21 +1,25 @@
 import styled from "styled-components";
 
 export const FooterWrapper = styled.div`
-  height: 435px;
+  height: 440px;
   padding-top: 28px;
+  padding-bottom: 20px;
   background-color: var(--background-footer);
   margin: 0;
   width: 100%;
 
-  @media (min-width: 768px) {
+  @media (min-width: 767px) {
     padding-top: 50px;
-    height: 423px;
+    padding-bottom: 24px;
+   
+  }
   }
   @media (min-width: 1440px) {
     padding-top: 64px;
+    padding-bottom: 50px;
     padding-right: 100px;
     padding-left: 100px;
-    height: 414px;
+    
   }
 `;
 

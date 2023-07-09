@@ -52,9 +52,9 @@ export const FollowList = styled.ul`
   gap: 16px;
   justify-content: center;
   margin-top: 44px;
-  margin-bottom: 12px;
+
   @media (min-width: 768px) {
     margin-top: 40px;
-    margin-bottom: 18px;
+   
   }
 `;
