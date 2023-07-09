@@ -3,6 +3,6 @@ export const signupInitialState = {
    token: null,
    isLoggedIn: false,
    isRefreshing: false,
-   isLoading: false,
+   isAuthLoading: false,
    error: "",
 };

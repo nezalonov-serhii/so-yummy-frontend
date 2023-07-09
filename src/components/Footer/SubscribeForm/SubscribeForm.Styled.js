@@ -220,6 +220,7 @@ export const Btn = styled.button`
    &:hover {
     transition: var(--cubic-bezier);
    opacity: 0.9;
+   cursor: ${(props) => (props.disabled ? "not-allowed" : "pointer")};
   }
  
 
