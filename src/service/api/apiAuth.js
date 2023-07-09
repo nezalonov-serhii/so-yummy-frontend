@@ -2,6 +2,7 @@ import axios from "axios";
 import { toast } from "react-toastify";
 
 axios.defaults.baseURL = "https://so-yummy-426w.onrender.com";
+// axios.defaults.baseURL = "http://localhost:3003";
 
 const setToken = (token) => {
    axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;

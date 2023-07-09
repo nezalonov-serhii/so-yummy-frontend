@@ -42,7 +42,14 @@ function App() {
          <ToastContainer />
          <Routes>
             <Route path="/" element={<SharedLayout />}>
-               <Route index element={<WelcomePage />} />
+               <Route
+                  index
+                  element={
+                     <PublicRoute>
+                        <WelcomePage />
+                     </PublicRoute>
+                  }
+               />
                <Route
                   path="register"
                   element={
@@ -96,8 +103,7 @@ function App() {
                   element={
                      <Suspense>
                         <PrivateRoute>
-                           <FavoritePage        
-                           />
+                           <FavoritePage />
                         </PrivateRoute>
                      </Suspense>
                   }
