@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import { PiForkKnifeBold } from "react-icons/pi";
 
 import {
    startDesk,
@@ -40,6 +41,22 @@ export const ContainerWelcome = styled.div`
          background-image: url(${startDeskX2});
       }
    }
+`;
+
+export const LogoIcon = styled(PiForkKnifeBold)`
+   width: 40px;
+   height: 40px;
+   color: var(--text-light);
+`;
+
+export const IconWrapper = styled.div`
+   padding: 5px;
+   background: var(--button-background-primary);
+   border-radius: 12px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   margin-bottom: 28px;
 `;
 
 export const Title = styled.h2`

@@ -14,11 +14,6 @@ import {
 import { signupReducer } from "./Slice/signup/signupSlice";
 import addRecipeReducer from "./Slice/addRecipeSlice/addRecipeSlice";
 
-const persistConfig = {
-  key: "root",
-  storage,
-};
-
 const authPersistConfig = {
   key: "auth",
   storage,
