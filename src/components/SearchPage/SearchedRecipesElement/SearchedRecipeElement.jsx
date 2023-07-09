@@ -1,17 +1,17 @@
-// import { RecipeImage,RecipeTitle } from "./SearchedRecipeElement.styled";
+import { RecipeImage,RecipeTitle } from "./SearchedRecipeElement.styled";
 
-export const SearchedRecipeElement = ({ title, recipeId, img,desc }) => {
+// export const SearchedRecipeElement = ({ title, recipeId, img,desc }) => {
   
-  return (
-     console.log("SearchTypeSelector")
-    //   <>
-    //       <a href="./recipe/:recipeId">
-    //     <RecipeImage src={img} alt={desc} height="323" />
-    //     <RecipeTitle>{title}</RecipeTitle>
-    //     </a>
+//   return (
+     
+//       <>
+//           <a href="./recipe/:recipeId">
+//         <RecipeImage src={img} alt={desc} height="323" />
+//         <RecipeTitle>{title}</RecipeTitle>
+//         </a>
       
       
    
-    // </>
-  );
-};
+//     </>
+//   );
+// };
