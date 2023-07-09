@@ -1,4 +1,5 @@
-// import { SubForm, FormTitle, FormText, InputWrapper, FormInput, EmailIcon, FormBtn } from "./SubscribeForm.Styled"
+import { useState, useEffect } from 'react';
+import { toast } from "react-toastify";
 import {
   SubscribeContainer,
   SubscribeBox,
@@ -13,23 +14,30 @@ import {
 } from './SubscribeForm.Styled';
 
 export const SubscribeForm = () => { 
-  //  return (<SubForm>
-  //         <FormTitle>Subscribe to our Newsletter</FormTitle>
-  //         <FormText>
-  //           Subscribe up to our newsletter. Be in touch with latest news and
-  //           special offers, etc.
-  //    </FormText>
-    
-  //         <InputWrapper>
-  //       <FormInput
-  //         type="email"
-  //         placeholder="Enter your email address"/>
-  //       <EmailIcon/>
-  //         </InputWrapper>
-  //      <FormBtn type="submit">Subscribe</FormBtn>
-   
-  //       </SubForm>)
-
+   const [email, setEmail] = useState("");
+    const [isDisabled, setIsDisabled] = useState(true);
+    useEffect(() => {
+        if (email.trim() !== "") {
+          setIsDisabled(false);
+        } else {
+            setIsDisabled(true);
+        }
+    }, [email]);
+  
+  const handleSubmit = (event) => {
+  event.preventDefault();
+  const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
+    if (emailRegex.test(email)) {
+      toast.success("Email was successfully submitted!");
+    }
+      else {
+    toast.error("Please enter a valid email!");
+    }
+    setEmail('');
+};
+  const handleInput = (event) => {
+    setEmail(event.target.value);
+  };
   return (
    <SubscribeContainer>
       <SubscribeBox>
@@ -39,7 +47,7 @@ export const SubscribeForm = () => {
           and special offers, etc.
         </SubscribeText>
       </SubscribeBox>
-      <Form >
+      <Form onSubmit={handleSubmit}>
         <Label htmlFor="email">
           <InputIcon>
             <Icon />
@@ -47,14 +55,15 @@ export const SubscribeForm = () => {
 
           <Input
             type="email"
-            id="email"
+            name="email"
             placeholder="Enter your email address"
-           
+            value={email}
+            onChange={handleInput}
             required
           />
         </Label>
 
-        <Btn type="submit" >
+        <Btn type="submit" disabled={isDisabled} >
           Subscribe
         </Btn>
       </Form>
