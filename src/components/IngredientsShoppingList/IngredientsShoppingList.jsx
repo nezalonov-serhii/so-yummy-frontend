@@ -10,6 +10,9 @@ import {
   StyledListContainerIngridient,
 
 } from "./StyledIngredientsShoppingList";
+import { MdClear } from "react-icons/md";
+
+
 const INGRIDIENTS = [
    {
       _id: {
@@ -76,7 +79,7 @@ const IngredientsShoppingList = () => {
                             <StyledQuantity>
                                 <p>5</p>
                             </StyledQuantity>
-                            <button>X</button>
+                            <MdClear style={{width:20, height:20}} onClick={()=>{console.log("click")}}/>
                         </StyledFlexQuantity>
                     </StyledIngridientsItem>
                 )
