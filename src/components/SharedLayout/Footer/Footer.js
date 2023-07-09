@@ -4,9 +4,11 @@ import { Benefits } from "../../Footer/Benefits/Benefits";
 import { NavBar } from "../../Footer/NavBar/NavBar";
 import { SubscribeForm } from "../../Footer/SubscribeForm/SubscribeForm";
 import { FollowUs } from "../../Footer/FollowUs/FollowUs";
+import { CopyRight } from "../../Footer/CopyRight/CopyRight";
 
  const Footer = () => {
-  return (
+   return (
+    <>
     <FooterWrapper>
       <MainWrapper>
         <Tablet>
@@ -20,6 +22,8 @@ import { FollowUs } from "../../Footer/FollowUs/FollowUs";
       </MainWrapper>
       <FollowUs />
     </FooterWrapper>
+       <CopyRight />
+       </>
   );
 };
 
