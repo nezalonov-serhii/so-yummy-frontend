@@ -1,9 +1,10 @@
 
+// import { Footer } from "../../Loyaut/Footer/Footer";
 
 const MainPage = () => {
   return (
-    <div>Hi, I'm main page
-    
+    <div>
+      <Footer/> 
     </div>
   );
 };
