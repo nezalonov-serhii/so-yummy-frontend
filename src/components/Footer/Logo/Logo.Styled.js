@@ -48,10 +48,10 @@ export const LogoWrapper = styled.div`
   justify-content: center;
   margin-bottom: 32px;
 
-  @‌media (min-width: 768px) {
+  @media (min-width: 768px) {
+    justify-content: left;
     padding-top: 0;
-    // margin-bottom: 24px;
-    justify-content: flex-start;
+    
   }
   @media (min-width: 1024px) {
     padding-top: 0;
