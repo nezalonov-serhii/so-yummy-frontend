@@ -4,6 +4,7 @@ export const Form = styled.div`
 position: relative;
 display: inline-flex;
 align-items: center;
+margin-bottom: 200px;
 `
 
 export const Input = styled.input`
@@ -12,9 +13,6 @@ height: 52px;
 background: var(--background-primary);
 border: 1px solid #F0F0F0;
 border-radius: 15px 50px;
-padding-top: 17px;
-padding-right: 113px;
-padding-bottom: 17px;
 padding-left: 32px;
   @media (min-width: 768px) {
     width: 362px;

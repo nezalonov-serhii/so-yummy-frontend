@@ -6,7 +6,7 @@ import { HeroMainContainer } from "./MainPage.styled";
 
 const MainPage = () => {
   return (
-    <HeroMainContainer style={{zIndex: '10'}}>
+    <HeroMainContainer>
       <HeroMain />
       <ChooseYourBreakfast />
       <PreviewCategories />

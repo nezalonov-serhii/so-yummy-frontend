@@ -1,7 +1,6 @@
 import React from "react";
 import Container from "../Container"
 import SearchForm from "../../components/SearchForm";
-
 import { useScreenWidth } from "../../hooks"
 import {
     Section,
@@ -35,7 +34,7 @@ export const HeroMain = () => {
                         save them for the future.
                         </TextHero>
                     )}
-                <SearchForm />
+                <SearchForm style={{marginBottom: '268px'}} />
             </Container>
         </Section>
     )

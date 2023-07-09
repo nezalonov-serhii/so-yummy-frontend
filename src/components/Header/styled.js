@@ -4,24 +4,25 @@ import { Link } from "react-router-dom";
 
 export const HeaderContainer = styled.header`
   width: 100%;
-  margin-top: 30px;
+  margin-top: 18px;
 `;
-export const Container = styled.header`
-  width: 100%;
-  margin-top: 30px;
-`;
+// export const Container = styled.header`
+//   width: 100%;
+//   `;
 
-export const Nav = styled.nav``;
+export const Nav = styled.nav`
+display: flex;
+`;
 
 export const MobileBtn = styled.div`
   display: none;
-  @media (max-width: 768px) {
-    display: block;
+  @media (max-width: 1439px) {
+    display: flex;
     width: 32px;
     height: 32px;
     position: absolute;
-    right: 10px;
-    top: 27px;
+    align-items: center;
+    justify-content: center;
     cursor: pointer;
     z-index: 10;
   }
@@ -31,15 +32,17 @@ export const MobileBtn = styled.div`
 export const Line = styled.ul`
   display: flex;
   align-items: center;
-  font-size: 22px;
+  font-size: 14px;
   line-height: 20px;
   gap: 30px;
   padding-left:200px;
-  @media (max-width: 768px) {
+  @media (max-width: 1439px) {
     display: ${props => (props.nav ? "flex" : "none")};
     flex-direction: column;
     justify-content: center;
     position: fixed;
+    font-size: 22px;
+    line-height: 20px;
     left: 0;
     right: 0;
     top: 0;
@@ -60,8 +63,9 @@ export const StyledLink = styled(Link)`
 
 export const Box = styled.div`
   display: flex;
-  height: 80px;
+  height: 46px;
   justify-content: space-between;
+  align-items: center;
 `;
 
 
@@ -69,9 +73,9 @@ export const Box = styled.div`
 
 export const Logo = styled.div`
   display: flex;
-  position: absolute;
-  left: 16px;
-  top: 18px;
+  // position: absolute;
+  // left: 16px;
+  // top: 18px;
   justify-content: center;
   align-items: center;
   border-radius:30%;

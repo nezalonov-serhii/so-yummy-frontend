@@ -1,19 +1,18 @@
 import styled from "styled-components";
-
 import pathToDishMobileX1 from "../../images/MainPage/HeroMain-dish-mobile-1x.webp";
 import pathToDishMobileX2 from "../../images/MainPage/HeroMain-dish-mobile-2x.webp";
-import pathToDishTabletX1 from "../../images/MainPage/HeroMain-dish-tablet-1x.webp"
-import pathToDishTabletX2 from "../../images/MainPage/HeroMain-dish-tablet-2x.webp"
-import pathToDishDesktopX1 from "../../images/MainPage/HeroMain-dish-desktop-1x.webp"
-import pathToDishDesktopX2 from "../../images/MainPage/HeroMain-dish-desktop-2x.webp"
-import leafsMobileX1 from "../../images/MainPage/HeroMain-leafs-mobile-1x.webp"
-import leafsMobileX2 from "../../images/MainPage/HeroMain-leafs-mobile-2x.webp"
-import leafsTabletX1 from "../../images/MainPage/HeroMain-leafs-tablet-1x.webp"
-import leafsTabletX2 from "../../images/MainPage/HeroMain-leafs-tablet-2x.webp"
-import leafsDesktopX1 from "../../images/MainPage/HeroMain-leafs-desktop-1x.webp"
-import leafsDesktopX2 from "../../images/MainPage/HeroMain-dish-desktop-2x.webp"
+import pathToDishTabletX1 from "../../images/MainPage/HeroMain-dish-tablet-1x.webp";
+import pathToDishTabletX2 from "../../images/MainPage/HeroMain-dish-tablet-2x.webp";
+import pathToDishDesktopX1 from "../../images/MainPage/HeroMain-dish-desktop-1x.webp";
+import pathToDishDesktopX2 from "../../images/MainPage/HeroMain-dish-desktop-2x.webp";
+import leafsMobileX1 from "../../images/MainPage/HeroMain-leafs-mobile-1x.webp";
+import leafsMobileX2 from "../../images/MainPage/HeroMain-leafs-mobile-2x.webp";
+import leafsTabletX1 from "../../images/MainPage/HeroMain-leafs-tablet-1x.webp";
+import leafsTabletX2 from "../../images/MainPage/HeroMain-leafs-tablet-2x.webp";
+import leafsDesktopX1 from "../../images/MainPage/HeroMain-leafs-desktop-1x.webp";
+import leafsDesktopX2 from "../../images/MainPage/HeroMain-leafs-desktop-2x.webp";
 
-export const Section = styled.section`
+export const Section = styled.div`
   width: 100%;
   height: 777px;
   background-image: url(${leafsMobileX1}), url(${pathToDishMobileX1});
@@ -37,6 +36,7 @@ export const Section = styled.section`
     (min-resolution: 2dppx) {
     background-image:  url(${leafsTabletX2}),url(${pathToDishTabletX2});
   }
+  }
   @media (min-width: 1440px) {
     height: 800px;
     background-image: url(${leafsDesktopX1}),url(${pathToDishDesktopX1});
@@ -48,8 +48,18 @@ export const Section = styled.section`
       background-image: url(${leafsDesktopX2}),url(${pathToDishDesktopX2});
     }
   }
-}
-`
+`;
+
+// export const Background = styled.section`
+
+// width: 0;
+// height: 0;
+// border-left: 200px solid transparent;
+// border-bottom: 200px solid #EBF3D4;
+// border-bottom-left-radius: 50%;
+
+
+// `;
 
 export const Title = styled.h1`
 font-family: 'Poppins', sans-serif;
@@ -81,6 +91,7 @@ color: var(--button-background-primary);
 `
 
 export const TextHero = styled.p`
+display: block;
 font-family: 'Poppins', sans-serif;
 color: var(--text-secondary);
 font-weight: 500;
