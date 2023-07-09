@@ -1,13 +1,20 @@
 import styled from "styled-components";
 import { Form, Field } from "formik";
 import { Link } from "react-router-dom";
+import { FiUser, FiLock, FiMail } from "react-icons/fi";
+import { BsFillCheckCircleFill, BsXCircleFill } from "react-icons/bs";
 
-import bgAuthMob from "../../images/Auth/bg-mob.svg";
-import bgAuthTab from "../../images/Auth/bg-tab.svg";
-import bgAuthDesk from "../../images/Auth/bg-desk.svg";
-import bgAuthPanaMob from "../../images/Auth/pana-bg-mob.png";
-import bgAuthPanaTab from "../../images/Auth/pana-bg-tab.png";
-import bgAuthPanaDesk from "../../images/Auth/pana-bg-desk.png";
+import {
+   bgAuthMob,
+   bgAuthTab,
+   bgAuthDesk,
+   bgAuthPanaMob,
+   bgAuthPanaMob2x,
+   bgAuthPanaTab,
+   bgAuthPanaTab2x,
+   bgAuthPanaDesk,
+   bgAuthPanaDesk2x,
+} from "../../images/Auth";
 
 export const AuthSection = styled.section`
    display: flex;
@@ -34,13 +41,13 @@ export const Container = styled.div`
    display: flex;
    flex-direction: column;
    align-items: center;
+
    &::before {
       content: "";
       display: block;
       margin-bottom: -23px;
       width: 285px;
       height: 250px;
-
       background-image: url(${bgAuthPanaMob});
       background-repeat: no-repeat;
       background-size: cover;
@@ -51,6 +58,7 @@ export const Container = styled.div`
          margin-bottom: -12px;
          height: 250px;
       }
+
       @media screen and (min-width: 1281px) {
          margin-bottom: 0;
          width: 532px;
@@ -61,6 +69,24 @@ export const Container = styled.div`
 
    @media screen and (min-width: 1281px) {
       flex-direction: row;
+   }
+
+   @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+      &::before {
+         background-image: url(${bgAuthPanaMob2x});
+      }
+
+      @media screen and (min-width: 768px) and (max-width: 1280px) {
+         &::before {
+            background-image: url(${bgAuthPanaTab2x});
+         }
+      }
+
+      @media screen and (min-width: 1281px) {
+         &::before {
+            background-image: url(${bgAuthPanaDesk2x});
+         }
+      }
    }
 `;
 
@@ -106,7 +132,7 @@ export const WrapFields = styled.div`
    display: flex;
    gap: 30px;
    flex-direction: column;
-   margin-bottom: 28px;
+   margin-bottom: 45px;
    @media screen and (min-width: 768px) {
       margin-bottom: 50px;
       gap: 30px;
@@ -119,9 +145,87 @@ export const WrapField = styled.div`
    left: 0;
 `;
 
+export const ValidCheckIcon = styled(BsFillCheckCircleFill)`
+   position: absolute;
+   top: 50%;
+   right: 14px;
+   transform: translateY(-50%);
+   width: 18px;
+   color: #3cbc81;
+`;
+
+export const InvalidCheckIcon = styled(BsXCircleFill)`
+   position: absolute;
+   top: 50%;
+   right: 14px;
+   transform: translateY(-50%);
+   width: 18px;
+   color: #e74a3b;
+`;
+
+export const NameIcon = styled(FiUser)`
+   position: absolute;
+   top: 50%;
+   left: 14px;
+   transform: translateY(-50%);
+   width: 18px;
+
+   color: var(--text-light);
+
+   ${(props) => {
+      if (props.invalid === "invalid") return "color: #E74A3B;";
+      else return "";
+   }}
+
+   ${(props) => {
+      if (props.valid === "valid") return "color: #3CBC81;";
+      else return "";
+   }}
+`;
+
+export const LockIcon = styled(FiLock)`
+   position: absolute;
+   top: 50%;
+   left: 14px;
+   transform: translateY(-50%);
+   width: 18px;
+
+   color: var(--text-light);
+
+   ${(props) => {
+      if (props.invalid === "invalid") return "color: #E74A3B;";
+      else return "";
+   }}
+
+   ${(props) => {
+      if (props.valid === "valid") return "color: #3CBC81;";
+      else return "";
+   }}
+`;
+
+export const MailIcon = styled(FiMail)`
+   position: absolute;
+   top: 50%;
+   left: 14px;
+   transform: translateY(-50%);
+   width: 18px;
+
+   color: var(--text-light);
+
+   ${(props) => {
+      if (props.invalid === "invalid") return "color: #E74A3B;";
+      else return "";
+   }}
+
+   ${(props) => {
+      if (props.valid === "valid") return "color: #3CBC81;";
+      else return "";
+   }}
+`;
+
 export const AuthField = styled(Field)`
    width: 100%;
-   padding: 12px 16px;
+   padding: 12px 16px 12px 40px;
    border-radius: 6px;
 
    border: 1px solid var(--text-light);
@@ -153,10 +257,6 @@ export const AuthField = styled(Field)`
       if (props.valid === "valid") return "border-color: #3CBC81;";
       else return "";
    }}
-
-   @media screen and (min-width: 768px) {
-      padding: 12px 16px;
-   }
 `;
 
 export const ErrorMessageStyled = styled.p`
@@ -184,6 +284,10 @@ export const Button = styled.button`
 
    &:hover {
       color: #22252a;
+   }
+
+   &:disabled {
+      opacity: 0.4;
    }
 `;
 
