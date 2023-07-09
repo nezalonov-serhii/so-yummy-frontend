@@ -4,7 +4,7 @@ import { toast } from "react-toastify";
 axios.defaults.baseURL = "https://so-yummy-426w.onrender.com";
 
 const setToken = (token) => {
-   axios.defaults.headers.common["Authorization"] = token;
+   axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
 };
 
 const dellToken = () => {

@@ -1,10 +1,14 @@
 import { ToastContainer } from "react-toastify";
 import { Routes, Route } from "react-router-dom";
-import { lazy, Suspense } from "react";
+import { lazy, Suspense, useEffect } from "react";
 import PrivateRoute from "./service/route/PrivateRoute";
 import PublicRoute from "./service/route/PublicRoute";
 
 import SharedLayout from "./components/SharedLayout/SharedLayout";
+
+import { currentUserThunk } from "./redux/thunk/auth/authThunk";
+import { useDispatch, useSelector } from "react-redux";
+import { selectToken } from "./redux/selector/selectors";
 
 import "react-toastify/dist/ReactToastify.css";
 
@@ -27,6 +31,12 @@ const SigninPage = lazy(() => import("./page/Auth/SigninPage/SigninPage"));
 const WelcomePage = lazy(() => import("./page/WelcomePage/WelcomePage"));
 
 function App() {
+   const token = useSelector(selectToken);
+   const dispatch = useDispatch();
+   useEffect(() => {
+      token && dispatch(currentUserThunk(token));
+   }, [dispatch, token]);
+
    return (
       <>
          <ToastContainer />

@@ -22,25 +22,29 @@ import Loader from "../../../components/Loader/Loader";
 const RegisterPage = () => {
    const dispatch = useDispatch();
    const isLoading = useSelector(selectIsLoadingAuth);
+
    const handleSubmit = (values, actions) => {
       const user = {
          email: values.email,
          password: values.password,
       };
 
+      console.log(user);
+
       dispatch(loginThunk(user));
       actions.resetForm();
    };
 
    const validationSchema = Yup.object({
-      name: Yup.string().required("Name is required"),
       email: Yup.string()
          .matches(
             /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
             "Invalid email address"
          )
          .required("Email is required"),
-      password: Yup.string().required("Password is required"),
+      password: Yup.string()
+         .required("Password is required")
+         .min(6, "Password must be at least 6 characters"),
    });
 
    return (
@@ -62,8 +66,17 @@ const RegisterPage = () => {
                                  type="email"
                                  name="email"
                                  placeholder="Email"
-                                 invalid={errors.email && touched.email}
-                                 valid={touched.email && !errors.email}
+                                 autoComplete="username"
+                                 invalid={
+                                    errors.email && touched.email
+                                       ? "invalid"
+                                       : ""
+                                 }
+                                 valid={
+                                    !errors.email && touched.email
+                                       ? "valid"
+                                       : ""
+                                 }
                               />
                               {errors.email && touched.email && (
                                  <ErrorMessageStyled>
@@ -76,8 +89,17 @@ const RegisterPage = () => {
                                  type="password"
                                  name="password"
                                  placeholder="Password"
-                                 invalid={errors.password && touched.password}
-                                 valid={touched.password && !errors.password}
+                                 autoComplete="current-password"
+                                 invalid={
+                                    errors.password && touched.password
+                                       ? "invalid"
+                                       : ""
+                                 }
+                                 valid={
+                                    touched.password && !errors.password
+                                       ? "valid"
+                                       : ""
+                                 }
                               />
                               {errors.password && touched.password && (
                                  <ErrorMessageStyled>
@@ -87,10 +109,10 @@ const RegisterPage = () => {
                            </WrapField>
                         </WrapFields>
                         <Button type="submit">Sign In</Button>
+                        <AuthLink to="/register">Registration</AuthLink>
                      </AuthForm>
                   )}
                </Formik>
-               <AuthLink to="/register">Registration</AuthLink>
             </Container>
          )}
       </AuthSection>
