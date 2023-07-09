@@ -1,15 +1,17 @@
 import { useState } from "react";
 import { PiForkKnifeBold, PiListBold } from "react-icons/pi";
 import { CgClose } from "react-icons/cg";
+import  Container from "../Container";
 
 import {
   HeaderContainer,
+  Nav,
   Line,
   StyledLink,
   Box,
   MobileBtn,
   Logo,
-  Container,
+
 } from "./styled";
 
 export const Header = () => {
@@ -22,6 +24,7 @@ export const Header = () => {
           <Logo>
             <PiForkKnifeBold width={40} height={40} color="white" />
           </Logo>
+          <Nav>
           <nav>
             <Line nav={nav}>
               <li>
@@ -47,6 +50,7 @@ export const Header = () => {
               {nav ? <CgClose /> : <PiListBold />}
             </MobileBtn>
           </nav>
+          </Nav>
         </Box>
       </HeaderContainer>
     </Container>
