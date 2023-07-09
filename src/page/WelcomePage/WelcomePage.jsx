@@ -1,5 +1,7 @@
 import {
    ContainerWelcome,
+   LinkRegister,
+   LinkSignin,
    NavBox,
    StyledLink,
    Text,
@@ -17,8 +19,8 @@ const WelcomePage = () => {
                save and retrieve your own recipes at any time.
             </Text>
             <NavBox>
-               <StyledLink to="/register">Registration</StyledLink>
-               <StyledLink to="/signin">Sign in</StyledLink>
+               <LinkRegister to="/register">Registration</LinkRegister>
+               <LinkSignin to="/signin">Sign in</LinkSignin>
             </NavBox>
          </ContainerWelcome>
       </>
