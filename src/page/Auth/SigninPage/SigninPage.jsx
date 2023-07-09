@@ -1,7 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import { Formik } from "formik";
 import * as Yup from "yup";
-
 import {
    Button,
    Container,
@@ -13,13 +12,17 @@ import {
    AuthLink,
    ErrorMessageStyled,
    WrapFields,
+   NameIcon,
+   LockIcon,
+   MailIcon,
+   ValidCheckIcon,
+   InvalidCheckIcon,
 } from "../AuthPage.styled";
-
 import { loginThunk } from "../../../redux/thunk/auth/authThunk";
 import { selectIsLoadingAuth } from "../../../redux/selector/selectors";
 import Loader from "../../../components/Loader/Loader";
 
-const RegisterPage = () => {
+const LoginPage = () => {
    const dispatch = useDispatch();
    const isLoading = useSelector(selectIsLoadingAuth);
 
@@ -47,78 +50,82 @@ const RegisterPage = () => {
          .min(6, "Password must be at least 6 characters"),
    });
 
+   const checkFieldValid = (errors, touched, fieldName) => {
+      switch (true) {
+         case errors[fieldName] && touched[fieldName]:
+            return "invalid";
+         case !errors[fieldName] && touched[fieldName]:
+            return "valid";
+         default:
+            return "";
+      }
+   };
+
    return (
       <AuthSection>
-         {isLoading && <Loader />}
-         {!isLoading && (
-            <Container>
-               <Formik
-                  initialValues={{ email: "", password: "" }}
-                  validationSchema={validationSchema}
-                  onSubmit={handleSubmit}
-               >
-                  {({ errors, touched }) => (
-                     <div>
-                        <AuthForm>
-                           <AuthTitle>Sign In</AuthTitle>
-                           <WrapFields>
-                              <WrapField>
-                                 <AuthField
-                                    type="email"
-                                    name="email"
-                                    placeholder="Email"
-                                    autoComplete="username"
-                                    invalid={
-                                       errors.email && touched.email
-                                          ? "invalid"
-                                          : ""
-                                    }
-                                    valid={
-                                       !errors.email && touched.email
-                                          ? "valid"
-                                          : ""
-                                    }
-                                 />
-                                 {errors.email && touched.email && (
-                                    <ErrorMessageStyled>
-                                       {errors.email}
-                                    </ErrorMessageStyled>
-                                 )}
-                              </WrapField>
-                              <WrapField>
-                                 <AuthField
-                                    type="password"
-                                    name="password"
-                                    placeholder="Password"
-                                    autoComplete="current-password"
-                                    invalid={
-                                       errors.password && touched.password
-                                          ? "invalid"
-                                          : ""
-                                    }
-                                    valid={
-                                       touched.password && !errors.password
-                                          ? "valid"
-                                          : ""
-                                    }
-                                 />
-                                 {errors.password && touched.password && (
-                                    <ErrorMessageStyled>
-                                       {errors.password}
-                                    </ErrorMessageStyled>
-                                 )}
-                              </WrapField>
-                           </WrapFields>
-                           <Button type="submit">Sign In</Button>
-                        </AuthForm>
-                        <AuthLink to="/register">Registration</AuthLink>
-                     </div>
-                  )}
-               </Formik>
-            </Container>
-         )}
+         <Container>
+            <Formik
+               initialValues={{ email: "", password: "" }}
+               validationSchema={validationSchema}
+               onSubmit={handleSubmit}
+            >
+               {({ errors, touched }) => (
+                  <div>
+                     <AuthForm>
+                        <AuthTitle>Sign In</AuthTitle>
+                        <WrapFields>
+                           <WrapField>
+                              <MailIcon
+                                 invalid={checkFieldValid(errors, touched, "email")}
+                                 valid={checkFieldValid(errors, touched, "email")}
+                              />
+                              <AuthField
+                                 type="email"
+                                 name="email"
+                                 placeholder="Email"
+                                 autoComplete="username"
+                                 invalid={checkFieldValid(errors, touched, "email")}
+                                 valid={checkFieldValid(errors, touched, "email")}
+                              />
+
+                              {!errors.email && touched.email && <ValidCheckIcon />}
+                              {errors.email && touched.email && <InvalidCheckIcon />}
+                              {errors.email && touched.email && (
+                                 <ErrorMessageStyled>{errors.email}</ErrorMessageStyled>
+                              )}
+                           </WrapField>
+                           <WrapField>
+                              <LockIcon
+                                 invalid={checkFieldValid(errors, touched, "password")}
+                                 valid={checkFieldValid(errors, touched, "password")}
+                              />
+                              <AuthField
+                                 type="password"
+                                 name="password"
+                                 placeholder="Password"
+                                 autoComplete="current-password"
+                                 invalid={checkFieldValid(errors, touched, "password")}
+                                 valid={checkFieldValid(errors, touched, "password")}
+                              />
+                              {!errors.password && touched.password && <ValidCheckIcon />}
+                              {errors.password && touched.password && <InvalidCheckIcon />}
+                              {errors.password && touched.password && (
+                                 <ErrorMessageStyled>{errors.password}</ErrorMessageStyled>
+                              )}
+                           </WrapField>
+                        </WrapFields>
+                        <Button type="submit" disabled={isLoading}>
+                           {isLoading && <Loader size={"20"} color={"#22252a"} />}
+                           {!isLoading && "Sign in"}
+                        </Button>
+                     </AuthForm>
+                     <AuthLink to="/register">Registration</AuthLink>
+                  </div>
+               )}
+            </Formik>
+         </Container>
       </AuthSection>
    );
 };
 
-export default RegisterPage;
+export default LoginPage;
