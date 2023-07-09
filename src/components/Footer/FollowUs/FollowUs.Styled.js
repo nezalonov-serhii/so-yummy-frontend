@@ -5,22 +5,42 @@ import { AiFillYoutube, AiOutlineTwitter, AiOutlineInstagram } from "react-icons
 export const FacebokIcon = styled(FaFacebook)`
   width: 20px;
   height: 20px;
-  color: #8BAA36;
+  color: var(--button-dark-background-primary);
+  cursor: pointer;
+  &:hover {
+    transition: var(--cubic-bezier);
+    color: var(--text-light);
+  }
 `;
 export const YouTubeIcon = styled(AiFillYoutube)`
   width: 20px;
   height: 20px;
-  color: #8BAA36;
+  color: var(--button-dark-background-primary);
+  cursor: pointer;
+  &:hover {
+    transition: var(--cubic-bezier);
+    color: var(--text-light);
+  }
 `;
 export const TwitterIcon = styled(AiOutlineTwitter)`
   width: 20px;
   height: 20px;
-  color: #8BAA36;
+  color: var(--button-dark-background-primary);
+  cursor: pointer;
+  &:hover {
+    transition: var(--cubic-bezier);
+    color: var(--text-light);
+  }
 `;
 export const InstaIcon = styled(AiOutlineInstagram)`
   width: 20px;
   height: 20px;
-  color: #8BAA36;
+  color:var(--button-dark-background-primary);
+  cursor: pointer;
+  &:hover {
+    transition: var(--cubic-bezier);
+    color: var(--text-light);
+  }
 `;
  
 export const FollowList = styled.ul`

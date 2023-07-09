@@ -115,7 +115,7 @@ export const SubscribeText = styled.p`
   font-size: 14px;
   line-height: 1.28;
   letter-spacing: -0.02em;
-  color#FAFAFA;
+  color: var(--text-light);
 
   margin-bottom: 28px;
 `;
@@ -126,14 +126,15 @@ export const Form = styled.form`
   align-items: center;
 
   @media screen and (min-width: 768px) {
-    display: block;
-    text-align: center;
-    margin-bottom: 38px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
   }
   @media screen and (min-width: 1440px) {
-    display: inline-flex;
-    text-align: start;
-    margin-bottom: 0px;
+    
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0px;
   }
 `;
 export const Label = styled.label`
@@ -148,7 +149,7 @@ export const InputIcon = styled.span`
 export const Icon = styled(AiOutlineMail )`
   width: 16px;
   height: 12px;
-  color: #FAFAFA;
+  color: var( --background-primary);
   
   @media screen and (min-width: 768px) {
     width: 20px;
@@ -158,12 +159,12 @@ export const Icon = styled(AiOutlineMail )`
 export const Input = styled.input`
   width: 204px;
   height: 38px;
-  border: 1px solid #FAFAFA;
+  border: 1px solid var( --background-primary);
   border-radius: 6px;
   outline: rgba(0, 0, 0, 0.2);
   background-color: transparent;
   justify-content: center;
-  color: #FAFAFA;
+  color: var(--text-light);
   font-size: 10px;
   line-height: 1.5;
   padding-left: 42px;
@@ -172,7 +173,7 @@ export const Input = styled.input`
     font-size: 10px;
     line-height: 1.5;
     letter-spacing: -0.02em;
-    color: #FAFAFA;
+    color: var(--text-light);
   }
   
   }
@@ -211,15 +212,21 @@ export const Btn = styled.button`
   border: none;
   border-radius: 6px;
   outline: rgba(0, 0, 0, 0.2);
-  background-color: #8BAA36;
+  background-color: var(  --button-background-primary);
+  color: var(--text-light);
   font-size: 14px;
   line-height: 1.14;
   margin-top: 8px;
+   &:hover {
+    transition: var(--cubic-bezier);
+   opacity: 0.9;
+  }
  
 
   
   @media screen and (min-width: 768px) {
     margin-bottom: 0px;
+    margin-top: 0px;
     width: 171px;
     height: 50px;
     font-size: 16px;

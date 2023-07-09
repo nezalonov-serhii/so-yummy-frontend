@@ -11,7 +11,7 @@ export const LogoIcon = styled(PiForkKnifeBold)`
 export const IconWrapper = styled.div`
   width: 32px;
   height: 32px;
-  background-color: #FFF;
+  background: #EBF3D4;
   border-radius: 6px;
   display: flex;
   justify-content: center;
@@ -29,16 +29,17 @@ export const IconWrapper = styled.div`
 
 export const Title = styled.h2`
   margin-left: 8px;
-  font-family: Poppins;
+ 
   font-style: normal;
   font-weight:700px;
   font-size: 18px;
   line-height: 18px;
   letter-spacing: 0.27px;
-  color: #FAFAFA;
+  color: var(--text-light);
 
   @media (min-width: 768px) {
     font-size: 28px;
+    margin-left: 12px;
   }
  
 `;
@@ -47,16 +48,19 @@ export const LogoWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  padding-top: 28px;
   margin-bottom: 32px;
  
-  @‌media (max-width: 767px) {
+  @‌media (min-width: 768px) {
+      
     padding-top: 0;
-    margin-bottom: 24px;
+    // margin-bottom: 24px;
     justify-content: flex-start;
-    align-items: center;
+    
    
   }
- 
+ @media(min-width: 1024px) {
+  padding-top: 0;
+  margin-bottom: 40px;
+ }
 
 `

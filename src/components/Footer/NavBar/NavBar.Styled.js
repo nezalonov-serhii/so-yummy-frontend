@@ -7,11 +7,10 @@ export const Nav = styled.nav`
   text-align: center;
   @media screen and (min-width: 768px) {
     margin-bottom: 0px;
-    text-align: start;
+    margin-left: 175px;
+    
   }
-  @media screen and (min-width: 1440px) {
-    margin-left: 101px;
-  }
+  
 `;
 
 export const ItemNav = styled.li`
@@ -29,10 +28,11 @@ export const Styledlink = styled.a`
   font-weight: 500;
   font-size: 14px;
   line-height: 1.28;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.28px;
   color: var(--text-light);
   &:hover,
   :focus {
+    transition: var(--cubic-bezier);
     color: var( --dark-background-footer);
   }
 `;

@@ -55,7 +55,7 @@ export const SubscribeForm = () => {
         </Label>
 
         <Btn type="submit" >
-          Submit
+          Subscribe
         </Btn>
       </Form>
     </SubscribeContainer>

@@ -12,7 +12,7 @@ export const BenefItem = styled.li`
   line-height: 1.28;
   letter-spacing: -0.02em;
   margin-left: 20px;
-  color: var(-dark-text-primary);
+  color: var(--text-light);
   &:not(:last-child) {
     margin-bottom: 10px;
   }
