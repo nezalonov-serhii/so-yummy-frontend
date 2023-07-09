@@ -94,9 +94,13 @@ function App() {
             path="add"
             element={
               <Suspense>
-                <PrivateRoute>
+                {/* <PrivateRoute> */}
+                <PublicRoute>
+                  {/* видалити */}
                   <AddRecipePage />
-                </PrivateRoute>
+                </PublicRoute>{" "}
+                {/* видалити */}
+                {/* </PrivateRoute> */}
               </Suspense>
             }
           />
