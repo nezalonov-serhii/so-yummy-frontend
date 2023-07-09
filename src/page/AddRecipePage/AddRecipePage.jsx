@@ -3,7 +3,7 @@ import { FollowUs } from "../../components/AddRecipe/FollowUs/FollowUs";
 import { MainTitle } from "../../components/AddRecipe/MainTitle/MainTitle";
 import { PopularRecipe } from "../../components/AddRecipe/PopularRecipe/PopularRecipe";
 
-export const AddRecipePage = () => {
+const AddRecipePage = () => {
   return (
     <>
       <MainTitle />
@@ -13,3 +13,4 @@ export const AddRecipePage = () => {
     </>
   );
 };
+export default AddRecipePage;
