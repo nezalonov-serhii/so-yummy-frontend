@@ -1,6 +1,31 @@
-import React from 'react';
-import styled from 'styled-components';
+import { Logo } from "./Logo/Logo";
+import { FooterWrapper, Tablet, MainWrapper } from "./Footer.Styled";
 
-export const Footer = () => {
-   return <h2>Hi, I'm footer</h2>;
+import { Benefits } from "./Benefits/Benefits";
+import { NavBar } from "./NavBar/NavBar";
+import { SubscribeForm } from "./SubscribeForm/SubscribeForm";
+import { FollowUs } from "./FollowUs/FollowUs";
+import { CopyRight } from "./CopyRight/CopyRight";
+
+const Footer = () => {
+   return (
+      <>
+         <FooterWrapper>
+            <MainWrapper>
+               <Tablet>
+                  <div>
+                     <Logo />
+                     <Benefits />
+                  </div>
+                  <NavBar />
+               </Tablet>
+               <SubscribeForm />
+            </MainWrapper>
+            <FollowUs />
+         </FooterWrapper>
+         <CopyRight />
+      </>
+   );
 };
+
+export default Footer;
