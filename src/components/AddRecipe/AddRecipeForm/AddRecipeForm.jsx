@@ -1,4 +1,4 @@
-import { useDispatch } from "react-redux";
+// import { useDispatch } from "react-redux";
 import { Button, Container } from "./AddRecipeForm.styled";
 import { RecipeIngredientsFields } from "./RecipeIngredientsFields/RecipeIngredientsFields";
 import { RecipePreparationFields } from "./RecipePreparationFields/RecipePreparationFields";
@@ -9,7 +9,7 @@ import { toast } from "react-hot-toast";
 import { Toaster } from "react-hot-toast";
 
 export const AddRecipeForm = () => {
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
   const [formData, setFormData] = useState({
     title: "",
