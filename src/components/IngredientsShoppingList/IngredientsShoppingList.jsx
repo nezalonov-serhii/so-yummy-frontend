@@ -13,7 +13,8 @@ import {
   
 } from "./StyledIngredientsShoppingList";
 import { MdClear } from "react-icons/md";
-import {getIngridientsThunk,deleteIngridientsThunk} from "../../redux/shopping/thunkShopping"
+import {getShoppingThunk,deleteShoppingThunk} from "../../redux/shopping/thunkShopping"
+import { useEffect } from "react";
 
 const INGRIDIENTS = [
    {
@@ -63,11 +64,12 @@ const IngredientsShoppingList = () => {
     return state.shopping
   })
   const dispatch = useDispatch();
+  useEffect(()=>{
+       console.log("get.-ingridients",dispatch(getShoppingThunk()))
+  },[dispatch])
+  console.log("ingridients",shopping)
 
-  console.log("get.-ingridients",dispatch(getIngridientsThunk()))
-  console.log("ingridients",shopping.items)
-
-   console.log("ingridients",shopping.items)
+   console.log("ingridients.items",shopping.items)
    console.log("isLoading",shopping.isLoading)
    console.log("error",shopping.error)
 
@@ -81,7 +83,7 @@ const IngredientsShoppingList = () => {
             </StyledIngrsHeadThumb>
         </StyledIngridientsHeader>
         {shopping.isLoading ? <Loader/> : <StyledListContainerIngridient>
-            {INGRIDIENTS.map(item =>{
+            {shopping.items?.map(item =>{
                 return (
                     <StyledIngridientsItem key={item._id}>
                         <StyledImageCardThumb>
