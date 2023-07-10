@@ -1,10 +1,11 @@
 import { FollowUs } from "../../Footer/FollowUs/FollowUs";
+import { Container } from "./FollowUsAddRecipe.styled";
 
 export const FollowUsAddRecipe = () => {
   return (
-    <div>
+    <Container>
       <h4>FollowUs</h4>
       <FollowUs />
-    </div>
+    </Container>
   );
 };
