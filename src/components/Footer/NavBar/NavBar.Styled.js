@@ -31,7 +31,7 @@ export const Styledlink = styled(NavLink)`
    color: var(--text-light);
    &:hover,
    :focus {
-      transition: var(--cubic-bezier);
+      transition: var(--cubic-bezier) 250ms;
       color: var(--dark-background-footer);
    }
 `;
