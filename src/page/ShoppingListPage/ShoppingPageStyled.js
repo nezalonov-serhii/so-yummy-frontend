@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 const ShoppingPageContainer = styled.div`
     margin: 0 auto;
-    max-width:375px;
+    max-width:480px;
     padding-left:16px;
     padding-right:16px;    
     @media (min-width: 768px) {
