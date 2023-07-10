@@ -41,7 +41,6 @@ function App() {
   return (
     <>
       <ToastContainer />
-      {/* <AddRecipePage /> */}
       <Routes>
         <Route path="/" element={<SharedLayout />}>
           <Route
@@ -94,13 +93,9 @@ function App() {
             path="add"
             element={
               <Suspense>
-                {/* <PrivateRoute> */}
-                <PublicRoute>
-                  {/* видалити */}
+                <PrivateRoute>
                   <AddRecipePage />
-                </PublicRoute>{" "}
-                {/* видалити */}
-                {/* </PrivateRoute> */}
+                </PrivateRoute>
               </Suspense>
             }
           />

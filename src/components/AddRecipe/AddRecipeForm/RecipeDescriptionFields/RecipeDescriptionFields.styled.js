@@ -27,10 +27,20 @@ export const Input = styled.input`
   font-weight: 400;
   line-height: normal;
   letter-spacing: -0.28px;
+  &:active,
+  &:focus,
+  &:hover {
+    outline: none;
+  }
 `;
 
 export const InputWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   border-bottom: solid 1px rgba(224, 224, 224, 1);
+  &:active,
+  &:focus,
+  &:hover {
+    outline: solid 2px rgb(241, 196, 15);
+  }
 `;
