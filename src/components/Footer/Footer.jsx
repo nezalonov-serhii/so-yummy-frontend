@@ -1,10 +1,10 @@
-import { Logo } from "../../Footer/Logo/Logo";
+import { Logo } from "./Logo/Logo";
 import { FooterWrapper, Tablet, MainWrapper } from "./Footer.Styled";
-import { Benefits } from "../../Footer/Benefits/Benefits";
-import { NavBar } from "../../Footer/NavBar/NavBar";
-import { SubscribeForm } from "../../Footer/SubscribeForm/SubscribeForm";
-import { FollowUs } from "../../Footer/FollowUs/FollowUs";
-import { CopyRight } from "../../Footer/CopyRight/CopyRight";
+import { Benefits } from "./Benefits/Benefits";
+import { NavBar } from "./NavBar/NavBar";
+import { SubscribeForm } from "./SubscribeForm/SubscribeForm";
+import { FollowUs } from "./FollowUs/FollowUs";
+import { CopyRight } from "./CopyRight/CopyRight";
 
  const Footer = () => {
    return (
