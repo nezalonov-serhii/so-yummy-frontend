@@ -1,4 +1,19 @@
-import Link from 'react-router-dom';
+import {Link }from "react-router-dom";
+import {
+  CardWrapper,
+  ImgWrapper,
+  Img,
+  InfoWrapper,
+  TitleBox,
+  Title,
+  DeleteButton,
+  StyledIcon,
+  DescriptionBox,
+  Description,
+  TimeBox,
+  Time,
+  FavPageButton
+} from "./FavCard.styled";
 
 export const FavCard = ({
   _id,
@@ -10,22 +25,28 @@ export const FavCard = ({
 }) => {
   return (
     <>
-      <div>
-        <div>
-          <img src={preview} alt={title} />
-        </div>
-        <div>
-          <h3>{title}</h3>
-          <button type="button" onDelete={onDelete}></button>
-        </div>
-        <p>{description}</p>
-        <div>
-            <p>{time}</p>
+      <CardWrapper key={_id}>
+        <ImgWrapper>
+          <Img src={preview} alt={title} />
+        </ImgWrapper>
+        <InfoWrapper>
+          <TitleBox>
+            <Title>{title}</Title>
+            <DeleteButton type="button" onDelete={onDelete}>
+              <StyledIcon />
+            </DeleteButton>
+          </TitleBox>
+          <DescriptionBox>
+            <Description>{description}</Description>
+          </DescriptionBox>
+          <TimeBox>
+            <Time>{time}</Time>
             <Link to={`api/favorite${_id}`}>
-                <button >see recipe</button>
+              <FavPageButton>see recipe</FavPageButton>
             </Link>
-        </div>
-      </div>
+          </TimeBox>
+        </InfoWrapper>
+      </CardWrapper>
     </>
   );
 };
