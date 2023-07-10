@@ -5,6 +5,8 @@ export const LogoIcon = styled(PiForkKnifeBold)`
   width: 30px;
   height: 30px;
   color: #8baa36;
+  transition: all 0.5s var(  --cubic-bezier);
+  
 `;
 
 export const IconWrapper = styled.div`
@@ -15,6 +17,7 @@ export const IconWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  
   @media (min-width: 768px) {
     width: 44px;
     height: 44px;
