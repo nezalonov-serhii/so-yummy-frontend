@@ -6,7 +6,6 @@ SeeRecipe,
 TextSeeRecipe,
 SpanSeeRecipe,
 TextLink,
-SpanTextLink,
 IconSpanTextLink
 } from "./ChooseYourBreakfast.styled"
 
@@ -31,10 +30,7 @@ const ChooseYourBreakfast = () => {
               </TextSeeRecipe>
             )}
             <TextLink to="/categories/Breakfast" >
-              See recipes
-              <SpanTextLink aria-label="go to breakfast">
-                <IconSpanTextLink />
-              </SpanTextLink>
+              See recipes<IconSpanTextLink aria-label="go to breakfast"/>
             </TextLink>
         </SeeRecipe>
         </>

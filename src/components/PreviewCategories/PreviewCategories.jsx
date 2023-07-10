@@ -1,4 +1,5 @@
 import React from "react";
+import data from "../../recipes.json";
 import Container from "../Container";
 import RecipeCard from "../RecipeCard";
 import { 
@@ -10,10 +11,16 @@ import {
     OtherCategoriesButton
     } from "./PreviewCategories.styled";
 import useScreenWidth from "../../hooks/useScreenWidth";
+import { useNavigate } from "react-router-dom";
 
 const PreviewCategories = () => {
-  const categories = ['Breakfast', 'Miscellaneous', 'Chicken', 'Desserts'];
+  const categories = ['Breakfast', 'Miscellaneous', 'Chicken', 'Dessert'];
   const screenWidth = useScreenWidth();
+  const navigate = useNavigate();
+
+
+  
+  // console.log(data);
 
   const getCardCount = () => {
     if (screenWidth.mobile) {
@@ -26,35 +33,42 @@ const PreviewCategories = () => {
   };
 
   const handleSeeAll = (category) => {
-    console.log(`See All clicked for category: ${category}`);
+    navigate(`/categories/${category}`);
   };
 
   const handleOtherCategories = () => {
-    console.log("Other Categories clicked");
+    navigate("/categories");
   };
 
   return (
     <Container>
-      {categories.map((category, index) => (
+      {categories.map((category, index) => {
+        // Фільтруємо дані з об'єкта `data` за відповідною категорією
+        const recipesInCategory = data.filter(recipe => recipe.category === category);
+        // console.log('recipesInCategory', recipesInCategory)
+        // Вибираємо перші `getCardCount()` рецептів для відображення
+        const recipesToShow = recipesInCategory.slice(0, getCardCount());
+
+        return (
           <CategoryContainer key={index}>
             <CategoryTitle>{category}</CategoryTitle>
             <CategoryList>
-              {[...Array(getCardCount())].map((_, cardIndex) => (
+              {recipesToShow.map((recipe, cardIndex) => (
                 <CategoryItem key={cardIndex}>
                   <RecipeCard
-                    title="Recipe Title"
-                    description="Recipe Description"
-                    imageSrc="path/to/recipe-image.jpg"
+                    name={recipe.title}
+                    imageSrc={recipe.preview}
                   />
                 </CategoryItem>
               ))}
             </CategoryList>
-          <SeeAllButton onClick={() => handleSeeAll(category)}>See All</SeeAllButton>
+            <SeeAllButton onClick={() => handleSeeAll(category.toLowerCase())}>See All</SeeAllButton>
           </CategoryContainer>
-      ))}
-        <div style={{display: 'flex', justifyContent: 'center'}}>
+        );
+      })}
+      <div style={{display: 'flex', justifyContent: 'center'}}>
         <OtherCategoriesButton onClick={handleOtherCategories}>Other Categories</OtherCategoriesButton>
-        </div>
+      </div>
     </Container>
   );
 };

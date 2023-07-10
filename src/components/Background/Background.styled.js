@@ -13,7 +13,7 @@ export const BackgroundImageLeft = styled.div`
   rotate: 149deg;
   position: absolute;
   left: -150px;
-  bottom: 280px;
+  bottom: 250px;
   height: 392px;
   width: 392px;
   filter: blur(4px) brightness(1.3);
