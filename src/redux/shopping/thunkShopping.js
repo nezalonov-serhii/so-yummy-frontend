@@ -8,6 +8,7 @@ export const deleteShoppingThunk = createAsyncThunk(
     async id => {
       try {
         const { data } = await axios.delete(`/shopping-list/${id}`);
+        console.log("data, успіх", data)
         return data;
       } catch (er) {
         console.log('🚀 ~ Error:', er.message);
@@ -15,9 +16,11 @@ export const deleteShoppingThunk = createAsyncThunk(
     }
   );
 
-  export const getShoppingThunk = createAsyncThunk('shopping/get', async () => {
+  export const getShoppingThunk = createAsyncThunk('shopping/get', 
+  async () => {
     try {
       const { data } = await axios.get('/shopping-list');
+      console.log("data, успіх", data)
       return data;
     } catch {
       console.log('🚀 ~ Error:');

@@ -20,7 +20,7 @@ const handleFulfilledGet = (state, { payload }) => {
 };
 const handleFulfilledDel = (state, { payload }) => {
     state.shopping.isLoading = false;
-    state.shopping.items = state.shopping.items.filter(el => el.id !== payload);
+    state.shopping.items = state.shopping.items.filter(el => el._id !== payload);
     state.shopping.error = '';
   };
 
