@@ -34,7 +34,7 @@ export const BackgroundImageLeft = styled.div`
     width: 648px;
     background-size: auto 648px;
   }
-  @media (min-width: 1440px) {
+  @media (min-width: 1280px) {
     left: -330px;
     bottom: 30px;
     height: 852px;
@@ -68,7 +68,7 @@ background-image:url(${leafsX2});
     width: 313px;
     background-size: auto 313px;
   }
-  @media (min-width: 1440px) {
+  @media (min-width: 1280px) {
     bottom: -150px;
     right: -18px;
     height: 474px;

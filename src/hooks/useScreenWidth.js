@@ -13,8 +13,8 @@ const useScreenWidth = () => {
 
       setScreenWidth({
         mobile: width <= 768,
-        tablet: width >= 768 && width < 1440,
-        desktop: width >= 1440,
+        tablet: width >= 768 && width < 1280,
+        desktop: width >= 1280,
       });
     };
 

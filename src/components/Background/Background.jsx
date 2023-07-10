@@ -12,7 +12,7 @@ const Background = ({ children }) => {
         { children }
           <BackgroundImageLeft />
           <BackgroundImageRight /> 
-          <Rights />
+          {/* <Rights /> */}
        </SharedLayoutWrapper>
     );
  };

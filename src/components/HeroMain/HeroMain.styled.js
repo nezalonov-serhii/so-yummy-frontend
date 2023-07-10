@@ -37,7 +37,7 @@ export const Section = styled.div`
     background-image:  url(${leafsTabletX2}),url(${pathToDishTabletX2});
   }
   }
-  @media (min-width: 1440px) {
+  @media (min-width: 1280px) {
     height: 800px;
     background-image: url(${leafsDesktopX1}),url(${pathToDishDesktopX1});
     background-size: 100px auto, 907px auto;
@@ -78,7 +78,7 @@ margin-bottom: 14px;
     line-height: 72px;
     padding-top: 205px;
     }
-  @media (min-width: 1440px) {
+  @media (min-width: 1280px) {
     padding-top: 162px;
     font-size: 100px;
     line-height: 1;
@@ -105,7 +105,7 @@ letter-spacing: -0.02em;
     text-align:start;
     margin-bottom: 50px;
     }
-  @media (min-width: 1440px){
+  @media (min-width: 1280px){
     font-size: 18px;
     line-height: 1.34;
   }

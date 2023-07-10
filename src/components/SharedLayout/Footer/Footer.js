@@ -4,7 +4,7 @@ import { Benefits } from "../../Footer/Benefits/Benefits";
 import { NavBar } from "../../Footer/NavBar/NavBar";
 import { SubscribeForm } from "../../Footer/SubscribeForm/SubscribeForm";
 import { FollowUs } from "../../Footer/FollowUs/FollowUs";
-import { CopyRight } from "../../Footer/CopyRight/CopyRight";
+import { Rights } from "../../Footer/Rights/Rights";
 
  const Footer = () => {
    return (
@@ -22,7 +22,7 @@ import { CopyRight } from "../../Footer/CopyRight/CopyRight";
       </MainWrapper>
       <FollowUs />
     </FooterWrapper>
-       <CopyRight />
+       <Rights />
        </>
   );
 };
