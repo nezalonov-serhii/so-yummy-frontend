@@ -16,7 +16,7 @@ right: 34px;
    top: 372px;
    right: 32px;
   }
-  @media (min-width: 1440px) {
+  @media (min-width: 1280px) {
    width: 298px;
    height: 114px;
    top: 472px;
@@ -43,7 +43,7 @@ padding: 8px;
    font-size: 14px;
    line-height: 1.28;
     }
-  @media (min-width:1440px) {
+  @media (min-width:1280px) {
     line-height: 1.42;
   }
 `

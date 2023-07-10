@@ -37,7 +37,7 @@ align-self: flex-end;
 @media (min-width: 768px) {
     margin-top: 40px;
 }
-@media (min-width: 1440px) {
+@media (min-width: 1280px) {
     margin-top: 50px;
 }
 
