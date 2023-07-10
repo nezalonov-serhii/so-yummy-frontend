@@ -12,7 +12,7 @@ import {
 } from "redux-persist";
 
 import { signupReducer } from "./Slice/signup/signupSlice";
-import addRecipeReducer from "./Slice/addRecipeSlice/addRecipeSlice";
+import addRecipeReducer from "./addRecipe/addRecipeSlice/addRecipeSlice";
 
 const authPersistConfig = {
   key: "auth",
