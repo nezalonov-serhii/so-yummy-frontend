@@ -3,6 +3,7 @@ import ingredients from "../../../../ingredients.json";
 
 import { useState } from "react";
 // import { useSelector } from "react-redux";
+import Select from "react-select";
 import {
   Container,
   Counter,
@@ -12,10 +13,10 @@ import {
   Li,
   List,
   SelectWrapper,
-  Title,
   WrapperCounter,
 } from "./RecipeIngredientsFields.styled";
-import Select from "react-select";
+
+import { Title } from "../../AddRecipe.styled";
 
 const options = ingredients.map(({ name }) => ({ value: name, label: name }));
 
@@ -23,6 +24,7 @@ export const RecipeIngredientsFields = ({ onChange }) => {
   const [listItems, setListItems] = useState([]);
 
   // const ingredients = useSelector((state) => state.addRecipe.ingredients.items);
+
   useEffect(() => {
     onChange(
       listItems.map((item) => ({

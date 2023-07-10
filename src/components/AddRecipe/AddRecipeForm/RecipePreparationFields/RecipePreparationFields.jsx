@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { Container, Textarea, Title } from "./RecipePreparationFields.styled";
+import { Container, Textarea } from "./RecipePreparationFields.styled";
+import { Title } from "../../AddRecipe.styled";
 
 export const RecipePreparationFields = ({ onChange }) => {
   const [value, setValue] = useState("");

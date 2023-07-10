@@ -12,7 +12,7 @@ export const FacebokIcon = styled(FaFacebook)`
   color: var(--button-dark-background-primary);
   cursor: pointer;
   &:hover {
-    transition: var(--cubic-bezier);
+    transition: var(--cubic-bezier) 250ms;
     color: var(--text-light);
   }
 `;
@@ -22,7 +22,7 @@ export const YouTubeIcon = styled(AiFillYoutube)`
   color: var(--button-dark-background-primary);
   cursor: pointer;
   &:hover {
-    transition: var(--cubic-bezier);
+    transition: var(--cubic-bezier) 250ms;
     color: var(--text-light);
   }
 `;
@@ -32,7 +32,7 @@ export const TwitterIcon = styled(AiOutlineTwitter)`
   color: var(--button-dark-background-primary);
   cursor: pointer;
   &:hover {
-    transition: var(--cubic-bezier);
+    transition: var(--cubic-bezier) 250ms;
     color: var(--text-light);
   }
 `;
@@ -42,7 +42,7 @@ export const InstaIcon = styled(AiOutlineInstagram)`
   color: var(--button-dark-background-primary);
   cursor: pointer;
   &:hover {
-    transition: var(--cubic-bezier);
+    transition: var(--cubic-bezier) 250ms;
     color: var(--text-light);
   }
 `;
@@ -52,9 +52,9 @@ export const FollowList = styled.ul`
   gap: 16px;
   justify-content: center;
   margin-top: 44px;
-  margin-bottom: 12px;
+
   @media (min-width: 768px) {
     margin-top: 40px;
-    margin-bottom: 18px;
+   
   }
 `;
