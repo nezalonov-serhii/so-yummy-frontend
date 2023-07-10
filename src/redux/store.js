@@ -13,6 +13,7 @@ import {
 
 import { signupReducer } from "./Slice/signup/signupSlice";
 import addRecipeReducer from "./Slice/addRecipeSlice/addRecipeSlice";
+import shoppingReducer from "./shopping/sliceShopping"
 
 const authPersistConfig = {
   key: "auth",
@@ -24,6 +25,7 @@ export const store = configureStore({
   reducer: {
     auth: persistReducer(authPersistConfig, signupReducer),
     addRecipe: addRecipeReducer,
+    shopping: shoppingReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({

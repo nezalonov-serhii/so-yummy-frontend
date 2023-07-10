@@ -1,4 +1,5 @@
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import Loader from "../Loader/Loader"
 import {
   StyledIngridientsHeader,
   StyledIngridientsItem,
@@ -9,7 +10,7 @@ import {
   StyledQuantity,
   StyledFlexQuantity,
   StyledListContainerIngridient,
-
+  
 } from "./StyledIngredientsShoppingList";
 import { MdClear } from "react-icons/md";
 
@@ -58,10 +59,17 @@ const INGRIDIENTS = [
 ];
 
 const IngredientsShoppingList = () => {
-  const state = useSelector(state=>{
-    return state
+  const {shopping} = useSelector(state=>{
+    return state.shopping
   })
-  console.log(state)
+  const dispatch = useDispatch();
+
+  console.log("get.-ingridients",dispatch())
+  console.log("ingridients",shopping.items)
+
+   console.log("ingridients",shopping.items)
+   console.log("isLoading",shopping.isLoading)
+   console.log("error",shopping.error)
 
     return (
     <StyledIngridientsContainer>
@@ -72,7 +80,7 @@ const IngredientsShoppingList = () => {
                 <p>Remove</p>
             </StyledIngrsHeadThumb>
         </StyledIngridientsHeader>
-        <StyledListContainerIngridient>
+        {shopping.isLoading ? <Loader/> : <StyledListContainerIngridient>
             {INGRIDIENTS.map(item =>{
                 return (
                     <StyledIngridientsItem key={item._id}>
@@ -89,7 +97,7 @@ const IngredientsShoppingList = () => {
                     </StyledIngridientsItem>
                 )
             })}
-        </StyledListContainerIngridient>
+        </StyledListContainerIngridient>}
     </StyledIngridientsContainer>
     )
 }

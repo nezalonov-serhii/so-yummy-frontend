@@ -28,7 +28,7 @@ const handleFulfilledDel = (state, { payload }) => {
 export const shoppingSlice = createSlice({
     name:'shopping',
     initialState:{
-        ingridients:{
+        shopping:{
             items:[],
             isLoading:false,
             error:null,
@@ -58,3 +58,5 @@ export const shoppingSlice = createSlice({
     }
 
 })
+
+export default shoppingSlice.reducer
