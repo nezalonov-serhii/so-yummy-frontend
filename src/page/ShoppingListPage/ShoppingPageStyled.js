@@ -10,8 +10,8 @@ const ShoppingPageContainer = styled.div`
         padding-right:32px;
         min-width: 768px;
     };
-    @media (min-width: 1024px) {
-        min-width: 1024px;
+    @media (min-width: 1280px) {
+        min-width: 1280px;
         max-width: 1304px;
     };
       

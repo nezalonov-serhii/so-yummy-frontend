@@ -1,3 +1,4 @@
+import { useSelector } from "react-redux";
 import {
   StyledIngridientsHeader,
   StyledIngridientsItem,
@@ -10,6 +11,9 @@ import {
   StyledListContainerIngridient,
 
 } from "./StyledIngredientsShoppingList";
+import { MdClear } from "react-icons/md";
+
+
 const INGRIDIENTS = [
    {
       _id: {
@@ -54,7 +58,11 @@ const INGRIDIENTS = [
 ];
 
 const IngredientsShoppingList = () => {
-  
+  const state = useSelector(state=>{
+    return state
+  })
+  console.log(state)
+
     return (
     <StyledIngridientsContainer>
         <StyledIngridientsHeader>
@@ -76,7 +84,7 @@ const IngredientsShoppingList = () => {
                             <StyledQuantity>
                                 <p>5</p>
                             </StyledQuantity>
-                            <button>X</button>
+                            <MdClear style={{width:20, height:20}} onClick={()=>{console.log("click")}}/>
                         </StyledFlexQuantity>
                     </StyledIngridientsItem>
                 )
