@@ -1,12 +1,12 @@
 import { AddRecipeForm } from "../../components/AddRecipe/AddRecipeForm/AddRecipeForm";
 import { FollowUs } from "../../components/AddRecipe/FollowUs/FollowUs";
-import { MainTitle } from "../../components/AddRecipe/MainTitle/MainTitle";
 import { PopularRecipe } from "../../components/AddRecipe/PopularRecipe/PopularRecipe";
+import { Title } from "../../components/Title/Title";
 
 const AddRecipePage = () => {
   return (
     <>
-      <MainTitle />
+      <Title>Add recipe</Title>
       <AddRecipeForm />
       <FollowUs />
       <PopularRecipe />
