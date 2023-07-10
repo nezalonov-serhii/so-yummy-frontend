@@ -11,9 +11,8 @@ export const FooterWrapper = styled.div`
   @media (min-width: 767px) {
     padding-top: 50px;
     padding-bottom: 24px;
-   
-  }
-  }
+  };
+  
   @media (min-width: 1440px) {
     padding-top: 64px;
     padding-bottom: 50px;

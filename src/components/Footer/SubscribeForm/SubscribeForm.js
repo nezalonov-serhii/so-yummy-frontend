@@ -1,45 +1,32 @@
-import { useState, useEffect } from 'react';
-import { toast } from "react-toastify";
+import { Formik } from "formik";
+import * as Yup from "yup";
+
 import {
   SubscribeContainer,
   SubscribeBox,
   SubscribeTitle,
   SubscribeText,
-  Form,
+  AuthForm,
   Label,
   InputIcon,
   Icon,
   Input,
   Btn,
-} from './SubscribeForm.Styled';
+  ErrorMessageStyled,
+  WrapField,
+} from "./SubscribeForm.Styled";
 
-export const SubscribeForm = () => { 
-   const [email, setEmail] = useState("");
-    const [isDisabled, setIsDisabled] = useState(true);
-    useEffect(() => {
-        if (email.trim() !== "") {
-          setIsDisabled(false);
-        } else {
-            setIsDisabled(true);
-        }
-    }, [email]);
-  
-  const handleSubmit = (event) => {
-  event.preventDefault();
-  const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
-    if (emailRegex.test(email)) {
-      toast.success("Email was successfully submitted!");
-    }
-      else {
-    toast.error("Please enter a valid email!");
-    }
-    setEmail('');
-};
-  const handleInput = (event) => {
-    setEmail(event.target.value);
-  };
+export const SubscribeForm = () => {
+  const validationSchema = Yup.object({
+    email: Yup.string()
+      .matches(
+        /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+        "Invalid email address"
+      )
+      .required("Email is required"),
+  });
   return (
-   <SubscribeContainer>
+    <SubscribeContainer>
       <SubscribeBox>
         <SubscribeTitle>Subscribe to our Newsletter</SubscribeTitle>
         <SubscribeText>
@@ -47,27 +34,41 @@ export const SubscribeForm = () => {
           and special offers, etc.
         </SubscribeText>
       </SubscribeBox>
-      <Form onSubmit={handleSubmit}>
-        <Label htmlFor="email">
-          <InputIcon>
-            <Icon />
-          </InputIcon>
 
-          <Input
-            type="email"
-            name="email"
-            placeholder="Enter your email address"
-            value={email}
-            onChange={handleInput}
-            required
-          />
-        </Label>
-
-        <Btn type="submit" disabled={isDisabled} >
-          Subscribe
-        </Btn>
-      </Form>
+      <Formik
+        initialValues={{ email: "" }}
+        validationSchema={validationSchema}
+        onSubmit={(values, actions) => {
+          actions.resetForm();
+          console.log(values);
+        }}
+      >
+        {({ errors, touched }) => (
+          <>
+            <AuthForm>
+              <Label htmlFor="email">
+                <InputIcon>
+                  <Icon />
+                </InputIcon>
+                <WrapField>
+                  <Input
+                    type="email"
+                    name="email"
+                    placeholder="Email"
+                    autoComplete="username"
+                    invalid={errors.email && touched.email ? "invalid" : ""}
+                    valid={!errors.email && touched.email ? "valid" : ""}
+                  />
+                </WrapField>
+              </Label>
+              {errors.email && touched.email && (
+                <ErrorMessageStyled>{errors.email}</ErrorMessageStyled>
+              )}
+              <Btn type="submit">Subscribe</Btn>
+            </AuthForm>
+          </>
+        )}
+      </Formik>
     </SubscribeContainer>
-)
-   
-}
+  );
+};
