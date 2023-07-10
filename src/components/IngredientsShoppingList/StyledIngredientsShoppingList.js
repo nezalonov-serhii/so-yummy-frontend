@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 const StyledListContainerIngridient = styled.ul`
     padding: 0 ;
-    @media (min-width: 1024px) {
+    @media (min-width: 1280px) {
         padding: 0 40px;
     };
 `
@@ -35,8 +35,8 @@ const StyledIngridientsHeader = styled.div`
         margin-bottom: 50px;
         padding:20px;
     };
-    @media (min-width: 1024px) {
-        min-width: 1024px;
+    @media (min-width: 1280px) {
+        min-width: 1280px;
         max-width: 1240px;
         padding:21px 40px;
         line-height: normal;
@@ -64,7 +64,7 @@ const StyledImageCardThumb = styled.div`
         font-size: 16px;
         line-height: 1.5;
     };
-    @media (min-width: 1024px) {
+    @media (min-width: 1280px) {
         line-height: 1.5;
     };
 
@@ -106,7 +106,7 @@ const StyledFlexQuantity = styled.div`
     @media (min-width: 768px) {
         min-width:198px;
     };
-    @media (min-width: 1024px) {
+    @media (min-width: 1280px) {
         min-width:262px;
     };
     
@@ -125,7 +125,7 @@ const StyledIngridientsItem = styled.li`
         margin-bottom:44px;
         height: 140px;
     };
-    @media (min-width: 1024px) {
+    @media (min-width: 1280px) {
         padding-right:28px;
     };
 `
