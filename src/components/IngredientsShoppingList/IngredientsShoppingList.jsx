@@ -1,3 +1,4 @@
+import { useSelector } from "react-redux";
 import {
   StyledIngridientsHeader,
   StyledIngridientsItem,
@@ -57,7 +58,11 @@ const INGRIDIENTS = [
 ];
 
 const IngredientsShoppingList = () => {
-  
+  const state = useSelector(state=>{
+    return state
+  })
+  console.log(state)
+
     return (
     <StyledIngridientsContainer>
         <StyledIngridientsHeader>
