@@ -13,7 +13,7 @@ import {
   
 } from "./StyledIngredientsShoppingList";
 import { MdClear } from "react-icons/md";
-
+import {getIngridientsThunk,deleteIngridientsThunk} from "../../redux/shopping/thunkShopping"
 
 const INGRIDIENTS = [
    {
@@ -64,7 +64,7 @@ const IngredientsShoppingList = () => {
   })
   const dispatch = useDispatch();
 
-  console.log("get.-ingridients",dispatch())
+  console.log("get.-ingridients",dispatch(getIngridientsThunk()))
   console.log("ingridients",shopping.items)
 
    console.log("ingridients",shopping.items)

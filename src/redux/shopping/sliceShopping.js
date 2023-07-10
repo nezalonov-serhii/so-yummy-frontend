@@ -1,27 +1,27 @@
 import { createSlice, isAnyOf } from '@reduxjs/toolkit';
 import {
-    deleteIngridientsThunk,
-    getIngridientsThunk,
+    deleteShoppingThunk,
+    getShoppingThunk,
   } from './thunkShopping';
 
 
 const handlePending = state => {
-    state.ingridients.isLoading = true;
+    state.shopping.isLoading = true;
 };
 const handleRejected = (state, { payload }) => {
-    state.ingridients.isLoading = false;
-    state.ingridients.error = payload;
+    state.shopping.isLoading = false;
+    state.shopping.error = payload;
 };
 
 const handleFulfilledGet = (state, { payload }) => {
-    state.ingridients.isLoading = false;
-    state.ingridients.items = payload;
-    state.ingridients.error = '';
+    state.shopping.isLoading = false;
+    state.shopping.items = payload;
+    state.shopping.error = '';
 };
 const handleFulfilledDel = (state, { payload }) => {
-    state.ingridients.isLoading = false;
-    state.ingridients.items = state.ingridients.items.filter(el => el.id !== payload);
-    state.ingridients.error = '';
+    state.shopping.isLoading = false;
+    state.shopping.items = state.shopping.items.filter(el => el.id !== payload);
+    state.shopping.error = '';
   };
 
 
@@ -36,21 +36,21 @@ export const shoppingSlice = createSlice({
     },
     extraReducers: builder =>{
         builder
-            .addCase(getIngridientsThunk.fulfilled, handleFulfilledGet)
+            .addCase(getShoppingThunk.fulfilled, handleFulfilledGet)
 
-            .addCase(deleteIngridientsThunk.fulfilled, handleFulfilledDel)
+            .addCase(deleteShoppingThunk.fulfilled, handleFulfilledDel)
 
             .addMatcher(
                 isAnyOf(
-                    getIngridientsThunk.pending,
-                    deleteIngridientsThunk.pending
+                    getShoppingThunk.pending,
+                    deleteShoppingThunk.pending
                 ),
                 handlePending
             )
             .addMatcher(
                 isAnyOf(
-                    getIngridientsThunk.rejected,
-                    deleteIngridientsThunk.rejected
+                    getShoppingThunk.rejected,
+                    deleteShoppingThunk.rejected
                 ),
                 handleRejected
             )            
