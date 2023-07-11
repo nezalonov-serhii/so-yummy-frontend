@@ -1,14 +1,28 @@
-import { useNavigate, useParams } from "react-router-dom";
 import RecipePageHero from "../../components/RecipePageHero/RecipePageHero";
 import RecipeInngredientsList from "../../components/RecipeInngredientsList/RecipeInngredientsList";
 import RecipePreparation from "../../components/RecipePreparation/RecipePreparation";
 
-const RecipePage = () => {
+const RecipePage = ({ recipes, ingredients }) => {
+  const { title, description, time, _id, favorites, instructions, thumb } =
+    recipes;
+
+  console.log(recipes);
+
   return (
     <div>
-      <RecipePageHero />
-      <RecipeInngredientsList />
-      <RecipePreparation />
+      <RecipePageHero
+        title={title}
+        description={description}
+        time={time}
+        recipeId={_id}
+        favorites={favorites}
+      />
+      <RecipeInngredientsList ingredients={ingredients} />
+      <RecipePreparation
+        thumb={thumb}
+        instructions={instructions}
+        title={title}
+      />
     </div>
   );
 };

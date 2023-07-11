@@ -22,17 +22,17 @@ export const TitleText = styled.h2`
 `;
 
 export const Section = styled.section`
-padding-top: 50px;
-padding-bottom: 50px;
+  padding-top: 50px;
+  padding-bottom: 50px;
 
-@media (min-width: 768px) {
+  @media (min-width: 768px) {
     padding-top: 72px;
     padding-bottom: 100px;
   }
   @media (min-width: 1280px) {
     padding-top: 102px;
   }
-`
+`;
 
 export const Wrapper = styled.div`
   margin-left: 16px;
