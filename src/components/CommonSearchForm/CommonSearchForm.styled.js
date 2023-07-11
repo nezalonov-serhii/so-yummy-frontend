@@ -32,9 +32,9 @@ const SearchFormInput = styled(Field)`
   letter-spacing: 0em;
 
   text-align: left;
-  color: #3e4462;
+  color: var(--text-primary);
 
-  background-color: #ffffff;
+  background-color: var(--background-secondary);
 
   width: 100%;
 
@@ -79,18 +79,18 @@ const SearchFormButton = styled.button`
   letter-spacing: 0em;
   text-align: center;
 
-  background-color: #8baa36;
+  background-color: var(--button-background-primary);
 
   border: 1px solid transparent;
   border-radius: 24px 44px;
 
   text-align: center;
-  color: #fafafa;
+  color: var(--text-light);
   :hover {
-    background-color: #22252a;
+    background-color: var(--button-background-secondary);
   }
   :focus {
-    background-color: #22252a;
+    background-color: var(--button-background-secondary);
   }
   @media (min-width: 768px) {
     font-size: 16px;
