@@ -12,7 +12,7 @@ export const FacebokIcon = styled(FaFacebook)`
   color: var(--button-dark-background-primary);
   cursor: pointer;
   &:hover {
-    transition: var(--cubic-bezier) 250ms;
+    transition: var(--cubic-bezier) ;
     color: var(--text-light);
   }
 `;
@@ -22,7 +22,7 @@ export const YouTubeIcon = styled(AiFillYoutube)`
   color: var(--button-dark-background-primary);
   cursor: pointer;
   &:hover {
-    transition: var(--cubic-bezier) 250ms;
+    transition: var(--cubic-bezier) ;
     color: var(--text-light);
   }
 `;
@@ -32,7 +32,7 @@ export const TwitterIcon = styled(AiOutlineTwitter)`
   color: var(--button-dark-background-primary);
   cursor: pointer;
   &:hover {
-    transition: var(--cubic-bezier) 250ms;
+    transition: var(--cubic-bezier) ;
     color: var(--text-light);
   }
 `;
@@ -42,7 +42,7 @@ export const InstaIcon = styled(AiOutlineInstagram)`
   color: var(--button-dark-background-primary);
   cursor: pointer;
   &:hover {
-    transition: var(--cubic-bezier) 250ms;
+    transition: var(--cubic-bezier) ;
     color: var(--text-light);
   }
 `;

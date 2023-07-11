@@ -8,7 +8,7 @@ opacity: 0.5;
 padding-top: 32px;
 padding-bottom: 32px;
 }
-@media screen and (min-width: 1440px) {
+@media screen and (min-width: 1280px) {
 padding-top: 50px;
 padding-bottom: 50px; 
 }
@@ -33,7 +33,7 @@ letter-spacing: -0.14px;
 gap:28px;
 }
 
-@media screen and (min-width: 1440px) {
+@media screen and (min-width: 1280px) {
     gap:40px;
 }
 `
