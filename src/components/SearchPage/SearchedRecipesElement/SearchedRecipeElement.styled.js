@@ -18,7 +18,7 @@ const RecipeTitle = styled.p`
 
   bottom: 26px;
 
-  background-color: #ffffff;
+  background-color: var(--background-secondary);
 
   font-family: Poppins;
   font-size: 16px;
@@ -27,7 +27,7 @@ const RecipeTitle = styled.p`
   letter-spacing: -0.23999999463558197px;
   text-align: left;
 
-  color: #3e4462;
+  color: var(--text-primary);
   @media (min-width: 768px) {
     width: 300px;
   }

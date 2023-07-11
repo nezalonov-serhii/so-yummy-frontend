@@ -1,5 +1,7 @@
 import styled from "styled-components";
-const SearchFormbox = styled.form`
+import { Form, Field, ErrorMessage } from "formik";
+
+const SearchFormBox = styled(Form)`
   width: 295px;
   margin: 0 auto;
 
@@ -19,7 +21,7 @@ const SearchFormbox = styled.form`
   }
 `;
 
-const SearchFormInput = styled.input`
+const SearchFormInput = styled(Field)`
   font-family: Poppins;
   height: 53px;
   padding-left: 32px;
@@ -30,9 +32,9 @@ const SearchFormInput = styled.input`
   letter-spacing: 0em;
 
   text-align: left;
-  color: #3e4462;
+  color: var(--text-primary);
 
-  background-color: #ffffff;
+  background-color: var(--background-secondary);
 
   width: 100%;
 
@@ -47,11 +49,14 @@ const SearchFormInput = styled.input`
   :focus {
     border: 1px solid #23262a33;
   }
-
+  /* :valid {
+    background-color: #23262a33;
+  } */
   @media (min-width: 768px) {
     height: 57px;
     padding-left: 38px;
     font-size: 14px;
+    /* background-color: #ffffff; */
   }
 
   @media (min-width: 1024px) {
@@ -74,18 +79,18 @@ const SearchFormButton = styled.button`
   letter-spacing: 0em;
   text-align: center;
 
-  background-color: #8baa36;
+  background-color: var(--button-background-primary);
 
   border: 1px solid transparent;
   border-radius: 24px 44px;
 
   text-align: center;
-  color: #fafafa;
+  color: var(--text-light);
   :hover {
-    background-color: #22252a;
+    background-color: var(--button-background-secondary);
   }
   :focus {
-    background-color: #22252a;
+    background-color: var(--button-background-secondary);
   }
   @media (min-width: 768px) {
     font-size: 16px;
@@ -96,5 +101,19 @@ const SearchFormButton = styled.button`
     padding: 23px 52px;
   }
 `;
+const ErrorText = styled(ErrorMessage)`
+  position: absolute;
+  left: 40px;
+  bottom: -25px;
+  color: #e74a3b;
 
-export { SearchFormbox, SearchFormInput, SearchFormButton };
+  width: 157px;
+
+  font-family: Poppins;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: 0em;
+`;
+
+export { SearchFormBox, SearchFormInput, SearchFormButton, ErrorText };
