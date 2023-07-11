@@ -2,16 +2,17 @@ import styled from "styled-components";
 
 export const List = styled.ul`
   list-style: none;
+  margin: 0 auto;
 
   @media (min-width: 768px) {
     display: flex;
-
+    margin: 0 auto;
     flex-wrap: wrap;
     gap: 32px;
     justify-content: center;
   }
   @media (min-width: 1280px) {
-    gap: 14px;
+    gap: 13px;
   }
 `;
 

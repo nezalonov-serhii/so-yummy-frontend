@@ -17,7 +17,9 @@ export const List = styled.ul`
     margin-bottom: 50px;
   }
   @media (min-width: 1280px) {
+    width: 100%;
     margin-bottom: 50px;
+    margin-left: 0px;
   }
 `;
 

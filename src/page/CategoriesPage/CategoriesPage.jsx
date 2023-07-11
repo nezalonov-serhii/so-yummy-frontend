@@ -4,6 +4,8 @@ import CategoriesGallery from "../../components/CategoriesPage/CategoriesGallery
 import CategoriesList from "../../components/CategoriesPage/CategoriesList/CategoriesList";
 import { Title } from "../../components/Title/Title";
 import defaultRecipes from "../../service/api/recipes.json"
+import { Container } from "./CategoriesPage.styled";
+
 
 
 
@@ -18,11 +20,11 @@ const recipes = defaultRecipes;
   return 
 }
 
-  return <>
+  return <Container>
   <Title>Categories</Title>
   <CategoriesList onSubmit={chooseCategory} recipes={gallery}/>
   <CategoriesGallery recipes={gallery}/>
-  </>
+  </Container>
    
 };
 export default CategoriesPage;
