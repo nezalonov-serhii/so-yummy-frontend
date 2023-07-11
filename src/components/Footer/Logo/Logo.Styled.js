@@ -22,7 +22,7 @@ export const IconWrapper = styled.div`
     width: 44px;
     height: 44px;
   }
-  @media (min-width: 1024px) {
+  @media (min-width: 1280px) {
     width: 44px;
     height: 44px;
     border-radius: 12px;
@@ -56,7 +56,7 @@ export const LogoWrapper = styled.div`
     padding-top: 0;
     
   }
-  @media (min-width: 1024px) {
+  @media (min-width: 1280px) {
     padding-top: 0;
     margin-bottom: 40px;
   }

@@ -9,6 +9,12 @@ export const Nav = styled.nav`
       margin-bottom: 0px;
       margin-left: 175px;
    }
+    @media screen and (min-width: 1280px) {
+      margin-left: 120px;
+    }
+     @media screen and (min-width: 1440px) {
+      margin-left: 175px;
+    }
 `;
 
 export const ItemNav = styled.li`
@@ -31,7 +37,7 @@ export const Styledlink = styled(NavLink)`
    color: var(--text-light);
    &:hover,
    :focus {
-      transition: var(--cubic-bezier) 250ms;
+      transition: var(--cubic-bezier);
       color: var(--dark-background-footer);
    }
 `;
