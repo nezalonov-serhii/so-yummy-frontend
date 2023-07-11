@@ -7,7 +7,6 @@ import {
 } from "./CommonSearchForm.styled";
 // import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { Formik } from "formik";
-// import { object, string, number, date, InferType } from 'yup';
 import * as Yup from "yup";
 
 const userSchema = Yup.object({

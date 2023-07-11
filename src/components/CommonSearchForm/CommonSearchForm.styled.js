@@ -9,15 +9,15 @@ const SearchFormBox = styled(Form)`
   align-items: center;
 
   position: relative;
-  margin-top: 50px;
+  /* margin-top: 50px; */
 
   @media (min-width: 768px) {
     width: 362px;
-    margin-top: 40px;
+    /* margin-top: 40px; */
   }
   @media (min-width: 1024px) {
     width: 510px;
-    margin-top: 50px;
+    /* margin-top: 50px; */
   }
 `;
 
