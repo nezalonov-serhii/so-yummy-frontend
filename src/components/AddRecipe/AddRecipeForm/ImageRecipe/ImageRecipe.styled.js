@@ -32,9 +32,15 @@ export const NewImage = styled.img`
   width: 100%;
   height: 100%;
   background-color: white;
+  object-fit: cover;
 `;
 
 export const Button = styled.button`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
   background-color: transparent;
   border: none;
   padding: 0;
