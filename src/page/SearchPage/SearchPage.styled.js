@@ -10,8 +10,14 @@ const SearchPageContainer = styled.div`
     padding-right: 32px;
     min-width: 768px;
   }
-  @media (min-width: 1024px) {
+  /* @media (min-width: 1024px) {
     min-width: 1024px;
+    max-width: 1440px;
+  } */
+  @media (min-width: 1280px) {
+    /* padding: 38px; */
+
+    min-width: 1280px;
     max-width: 1440px;
   }
 `;

@@ -2,6 +2,7 @@ import styled from "styled-components";
 const RecipesList = styled.ul`
   margin-top: 42px;
   margin-bottom: 140px;
+  margin: 0 auto;
   /* 40px from pagination */
   /* @media screen and (min-width: 768px) */
   @media (min-width: 768px) {
@@ -16,9 +17,11 @@ const RecipesList = styled.ul`
     border-radius: 8px;
   }
 
-  @media (min-width: 1024px) {
+  @media (min-width: 1280px) {
+    min-width: 1280px;
     gap: 100px 14px;
-    margin-top: 90px;
+    /* margin-top: 90px; */
+    margin-top: 100px;
     margin-bottom: 200px;
   }
 `;
