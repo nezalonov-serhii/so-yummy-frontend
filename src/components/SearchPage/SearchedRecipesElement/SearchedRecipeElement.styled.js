@@ -1,41 +1,41 @@
 import styled from "styled-components";
 
 const RecipeImage = styled.img`
-  border-radius: 8px;
-  width: 100%;
+   border-radius: 8px;
+   width: 100%;
 `;
 
 const RecipeTitle = styled.p`
-  width: 307px;
+   width: 307px;
 
-  padding: 16px 0 16px 16px;
+   padding: 16px 0 16px 16px;
 
-  border-radius: 8px;
+   border-radius: 8px;
 
-  position: absolute;
-  left: 50%;
-  transform: translate(-50%);
+   position: absolute;
+   left: 50%;
+   transform: translate(-50%);
 
-  bottom: 26px;
+   bottom: 26px;
 
-  background-color: var(--background-secondary);
+   background-color: var(--background-secondary);
 
-  font-family: Poppins;
-  font-size: 16px;
-  font-weight: 500;
-  line-height: 1.25;
-  letter-spacing: -0.23999999463558197px;
-  text-align: left;
+   font-family: Poppins;
+   font-size: 16px;
+   font-weight: 500;
+   line-height: 1.25;
+   letter-spacing: -0.23999999463558197px;
+   text-align: left;
 
-  color: var(--text-primary);
-  @media (min-width: 768px) {
-    width: 300px;
-  }
+   color: var(--text-primary);
+   @media (min-width: 768px) {
+      width: 300px;
+   }
 
-  @media (min-width: 1024px) {
-    width: 268px;
-    bottom: 24px;
-  }
+   @media (min-width: 1024px) {
+      width: 268px;
+      bottom: 24px;
+   }
 `;
 
 export { RecipeImage, RecipeTitle };
