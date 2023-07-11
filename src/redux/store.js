@@ -12,11 +12,8 @@ import {
 } from "redux-persist";
 
 import { signupReducer } from "./Slice/signup/signupSlice";
-
-const persistConfig = {
-   key: "root",
-   storage,
-};
+import addRecipeReducer from "./addRecipe/addRecipeSlice/addRecipeSlice";
+import shoppingReducer from "./shopping/sliceShopping";
 
 const authPersistConfig = {
    key: "auth",
@@ -27,6 +24,8 @@ const authPersistConfig = {
 export const store = configureStore({
    reducer: {
       auth: persistReducer(authPersistConfig, signupReducer),
+      addRecipe: addRecipeReducer,
+      shopping: shoppingReducer,
    },
    middleware: (getDefaultMiddleware) =>
       getDefaultMiddleware({
