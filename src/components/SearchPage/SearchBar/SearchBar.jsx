@@ -1,11 +1,11 @@
-import { CommonSearchForm } from "../../CommonSearchForm/CommonSearchForm"
+import { CommonSearchForm } from "../../CommonSearchForm/CommonSearchForm";
 // import { SearchTypeSelector } from "../SearchTypeSelector/SearchTypeSelector"
 export const SearchBar = () => {
-    return (
-        <>
-             console.log("SearchTypeSelector")
-            <CommonSearchForm />
-            {/* <SearchTypeSelector/> */}
-        </>
-    )
-}
+   return (
+      <>
+         console.log("SearchTypeSelector")
+         <CommonSearchForm />
+         {/* <SearchTypeSelector/> */}
+      </>
+   );
+};
