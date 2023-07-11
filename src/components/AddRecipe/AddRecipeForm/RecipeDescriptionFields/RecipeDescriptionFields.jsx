@@ -1,5 +1,3 @@
-import { useEffect, useState } from "react";
-// import { useSelector } from "react-redux";
 import categories from "../../../../categories.json";
 import {
   Container,
@@ -10,45 +8,25 @@ import {
 import Select from "react-select";
 import { ImageRecipe } from "../ImageRecipe/ImageRecipe";
 
-export const RecipeDescriptionFields = ({
-  onDescriptionChange: onChange,
-  onImageChange,
-}) => {
-  const [title, setTitle] = useState("");
-  const [about, setAbout] = useState("");
-  const [category, setCategory] = useState("");
-  const [time, setTime] = useState("");
+import { useDispatch, useSelector } from "react-redux";
+import { setDescription } from "../../../../redux/Slice/addRecipeSlice/addRecipeFormSlice";
+
+export const RecipeDescriptionFields = () => {
+  const dispatch = useDispatch();
+  const { title, about, category, time } = useSelector((state) => state.data);
 
   // const categories = useSelector((state) => state.addRecipe.categories.items);
-  useEffect(() => {
-    onChange({ title, about, category, time });
-  }, [title, about, category, time]);
 
   const handleChange = (event) => {
     const { name, value } = event.currentTarget;
-    switch (name) {
-      case "title":
-        setTitle(value);
-        break;
-      case "about":
-        setAbout(value);
-        break;
-      case "category":
-        setCategory(value);
-        break;
-      case "time":
-        setTime(value);
-        break;
-      default:
-        return;
-    }
+    dispatch(setDescription({ [name]: value }));
   };
 
   const handleSelectChange = (selectedOption, action) => {
     if (action.name === "category") {
-      setCategory(selectedOption.value);
+      dispatch(setDescription({ category: selectedOption.value }));
     } else if (action.name === "time") {
-      setTime(selectedOption.value);
+      dispatch(setDescription({ time: selectedOption.value }));
     }
   };
 
@@ -78,7 +56,7 @@ export const RecipeDescriptionFields = ({
 
   return (
     <div>
-      <ImageRecipe onChange={onImageChange} />
+      <ImageRecipe />
       <Container>
         <InputWrapper>
           <Input

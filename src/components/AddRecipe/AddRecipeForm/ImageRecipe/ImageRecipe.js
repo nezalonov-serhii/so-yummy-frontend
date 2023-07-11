@@ -1,4 +1,5 @@
 import {
+  Button,
   Image,
   ImageWrapper,
   InputImage,
@@ -6,18 +7,16 @@ import {
 } from "./ImageRecipe.styled";
 
 import svg from "../../../../images/addRecipe/addPhoto.svg";
-import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { setImage } from "../../../../redux/Slice/addRecipeSlice/addRecipeFormSlice";
 
-export const ImageRecipe = ({ onChange }) => {
-  const [selectedFile, setSelectedFile] = useState(null);
-
-  useEffect(() => {
-    onChange(selectedFile);
-  }, [selectedFile]);
+export const ImageRecipe = () => {
+  const dispatch = useDispatch();
+  const selectedFile = useSelector((state) => state.data.image);
 
   const handleFileSelect = (e) => {
     if (e.target.files.length > 0) {
-      setSelectedFile(URL.createObjectURL(e.target.files[0]));
+      dispatch(setImage(URL.createObjectURL(e.target.files[0])));
     }
   };
 
@@ -29,13 +28,13 @@ export const ImageRecipe = ({ onChange }) => {
         accept="image/*"
         onChange={handleFileSelect}
       />
-      <a href="#" id="fileSelect">
+      <Button id="fileSelect">
         {!selectedFile ? (
           <Image src={svg} alt="addPhoto" />
         ) : (
           <NewImage src={selectedFile} alt="photoRecipe" />
         )}
-      </a>
+      </Button>
     </ImageWrapper>
   );
 };

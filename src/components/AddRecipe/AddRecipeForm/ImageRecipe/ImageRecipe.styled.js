@@ -20,6 +20,7 @@ export const InputImage = styled.input`
   width: 100%;
   height: 100%;
   opacity: 0;
+  cursor: pointer;
 `;
 
 export const Image = styled.img`
@@ -31,4 +32,11 @@ export const NewImage = styled.img`
   width: 100%;
   height: 100%;
   background-color: white;
+`;
+
+export const Button = styled.button`
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  margin: 0;
 `;
