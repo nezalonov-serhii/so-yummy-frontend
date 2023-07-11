@@ -37,11 +37,12 @@ export const Picture = styled.img`
   width: 100%;
   height: 100%;
   border-radius: 8px;
+  object-fit: cover;
 `;
 
 export const Title = styled.p`
   position: absolute;
-  top: 245px;
+  bottom: 18px;
   left: 18px;
   background-color: var(--background-primary);
   width: 307px;
@@ -58,5 +59,7 @@ export const Title = styled.p`
   }
   @media (min-width: 1280px) {
     width: 268px;
+    bottom: 16px;
+    left: 16px;
   }
 `;
