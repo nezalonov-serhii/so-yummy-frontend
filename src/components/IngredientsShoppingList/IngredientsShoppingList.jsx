@@ -13,7 +13,6 @@ import {
   StyledCloseIcon,
   
 } from "./StyledIngredientsShoppingList";
-import { MdClear } from "react-icons/md";
 import {getShoppingThunk,deleteShoppingThunk} from "../../redux/shopping/thunkShopping"
 import { useEffect } from "react";
 
