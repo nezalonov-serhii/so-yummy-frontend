@@ -49,6 +49,10 @@ padding: 8px;
 `
 export const IconSpanTextLink = styled(BsArrowRight)`
 color: var(--text-primary);
+width: 18px;
+height: 18px;
+margin-left: 4px;
+margin-right: 8px;
 `
 export const TextLink = styled(NavLink)`
  font-family: 'Poppins', sans-serif;
@@ -80,9 +84,3 @@ export const TextLink = styled(NavLink)`
 export const SpanSeeRecipe = styled.span`
 color: var(--button-background-primary);
 `
-export const SpanTextLink = styled(NavLink)`
-  display: inline-flex;
-  align-items: center;
-  margin-left: 7px;
-  padding-right: 13px;
-`;

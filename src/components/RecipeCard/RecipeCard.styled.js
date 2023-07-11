@@ -1,15 +1,18 @@
 import styled from 'styled-components';
 
 export const ProductCard = styled.div`
+  position: relative;
+  overflow: hidden;
+  align-items: center;
   border: 1px solid #ccc;
-  border-radius: 4px;
-  background-color: #fff;
+  border-radius: 8px;
   display: flex;
   flex-direction: column;
   width: 343px;
   height: 323px;
   flex-shrink: 0;
-    @media (max-width: 768px) {
+  cursor: pointer;
+    @media (min-width: 768px) {
       width: 336px;
     }
     @media (min-width: 1280px) {
@@ -18,11 +21,32 @@ export const ProductCard = styled.div`
 `;
 
 export const ProductImage = styled.img`
-  width: 100%;
-  object-fit: cover;
-  border-radius: 4px 4px 0 0;
+position: absolute;
+width: 100%;
+height: 100%;
+object-fit: cover;
 `;
 
 export const ProductName = styled.h3`
-  margin: 16px;
+display: flex;
+align-items: center;
+padding-left: 16px;
+position: absolute;
+border-radius: 8px;
+bottom: 26px;
+width: 307px;
+height: 52px;
+background-color: #fff;
+font-family: Poppins;
+font-size: 16px;
+font-style: normal;
+font-weight: 500;
+line-height: 20px;
+letter-spacing: -0.24px;
+@media (min-width: 768px) {
+  width: 300px;
+}
+@media (min-width: 1280px) {
+  width: 268px;
+}
 `;

@@ -1,5 +1,4 @@
 import React from "react";
-import { Rights } from "../Footer/Rights/Rights";
 import { SharedLayoutWrapper,
         BackgroundImageLeft,
         BackgroundImageRight
@@ -12,7 +11,6 @@ const Background = ({ children }) => {
         { children }
           <BackgroundImageLeft />
           <BackgroundImageRight /> 
-          {/* <Rights /> */}
        </SharedLayoutWrapper>
     );
  };

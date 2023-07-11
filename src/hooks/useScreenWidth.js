@@ -18,16 +18,26 @@ const useScreenWidth = () => {
       });
     };
 
+    const debounceResize = debounce(handleResize, 100);
+
     handleResize();
 
-    window.addEventListener('resize', handleResize);
+    window.addEventListener('resize', debounceResize);
 
     return () => {
-      window.removeEventListener('resize', handleResize);
+      window.removeEventListener('resize', debounceResize);
     };
   }, []);
 
   return screenWidth;
+};
+
+const debounce = (fn, delay) => {
+  let timeoutId;
+  return function () {
+    clearTimeout(timeoutId);
+    timeoutId = setTimeout(fn, delay);
+  };
 };
 
 export default useScreenWidth;
