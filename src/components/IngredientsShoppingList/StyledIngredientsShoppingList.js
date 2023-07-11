@@ -1,5 +1,5 @@
 import styled from "styled-components";
-
+import { MdClear } from "react-icons/md";
 const StyledListContainerIngridient = styled.ul`
     padding: 0 ;
     @media (min-width: 1280px) {
@@ -128,6 +128,17 @@ const StyledIngridientsItem = styled.li`
     @media (min-width: 1280px) {
         padding-right:28px;
     };
+`
+
+export const StyledCloseIcon =  styled(MdClear)`
+    width:40px; height:40px;
+    padding:10px;
+    border-radius:8px;
+    cursor: pointer;
+    &:hover {
+        background-color:rgb(139, 170, 54);
+        
+    }
 `
 
 
