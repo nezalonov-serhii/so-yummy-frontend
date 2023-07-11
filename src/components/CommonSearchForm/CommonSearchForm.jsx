@@ -1,5 +1,5 @@
 import { useSearchParams } from 'react-router-dom';
-import { SearchFormBox, SearchFormInput, SearchFormButton,ErrorText } from "./SearchForm.styled";
+import { SearchFormBox, SearchFormInput, SearchFormButton,ErrorText } from "./CommonSearchForm.styled";
 // import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { Formik} from 'formik';
 // import { object, string, number, date, InferType } from 'yup';
