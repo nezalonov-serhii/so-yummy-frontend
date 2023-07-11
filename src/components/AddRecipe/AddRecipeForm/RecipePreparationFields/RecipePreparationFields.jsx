@@ -1,9 +1,13 @@
 import { useState } from "react";
 import { Container, Textarea } from "./RecipePreparationFields.styled";
 import { Title } from "../../AddRecipe.styled";
+import { useDispatch, useSelector } from "react-redux";
+import { setPreparation } from "../../../../redux/Slice/addRecipeSlice/addRecipeFormSlice";
 
-export const RecipePreparationFields = ({ onChange }) => {
-  const [value, setValue] = useState("");
+export const RecipePreparationFields = () => {
+  const dispatch = useDispatch();
+  const preparation = useSelector((state) => state.data.preparation);
+  const [value, setValue] = useState(preparation.join("\n"));
 
   const handleKeyDown = (event) => {
     if (event.key === "Enter") {
@@ -14,7 +18,7 @@ export const RecipePreparationFields = ({ onChange }) => {
 
   const handleChange = (event) => {
     setValue(event.target.value);
-    onChange(event.target.value.split("\n"));
+    dispatch(setPreparation(event.target.value.split("\n")));
   };
 
   return (

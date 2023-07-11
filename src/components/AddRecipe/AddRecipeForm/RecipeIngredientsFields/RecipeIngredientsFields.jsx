@@ -1,8 +1,4 @@
-import React, { useEffect } from "react";
 import ingredients from "../../../../ingredients.json";
-
-import { useState } from "react";
-// import { useSelector } from "react-redux";
 import Select from "react-select";
 import {
   Container,
@@ -17,52 +13,67 @@ import {
 } from "./RecipeIngredientsFields.styled";
 
 import { Title } from "../../AddRecipe.styled";
+import { useDispatch, useSelector } from "react-redux";
+import { setIngredients } from "../../../../redux/Slice/addRecipeSlice/addRecipeFormSlice";
+
 
 const options = ingredients.map(({ name }) => ({ value: name, label: name }));
 
-export const RecipeIngredientsFields = ({ onChange }) => {
-  const [listItems, setListItems] = useState([]);
+export const RecipeIngredientsFields = () => {
+  const dispatch = useDispatch();
+  const listItems = useSelector((state) => state.data.listItems);
 
   // const ingredients = useSelector((state) => state.addRecipe.ingredients.items);
-
-  useEffect(() => {
-    onChange(
-      listItems.map((item) => ({
-        value: item.selectedOption?.value,
-        amount: item.amount,
-      }))
-    );
-  }, [listItems]);
 
   const handleClick = (event) => {
     event.preventDefault();
     if (event.target.name === "plus") {
-      setListItems((prevItems) => [...prevItems, { selectedOption: null }]);
+      dispatch(setIngredients([...listItems, { selectedOption: null }]));
     } else if (event.target.name === "minus" && listItems.length > 0) {
-      setListItems((prevItems) => prevItems.slice(0, -1));
+      dispatch(setIngredients(listItems.slice(0, -1)));
     }
   };
 
   const onDelButton = (event, index) => {
     event.preventDefault();
-    setListItems((prevItems) => prevItems.filter((_, i) => i !== index));
+    dispatch(setIngredients(listItems.filter((_, i) => i !== index)));
   };
 
   const handleChange = (index, selectedOption) => {
-    setListItems((prevItems) =>
-      prevItems.map((item, i) =>
-        i === index ? { ...item, selectedOption } : item
+    dispatch(
+      setIngredients(
+        listItems.map((item, i) =>
+          i === index ? { ...item, selectedOption } : item
+        )
       )
     );
   };
 
+  // const handleChange = (index, selectedOption) => {
+  //   setListItems((prevItems) =>
+  //     prevItems.map((item, i) =>
+  //       i === index ? { ...item, selectedOption } : item
+  //     )
+  //   );
+  // };
+
   const handleAmountChange = (index, value) => {
-    setListItems((prevItems) =>
-      prevItems.map((item, i) =>
-        i === index ? { ...item, amount: value } : item
+    dispatch(
+      setIngredients(
+        listItems.map((item, i) =>
+          i === index ? { ...item, amount: value } : item
+        )
       )
     );
   };
+
+  // const handleAmountChange = (index, value) => {
+  //   setListItems((prevItems) =>
+  //     prevItems.map((item, i) =>
+  //       i === index ? { ...item, amount: value } : item
+  //     )
+  //   );
+  // };
 
   const customStyles = {
     control: (baseStyles, state) => ({
