@@ -11,6 +11,7 @@ export const ProductCard = styled.div`
   width: 343px;
   height: 323px;
   flex-shrink: 0;
+  cursor: pointer;
     @media (min-width: 768px) {
       width: 336px;
     }

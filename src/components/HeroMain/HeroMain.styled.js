@@ -110,3 +110,7 @@ letter-spacing: -0.02em;
     line-height: 1.34;
   }
 `
+export const SearchFormStyles = styled.div`
+position: relative;
+margin: 0;
+`

@@ -10,7 +10,6 @@ justify-content: center;
 `;
 
 export const CategoryItem = styled.li`
-color: #001833;
 font-family: Poppins;
 font-size: 28px;
 font-style: normal;
