@@ -9,7 +9,7 @@ export const TitleText = styled.h2`
    line-height: 28px;
    letter-spacing: -2%;
 
-   @media screen and  (min-width: 768px) {
+   @media screen and (min-width: 768px) {
       font-size: 32px;
       line-height: 32px;
       letter-spacing: -0.64px;
@@ -22,8 +22,7 @@ export const TitleText = styled.h2`
 `;
 
 export const Section = styled.section`
- 
-padding-top: 50px;
+   padding-top: 50px;
    padding-bottom: 50px;
 
    @media screen and (min-width: 768px) {
@@ -37,7 +36,7 @@ padding-top: 50px;
 
 export const Wrapper = styled.div`
    max-width: 480px;
-   margin: 0 auto;
+   // margin: 0 auto;
    padding: 0 15px;
 
    @media screen and (min-width: 768px) {
