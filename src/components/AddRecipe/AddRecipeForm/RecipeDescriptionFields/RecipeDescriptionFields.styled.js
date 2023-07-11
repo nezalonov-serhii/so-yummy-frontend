@@ -1,14 +1,5 @@
 import styled from "styled-components";
 
-export const Image = styled.div`
-  width: 279px;
-  height: 268px;
-  margin-right: auto;
-  margin-left: auto;
-  margin-bottom: 32px;
-  background-color: lightgreen;
-`;
-
 export const Container = styled.div`
   display: flex;
   flex-direction: column;

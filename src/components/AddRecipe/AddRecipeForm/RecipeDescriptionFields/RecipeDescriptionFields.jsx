@@ -3,14 +3,17 @@ import { useEffect, useState } from "react";
 import categories from "../../../../categories.json";
 import {
   Container,
-  Image,
   Input,
   InputWrapper,
 } from "./RecipeDescriptionFields.styled";
 
 import Select from "react-select";
+import { ImageRecipe } from "../ImageRecipe/ImageRecipe";
 
-export const RecipeDescriptionFields = ({ onChange }) => {
+export const RecipeDescriptionFields = ({
+  onDescriptionChange: onChange,
+  onImageChange,
+}) => {
   const [title, setTitle] = useState("");
   const [about, setAbout] = useState("");
   const [category, setCategory] = useState("");
@@ -75,9 +78,7 @@ export const RecipeDescriptionFields = ({ onChange }) => {
 
   return (
     <div>
-      <Image>
-        <img alt="" />
-      </Image>
+      <ImageRecipe onChange={onImageChange} />
       <Container>
         <InputWrapper>
           <Input
