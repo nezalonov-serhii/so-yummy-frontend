@@ -10,9 +10,9 @@ import {
   StyledQuantity,
   StyledFlexQuantity,
   StyledListContainerIngridient,
+  StyledCloseIcon,
   
 } from "./StyledIngredientsShoppingList";
-import { MdClear } from "react-icons/md";
 import {getShoppingThunk,deleteShoppingThunk} from "../../redux/shopping/thunkShopping"
 import { useEffect } from "react";
 
@@ -57,7 +57,7 @@ const IngredientsShoppingList = () => {
                             <StyledQuantity>
                                 <p>5</p>
                             </StyledQuantity>
-                            <MdClear style={{width:20, height:20}} onClick={()=>heandleDeleteButton(item._id)}/>
+                            <StyledCloseIcon onClick={()=>heandleDeleteButton(item._id)}/>
                         </StyledFlexQuantity>
                     </StyledIngridientsItem>
                 )

@@ -26,3 +26,15 @@ export const deleteShoppingThunk = createAsyncThunk(
       console.log('🚀 ~ Error:');
     }
   });
+
+  export const addShoppingThunk = createAsyncThunk(
+    'contacts/post',
+    async credentials => {
+      try {
+        const { data } = await axios.post('/shopping-list', credentials);
+        return data;
+      } catch (er) {
+        console.log('🚀 ~ Error:', er.message);
+      }
+    }
+  );

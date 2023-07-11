@@ -4,7 +4,7 @@ import {
   fetchCategories,
   fetchIngredients,
   fetchRecipePopular,
-} from "../operations";
+} from "../../thunk/addRecipe/operations";
 
 const handlePending = (state, field) => {
   state[field].isLoading = true;

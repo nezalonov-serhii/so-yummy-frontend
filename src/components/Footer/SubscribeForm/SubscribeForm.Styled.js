@@ -3,19 +3,21 @@ import { AiOutlineMail } from "react-icons/ai";
 import { Form, Field } from "formik";
 
 export const SubscribeContainer = styled.div`
-   @media screen and (min-width: 1440px) {
+   @media screen and (min-width: 1280px) {
       display: flex;
+      min-width: fit-content;
       flex-direction: column;
       align-items: baseline;
-      margin-left: 235px;
+      margin-left: 120px;
    }
 `;
 
 export const SubscribeBox = styled.div`
    display: none;
-   @media screen and (min-width: 1440px) {
+   @media screen and (min-width: 1280px) {
       display: block;
    }
+  
 `;
 
 export const SubscribeTitle = styled.h3`
@@ -47,11 +49,12 @@ export const AuthForm = styled(Form)`
       margin-left: auto;
       justify-content: center;
    }
-   @media screen and (min-width: 1440px) {
+   @media screen and (min-width: 1280px) {
       display: flex;
       flex-direction: column;
       margin-bottom: 0px;
    }
+   
 `;
 export const Label = styled.label`
    position: relative;
@@ -118,7 +121,7 @@ export const Input = styled(Field)`
          letter-spacing: -0.02em;
       }
    }
-   @media screen and (min-width: 1440px) {
+   @media screen and (min-width: 1280px) {
       width: 339px;
       height: 60px;
       margin-right: 0;
@@ -129,6 +132,7 @@ export const Input = styled(Field)`
          line-height: 1.5;
       }
    }
+    
 `;
 
 export const Btn = styled.button`
@@ -158,11 +162,12 @@ export const Btn = styled.button`
       font-size: 16px;
       line-height: 1.12;
    }
-   @media screen and (min-width: 1440px) {
+   @media screen and (min-width: 1280px) {
       margin-top: 26px;
       width: 339px;
       height: 60px;
    }
+  
 `;
 export const ErrorMessageStyled = styled.p`
    position: absolute;
@@ -175,10 +180,11 @@ export const ErrorMessageStyled = styled.p`
       font-size: 12px;
       top: 77%;
    }
-   @media screen and (min-width: 1440px) {
+   @media screen and (min-width: 1280px) {
       font-size: 14px;
       top: 32%;
    }
+   
 `;
 
 export const WrapField = styled.div`
