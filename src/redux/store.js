@@ -12,17 +12,20 @@ import {
 } from "redux-persist";
 
 import { signupReducer } from "./Slice/signup/signupSlice";
+import addRecipeReducer from "./addRecipe/addRecipeSlice/addRecipeSlice";
+import shoppingReducer from "./shopping/sliceShopping";
 
-const persistConfig = {
-   key: "root",
+const authPersistConfig = {
+   key: "auth",
    storage,
+   whitelist: ["token"],
 };
-
-const persistedReducer = persistReducer(persistConfig, signupReducer);
 
 export const store = configureStore({
    reducer: {
-      signup: persistedReducer,
+      auth: persistReducer(authPersistConfig, signupReducer),
+      addRecipe: addRecipeReducer,
+      shopping: shoppingReducer,
    },
    middleware: (getDefaultMiddleware) =>
       getDefaultMiddleware({
