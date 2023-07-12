@@ -6,6 +6,7 @@ import {
   Image,
   Item,
   List,
+  Paragraph,
   SecondaryTitle,
   Text,
   TextWrapper,
@@ -33,25 +34,29 @@ export const PopularRecipe = () => {
   return (
     <Container>
       <Title>Popular recipe</Title>
-      <List>
-        {recipes.map(({ _id, preview, title, description }) => {
-          const name = title.length < 26 ? title : title.slice(0, 21) + "...";
-          const paragraph =
-            description.length < 100
-              ? description
-              : description.slice(0, 80) + "...";
-          return (
-            <Item key={_id}>
-              <Image src={preview} />
+      {recipes.length < 1 ? (
+        <Paragraph>There are no popular recipes at the moment.</Paragraph>
+      ) : (
+        <List>
+          {recipes.map(({ _id, preview, title, description }) => {
+            const name = title.length < 26 ? title : title.slice(0, 21) + "...";
+            const paragraph =
+              description.length < 100
+                ? description
+                : description.slice(0, 80) + "...";
+            return (
+              <Item key={_id}>
+                <Image src={preview} />
 
-              <TextWrapper>
-                <SecondaryTitle>{name}</SecondaryTitle>
-                <Text>{paragraph}</Text>
-              </TextWrapper>
-            </Item>
-          );
-        })}
-      </List>
+                <TextWrapper>
+                  <SecondaryTitle>{name}</SecondaryTitle>
+                  <Text>{paragraph}</Text>
+                </TextWrapper>
+              </Item>
+            );
+          })}
+        </List>
+      )}
     </Container>
   );
 };

@@ -10,6 +10,10 @@ export const List = styled.ul`
   margin-top: 32px;
 `;
 
+export const Paragraph = styled.p`
+  margin-top: 32px;
+`;
+
 export const Item = styled.li`
   display: flex;
   gap: 12px;
