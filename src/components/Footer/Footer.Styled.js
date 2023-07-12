@@ -31,8 +31,6 @@ export const FooterWrapper = styled.div`
 
   @media (min-width: 1280px) {
     padding-top: 64px;
-    padding-right: 100px;
-    padding-left: 100px;
   }
 `;
 
@@ -46,8 +44,7 @@ export const MainWrapper = styled.div`
 export const Tablet = styled.div`
   @media (min-width: 768px) {
     display: flex;
-    justify-content: center;
-    margin-bottom: 72px;
+    justify-content: space-between;
   }
   @media (min-width: 1280px) {
     padding-top: 0;
