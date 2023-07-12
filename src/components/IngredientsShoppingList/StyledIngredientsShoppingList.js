@@ -85,7 +85,7 @@ const StyledQuantity = styled.div`
     align-items: center;
     min-width:37px;
     height:23px;
-    color:var(-text-light);
+    color:var(--text-light);
     font-size: 10px;
     font-style: normal;
     font-weight: 600;
