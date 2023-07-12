@@ -47,12 +47,14 @@ export const AuthForm = styled(Form)`
     flex-direction: row;
     margin-right: auto;
     margin-left: auto;
+    margin-top: 72px;
     justify-content: center;
   }
   @media screen and (min-width: 1280px) {
     display: flex;
     flex-direction: column;
     margin-bottom: 0px;
+    margin-top: 0px;
   }
 `;
 export const Label = styled.label`
