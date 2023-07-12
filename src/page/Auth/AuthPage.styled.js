@@ -28,11 +28,11 @@ export const AuthSection = styled.section`
    background-size: cover;
    background-position: center;
 
-   @media screen and (min-width: 768px) and (max-width: 1280px) {
+   @media screen and (min-width: 768px) and (max-width: 1279px) {
       padding: 96px 0 60px 0;
       background-image: url(${bgAuthTab});
    }
-   @media screen and (min-width: 1281px) {
+   @media screen and (min-width: 1280px) {
       background-image: url(${bgAuthDesk});
    }
 `;
@@ -52,14 +52,14 @@ export const Container = styled.div`
       background-repeat: no-repeat;
       background-size: cover;
 
-      @media screen and (min-width: 768px) and (max-width: 1280px) {
+      @media screen and (min-width: 768px) and (max-width: 1279px) {
          background-image: url(${bgAuthPanaTab});
          width: 285px;
          margin-bottom: -12px;
          height: 250px;
       }
 
-      @media screen and (min-width: 1281px) {
+      @media screen and (min-width: 1280px) {
          margin-bottom: 0;
          width: 532px;
          height: 468px;
@@ -67,7 +67,7 @@ export const Container = styled.div`
       }
    }
 
-   @media screen and (min-width: 1281px) {
+   @media screen and (min-width: 1280px) {
       flex-direction: row;
    }
 
@@ -76,13 +76,13 @@ export const Container = styled.div`
          background-image: url(${bgAuthPanaMob2x});
       }
 
-      @media screen and (min-width: 768px) and (max-width: 1280px) {
+      @media screen and (min-width: 768px) and (max-width: 1279px) {
          &::before {
             background-image: url(${bgAuthPanaTab2x});
          }
       }
 
-      @media screen and (min-width: 1281px) {
+      @media screen and (min-width: 1280px) {
          &::before {
             background-image: url(${bgAuthPanaDesk2x});
          }
@@ -102,11 +102,11 @@ export const AuthForm = styled(Form)`
       max-width: 335px;
    }
 
-   @media screen and (min-width: 768px) and (max-width: 1280px) {
+   @media screen and (min-width: 768px) and (max-width: 1279px) {
       width: 500px;
       padding: 44px 50px;
    }
-   @media screen and (min-width: 1281px) {
+   @media screen and (min-width: 1280px) {
       width: 500px;
       padding: 44px 50px;
    }

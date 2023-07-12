@@ -1,12 +1,8 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  width: 375px;
-  margin-top: 50px;
-  margin-top: 22px;
+  margin-top: 72px;
   margin-bottom: 72px;
-  padding-left: 16px;
-  padding-right: 16px;
 `;
 export const Button = styled.button`
   background-color: rgba(34, 37, 42, 1);
