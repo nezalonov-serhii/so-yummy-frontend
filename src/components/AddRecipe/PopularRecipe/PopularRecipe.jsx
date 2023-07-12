@@ -5,6 +5,7 @@ import {
   Container,
   Image,
   Item,
+  LinkId,
   List,
   Paragraph,
   SecondaryTitle,
@@ -23,6 +24,7 @@ export const PopularRecipe = () => {
         const response = await dispatch(fetchRecipePopular());
         const responseData = response.payload.data;
         setRecipes(responseData);
+        console.log(responseData);
       } catch (error) {
         console.error(error);
       }
@@ -44,14 +46,16 @@ export const PopularRecipe = () => {
               description.length < 100
                 ? description
                 : description.slice(0, 80) + "...";
+            const recipeId = _id;
             return (
               <Item key={_id}>
-                <Image src={preview} />
-
-                <TextWrapper>
-                  <SecondaryTitle>{name}</SecondaryTitle>
-                  <Text>{paragraph}</Text>
-                </TextWrapper>
+                <LinkId to={`./recipe/:${recipeId}`}>
+                  <Image src={preview} />
+                  <TextWrapper>
+                    <SecondaryTitle>{name}</SecondaryTitle>
+                    <Text>{paragraph}</Text>
+                  </TextWrapper>
+                </LinkId>
               </Item>
             );
           })}
