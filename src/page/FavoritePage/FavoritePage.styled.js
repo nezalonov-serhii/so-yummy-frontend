@@ -4,7 +4,6 @@ export const WrapPage = styled.div`
    max-width: 480px;
    margin: 0 auto;
    padding: 0 16px;
-   background-color:  #FAFAFA;
 
    @media screen and (min-width: 768px) {
       max-width: 768px;
