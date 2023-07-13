@@ -8,7 +8,7 @@ export const SearchedRecipesList = ({listOfRecipes}) => {
 
    return (
       <RecipesList>
-         {listOfRecipes &&
+          {listOfRecipes ?(
             listOfRecipes.map((recipe) => {
                const [id] = Object.values(recipe._id);
 
@@ -22,7 +22,8 @@ export const SearchedRecipesList = ({listOfRecipes}) => {
                      />
                   </RecipeItem>
                );
-            })}
+            })) :(<NoRecipes/>)
+            }
       </RecipesList>
    );
 };
