@@ -8,9 +8,11 @@ import { toast } from "react-hot-toast";
 import { Toaster } from "react-hot-toast";
 
 import { fetchAddRecipe } from "../../../redux/thunk/addRecipe/operations";
+import { useNavigate } from "react-router";
 
 export const AddRecipeForm = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const data = useSelector((state) => state.data);
 
   const handleSubmit = (event) => {
@@ -48,7 +50,9 @@ export const AddRecipeForm = () => {
         })
       );
     }
+    navigate("/my");
   };
+
   return (
     <Container>
       <Toaster position="bottom-center" />

@@ -1,18 +1,18 @@
 import styled from "styled-components";
-import { FaFacebook } from "react-icons/fa";
+import { RiFacebookCircleFill } from "react-icons/ri";
 import {
   AiFillYoutube,
   AiOutlineTwitter,
   AiOutlineInstagram,
 } from "react-icons/ai";
 
-export const FacebokIcon = styled(FaFacebook)`
+export const FacebokIcon = styled(RiFacebookCircleFill)`
   width: 20px;
   height: 20px;
   color: var(--button-dark-background-primary);
+  transition: var(--cubic-bezier) 250ms;
   cursor: pointer;
   &:hover {
-    transition: var(--cubic-bezier) ;
     color: var(--text-light);
   }
 `;
@@ -21,8 +21,8 @@ export const YouTubeIcon = styled(AiFillYoutube)`
   height: 20px;
   color: var(--button-dark-background-primary);
   cursor: pointer;
+  transition: var(--cubic-bezier) 250ms;
   &:hover {
-    transition: var(--cubic-bezier) ;
     color: var(--text-light);
   }
 `;
@@ -30,9 +30,9 @@ export const TwitterIcon = styled(AiOutlineTwitter)`
   width: 20px;
   height: 20px;
   color: var(--button-dark-background-primary);
+  transition: var(--cubic-bezier) 250ms;
   cursor: pointer;
   &:hover {
-    transition: var(--cubic-bezier) ;
     color: var(--text-light);
   }
 `;
@@ -40,9 +40,9 @@ export const InstaIcon = styled(AiOutlineInstagram)`
   width: 20px;
   height: 20px;
   color: var(--button-dark-background-primary);
+  transition: var(--cubic-bezier) 250ms;
   cursor: pointer;
   &:hover {
-    transition: var(--cubic-bezier) ;
     color: var(--text-light);
   }
 `;
@@ -55,6 +55,5 @@ export const FollowList = styled.ul`
 
   @media (min-width: 768px) {
     margin-top: 40px;
-   
   }
 `;

@@ -47,14 +47,24 @@ export const Button = styled.button`
   border: none;
   font-weight: 400;
   background-color: inherit;
-  color: rgba(224, 224, 224, 1);
+  color: ${(props) =>
+    props.isSelected
+      ? "var( --button-background-primary)"
+      : "rgba(224, 224, 224, 1)"};
   font-size: 14px;
   @media (min-width: 768px) {
     font-size: 18px;
-    color: rgba(189, 189, 189, 1);
+    color: ${(props) =>
+      props.isSelected
+        ? "var( --button-background-primary)"
+        : "rgba(224, 224, 224, 1)"};
   }
 
   @media (min-width: 1280px) {
     font-size: 16px;
+    color: ${(props) =>
+      props.isSelected
+        ? "var( --button-background-primary)"
+        : "rgba(224, 224, 224, 1)"};
   }
 `;
