@@ -5,10 +5,9 @@ export const NotFoundContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 100px;
   margin-bottom: 100px;
 
-  @media (min-width: 768) {
+  @media (min-width: 768px) {
     margin-bottom: 204px;
   }
 `;
@@ -23,7 +22,7 @@ export const NotFoundTitle = styled.h3`
   letter-spacing: -2%;
   margin-bottom: 8px;
 
-  @media (min-width: 768) {
+  @media (min-width: 768px) {
     font-size: 24px;
     line-height: 24px;
     margin-bottom: 14px;
@@ -38,10 +37,13 @@ export const NotFoundText = styled.p`
   font-weight: 600;
   line-height: 18px;
   letter-spacing: -2%;
+  width: 206px;
+  text-align: center;
 
-  @media (min-width: 768) {
+  @media (min-width: 768px) {
     font-size: 18px;
     line-height: 24px;
+    width: auto;
   }
 `;
 
