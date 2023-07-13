@@ -18,7 +18,7 @@ const StyledIngridientsHeader = styled.div`
     margin-bottom:32px;
     border-radius:8px;
 
-    color:var(--text-light);
+    color: var(--text-light);
     font-size: 12px;
     font-style: normal;
     font-weight: 600;
@@ -53,7 +53,7 @@ const StyledIngrsHeadThumb = styled.div`
     };
 `
 const StyledImageCardThumb = styled.div`
-    color:var(--text-primary);
+    color:#3E4462;
     font-size: 10px;
     font-style: normal;
     font-weight: 500;
@@ -85,12 +85,12 @@ const StyledQuantity = styled.div`
     align-items: center;
     min-width:37px;
     height:23px;
-    color:var(--text-light);
+    color:#FAFAFA;
     font-size: 10px;
     font-style: normal;
     font-weight: 600;
     line-height: normal;
-    background-color: var(--button-background-primary);
+    background-color: #8BAA36;
     border-radius:8px;
 
     @media (min-width: 768px) {
