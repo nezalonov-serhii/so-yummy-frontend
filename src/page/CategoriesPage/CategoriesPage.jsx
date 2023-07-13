@@ -1,28 +1,33 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import CategoriesGallery from "../../components/CategoriesPage/CategoriesGallery/CategoriesGallery";
 import CategoriesList from "../../components/CategoriesPage/CategoriesList/CategoriesList";
 import { Title } from "../../components/Title/Title";
-import defaultRecipes from "../../service/api/recipes.json";
+
 import { Container } from "./CategoriesPage.styled";
+import { fetchRecipesGallery } from "../../service/api/fetchRecipesGallery";
 
 const CategoriesPage = () => {
-   const [gallery, setGallery] = useState(
-      defaultRecipes.filter((recipe) => recipe.category === "Beef")
-   );
+  const [gallery, setGallery] = useState([]);
 
-   const chooseCategory = (categoryName) => {
-      const recipes = defaultRecipes;
-      const newGallery = recipes.filter((recipe) => recipe.category === categoryName);
-      setGallery(newGallery);
-      return;
-   };
+  useEffect(()=>{
+   fetchRecipesGallery("Breakfast").then(res => setGallery(res));
+  
+  }, [])
 
-   return (
-      <Container>
-         <Title>Categories</Title>
-         <CategoriesList onSubmit={chooseCategory} recipes={gallery} />
-         <CategoriesGallery recipes={gallery} />
-      </Container>
-   );
+  const chooseCategory = async (categoryName) => {
+    const newGallery = await fetchRecipesGallery(categoryName);
+    console.log(newGallery);
+    setGallery(newGallery);
+
+    return;
+  };
+
+  return (
+    <Container>
+      <Title>Categories</Title>
+      <CategoriesList onSubmit={chooseCategory} />
+      <CategoriesGallery recipes={gallery}/>
+    </Container>
+  );
 };
 export default CategoriesPage;
