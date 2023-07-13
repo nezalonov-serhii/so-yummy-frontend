@@ -6,11 +6,16 @@ import { SearchPageContainer } from "./SearchPage.styled";
 import { searchByTitle } from "../../service/api/apiSearch";
 const SearchPage = () => {
   const [recipeList, setrecipeList] = useState('');
+    useEffect(() => {
+    searchByTitle({ query: "Carrot" }).then(({data}) => setrecipeList(data.data))
+    },[]
+    // [recipeList]
+  );
   return (
     <SearchPageContainer>
     <Title>Search</Title>
     <SearchBar />
-    <SearchedRecipesList />
+    <SearchedRecipesList listOfRecipes={recipeList} />
     </SearchPageContainer>
   
   )
