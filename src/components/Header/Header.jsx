@@ -1,8 +1,8 @@
 import { useState } from "react";
-import { PiForkKnifeBold, PiListBold } from "react-icons/pi";
-import { IoIosSearch } from "react-icons/io";
+import { HiOutlineMenuAlt2 } from "react-icons/hi";
+import { FiSearch } from "react-icons/fi";
 import { CgClose } from "react-icons/cg";
-import  Container from "../Container";
+import Container from "../Container";
 
 import {
   HeaderContainer,
@@ -11,7 +11,10 @@ import {
   StyledLink,
   Box,
   MobileBtn,
-  Logo,Search
+  Logo,
+  Search,
+  LogoIcon,
+  SearchText,
 } from "./styled";
 
 export const Header = () => {
@@ -26,20 +29,22 @@ export const Header = () => {
     <Container>
       <HeaderContainer>
         <Box>
-          <Logo>
-            <PiForkKnifeBold width={40} height={40} color="white" />
+          <Logo to="/main">
+            <LogoIcon width={44} height={44} color="white" />
           </Logo>
           <Nav>
             <nav>
               <Line nav={nav}>
                 <li>
-                  <StyledLink to="/categories">Categories</StyledLink>
+                  <StyledLink to="/categories/:categoryName">
+                    Categories
+                  </StyledLink>
                 </li>
                 <li>
                   <StyledLink to="/add">Add Recipe</StyledLink>
                 </li>
                 <li>
-                  <StyledLink to="/recipe">My Recipe</StyledLink>
+                  <StyledLink to="/recipe/:recipeId">My Recipe</StyledLink>
                 </li>
                 <li>
                   <StyledLink to="/favorite">Favorite</StyledLink>
@@ -48,12 +53,14 @@ export const Header = () => {
                   <StyledLink to="/shopping-list">Shopping list</StyledLink>
                 </li>
                 <Search>
-                <IoIosSearch  width={20} height={20}/>
-                  <StyledLink to="/search"> Search</StyledLink>
+                  <StyledLink to="/search">
+                    <FiSearch width={24} height={24} />
+                    <SearchText>Search</SearchText>
+                  </StyledLink>
                 </Search>
               </Line>
-              <MobileBtn onClick={() => setNav(!nav)}>
-                {nav ? <CgClose /> : <PiListBold />}
+              <MobileBtn size={32} onClick={() => setNav(!nav)}>
+                {nav ? <CgClose size={32} /> : <HiOutlineMenuAlt2 size={32}/>}
               </MobileBtn>
             </nav>
           </Nav>

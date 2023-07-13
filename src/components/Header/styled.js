@@ -1,15 +1,24 @@
 
 import styled from "styled-components";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
+import { PiForkKnifeBold } from "react-icons/pi";
 import modalMOb from "../../images/Modal/modalLeafMob.png";
 import modalTab from "../../images/Modal/modalLeafTab.png";
+
 
 export const HeaderContainer = styled.header`
   width: 100%;
   height:46px;
   margin-top: 18px;
+  margin-bottom: 10px;
 `;
-
+export const LogoIcon = styled(PiForkKnifeBold)`
+  width: 30px;
+  height: 30px;
+  color: #8baa36;
+  transition: all 0.5s var(  --cubic-bezier);
+  
+`;
 export const Nav = styled.nav`
   display: flex;
 `;
@@ -19,8 +28,8 @@ export const MobileBtn = styled.div`
     right: 20px;
     top: 20px;
     display: flex;
-    width: 32px;
-    height: 32px;
+    width: ${props => (props.size ? `${props.size}px` : "32px")};
+    height: ${props => (props.size ? `${props.size}px` : "32px")};
     align-items: center;
     justify-content: center;
     cursor: pointer;
@@ -31,31 +40,23 @@ export const MobileBtn = styled.div`
 `;
 
 export const Line = styled.ul`
-  
-    display: flex;
+display: flex;
     align-items: center;
     font-size: 18px;
     line-height: 18px;
     margin-bottom: 18px;
     font-family: Poppins;
     gap: 30px;
+@media (max-width: 480px) {
     padding-left: 20px;
     background-image: url(${modalMOb});
     background-position: left bottom;
     background-repeat: no-repeat;
     background-size: contain;
     background-color: #fff;
-   
     padding-left: 0;
-  }
-  @media (max-width: 768px) {
-    display: flex;
-    align-items: center;
-    font-size: 18px;
-    line-height: 18px;
-    margin-bottom: 18px;
-    font-family: Poppins;
-    gap: 30px;
+}
+  @media (max-width: 1280px) {
     padding-left: 20px;
     background-image: url(${modalTab});
     background-position: right bottom;
@@ -90,9 +91,12 @@ export const Line = styled.ul`
 export  const StyledLink = styled(NavLink)`
   color: #333;
   text-decoration: none;
+  display:flex;
   &.active {
     color: #8baa36;
   }
+
+
 `;
 
 export  const Box = styled.div`
@@ -103,7 +107,7 @@ display: flex;
   flex-direction: column-reverse;
 `;
 
-export const Logo = styled.div`
+export const Logo = styled(Link)`
   display: flex;
   position: absolute;
   left: 16px;
@@ -118,10 +122,15 @@ export const Logo = styled.div`
 `;
 export const  Search  = styled.li`
 display: flex;
-
 justify-content: center;
   align-items: center;
 `
+export const SearchText = styled.p`
+  margin-left: 8px;
+  @media (min-width: 1280px) {
+    display: none;
+  }
+`;
 
 
 // export const ThemeSwitch = styled.div`
