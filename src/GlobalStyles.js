@@ -9,6 +9,8 @@ const GlobalStyles = createGlobalStyle`
     --text-secondary: #23262A;
     --text-third: rgba(0, 0, 0, 0.5);
     --text-light: #FAFAFA;
+    
+    --accent-color: #8BAA36;
 
     --title: #001833;
 
