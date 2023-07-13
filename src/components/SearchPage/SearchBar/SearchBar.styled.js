@@ -35,3 +35,8 @@ text-align: center;
     height: 70px;
   }
 `;
+
+export const CustomSearchFormContainer = styled.div`
+display: flex;
+justify-content: center;
+`;

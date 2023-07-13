@@ -8,7 +8,8 @@ import {
     Title,
     Span,
     TextHero,
-    CustomButtonStyles
+    CustomButtonStyles,
+    CustomSearchFormContainer
 } from "./HeroMain.styled"
 
 
@@ -37,7 +38,10 @@ export const HeroMain = () => {
                         save them for the future.
                         </TextHero>
                     )}
-                <CommonSearchForm CustomButtonComponent={CustomButtonStyles} />
+                <CommonSearchForm 
+                    CustomButtonComponent={CustomButtonStyles} 
+                    SearchFormContainer={CustomSearchFormContainer}
+                    />
             </Container>
         </Section>
     )

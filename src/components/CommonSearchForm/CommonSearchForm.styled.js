@@ -74,8 +74,7 @@ const ErrorText = styled(ErrorMessage)`
 `;
 
 const SearchFormContainer = styled.div`
-display: flex;
-justify-content: center;
+
 `;
 
 export { SearchFormBox, SearchFormInput, SearchFormContainer, ErrorText };
