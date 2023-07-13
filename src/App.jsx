@@ -147,7 +147,7 @@ function App() {
              }
            />
            <Route
-             path="page-404"
+             path="*"
              element={
                <Suspense>
                  <PrivateRoute>
