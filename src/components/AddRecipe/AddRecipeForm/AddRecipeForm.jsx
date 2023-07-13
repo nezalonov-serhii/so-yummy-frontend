@@ -34,7 +34,7 @@ export const AddRecipeForm = () => {
       fetch(data.image)
         .then((res) => res.blob())
         .then((blob) => {
-          const file = new File([blob], "image.jpg", { type: "image/jpeg" });
+          const file = new File([blob], "image.png", { type: "image/png" });
           newData.append("image", file);
           dispatch(
             fetchAddRecipe({
