@@ -3,7 +3,6 @@ import {
   fetchAddRecipe,
   fetchCategories,
   fetchIngredients,
-  fetchRecipePopular,
 } from "../../thunk/addRecipe/operations";
 
 const handlePending = (state, field) => {
@@ -20,7 +19,7 @@ const handleFulfilled = (state, action, field) => {
   state[field].isLoading = false;
   state[field].error = null;
   if (action.payload) {
-    state[field].items = action.payload;
+    state[field].items = action.payload.data;
   }
 };
 
@@ -74,5 +73,5 @@ const addRecipeSlice = createSlice({
       );
   },
 });
-
+export const { setIngredients } = addRecipeSlice.actions;
 export default addRecipeSlice.reducer;
