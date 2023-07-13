@@ -20,7 +20,7 @@ export const NavBar = () => {
           </Styledlink>
         </ItemNav>
         <ItemNav>
-          <Styledlink to="/my" onClick={scrollToTop}>
+          <Styledlink to="/recipe/:recipeId" onClick={scrollToTop}>
             My recipes
           </Styledlink>
         </ItemNav>
