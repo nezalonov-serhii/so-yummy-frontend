@@ -2,21 +2,30 @@ import { RiDeleteBinLine } from "react-icons/ri";
 import styled from "styled-components";
 
 export const CardWrapper = styled.li`
-   display: flex;
+display: flex;
    border-radius: 8px;
-   background: #fff;
+   background-color: #fff;
    padding: 9px 14px;
    gap: 14px;
+   margin-bottom: 18px;
+   &:not(:last-child) {
+    margin-bottom: 18px;
+  }
 
-   background-color: gray;
 
-   @media screen and (min-width: 768px) {
+    @media screen and (min-width: 768px) {
       padding: 24px 28px;
       gap: 40px;
+      &:not(:last-child) {
+        margin-bottom: 40px;
+      }
    }
    @media screen and (min-width: 1280px) {
       padding: 40px;
       gap: 50px;
+      &:not(:last-child) {
+    margin-bottom: 50px;
+  }
    }
 `;
 export const ImgWrapper = styled.div``;
@@ -70,16 +79,39 @@ export const Title = styled.h3`
 export const DeleteButton = styled.button`
    border: none;
    padding: 5px;
+   width: 24px;
+   height: 24px;
 
    border-radius: 4px;
    background-color: #ebf3d4;
 
    @media screen and (min-width: 768px) {
       padding: 8px;
+      width: 38px;
+   height: 38px;
    }
 
    @media screen and (min-width: 1280px) {
       padding: 10px;
+      width: 44px;
+   height: 44px;
+   }
+`;
+export const StyledIcon = styled(RiDeleteBinLine)`
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   width: 14px;
+   height: 14px;
+
+   @media screen and (min-width: 768px) {
+      width: 22px;
+      height: 22px;
+   }
+
+   @media screen and (min-width: 1280px) {
+      width: 24px;
+      height: 24px;
    }
 `;
 export const DescriptionBox = styled.div``;
@@ -111,7 +143,22 @@ export const TimeBox = styled.div`
    justify-content: space-between;
    align-items: end;
 `;
-export const Time = styled.p``;
+export const Time = styled.p`
+color: var(--color-text-primary, #3E4462);
+font-family: Poppins;
+font-size: 10px;
+font-style: normal;
+font-weight: 500;
+line-height: 14px;
+letter-spacing: -0.24px;
+
+@media screen and (min-width: 768px) {
+    font-size: 14px;
+    line-height: 20px;
+    
+ }
+`;
+
 export const FavPageButton = styled.button`
    border-radius: 20px 60px;
    border: 2px solid var(--button-background-secondary);
@@ -137,23 +184,5 @@ export const FavPageButton = styled.button`
    @media screen and (min-width: 1280px) {
       padding: 14px 38px;
       font-size: 16px;
-   }
-`;
-
-export const StyledIcon = styled(RiDeleteBinLine)`
-   display: flex;
-   align-items: center;
-   justify-content: center;
-   width: 14px;
-   height: 14px;
-
-   @media screen and (min-width: 768px) {
-      width: 22px;
-      height: 22px;
-   }
-
-   @media screen and (min-width: 1280px) {
-      width: 24px;
-      height: 24px;
    }
 `;

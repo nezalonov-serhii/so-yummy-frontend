@@ -9,13 +9,13 @@ const FavoritePage = () => {
    const [recipes, setRecipes] = useState([]);
    const [, setError] = useState(null);
    const [isLoading, setIsLoading] = useState(false);
-   const [page, setPage] = useState(1);
+  //  const [page, setPage] = useState(1);
 
    useEffect(() => {
       const fetchFavoriteRecipes = async () => {
          try {
             setIsLoading(true);
-            const response = await getFavoriteRecipes(page);
+            const response = await getFavoriteRecipes();
 
             setRecipes(response);
          } catch (error) {
@@ -25,7 +25,7 @@ const FavoritePage = () => {
          }
       };
       fetchFavoriteRecipes();
-   }, [page]);
+   }, []);
 
    const hendleDeleteRecipeById = (id) => {
       deleteRecipeFromFavorite(id);
