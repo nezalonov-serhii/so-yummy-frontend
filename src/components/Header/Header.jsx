@@ -24,8 +24,7 @@ export const Header = () => {
               checked={isDarkMode}
               onChange={toggleTheme}
             />
-          </ThemeSwitch> */}
-          
+          </ThemeSwitch> */}      
         </Box>
       </HeaderContainer>
     </Container>
