@@ -8,37 +8,34 @@ import { Container } from "./CategoriesPage.styled";
 import { fetchRecipesGallery } from "../../service/api/fetchRecipesGallery";
 
 const CategoriesPage = () => {
-  const [gallery, setGallery] = useState([]);
-  const { categoryName   } = useParams();
-  const [selectedCategory, setSelectedCategory] = useState(
-    categoryName[0].toUpperCase() + categoryName.slice(1)
-  );
-  const navigate = useNavigate();
+   const [gallery, setGallery] = useState([]);
+   const { categoryName } = useParams();
+   const [selectedCategory, setSelectedCategory] = useState(
+      categoryName[0].toUpperCase() + categoryName.slice(1)
+   );
+   const navigate = useNavigate();
 
-  useEffect(() => {
-    fetchRecipesGallery(selectedCategory).then((res) => setGallery(res));
-  }, []);
+   useEffect(() => {
+      fetchRecipesGallery(selectedCategory).then((res) => setGallery(res));
+   }, [selectedCategory]);
 
-  const chooseCategory = async (categorynewName) => {
-    setSelectedCategory(categorynewName);
+   const chooseCategory = async (categorynewName) => {
+      setSelectedCategory(categorynewName);
 
-    navigate(`/categories/${categorynewName}`);
+      navigate(`/categories/${categorynewName}`);
 
-    const newGallery = await fetchRecipesGallery(categorynewName);
-    setGallery(newGallery);
+      const newGallery = await fetchRecipesGallery(categorynewName);
+      setGallery(newGallery);
 
-    return;
-  };
+      return;
+   };
 
-  return (
-    <Container>
-      <Title>Categories</Title>
-      <CategoriesList
-        onSubmit={chooseCategory}
-        selectedCategory={selectedCategory}
-      />
-      <CategoriesGallery recipes={gallery} />
-    </Container>
-  );
+   return (
+      <Container>
+         <Title>Categories</Title>
+         <CategoriesList onSubmit={chooseCategory} selectedCategory={selectedCategory} />
+         <CategoriesGallery recipes={gallery} />
+      </Container>
+   );
 };
 export default CategoriesPage;
