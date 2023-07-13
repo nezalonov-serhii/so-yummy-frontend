@@ -1,4 +1,4 @@
-import {Link }from "react-router-dom";
+import { Link } from "react-router-dom";
 import {
   CardWrapper,
   ImgWrapper,
@@ -12,37 +12,34 @@ import {
   Description,
   TimeBox,
   Time,
-  FavPageButton
+  FavPageButton,
 } from "./FavCard.styled";
 
-export const FavCard = ({
-  _id,
-  title,
-  preview,
-  description,
-  time,
-  onDelete,
-}) => {
+export const FavCard = (recipe) => {
+  const { id, title, preview, description, time, onDelete } = recipe;
+
   return (
     <>
-      <CardWrapper key={_id}>
+      <CardWrapper key={id}>
         <ImgWrapper>
           <Img src={preview} alt={title} />
         </ImgWrapper>
         <InfoWrapper>
-          <TitleBox>
-            <Title>{title}</Title>
-            <DeleteButton type="button" onDelete={onDelete}>
-              <StyledIcon />
-            </DeleteButton>
-          </TitleBox>
-          <DescriptionBox>
-            <Description>{description}</Description>
-          </DescriptionBox>
+          <div>
+            <TitleBox>
+              <Title>{title}</Title>
+              <DeleteButton type="button" onDelete={onDelete}>
+                <StyledIcon />
+              </DeleteButton>
+            </TitleBox>
+            <DescriptionBox>
+              <Description>{description}</Description>
+            </DescriptionBox>
+          </div>
           <TimeBox>
-            <Time>{time}</Time>
-            <Link to={`api/favorite${_id}`}>
-              <FavPageButton>see recipe</FavPageButton>
+            <Time>{time} min</Time>
+            <Link to={`/recipe/${id}`}>
+              <FavPageButton>See reecipe</FavPageButton>
             </Link>
           </TimeBox>
         </InfoWrapper>
