@@ -28,7 +28,7 @@ export const Header = () => {
           <nav>
             <Line nav={nav}>
               <li>
-                <StyledLink to="/categories">Categories</StyledLink>
+                <StyledLink to="categories/Breakfast">Categories</StyledLink>
               </li>
               <li>
                 <StyledLink to="/add">Add Recipe</StyledLink>
