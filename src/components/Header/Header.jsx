@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { PiListBold } from "react-icons/pi";
+import { HiOutlineMenuAlt2 } from "react-icons/hi";
 import { FiSearch } from "react-icons/fi";
 import { CgClose } from "react-icons/cg";
 import Container from "../Container";
@@ -59,8 +59,8 @@ export const Header = () => {
                   </StyledLink>
                 </Search>
               </Line>
-              <MobileBtn onClick={() => setNav(!nav)}>
-                {nav ? <CgClose /> : <PiListBold />}
+              <MobileBtn size={32} onClick={() => setNav(!nav)}>
+                {nav ? <CgClose size={32} /> : <HiOutlineMenuAlt2 size={32}/>}
               </MobileBtn>
             </nav>
           </Nav>

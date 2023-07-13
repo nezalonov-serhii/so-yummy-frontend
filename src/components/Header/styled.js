@@ -28,8 +28,8 @@ export const MobileBtn = styled.div`
     right: 20px;
     top: 20px;
     display: flex;
-    width: 32px;
-    height: 32px;
+    width: ${props => (props.size ? `${props.size}px` : "32px")};
+    height: ${props => (props.size ? `${props.size}px` : "32px")};
     align-items: center;
     justify-content: center;
     cursor: pointer;
@@ -91,16 +91,11 @@ display: flex;
 export  const StyledLink = styled(NavLink)`
   color: #333;
   text-decoration: none;
+  display:flex;
   &.active {
     color: #8baa36;
   }
-  @media (max-width: 1280px) {
-    &.active {
-      color: #8baa36;
-      display:flex;
-    }
-    
-  }
+
 
 `;
 
@@ -130,7 +125,7 @@ display: flex;
 justify-content: center;
   align-items: center;
 `
-export const SearchText = styled(StyledLink)`
+export const SearchText = styled.p`
   margin-left: 8px;
   @media (min-width: 1280px) {
     display: none;
