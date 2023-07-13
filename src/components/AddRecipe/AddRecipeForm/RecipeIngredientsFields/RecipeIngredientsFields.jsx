@@ -1,4 +1,4 @@
-import ingredients from "../../../../ingredients.json";
+// import ingredients from "../../../../ingredients.json";
 import Select from "react-select";
 import {
   Container,
@@ -14,34 +14,39 @@ import {
 
 import { Title } from "../../AddRecipe.styled";
 import { useDispatch, useSelector } from "react-redux";
-import { setIngredients } from "../../../../redux/Slice/addRecipeSlice/addRecipeFormSlice";
-
-
-const options = ingredients.map(({ name }) => ({ value: name, label: name }));
+import { setAddIngredients } from "../../../../redux/Slice/addRecipeSlice/addRecipeFormSlice";
+import { fetchIngredients } from "../../../../redux/thunk/addRecipe/operations";
+import { useEffect } from "react";
 
 export const RecipeIngredientsFields = () => {
   const dispatch = useDispatch();
+
+  const ingredients = useSelector((state) => state.addRecipe.ingredients.items);
   const listItems = useSelector((state) => state.data.listItems);
 
-  // const ingredients = useSelector((state) => state.addRecipe.ingredients.items);
+  useEffect(() => {
+    dispatch(fetchIngredients());
+  }, [dispatch]);
+
+  const options = ingredients.map(({ name }) => ({ value: name, label: name }));
 
   const handleClick = (event) => {
     event.preventDefault();
     if (event.target.name === "plus") {
-      dispatch(setIngredients([...listItems, { selectedOption: null }]));
+      dispatch(setAddIngredients([...listItems, { selectedOption: null }]));
     } else if (event.target.name === "minus" && listItems.length > 0) {
-      dispatch(setIngredients(listItems.slice(0, -1)));
+      dispatch(setAddIngredients(listItems.slice(0, -1)));
     }
   };
 
   const onDelButton = (event, index) => {
     event.preventDefault();
-    dispatch(setIngredients(listItems.filter((_, i) => i !== index)));
+    dispatch(setAddIngredients(listItems.filter((_, i) => i !== index)));
   };
 
   const handleChange = (index, selectedOption) => {
     dispatch(
-      setIngredients(
+      setAddIngredients(
         listItems.map((item, i) =>
           i === index ? { ...item, selectedOption } : item
         )
@@ -49,31 +54,15 @@ export const RecipeIngredientsFields = () => {
     );
   };
 
-  // const handleChange = (index, selectedOption) => {
-  //   setListItems((prevItems) =>
-  //     prevItems.map((item, i) =>
-  //       i === index ? { ...item, selectedOption } : item
-  //     )
-  //   );
-  // };
-
   const handleAmountChange = (index, value) => {
     dispatch(
-      setIngredients(
+      setAddIngredients(
         listItems.map((item, i) =>
           i === index ? { ...item, amount: value } : item
         )
       )
     );
   };
-
-  // const handleAmountChange = (index, value) => {
-  //   setListItems((prevItems) =>
-  //     prevItems.map((item, i) =>
-  //       i === index ? { ...item, amount: value } : item
-  //     )
-  //   );
-  // };
 
   const customStyles = {
     control: (baseStyles, state) => ({

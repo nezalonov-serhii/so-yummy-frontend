@@ -13,6 +13,7 @@ import { currentUserThunk } from "./redux/thunk/auth/authThunk";
 import { useDispatch, useSelector } from "react-redux";
 import { selectToken } from "./redux/selector/selectors";
 
+import GlobalStyles from "./GlobalStyles";
 import "react-toastify/dist/ReactToastify.css";
 
 const AddRecipePage = lazy(() => import("./page/AddRecipePage/AddRecipePage"));
@@ -37,6 +38,7 @@ function App() {
 
    return (
       <>
+         <GlobalStyles />
          <ToastContainer />
          <Routes>
             <Route path="/" element={<SharedLayout />}>
@@ -147,12 +149,10 @@ function App() {
                   }
                />
                <Route
-                  path="page-404"
+                  path="*"
                   element={
                      <Suspense>
-                        <PrivateRoute>
-                           <ErrorPage />
-                        </PrivateRoute>
+                        <ErrorPage />
                      </Suspense>
                   }
                />

@@ -12,9 +12,6 @@ export const Nav = styled.nav`
   @media screen and (min-width: 1280px) {
     margin-left: 120px;
   }
-  @media screen and (min-width: 1440px) {
-    margin-left: 119px;
-  }
 `;
 
 export const ItemNav = styled.li`
