@@ -8,15 +8,34 @@ import { fetchRecipesGallery } from "../../service/api/fetchRecipesGallery";
 
 const CategoriesPage = () => {
   const [gallery, setGallery] = useState([]);
+  const[selectedCategory, setCategory] = useState("Breakfast")
+
 
   useEffect(()=>{
-   fetchRecipesGallery("Breakfast").then(res => setGallery(res));
+   fetchRecipesGallery(selectedCategory).then(res => setGallery(res));
   
   }, [])
 
+
+
+
   const chooseCategory = async (categoryName) => {
+    console.log(categoryName)
+    setCategory(categoryName)
     const newGallery = await fetchRecipesGallery(categoryName);
-    console.log(newGallery);
+    
+    // console.log(category)
+    console.log(categoryName)
+
+    
+
+
+    // if(category === categoryName ){
+
+    //   console.log(categoryName.el)
+      
+    // }
+
     setGallery(newGallery);
 
     return;
@@ -25,7 +44,7 @@ const CategoriesPage = () => {
   return (
     <Container>
       <Title>Categories</Title>
-      <CategoriesList onSubmit={chooseCategory} />
+      <CategoriesList onSubmit={chooseCategory} selectedCategory={selectedCategory} />
       <CategoriesGallery recipes={gallery}/>
     </Container>
   );
