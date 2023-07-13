@@ -1,5 +1,5 @@
 import { Logo } from "./Logo/Logo";
-import { FooterWrapper, Tablet, MainWrapper } from "./Footer.Styled";
+import { FooterWrapper, Tablet, MainWrapper, Wrapper, Section } from "./Footer.Styled";
 
 import { Benefits } from "./Benefits/Benefits";
 import { NavBar } from "./NavBar/NavBar";
@@ -9,22 +9,26 @@ import { CopyRight } from "./CopyRight/CopyRight";
 
 const Footer = () => {
    return (
-      <>
-         <FooterWrapper>
-            <MainWrapper>
+     <>
+       <Section>
+         <Wrapper>
+           <FooterWrapper>
+             <MainWrapper>
                <Tablet>
-                  <div>
-                     <Logo />
-                     <Benefits />
-                  </div>
-                  <NavBar />
+                 <div>
+                   <Logo />
+                   <Benefits />
+                 </div>
+                 <NavBar />
                </Tablet>
                <SubscribeForm />
-            </MainWrapper>
-            <FollowUs />
-         </FooterWrapper>
-         <CopyRight />
-      </>
+             </MainWrapper>
+             <FollowUs />
+           </FooterWrapper>
+         </Wrapper>
+       </Section>
+       <CopyRight />
+     </>
    );
 };
 

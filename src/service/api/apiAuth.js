@@ -38,8 +38,8 @@ export const login = async (contact) => {
 
 export const logout = async () => {
    try {
-      dellToken();
       await axios.post("api/users/logout");
+      dellToken();
    } catch (error) {
       toast.error(error.response.data.message);
       return Promise.reject(error.message);

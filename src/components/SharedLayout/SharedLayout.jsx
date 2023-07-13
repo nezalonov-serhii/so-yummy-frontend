@@ -11,13 +11,23 @@ import Footer from "../Footer/Footer";
 const SharedLayout = () => {
    const isAuthorize = useSelector(selectToken);
    return (
-      <Background>
-         {isAuthorize && <Header />}
-         <Suspense fallback={<Loader />}>
-            <Outlet />
-         </Suspense>
-         {isAuthorize && <Footer />}
-      </Background>
+      <>
+         {isAuthorize && (
+            <Background>
+               <Header />
+               <Suspense fallback={<Loader />}>
+                  <Outlet />
+               </Suspense>
+               <Footer />
+            </Background>
+         )}
+
+         {!isAuthorize && (
+            <Suspense fallback={<Loader />}>
+               <Outlet />
+            </Suspense>
+         )}
+      </>
    );
 };
 
