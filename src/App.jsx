@@ -37,129 +37,129 @@ function App() {
    }, [dispatch, token]);
 
    return (
-     <>
-       <ToastContainer />
-       <Routes>
-         <Route path="/" element={<SharedLayout />}>
-           <Route
-             index
-             element={
-               <PublicRoute>
-                 <WelcomePage />
-               </PublicRoute>
-             }
-           />
-           <Route
-             path="register"
-             element={
-               <PublicRoute>
-                 <RegisterPage />
-               </PublicRoute>
-             }
-           />
-           <Route
-             path="signin"
-             element={
-               <Suspense>
-                 <PublicRoute>
-                   <SigninPage />
-                 </PublicRoute>
-               </Suspense>
-             }
-           />
-           <Route
-             path="main"
-             element={
-               <Suspense>
-                 <PrivateRoute>
-                   <MainPage />
-                 </PrivateRoute>
-               </Suspense>
-             }
-           />
-           <Route
-             path="categories/:categoryName"
-             element={
-               <Suspense>
-                 <PrivateRoute>
-                   <CategoriesPage />
-                 </PrivateRoute>
-               </Suspense>
-             }
-           />
-           <Route
-             path="add"
-             element={
-               <Suspense>
-                 <PrivateRoute>
-                   <AddRecipePage />
-                 </PrivateRoute>
-               </Suspense>
-             }
-           />
-           <Route
-             path="favorite"
-             element={
-               <Suspense>
-                 <PrivateRoute>
-                   <FavoritePage />
-                 </PrivateRoute>
-               </Suspense>
-             }
-           />
-           <Route
-             path="recipe/:recipeId"
-             element={
-               <Suspense>
-                 <PrivateRoute>
-                   <RecipePage recipes={recipes} ingredients={ingredients} />
-                 </PrivateRoute>
-               </Suspense>
-             }
-           />
-           <Route
-             path="my"
-             element={
-               <Suspense>
-                 <PrivateRoute>
-                   <MyRecipesPage />
-                 </PrivateRoute>
-               </Suspense>
-             }
-           />
-           <Route
-             path="search"
-             element={
-               <Suspense>
-                 <PrivateRoute>
-                   <SearchPage />
-                 </PrivateRoute>
-               </Suspense>
-             }
-           />
-           <Route
-             path="shopping-list"
-             element={
-               <Suspense>
-                 <PrivateRoute>
-                   <ShoppingListPage />
-                 </PrivateRoute>
-               </Suspense>
-             }
-           />
-           <Route
-             path="*"
-             element={
-               <Suspense>
-                   <ErrorPage />
-               </Suspense>
-             }
-           />
-         </Route>
-         <Route path="*" element={<SharedLayout />} />
-       </Routes>
-     </>
-
+      <>
+         <GlobalStyles />
+         <ToastContainer />
+         <Routes>
+            <Route path="/" element={<SharedLayout />}>
+               <Route
+                  index
+                  element={
+                     <PublicRoute>
+                        <WelcomePage />
+                     </PublicRoute>
+                  }
+               />
+               <Route
+                  path="register"
+                  element={
+                     <PublicRoute>
+                        <RegisterPage />
+                     </PublicRoute>
+                  }
+               />
+               <Route
+                  path="signin"
+                  element={
+                     <Suspense>
+                        <PublicRoute>
+                           <SigninPage />
+                        </PublicRoute>
+                     </Suspense>
+                  }
+               />
+               <Route
+                  path="main"
+                  element={
+                     <Suspense>
+                        <PrivateRoute>
+                           <MainPage />
+                        </PrivateRoute>
+                     </Suspense>
+                  }
+               />
+               <Route
+                  path="categories/:categoryName"
+                  element={
+                     <Suspense>
+                        <PrivateRoute>
+                           <CategoriesPage />
+                        </PrivateRoute>
+                     </Suspense>
+                  }
+               />
+               <Route
+                  path="add"
+                  element={
+                     <Suspense>
+                        <PrivateRoute>
+                           <AddRecipePage />
+                        </PrivateRoute>
+                     </Suspense>
+                  }
+               />
+               <Route
+                  path="favorite"
+                  element={
+                     <Suspense>
+                        <PrivateRoute>
+                           <FavoritePage />
+                        </PrivateRoute>
+                     </Suspense>
+                  }
+               />
+               <Route
+                  path="recipe/:recipeId"
+                  element={
+                     <Suspense>
+                        <PrivateRoute>
+                           <RecipePage recipes={recipes} ingredients={ingredients} />
+                        </PrivateRoute>
+                     </Suspense>
+                  }
+               />
+               <Route
+                  path="my"
+                  element={
+                     <Suspense>
+                        <PrivateRoute>
+                           <MyRecipesPage />
+                        </PrivateRoute>
+                     </Suspense>
+                  }
+               />
+               <Route
+                  path="search"
+                  element={
+                     <Suspense>
+                        <PrivateRoute>
+                           <SearchPage />
+                        </PrivateRoute>
+                     </Suspense>
+                  }
+               />
+               <Route
+                  path="shopping-list"
+                  element={
+                     <Suspense>
+                        <PrivateRoute>
+                           <ShoppingListPage />
+                        </PrivateRoute>
+                     </Suspense>
+                  }
+               />
+               <Route
+                  path="*"
+                  element={
+                     <Suspense>
+                        <ErrorPage />
+                     </Suspense>
+                  }
+               />
+            </Route>
+            <Route path="*" element={<SharedLayout />} />
+         </Routes>
+      </>
    );
 }
 
