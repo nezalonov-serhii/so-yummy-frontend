@@ -24,10 +24,10 @@ export const List = styled.ul`
 `;
 
 export const Item = styled.li`
-  padding: 10px 0px 32px 29px;
+  padding: 10px 0px 0px 29px;
 
   @media (min-width: 768px) {
-    padding: 10px 0px 28px 30px;
+    padding: 10px 0px 0px 30px;
   }
 
   &:not(:first-child) {
@@ -37,7 +37,7 @@ export const Item = styled.li`
 
     @media (min-width: 1280px) {
       margin-left: 0;
-      padding: 10px 0px 28px 10px;
+      padding: 10px 0px 0px 10px;
     }
   }
 `;
@@ -46,14 +46,20 @@ export const Button = styled.button`
   font-family: Poppins;
   border: none;
   font-weight: 400;
+  padding-bottom: 29px;
   background-color: inherit;
   color: ${(props) =>
     props.isSelected
       ? "var( --button-background-primary)"
       : "rgba(224, 224, 224, 1)"};
   font-size: 14px;
+
+  border-bottom: ${(props) =>
+    props.isSelected ? " 2px solid var( --button-background-primary)" : "none"};
+
   @media (min-width: 768px) {
     font-size: 18px;
+    padding-bottom: 28px;
     color: ${(props) =>
       props.isSelected
         ? "var( --button-background-primary)"
@@ -62,6 +68,7 @@ export const Button = styled.button`
 
   @media (min-width: 1280px) {
     font-size: 16px;
+    padding-bottom: 28px;
     color: ${(props) =>
       props.isSelected
         ? "var( --button-background-primary)"

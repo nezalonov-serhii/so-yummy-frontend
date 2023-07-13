@@ -15,7 +15,7 @@ const CategoriesList = ({onSubmit, selectedCategory}) => {
 console.log(selectedCategory)
     return <>
     <List>
-      {categories.map(category => <Item  key={category} ><Button name={category} onClick = {() => onSubmit(category)} isSelected={selectedCategory===category}>{category}</Button></Item> )}
+      {categories.map(category => <Item  key={category} selectedCategory ><Button name={category} onClick = {() => onSubmit(category)} isSelected={selectedCategory===category}>{category}</Button></Item> )}
     </List>
     </>
      
