@@ -16,6 +16,7 @@ const handleRejected = (state, action, field) => {
 };
 
 const handleFulfilled = (state, action, field) => {
+  // console.log(action.payload.data);
   state[field].isLoading = false;
   state[field].error = null;
   if (action.payload) {
