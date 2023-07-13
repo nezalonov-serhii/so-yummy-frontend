@@ -47,6 +47,7 @@ export const InfoWrapper = styled.div`
    display: flex;
    flex-direction: column;
    justify-content: space-between;
+   width: 100%;
 `;
 export const TitleBox = styled.div`
    display: flex;
