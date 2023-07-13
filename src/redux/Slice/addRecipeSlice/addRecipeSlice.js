@@ -27,11 +27,6 @@ const handleFulfilled = (state, action, field) => {
 const addRecipeSlice = createSlice({
   name: "addRecipe",
   initialState: {
-    recipePopular: {
-      items: [],
-      isLoading: false,
-      error: null,
-    },
     recipe: {
       isLoading: false,
       error: null,
@@ -50,15 +45,6 @@ const addRecipeSlice = createSlice({
 
   extraReducers: (builder) => {
     builder
-      .addCase(fetchRecipePopular.pending, (state) =>
-        handlePending(state, "recipePopular")
-      )
-      .addCase(fetchRecipePopular.rejected, (state, action) =>
-        handleRejected(state, action, "recipePopular")
-      )
-      .addCase(fetchRecipePopular.fulfilled, (state, action) =>
-        handleFulfilled(state, action, "recipePopular")
-      )
       .addCase(fetchAddRecipe.pending, (state) =>
         handlePending(state, "recipe")
       )

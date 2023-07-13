@@ -8,7 +8,7 @@ export const fetchIngredients = createAsyncThunk(
   "addRecipe/fetchIngredients",
   async (_, thunkAPI) => {
     try {
-      const response = await axios.get("/ingredients/list");
+      const response = await axios.get("/api/ingredients/list");
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error);
