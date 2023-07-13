@@ -7,7 +7,7 @@ import { searchByTitle } from "../../service/api/apiSearch";
 const SearchPage = () => {
   const [recipeList, setrecipeList] = useState('');
     useEffect(() => {
-    searchByTitle({ query: "Carrot" }).then(({data}) => setrecipeList(data.data))
+    searchByTitle({ query: "Beef" }).then(({data}) => setrecipeList(data.data))
     },[]
     // [recipeList]
   );
