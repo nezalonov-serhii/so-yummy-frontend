@@ -150,9 +150,7 @@ function App() {
              path="*"
              element={
                <Suspense>
-                 <PrivateRoute>
                    <ErrorPage />
-                 </PrivateRoute>
                </Suspense>
              }
            />
