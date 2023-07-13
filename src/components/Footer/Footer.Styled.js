@@ -21,16 +21,19 @@ export const Wrapper = styled.div`
 export const FooterWrapper = styled.div`
   margin: 0 auto;
   width: 100%;
-  height: 440px;
   padding-top: 28px;
+  padding-bottom: 17px;
 
 
   @media (min-width: 768px) {
     padding-top: 50px;
+    padding-bottom: 23px;
+
   }
 
   @media (min-width: 1280px) {
     padding-top: 64px;
+     padding-bottom: 50px;
   }
 `;
 
