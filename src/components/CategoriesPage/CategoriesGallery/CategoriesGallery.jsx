@@ -1,4 +1,4 @@
-// import recipes from "../../../service/api/recipes.json"
+
 import { Title, Item, Picture, List } from "./CategoriesGallery.styled";
 
 const CategoriesGallery = ({recipes}) => {
