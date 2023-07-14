@@ -7,7 +7,7 @@ const RecipeCard = ({ recipeId, imageSrc, name }) => {
   const navigate = useNavigate();
 
   const handleRecipeClick = () => {
-    navigate(`/recipes/${recipeId}`);
+    navigate(`/recipe/${recipeId}`);
   };
 
   return (
