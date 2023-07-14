@@ -2,8 +2,7 @@ import { useSearchParams } from "react-router-dom";
 import {
    SearchFormBox,
    SearchFormInput,
-   SearchFormButton,
-   ErrorText,
+   ErrorText
 } from "./CommonSearchForm.styled";
 // import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { Formik } from "formik";
@@ -18,10 +17,10 @@ const userSchema = Yup.object({
 const initialValue = {
    query: "",
 };
-export const CommonSearchForm = () => {
+export const CommonSearchForm = ({ CustomButtonComponent, SearchFormContainer }) => {
    const [searchParams, setSearchParams] = useSearchParams();
    const handleSubmit = (values, { resetForm }) => {
-      console.log(values);
+      ;
 
       resetForm();
    };
@@ -42,6 +41,7 @@ export const CommonSearchForm = () => {
    // };
    const query = searchParams.get("query");
    return (
+      <SearchFormContainer>
       <Formik initialValues={initialValue} onSubmit={handleSubmit} validationSchema={userSchema}>
          <SearchFormBox>
             <SearchFormInput
@@ -56,8 +56,9 @@ export const CommonSearchForm = () => {
             />
 
             <ErrorText name="query" component="div" />
-            <SearchFormButton type="submit">Search</SearchFormButton>
+            <CustomButtonComponent type="submit">Search</CustomButtonComponent>
          </SearchFormBox>
       </Formik>
+      </SearchFormContainer>
    );
 };

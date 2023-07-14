@@ -1,14 +1,17 @@
 import React from "react";
-import Container from "../Container"
-import { CommonSearchForm } from "../CommonSearchForm/CommonSearchForm"
+// import styled from "styled-components";
+import Container from "../Container";
+import { CommonSearchForm } from "../CommonSearchForm/CommonSearchForm";
 import { useScreenWidth } from "../../hooks"
 import {
     Section,
     Title,
     Span,
     TextHero,
-    SearchFormStyles
+    CustomButtonStyles,
+    CustomSearchFormContainer
 } from "./HeroMain.styled"
+
 
 
 export const HeroMain = () => {
@@ -35,12 +38,13 @@ export const HeroMain = () => {
                         save them for the future.
                         </TextHero>
                     )}
-                    <SearchFormStyles>
-                <CommonSearchForm />
-                    </SearchFormStyles>
+                <CommonSearchForm 
+                    CustomButtonComponent={CustomButtonStyles} 
+                    SearchFormContainer={CustomSearchFormContainer}
+                    />
             </Container>
         </Section>
     )
-}
+};
 
 

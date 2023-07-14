@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 export const Container = styled.div`
   margin-right: 16px;
@@ -10,13 +11,20 @@ export const List = styled.ul`
   margin-top: 32px;
 `;
 
+export const Paragraph = styled.p`
+  margin-top: 32px;
+`;
+
 export const Item = styled.li`
-  display: flex;
-  gap: 12px;
   margin-top: 24px;
   padding-bottom: 13px;
   padding-right: 14px;
   border-bottom: solid 1px rgba(112, 112, 112, 1);
+`;
+
+export const LinkId = styled(Link)`
+  display: flex;
+  gap: 12px;
 `;
 
 export const Image = styled.img`

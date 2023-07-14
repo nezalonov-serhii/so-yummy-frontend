@@ -9,6 +9,7 @@ export const BenefList = styled.ul`
 `;
 export const BenefItem = styled.li`
   font-size: 14px;
+  font-weight: 400; 
    min-width: fit-content;
   line-height: 1.28;
   letter-spacing: -0.02em;
@@ -19,7 +20,9 @@ export const BenefItem = styled.li`
   }
   @media screen and (min-width: 1280px) {
     font-size: 18px;
-    line-height: 1.33;
+    line-height: 24px;
+    letter-spacing: -0.36px;
+    margin-left: 0,
     &:not(:last-child) {
       margin-bottom: 12px;
     }
