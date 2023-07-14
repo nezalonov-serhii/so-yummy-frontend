@@ -17,7 +17,7 @@ export const Section = styled.div`
   height: 777px;
   background-image: url(${leafsMobileX1}), url(${pathToDishMobileX1});
   background-size: 55px auto, 375px auto;
-  background-position: 0px 20px, 100% 58px;
+  background-position: 0px 20px, 100% 0px;
   background-repeat: no-repeat;
   text-align: center;
   @media (min-device-pixel-ratio: 2),
@@ -109,8 +109,44 @@ letter-spacing: -0.02em;
     font-size: 18px;
     line-height: 1.34;
   }
-`
-export const SearchFormStyles = styled.div`
-position: relative;
-margin: 0;
-`
+`;
+
+export const CustomButtonStyles = styled.button`
+background-color: var(--button-background-secondary);
+color: var(--text-light);
+transition: background-color 0.3s ease;
+position: absolute;
+font-family: 'Poppins', sans-serif;
+font-weight: 400;
+font-size: 14px;
+top: 0;
+right: 0;
+bottom: 0;
+width:113px; 
+border: none;
+cursor: pointer;
+height:52px;
+border-radius: 24px 44px;;
+font-style: normal;
+line-height: 1.28;
+text-align: center;
+  :hover {
+    background-color: var(--button-background-primary);
+  }
+  :focus {
+    background-color: var(--button-background-primary);
+  }
+  @media (min-width: 768px) {
+    width: 161px;
+    height: 59px;
+    font-size: 16px;
+  }
+
+  @media (min-width: 1280px) {
+    height: 70px;
+  }
+`;
+
+export const CustomSearchFormContainer = styled.div`
+
+`;

@@ -27,8 +27,8 @@ padding-left: 32px;
 export const Button = styled.button`
 position: absolute;
 background: var(--button-background-secondary);
-font-family: 'Poppins', sans-serif;
 color: var(--text-secondary);
+font-family: 'Poppins', sans-serif;
 font-weight: 600;
 top: 0;
 right: 0;

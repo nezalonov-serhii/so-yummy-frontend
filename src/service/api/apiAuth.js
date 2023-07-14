@@ -1,8 +1,8 @@
 import axios from "axios";
 import { toast } from "react-toastify";
 
-// axios.defaults.baseURL = "https://so-yummy-426w.onrender.com";
-axios.defaults.baseURL = "http://localhost:3003";
+axios.defaults.baseURL = "https://so-yummy-426w.onrender.com";
+// axios.defaults.baseURL = "http://localhost:3003";
 
 const setToken = (token) => {
    axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
@@ -38,8 +38,8 @@ export const login = async (contact) => {
 
 export const logout = async () => {
    try {
-      dellToken();
       await axios.post("api/users/logout");
+      dellToken();
    } catch (error) {
       toast.error(error.response.data.message);
       return Promise.reject(error.message);

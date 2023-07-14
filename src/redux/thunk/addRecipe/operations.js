@@ -2,53 +2,48 @@ import axios from "axios";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { toast } from "react-hot-toast";
 
-axios.defaults.baseURL = "http://localhost:3003";
+// axios.defaults.baseURL = "http://localhost:3003";
 
 export const fetchIngredients = createAsyncThunk(
-  "addRecipe/fetchIngredients",
-  async (_, thunkAPI) => {
-    try {
-      const response = await axios.get("/api/ingredients/list");
-      return response.data;
-    } catch (error) {
-      return thunkAPI.rejectWithValue(error);
-    }
-  }
+   "addRecipe/fetchIngredients",
+   async (_, thunkAPI) => {
+      try {
+         const response = await axios.get("/api/ingredients/list");
+         return response.data;
+      } catch (error) {
+         return thunkAPI.rejectWithValue(error);
+      }
+   }
 );
 
 export const fetchCategories = createAsyncThunk(
-  "addRecipe/fetchCategories",
-  async (_, thunkAPI) => {
-    try {
-      const response = await axios.get("/api/recipes/category-list");
-      return response.data;
-    } catch (error) {
-      return thunkAPI.rejectWithValue(error);
-    }
-  }
+   "addRecipe/fetchCategories",
+   async (_, thunkAPI) => {
+      try {
+         const response = await axios.get("/api/recipes/category-list");
+         return response.data;
+      } catch (error) {
+         return thunkAPI.rejectWithValue(error);
+      }
+   }
 );
 
 export const fetchRecipePopular = createAsyncThunk(
-  "addRecipe/popular-recipe",
-  async (_, thunkAPI) => {
-    try {
-      const response = await axios.get(`/api/popular-recipe`);
-      return await response.data;
-    } catch (error) {
-      return thunkAPI.rejectWithValue(thunkAPI.serializeError(error));
-    }
-  },
-  {
-    serializeError: (error) => {
-      const {
-        message,
-        name,
-        stack,
-        response: { status, statusText } = {},
-      } = error;
-      return { message, name, stack, status, statusText };
-    },
-  }
+   "addRecipe/popular-recipe",
+   async (_, thunkAPI) => {
+      try {
+         const response = await axios.get(`/api/popular-recipe`);
+         return await response.data;
+      } catch (error) {
+         return thunkAPI.rejectWithValue(thunkAPI.serializeError(error));
+      }
+   },
+   {
+      serializeError: (error) => {
+         const { message, name, stack, response: { status, statusText } = {} } = error;
+         return { message, name, stack, status, statusText };
+      },
+   }
 );
 
 export const fetchAddRecipe = createAsyncThunk(
@@ -67,4 +62,5 @@ export const fetchAddRecipe = createAsyncThunk(
       return thunkAPI.rejectWithValue(error);
     }
   }
+
 );
