@@ -39,7 +39,7 @@ export const Navigate = () => {
       <nav>
         <Line nav={nav}>
           <li>
-            <StyledLink to="/categories/:categoryName">Categories</StyledLink>
+            <StyledLink to="/categories/breakfast">Categories</StyledLink>
           </li>
           <li>
             <StyledLink to="/add">Add Recipe</StyledLink>
