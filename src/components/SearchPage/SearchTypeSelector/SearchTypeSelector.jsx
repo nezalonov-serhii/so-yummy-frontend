@@ -1,10 +1,11 @@
 import { useSearchParams } from 'react-router-dom';
+import {useSelector } from "react-redux";
 import {SearchSelect,SearchSelectorBox,SelectorOption,StyledHelperText,StyledFormControl} from "./SearchTypeSelector.styled";
 import FormControl from '@mui/material/FormControl';
-
+import { selectSearchValue } from '../../../redux/selector/selectors';
 
 export const SearchTypeSelector = () => {
-
+const valueSelector = useSelector(selectSearchValue);
   //   const [searchSelectedParams, setSearchSelectedParams] = useSearchParams();
   //   const submitSlectedSearch = e => {
   //     console.log(e.target.value)
@@ -31,7 +32,7 @@ export const SearchTypeSelector = () => {
         //   labelId="demo-simple-select-label"
         //   id="demo-simple-select"
           defaultValue={"Title"}
-        
+         value = {valueSelector??"Title"}
         
         >
           <SelectorOption value="Title" >Title</SelectorOption>
