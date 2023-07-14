@@ -9,7 +9,7 @@ const GlobalStyles = createGlobalStyle`
     --text-secondary: #23262A;
     --text-third: rgba(0, 0, 0, 0.5);
     --text-light: #FAFAFA;
-    
+
     --accent-color: #8BAA36;
 
     --title: #001833;
@@ -49,6 +49,7 @@ const GlobalStyles = createGlobalStyle`
   body {
     font-family: 'Poppins', sans-serif;
     margin: 0;
+    background-color: var(--background-primary);
   }
 
   h1,

@@ -13,12 +13,12 @@ const SearchSelectorBox = styled(Box)`
    margin: 24px auto 50px;
 
    @media (min-width: 768px) {
-      margin: 24px auto 74px;
+      margin: 28px auto 74px;
       width: 265px;
    }
 
-   @media (min-width: 1024px) {
-      margin: 24px auto 90px;
+   @media (min-width: 1280px) {
+      margin: 27px auto 90px;
       width: 310px;
    }
 `;

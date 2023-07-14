@@ -47,14 +47,20 @@ export const fetchRecipePopular = createAsyncThunk(
 );
 
 export const fetchAddRecipe = createAsyncThunk(
-   "addRecipe/ownRecipes",
-   async ({ name, number }, thunkAPI) => {
-      try {
-         const response = await axios.post(`/ownRecipes`, { name, number });
-         toast.success("Add recipe");
-         return await response.data;
-      } catch (error) {
-         return thunkAPI.rejectWithValue(error);
-      }
-   }
+  "addRecipe/ownRecipes",
+  async (formData, thunkAPI) => {
+    try {
+      const response = await axios.post("/api/own-recipes", formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      });
+
+      toast.success("Add recipe");
+      return await response.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error);
+    }
+  }
+
 );

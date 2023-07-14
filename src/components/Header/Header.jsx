@@ -1,3 +1,4 @@
+
 import Container from "../Container";
 import { Logo } from "./Logo/Logo";
 import { Navigate } from "./Navigate/Navigate";
@@ -24,8 +25,7 @@ export const Header = () => {
               checked={isDarkMode}
               onChange={toggleTheme}
             />
-          </ThemeSwitch> */}
-          
+          </ThemeSwitch> */}      
         </Box>
       </HeaderContainer>
     </Container>
