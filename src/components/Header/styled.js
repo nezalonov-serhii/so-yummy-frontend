@@ -1,24 +1,26 @@
 import styled from "styled-components";
 
-export const Container =styled.div`
-padding: 0px 20px;
-    width: 1280px;
-`
 
 export const HeaderContainer = styled.header`
   width: 100%;
   height: 46px;
   margin-top: 18px;
   margin-bottom: 10px;
+  
 `;
 
 export const Box = styled.div`
-
+@media (max-width: 1279px) {
+display: flex;
+    height: 100%;
+    margin-right: auto;
+    justify-content: space-between;
+}
+@media (min-width: 1280px) {
   display: flex;
   height: 100%;
-  margin-left: 200px;
-  margin-right: auto;
-  flex-direction: column-reverse;
+  
+}
 `;
 
 // export const ThemeSwitch = styled.div`
