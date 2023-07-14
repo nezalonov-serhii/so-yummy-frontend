@@ -28,7 +28,11 @@ export const RecipeIngredientsFields = () => {
     dispatch(fetchIngredients());
   }, [dispatch]);
 
-  const options = ingredients.map(({ name }) => ({ value: name, label: name }));
+  const options = ingredients.map(({ name, _id }) => ({
+    value: name,
+    label: name,
+    _id,
+  }));
 
   const handleClick = (event) => {
     event.preventDefault();
@@ -53,12 +57,11 @@ export const RecipeIngredientsFields = () => {
       )
     );
   };
-
   const handleAmountChange = (index, value) => {
     dispatch(
       setAddIngredients(
         listItems.map((item, i) =>
-          i === index ? { ...item, amount: value } : item
+          i === index ? { ...item, measure: value } : item
         )
       )
     );

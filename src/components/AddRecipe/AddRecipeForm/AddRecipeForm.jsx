@@ -21,34 +21,45 @@ export const AddRecipeForm = () => {
     console.log(data); // видалити
     toast.success("Add recipe"); // видалити
 
-    const newData = new FormData();
+    const {
+      image,
+      title,
+      about: description,
+      category,
+      time: numberTime,
+      listItems,
+      preparation: instructions,
+    } = data;
+    const time = numberTime.toString();
+    const ingredients = listItems.map((item) => ({
+      id: item.selectedOption._id,
+      measure: item.measure,
+    }));
 
-    newData.append("title", data.title);
-    newData.append("about", data.about);
-    newData.append("category", data.category);
-    newData.append("time", data.time);
-    newData.append("listItems", JSON.stringify(data.listItems));
-    newData.append("preparation", JSON.stringify(data.preparation));
+    const formData = new FormData();
+    formData.append("title", title);
+    formData.append("about", description);
+    formData.append("category", category);
+    formData.append("time", time);
+    formData.append("ingredients", JSON.stringify(ingredients));
+    formData.append("instructions", JSON.stringify(instructions));
 
-    if (data.image) {
-      fetch(data.image)
-        .then((res) => res.blob())
-        .then((blob) => {
-          const file = new File([blob], "image.png", { type: "image/png" });
-          newData.append("image", file);
-          dispatch(
-            fetchAddRecipe({
-              ...data,
-              image: file,
-            })
-          );
+    if (image) {
+      fetch(image)
+        .then((res) => {
+          const contentType = res.headers.get("content-type");
+          return res.blob().then((blob) => [blob, contentType]);
+        })
+        .then(([blob, contentType]) => {
+          const file = new File([blob], "image", { type: contentType });
+          formData.append("image", file);
+          dispatch(fetchAddRecipe(formData));
+        })
+        .catch((error) => {
+          console.error(error);
         });
     } else {
-      dispatch(
-        fetchAddRecipe({
-          ...data,
-        })
-      );
+      dispatch(fetchAddRecipe(formData));
     }
     navigate("/my");
   };
