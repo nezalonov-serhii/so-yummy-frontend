@@ -1,86 +1,53 @@
 import styled from "styled-components";
-import { Link } from "react-router-dom";
-
 
 export const HeaderContainer = styled.header`
   width: 100%;
+  height: 46px;
   margin-top: 18px;
-`;
-// export const Container = styled.header`
-//   width: 100%;
-//   `;
-
-export const Nav = styled.nav`
-display: flex;
-`;
-
-export const MobileBtn = styled.div`
-  display: none;
-  @media (max-width: 1439px) {
-    display: flex;
-    width: 32px;
-    height: 32px;
-    position: absolute;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    z-index: 10;
-  }
-`;
-
-
-export const Line = styled.ul`
-  display: flex;
-  align-items: center;
-  font-size: 14px;
-  line-height: 20px;
-  gap: 30px;
-  padding-left:200px;
-  @media (max-width: 1439px) {
-    display: ${props => (props.nav ? "flex" : "none")};
-    flex-direction: column;
-    justify-content: center;
-    position: fixed;
-    font-size: 22px;
-    line-height: 20px;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    width: 100%;
-    height: 100vh;
-    z-index: 10;
-    transition: left 1s;
-    background-color: #fff;
-    padding: 20px;
-  }
-`;
-
-export const StyledLink = styled(Link)`
-  color: #333;
-  text-decoration: none;
+  margin-bottom: 10px;
 `;
 
 export const Box = styled.div`
   display: flex;
-  height: 46px;
-  justify-content: space-between;
-  align-items: center;
+  height: 100%;
+  margin-left: 200px;
+  margin-right: auto;
+  flex-direction: column-reverse;
 `;
 
+// export const ThemeSwitch = styled.div`
+// @media (max-width: 768px) {
+//   display: flex;
+//   margin-left: 20px;
+//   align-items: flex-end;
+// flex-direction: column-reverse;
+// }
+// `;
 
-
-
-export const Logo = styled.div`
-  display: flex;
-  // position: absolute;
-  // left: 16px;
-  // top: 18px;
-  justify-content: center;
-  align-items: center;
-  border-radius:30%;
-  width: 40px;
-    height: 40px;
-    background-color: 
-    #8BAA36;
-`;
+// export const ThemeToggle = styled.input`
+// @media (max-width: 768px) {
+//   width: 40px;
+//   height: 20px;
+//   appearance: none;
+//   z-index:999;
+//   background-color: #ccc;
+//   outline: none;
+//   border-radius: 10px;
+//   position: relative;
+//   cursor: pointer;
+//   transition: background-color 0.3s;
+//   &:checked {
+//     background-color: #8baa36;
+//   }
+//   &:before {
+//     content: "";
+//     width: 16px;
+//     height: 16px;
+//     background-color: #fff;
+//     border-radius: 50%;
+//     position: absolute;
+//     bottom: 2px;
+//     left: ${props => (props.checked ? "22px" : "2px")};
+//     transition: left 0.3s;
+//   }}
+// `;

@@ -21,7 +21,7 @@ const dataSlice = createSlice({
     setImage(state, action) {
       state.image = action.payload;
     },
-    setIngredients(state, action) {
+    setAddIngredients(state, action) {
       state.listItems = action.payload;
     },
     setPreparation(state, action) {
@@ -30,7 +30,7 @@ const dataSlice = createSlice({
   },
 });
 
-export const { setDescription, setImage, setIngredients, setPreparation } =
+export const { setDescription, setImage, setAddIngredients, setPreparation } =
   dataSlice.actions;
 
 export default dataSlice.reducer;
