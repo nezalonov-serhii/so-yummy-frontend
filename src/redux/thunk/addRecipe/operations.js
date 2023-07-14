@@ -53,9 +53,14 @@ export const fetchRecipePopular = createAsyncThunk(
 
 export const fetchAddRecipe = createAsyncThunk(
   "addRecipe/ownRecipes",
-  async (data, thunkAPI) => {
+  async (formData, thunkAPI) => {
     try {
-      const response = await axios.post(`/api/own-recipes`, data);
+      const response = await axios.post("/api/own-recipes", formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      });
+
       toast.success("Add recipe");
       return await response.data;
     } catch (error) {
