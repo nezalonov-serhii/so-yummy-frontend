@@ -1,15 +1,29 @@
-import { Box, Button } from "./ModalEditProfile.styled"
-import {logoutThunk} from '../../../redux/thunk/auth/authThunk'
-import { useDispatch } from "react-redux"
+// ModalEditProfile.js
+
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { Box, Button } from "./ModalEditProfile.styled";
+import { logoutThunk } from "../../../redux/thunk/auth/authThunk";
+import { Logout } from "../Logout/Logout";
+
+export const ModalEditProfile = ({ closeModal }) => {
+  const [modalLogoutActive, setModalLogoutActive] = useState(false);
 
 
-export const ModalEditProfile =()=>{
-    const dispatch = useDispatch()
 
-    return(
-        <Box>
-            <p>Edit profile</p>
-            <Button onClick={()=> dispatch(logoutThunk())}>Log out</Button>
-        </Box>
-    )
-}
+  const handleLogoutClick = () => {
+    setModalLogoutActive(true);
+  };
+
+ 
+
+  return (
+    <Box onClick={handleLogoutClick}>
+      <p>Edit profile</p>
+      <Button>Log out</Button>
+      {modalLogoutActive && <Logout closeModal={closeModal} />}
+    </Box>
+  );
+};
+
+export default ModalEditProfile;

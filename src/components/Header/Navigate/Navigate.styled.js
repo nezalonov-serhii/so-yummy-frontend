@@ -98,7 +98,7 @@ export const BoxName = styled.div`
   margin-left: 100px;
   align-items: center;
 `;
-export const LogoAvatat = styled(RxAvatar)`
+export const LogoAvatar = styled(RxAvatar)`
   width: 44px;
   height: 44px;
 `;

@@ -24,4 +24,5 @@ font-weight: 400;
 background-color:#8BAA36;
 border: 1px solid transparent;
 border-radius: 24px 44px;
+margin-top:40px;
 `
