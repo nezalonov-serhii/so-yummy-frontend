@@ -18,6 +18,7 @@ export const Input = styled.input`
   font-weight: 400;
   line-height: normal;
   letter-spacing: -0.28px;
+  background-color: transparent;
   &:active,
   &:focus,
   &:hover {
