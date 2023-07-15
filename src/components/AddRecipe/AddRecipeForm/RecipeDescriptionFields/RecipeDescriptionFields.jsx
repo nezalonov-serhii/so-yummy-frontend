@@ -3,6 +3,7 @@ import {
   Container,
   Input,
   InputWrapper,
+  ErrorMessage,
 } from "./RecipeDescriptionFields.styled";
 
 import Select from "react-select";
@@ -78,7 +79,6 @@ export const RecipeDescriptionFields = () => {
     }),
   };
 
-  console.log(isClickDisabledButton);
   return (
     <div>
       <ImageRecipe />
@@ -114,6 +114,9 @@ export const RecipeDescriptionFields = () => {
             required
             hasError={isClickDisabledButton && invalidFields.about}
           />
+          {isClickDisabledButton && invalidFields.about && (
+            <ErrorMessage>Please enter valid information</ErrorMessage>
+          )}
         </InputWrapper>
         <InputWrapper>
           <Input placeholder="Category" readOnly />

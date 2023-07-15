@@ -33,7 +33,14 @@ export const Input = styled.input`
     outline: none;
   }
 `;
-
+export const ErrorMessage = styled.span`
+  background-color: green;
+  position: absolute;
+  bottom: -20px;
+  left: 0;
+  color: red;
+  font-size: 12px;
+`;
 export const InputWrapper = styled.div`
   display: flex;
   justify-content: space-between;

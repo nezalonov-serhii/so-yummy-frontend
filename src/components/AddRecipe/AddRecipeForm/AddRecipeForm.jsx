@@ -44,7 +44,7 @@ export const AddRecipeForm = () => {
     event.preventDefault();
     console.log("NOT VALID");
     dispatch(setIsClickDisabledButton(true));
-    console.log(isClickDisabledButton);
+
     dispatch(validateForm());
   };
   const handleSubmit = (event) => {
