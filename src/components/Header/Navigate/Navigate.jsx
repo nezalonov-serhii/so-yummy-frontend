@@ -15,6 +15,7 @@ import {
   Name,
   BoxName,
   LogoAvatar,
+  Box
 } from "./Navigate.styled";
 import { ModalEditProfile } from "../ModalEditProfile/ModalEditProfile";
 import { Logout } from "../Logout/Logout";
@@ -36,7 +37,6 @@ export const Navigate = () => {
 
   return (
     <Nav>
-      <nav>
         <Line nav={nav}>
           <li>
             <StyledLink to="/categories/breakfast">Categories</StyledLink>
@@ -60,15 +60,18 @@ export const Navigate = () => {
             </StyledLink>
           </Search>
         </Line>
-        <MobileBtn size={32} onClick={() => setNav(!nav)}>
-          {nav ? <CgClose size={32} /> : <HiOutlineMenuAlt2 size={32} />}
-        </MobileBtn>
-      </nav>
-      {modalActive && <ModalEditProfile closeModal={closeModal} />}
-      <BoxName onClick={handleAvatarClick}>
+        <Box>
+        <BoxName onClick={handleAvatarClick}>
         <LogoAvatar />
         <Name>{user.name}</Name>
       </BoxName>
+        <MobileBtn size={32} onClick={() => setNav(!nav)}>
+          {nav ? <CgClose size={32} /> : <HiOutlineMenuAlt2 size={32} />}
+        </MobileBtn>
+        </Box>
+        
+      {modalActive && <ModalEditProfile closeModal={closeModal} />}
+      
       {modalLogoutActive && <Logout closeModal={closeModal} />}
     </Nav>
   );

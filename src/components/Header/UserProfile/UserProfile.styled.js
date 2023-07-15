@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { RxAvatar, RxPencil1 } from "react-icons/rx";
 
 export const Box = styled.div`
+@media (min-width: 1280px) {
   position: absolute;
   width: 500px;
   height: 425px;
@@ -11,9 +12,11 @@ export const Box = styled.div`
   padding: 50px;
   background-color: white;
   border-radius: 10px;
+}
 `;
 
 export const Avatar = styled(RxAvatar)`
+@media (min-width: 1280px) {
   display: flex;
   width: 103px;
   height: 103px;
@@ -23,6 +26,7 @@ export const Avatar = styled(RxAvatar)`
   margin-left: auto;
   margin-right: auto;
   margin-top: 10px;
+}
 `;
 
 export const Form = styled.form`
@@ -35,6 +39,7 @@ export const InputWrapper = styled.div`
 `;
 
 export const Input = styled.input`
+@media (min-width: 1280px) {
   position: relative;
   width: 405px;
   height: 58px;
@@ -42,9 +47,11 @@ export const Input = styled.input`
   border-radius: 5px;
   margin-top: 50px;
   padding: 0 15px;
+}
 `;
 
 export const Button = styled.button`
+@media (min-width: 1280px) {
   width: 400px;
   height: 59px;
   color: white;
@@ -52,12 +59,15 @@ export const Button = styled.button`
   background-color: #8baa36;
   border: none;
   border-radius: 6px;
+}
 `;
 
 export const Pencil = styled(RxPencil1)`
+@media (min-width: 1280px) {
   position: absolute;
   top: 80px;
   right: 15px;
   transform: translateY(-50%);
   color: #23262A;
+}
 `;

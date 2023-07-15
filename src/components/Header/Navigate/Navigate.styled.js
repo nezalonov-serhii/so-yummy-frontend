@@ -7,6 +7,10 @@ import modalTab from "../../../images/Modal/modalLeafTab.png";
 export const Nav = styled.nav`
   display: flex;
   align-items: flex-end;
+  @media (min-width: 1280px) {
+margin-left:150px;
+
+  }
 `;
 
 export const Line = styled.ul`
@@ -59,7 +63,7 @@ export const Line = styled.ul`
 `;
 
 export const MobileBtn = styled.div`
-  position: fixed;
+  margin-left:30px;
   right: 20px;
   top: 20px;
   display: flex;
@@ -107,3 +111,8 @@ export const Name = styled.p`
   margin-left: auto;
   padding-left: 10px;
 `;
+ export const Box = styled.div`
+ display:flex;
+ align-items: center;
+ margin-left: 60px;
+ `

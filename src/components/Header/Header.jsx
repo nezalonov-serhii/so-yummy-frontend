@@ -15,8 +15,9 @@ export const Header = () => {
   return (
     <Container>
       <HeaderContainer>
+      
         <Box>
-          <Logo />
+        <Logo />
           <Navigate />
           
           {/* <ThemeSwitch>
