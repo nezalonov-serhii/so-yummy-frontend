@@ -63,6 +63,7 @@ export const Line = styled.ul`
 `;
 
 export const MobileBtn = styled.div`
+
   margin-left:30px;
   right: 20px;
   top: 20px;
@@ -75,6 +76,7 @@ export const MobileBtn = styled.div`
   z-index: 10;
   @media (min-width: 1268px) {
     display: none;
+    position: absolute;
   }
 `;
 export const StyledLink = styled(NavLink)`
@@ -98,7 +100,6 @@ export const SearchText = styled.p`
 `;
 export const BoxName = styled.div`
   display: flex;
-  position:relative;
   margin-left: 100px;
   align-items: center;
 `;
@@ -112,7 +113,8 @@ export const Name = styled.p`
   padding-left: 10px;
 `;
  export const Box = styled.div`
- display:flex;
+ display: flex;
  align-items: center;
  margin-left: 60px;
+ position: relative;
  `

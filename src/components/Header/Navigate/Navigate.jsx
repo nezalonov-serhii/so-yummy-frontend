@@ -68,9 +68,10 @@ export const Navigate = () => {
         <MobileBtn size={32} onClick={() => setNav(!nav)}>
           {nav ? <CgClose size={32} /> : <HiOutlineMenuAlt2 size={32} />}
         </MobileBtn>
+        {modalActive && <ModalEditProfile closeModal={closeModal} />}
         </Box>
         
-      {modalActive && <ModalEditProfile closeModal={closeModal} />}
+      
       
       {modalLogoutActive && <Logout closeModal={closeModal} />}
     </Nav>
