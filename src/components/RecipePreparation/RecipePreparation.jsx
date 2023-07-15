@@ -10,40 +10,31 @@ import {
   Wrapper,
 } from "./RecipePreparation.styled";
 
-const RecipePreparation = ({ thumb, instructions, title }) => {
-  let instructionsArray = [];
-
-  const stepSeparatedInstructions = instructions?.split(/^\d+[.)]\s*/gm);
-
-  stepSeparatedInstructions.forEach((step) => {
-    if (step.trim() === "") {
-      return;
-    }
-
-    const lineSeparatedSteps = step
-      .split("\n")
-      .map((element) => element.trim());
-    instructionsArray = instructionsArray.concat(lineSeparatedSteps);
-  });
+const RecipePreparation = ({ instructions, title, thumb }) => {
+  let instructionsArry = [];
+  if (instructions) {
+    instructionsArry = instructions.join("").split("\r\n");
+  }
 
   let counter = 0;
+
   return (
     <Wrapper>
       <InnerWrapper>
         <Title>Recipe Preparation</Title>
         <List>
-          {instructionsArray.map((el, index) => {
-            if (el.trim() === "") {
-              return null;
-            }
-            counter += 1;
-            return (
-              <Item key={index}>
-                <Number>{counter}</Number>
-                <Text>{el}</Text>
-              </Item>
-            );
-          })}
+          {instructionsArry &&
+            instructionsArry.map((item) => {
+              if (item.trim() === "") {
+                return null;
+              }
+              return (
+                <Item key={counter}>
+                  <Number>{(counter += 1)}</Number>
+                  <Text>{item}</Text>
+                </Item>
+              );
+            })}
         </List>
       </InnerWrapper>
       <Image src={thumb || Food} alt={title} />
