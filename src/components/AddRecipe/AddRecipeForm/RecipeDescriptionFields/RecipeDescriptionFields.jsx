@@ -57,6 +57,10 @@ export const RecipeDescriptionFields = () => {
       ...provided,
       justifyContent: "flex-end",
     }),
+    dropdownIndicator: (provided, state) => ({
+      ...provided,
+      color: "var(--accent-color)",
+    }),
   };
 
   return (

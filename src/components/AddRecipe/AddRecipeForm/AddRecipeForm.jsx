@@ -38,7 +38,7 @@ export const AddRecipeForm = () => {
 
     const formData = new FormData();
     formData.append("title", title);
-    formData.append("about", description);
+    formData.append("description", description);
     formData.append("category", category);
     formData.append("time", time);
     formData.append("ingredients", JSON.stringify(ingredients));
@@ -52,7 +52,7 @@ export const AddRecipeForm = () => {
         })
         .then(([blob, contentType]) => {
           const file = new File([blob], "image", { type: contentType });
-          formData.append("image", file);
+          formData.append("recipeImg", file);
           dispatch(fetchAddRecipe(formData));
         })
         .catch((error) => {

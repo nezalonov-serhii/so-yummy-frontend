@@ -4,8 +4,8 @@ const Container = styled.div`
     width: 100%;
     margin: 0 auto;
 
-    @media (min-width: 375px) {
-        width: 375px;
+    @media (min-width: 480px) {
+        width: 480px;
         padding: 0 16px;
     }
     @media (min-width: 768px) {
