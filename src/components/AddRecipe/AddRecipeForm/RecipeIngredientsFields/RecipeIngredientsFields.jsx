@@ -17,7 +17,10 @@ import {
 
 import { Title } from "../../AddRecipe.styled";
 import { useDispatch, useSelector } from "react-redux";
-import { setAddIngredients } from "../../../../redux/Slice/addRecipeSlice/addRecipeFormSlice";
+import {
+  setAddIngredients,
+  validateForm,
+} from "../../../../redux/Slice/addRecipeSlice/addRecipeFormSlice";
 import { fetchIngredients } from "../../../../redux/thunk/addRecipe/operations";
 import { useEffect } from "react";
 
@@ -60,6 +63,7 @@ export const RecipeIngredientsFields = () => {
         )
       )
     );
+    dispatch(validateForm());
   };
   const handleAmountChange = (index, value) => {
     dispatch(

@@ -3,19 +3,33 @@ import {
   Container,
   Input,
   InputWrapper,
+  ErrorMessage,
 } from "./RecipeDescriptionFields.styled";
 
 import Select from "react-select";
 import { ImageRecipe } from "../ImageRecipe/ImageRecipe";
 
 import { useDispatch, useSelector } from "react-redux";
-import { setDescription } from "../../../../redux/Slice/addRecipeSlice/addRecipeFormSlice";
+import {
+  setDescription,
+  setFormValidity,
+  validateForm,
+} from "../../../../redux/Slice/addRecipeSlice/addRecipeFormSlice";
 import { fetchCategories } from "../../../../redux/thunk/addRecipe/operations";
 import { useEffect } from "react";
+import { useState } from "react";
 
 export const RecipeDescriptionFields = () => {
   const dispatch = useDispatch();
-  const { title, about, category, time } = useSelector((state) => state.data);
+  const {
+    title,
+    about,
+    category,
+    time,
+    invalidFields,
+    isFormValid,
+    isClickDisabledButton,
+  } = useSelector((state) => state.data);
   const categories = useSelector((state) => state.addRecipe.categories.items);
 
   useEffect(() => {
@@ -25,6 +39,7 @@ export const RecipeDescriptionFields = () => {
   const handleChange = (event) => {
     const { name, value } = event.currentTarget;
     dispatch(setDescription({ [name]: value }));
+    dispatch(validateForm());
   };
 
   const handleSelectChange = (selectedOption, action) => {
@@ -33,6 +48,7 @@ export const RecipeDescriptionFields = () => {
     } else if (action.name === "time") {
       dispatch(setDescription({ time: selectedOption.value }));
     }
+    dispatch(validateForm());
   };
 
   const customStyles = {
@@ -77,6 +93,13 @@ export const RecipeDescriptionFields = () => {
             onChange={handleChange}
             title="Title may contain min 3 letters"
             required
+            hasError={isClickDisabledButton && invalidFields.title}
+            // invalid={
+            //   Object.keys(invalidFields).length === 0 &&
+            //   !isFormValid &&
+            //   invalidFields.title
+            // }
+            // invalid={invalidFields.includes("title")}
           />
         </InputWrapper>
         <InputWrapper>
@@ -89,7 +112,11 @@ export const RecipeDescriptionFields = () => {
             onChange={handleChange}
             title="Text may contain min 5 letters"
             required
+            hasError={isClickDisabledButton && invalidFields.about}
           />
+          {isClickDisabledButton && invalidFields.about && (
+            <ErrorMessage>Please enter valid information</ErrorMessage>
+          )}
         </InputWrapper>
         <InputWrapper>
           <Input placeholder="Category" readOnly />
