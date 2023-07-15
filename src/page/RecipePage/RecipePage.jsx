@@ -1,12 +1,33 @@
+import { useParams } from "react-router";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+
 import RecipePageHero from "../../components/RecipePageHero/RecipePageHero";
 import RecipeInngredientsList from "../../components/RecipeInngredientsList/RecipeInngredientsList";
 import RecipePreparation from "../../components/RecipePreparation/RecipePreparation";
 
-const RecipePage = ({ recipes, ingredients }) => {
-  const { title, description, time, _id, favorites, instructions, thumb } =
-    recipes;
+import { fetchRecipeById } from "../../redux/recipe/recipeOperation/recipeOperation";
+import { selectRecipe } from "../../redux/recipe/recipeSelectors/recipeSelectors";
 
-  console.log(recipes);
+const RecipePage = () => {
+  const { recipeId } = useParams();
+
+  const dispatch = useDispatch();
+  const recipes = useSelector(selectRecipe);
+
+  useEffect(() => {
+    dispatch(fetchRecipeById(recipeId));
+  }, [dispatch, recipeId]);
+
+  const {
+    title,
+    description,
+    time,
+    instructions,
+    thumb,
+    ingredients,
+    favorites,
+  } = recipes;
 
   return (
     <div>
@@ -14,7 +35,7 @@ const RecipePage = ({ recipes, ingredients }) => {
         title={title}
         description={description}
         time={time}
-        recipeId={_id}
+        recipeId={recipeId}
         favorites={favorites}
       />
       <RecipeInngredientsList ingredients={ingredients} />

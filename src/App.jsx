@@ -6,8 +6,8 @@ import PublicRoute from "./service/route/PublicRoute";
 
 import SharedLayout from "./components/SharedLayout/SharedLayout";
 
-import recipes from "./page/RecipePage/data/recipes.json";
-import ingredients from "./page/RecipePage/data/ingredients.json";
+// import recipes from "./page/RecipePage/data/recipes.json";
+// import ingredients from "./page/RecipePage/data/ingredients.json";
 
 import { currentUserThunk } from "./redux/thunk/auth/authThunk";
 import { useDispatch, useSelector } from "react-redux";
@@ -113,7 +113,7 @@ function App() {
                   element={
                      <Suspense>
                         <PrivateRoute>
-                           <RecipePage recipes={recipes} ingredients={ingredients} />
+                           <RecipePage />
                         </PrivateRoute>
                      </Suspense>
                   }
