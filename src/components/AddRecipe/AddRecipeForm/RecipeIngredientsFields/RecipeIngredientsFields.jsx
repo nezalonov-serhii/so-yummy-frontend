@@ -5,6 +5,9 @@ import {
   Counter,
   CounterButton,
   DelButton,
+  IconDelete,
+  IconMinus,
+  IconPlus,
   InputAmount,
   Li,
   List,
@@ -34,13 +37,14 @@ export const RecipeIngredientsFields = () => {
     _id,
   }));
 
-  const handleClick = (event) => {
+  const handleClickPlus = (event) => {
     event.preventDefault();
-    if (event.target.name === "plus") {
-      dispatch(setAddIngredients([...listItems, { selectedOption: null }]));
-    } else if (event.target.name === "minus" && listItems.length > 0) {
-      dispatch(setAddIngredients(listItems.slice(0, -1)));
-    }
+    dispatch(setAddIngredients([...listItems, { selectedOption: null }]));
+  };
+
+  const handleClickMinus = (event) => {
+    event.preventDefault();
+    listItems.length > 0 && dispatch(setAddIngredients(listItems.slice(0, -1)));
   };
 
   const onDelButton = (event, index) => {
@@ -69,7 +73,7 @@ export const RecipeIngredientsFields = () => {
 
   const customStyles = {
     control: (baseStyles, state) => ({
-      width: 198,
+      // width: 198,
       backgroundColor: "rgba(245, 245, 245, 1)",
       padding: 6,
       border: "none",
@@ -87,18 +91,22 @@ export const RecipeIngredientsFields = () => {
       backgroundColor: "transparent",
       color: "black",
     }),
+    dropdownIndicator: (provided, state) => ({
+      ...provided,
+      color: "var(--accent-color)",
+    }),
   };
   return (
     <Container>
       <WrapperCounter>
         <Title>Ingredients</Title>
         <Counter>
-          <CounterButton onClick={handleClick} name="minus">
-            -
+          <CounterButton onClick={handleClickMinus} name="minus">
+            <IconMinus />
           </CounterButton>
           <p>{listItems.length}</p>
-          <CounterButton onClick={handleClick} name="plus">
-            +
+          <CounterButton onClick={handleClickPlus} name="plus">
+            <IconPlus />
           </CounterButton>
         </Counter>
       </WrapperCounter>
@@ -128,7 +136,7 @@ export const RecipeIngredientsFields = () => {
                 }
               />
               <DelButton onClick={(event) => onDelButton(event, index)}>
-                X
+                <IconDelete />
               </DelButton>
             </Li>
           );
