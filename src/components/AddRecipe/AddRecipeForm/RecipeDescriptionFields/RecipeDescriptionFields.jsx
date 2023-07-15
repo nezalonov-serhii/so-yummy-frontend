@@ -1,4 +1,4 @@
-import categories from "../../../../categories.json";
+// import categories from "../../../../categories.json";
 import {
   Container,
   Input,
@@ -10,12 +10,17 @@ import { ImageRecipe } from "../ImageRecipe/ImageRecipe";
 
 import { useDispatch, useSelector } from "react-redux";
 import { setDescription } from "../../../../redux/Slice/addRecipeSlice/addRecipeFormSlice";
+import { fetchCategories } from "../../../../redux/thunk/addRecipe/operations";
+import { useEffect } from "react";
 
 export const RecipeDescriptionFields = () => {
   const dispatch = useDispatch();
   const { title, about, category, time } = useSelector((state) => state.data);
+  const categories = useSelector((state) => state.addRecipe.categories.items);
 
-  // const categories = useSelector((state) => state.addRecipe.categories.items);
+  useEffect(() => {
+    dispatch(fetchCategories());
+  }, [dispatch]);
 
   const handleChange = (event) => {
     const { name, value } = event.currentTarget;
@@ -51,6 +56,10 @@ export const RecipeDescriptionFields = () => {
     valueContainer: (provided, state) => ({
       ...provided,
       justifyContent: "flex-end",
+    }),
+    dropdownIndicator: (provided, state) => ({
+      ...provided,
+      color: "var(--accent-color)",
     }),
   };
 
@@ -89,9 +98,9 @@ export const RecipeDescriptionFields = () => {
             styles={customStyles}
             name="category"
             value={{ value: category, label: category }}
-            options={categories.map(({ name }) => ({
-              value: name,
-              label: name,
+            options={categories.map((category) => ({
+              value: category,
+              label: category,
             }))}
             onChange={handleSelectChange}
             isClearable={false}

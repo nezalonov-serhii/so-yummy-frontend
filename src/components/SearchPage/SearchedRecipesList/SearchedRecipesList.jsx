@@ -1,29 +1,29 @@
 import { SearchedRecipeElement } from "../SearchedRecipesElement/SearchedRecipeElement";
 import { RecipesList, RecipeItem } from "./SearchedRecipesList.styled";
 import { NoRecipes } from "../NoRecipes/NoRecipes";
-import recipes from "../../SearchPage/recipes";
 
-export const SearchedRecipesList = () => {
-   const filtredRecipes = recipes.filter((recipe) => recipe.title.includes("Beef"));
-   const spliceRecipes = filtredRecipes.splice(0, 12);
+
+export const SearchedRecipesList = ({listOfRecipes}) => {
+
 
    return (
       <RecipesList>
-         {spliceRecipes &&
-            spliceRecipes.map((recipe) => {
-               const [id] = Object.values(recipe._id);
+          {listOfRecipes ?(
+            listOfRecipes.map((recipe, index) => {
+               // const [id] = Object.values(recipe._id);
 
                return (
-                  <RecipeItem key={id}>
+                  <RecipeItem key={index}>
                      <SearchedRecipeElement
                         title={recipe.title}
-                        recipeId={id}
+                        recipeId={recipe._id}
                         img={recipe.preview}
                         desc={recipe.description}
                      />
                   </RecipeItem>
                );
-            })}
+            })) :(<NoRecipes/>)
+            }
       </RecipesList>
    );
 };

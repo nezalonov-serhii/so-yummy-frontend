@@ -16,6 +16,7 @@ import addRecipeReducer from "./Slice/addRecipeSlice/addRecipeSlice";
 import shoppingReducer from "./shopping/sliceShopping";
 import dataReducer from "./Slice/addRecipeSlice/addRecipeFormSlice";
 import recipesReducer from "./recipe/recipeSlice/recipeSlice";
+import searchSelectReducer from "./Slice/searchSelectSlice/searchSelectSlice";
 
 const authPersistConfig = {
   key: "auth",
@@ -30,6 +31,8 @@ export const store = configureStore({
     shopping: shoppingReducer,
     data: dataReducer,
     recipes: recipesReducer,
+    searchSelect: searchSelectReducer,
+
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({

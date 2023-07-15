@@ -1,128 +1,27 @@
-
 import styled from "styled-components";
-import { NavLink } from "react-router-dom";
-import modalMOb from "../../images/Modal/modalLeafMob.png";
-import modalTab from "../../images/Modal/modalLeafTab.png";
+
 
 export const HeaderContainer = styled.header`
   width: 100%;
-  height:46px;
+  height: 46px;
   margin-top: 18px;
-`;
-
-export const Nav = styled.nav`
-  display: flex;
-`;
-
-export const MobileBtn = styled.div`
-    position: fixed;
-    right: 20px;
-    top: 20px;
-    display: flex;
-    width: 32px;
-    height: 32px;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    z-index: 10;
-    @media (min-width: 1268px) {
-      display: none;
-    }
-`;
-
-export const Line = styled.ul`
+  margin-bottom: 10px;
   
-    display: flex;
-    align-items: center;
-    font-size: 18px;
-    line-height: 18px;
-    margin-bottom: 18px;
-    font-family: Poppins;
-    gap: 30px;
-    padding-left: 20px;
-    background-image: url(${modalMOb});
-    background-position: left bottom;
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-color: #fff;
-   
-    padding-left: 0;
-  }
-  @media (max-width: 768px) {
-    display: flex;
-    align-items: center;
-    font-size: 18px;
-    line-height: 18px;
-    margin-bottom: 18px;
-    font-family: Poppins;
-    gap: 30px;
-    padding-left: 20px;
-    background-image: url(${modalTab});
-    background-position: right bottom;
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-color: #fff;
-    width: 100vw;
-    padding-left: 0;
-  }
-
-  @media (max-width: 1280px) {
-    display: ${props => (props.nav ? "flex" : "none")};
-    flex-direction: column;
-    justify-content: center;
-    position: fixed;
-    font-size: 22px;
-    line-height: 20px;
-    align-items: center;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    width: 100%;
-    height: 100vh;
-    z-index: 10;
-    transition: left 1s;
-    background-color: #ebf3d4;
-    padding: 20px;
-  }
 `;
 
-export  const StyledLink = styled(NavLink)`
-  color: #333;
-  text-decoration: none;
-  &.active {
-    color: #8baa36;
-  }
-`;
-
-export  const Box = styled.div`
+export const Box = styled.div`
+@media (max-width: 1279px) {
 display: flex;
-  height: 100%;
-  margin-left: 200px; 
-  margin-right: auto; 
-  flex-direction: column-reverse;
-`;
-
-export const Logo = styled.div`
+    height: 100%;
+    margin-right: auto;
+    justify-content: space-between;
+}
+@media (min-width: 1280px) {
   display: flex;
-  position: absolute;
-  left: 16px;
-  top: 18px;
-  justify-content: center;
-  align-items: center;
-  border-radius: 30%;
-  width: 40px;
-  height: 40px;
-  background-color: #8baa36;
-  z-index: 999;
+  height: 100%;
+  
+}
 `;
-export const  Search  = styled.li`
-display: flex;
-
-justify-content: center;
-  align-items: center;
-`
-
 
 // export const ThemeSwitch = styled.div`
 // @media (max-width: 768px) {
@@ -132,7 +31,6 @@ justify-content: center;
 // flex-direction: column-reverse;
 // }
 // `;
-
 
 // export const ThemeToggle = styled.input`
 // @media (max-width: 768px) {

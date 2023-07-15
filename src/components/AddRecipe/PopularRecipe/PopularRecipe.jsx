@@ -5,7 +5,9 @@ import {
   Container,
   Image,
   Item,
+  LinkId,
   List,
+  Paragraph,
   SecondaryTitle,
   Text,
   TextWrapper,
@@ -22,6 +24,7 @@ export const PopularRecipe = () => {
         const response = await dispatch(fetchRecipePopular());
         const responseData = response.payload.data;
         setRecipes(responseData);
+        console.log(responseData);
       } catch (error) {
         console.error(error);
       }
@@ -33,25 +36,31 @@ export const PopularRecipe = () => {
   return (
     <Container>
       <Title>Popular recipe</Title>
-      <List>
-        {recipes.map(({ _id, preview, title, description }) => {
-          const name = title.length < 26 ? title : title.slice(0, 21) + "...";
-          const paragraph =
-            description.length < 100
-              ? description
-              : description.slice(0, 80) + "...";
-          return (
-            <Item key={_id}>
-              <Image src={preview} />
-
-              <TextWrapper>
-                <SecondaryTitle>{name}</SecondaryTitle>
-                <Text>{paragraph}</Text>
-              </TextWrapper>
-            </Item>
-          );
-        })}
-      </List>
+      {recipes.length < 1 ? (
+        <Paragraph>There are no popular recipes at the moment.</Paragraph>
+      ) : (
+        <List>
+          {recipes.map(({ _id, preview, title, description }) => {
+            const name = title.length < 26 ? title : title.slice(0, 21) + "...";
+            const paragraph =
+              description.length < 100
+                ? description
+                : description.slice(0, 80) + "...";
+            const recipeId = _id;
+            return (
+              <Item key={_id}>
+                <LinkId to={`/recipe/:${recipeId}`}>
+                  <Image src={preview} />
+                  <TextWrapper>
+                    <SecondaryTitle>{name}</SecondaryTitle>
+                    <Text>{paragraph}</Text>
+                  </TextWrapper>
+                </LinkId>
+              </Item>
+            );
+          })}
+        </List>
+      )}
     </Container>
   );
 };
