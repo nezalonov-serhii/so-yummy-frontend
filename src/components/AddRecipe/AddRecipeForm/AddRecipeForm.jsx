@@ -11,7 +11,10 @@ import { fetchAddRecipe } from "../../../redux/thunk/addRecipe/operations";
 import { useNavigate } from "react-router";
 import {
   clearForm,
+  setFormValidity,
   setInvalidFields,
+  setIsClickDisabledButton,
+  validateForm,
 } from "../../../redux/Slice/addRecipeSlice/addRecipeFormSlice";
 
 export const AddRecipeForm = () => {
@@ -28,6 +31,7 @@ export const AddRecipeForm = () => {
     listItems,
     preparation: instructions,
     isFormValid,
+    isClickDisabledButton,
   } = data;
   const time = numberTime.toString();
   const ingredients = listItems.map((item) => ({
@@ -39,11 +43,15 @@ export const AddRecipeForm = () => {
   const handleNotValid = (event) => {
     event.preventDefault();
     console.log("NOT VALID");
+    dispatch(setIsClickDisabledButton(true));
+    console.log(isClickDisabledButton);
+    dispatch(validateForm());
   };
   const handleSubmit = (event) => {
     event.preventDefault();
     // dispatch(fetchAddRecipe(data));
     console.log(data); // видалити
+    setFormValidity(true);
     if (!isFormValid) {
       const fields = [
         "title",
@@ -54,6 +62,7 @@ export const AddRecipeForm = () => {
         "preparation",
       ];
       setInvalidFields(fields);
+
       return;
     }
 

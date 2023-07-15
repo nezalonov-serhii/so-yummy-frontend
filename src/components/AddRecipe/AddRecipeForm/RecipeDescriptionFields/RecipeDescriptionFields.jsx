@@ -20,9 +20,15 @@ import { useState } from "react";
 
 export const RecipeDescriptionFields = () => {
   const dispatch = useDispatch();
-  const { title, about, category, time, invalidFields } = useSelector(
-    (state) => state.data
-  );
+  const {
+    title,
+    about,
+    category,
+    time,
+    invalidFields,
+    isFormValid,
+    isClickDisabledButton,
+  } = useSelector((state) => state.data);
   const categories = useSelector((state) => state.addRecipe.categories.items);
 
   useEffect(() => {
@@ -72,6 +78,7 @@ export const RecipeDescriptionFields = () => {
     }),
   };
 
+  console.log(isClickDisabledButton);
   return (
     <div>
       <ImageRecipe />
@@ -86,6 +93,12 @@ export const RecipeDescriptionFields = () => {
             onChange={handleChange}
             title="Title may contain min 3 letters"
             required
+            hasError={isClickDisabledButton && invalidFields.title}
+            // invalid={
+            //   Object.keys(invalidFields).length === 0 &&
+            //   !isFormValid &&
+            //   invalidFields.title
+            // }
             // invalid={invalidFields.includes("title")}
           />
         </InputWrapper>
@@ -99,6 +112,7 @@ export const RecipeDescriptionFields = () => {
             onChange={handleChange}
             title="Text may contain min 5 letters"
             required
+            hasError={isClickDisabledButton && invalidFields.about}
           />
         </InputWrapper>
         <InputWrapper>

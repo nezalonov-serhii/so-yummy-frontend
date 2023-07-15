@@ -11,7 +11,8 @@ const dataSlice = createSlice({
     listItems: [],
     preparation: [],
     isFormValid: false,
-    invalidFields: [],
+    invalidFields: {},
+    isClickDisabledButton: false,
   },
   reducers: {
     setDescription(state, action) {
@@ -35,35 +36,38 @@ const dataSlice = createSlice({
     validateForm(state) {
       const { title, about, category, time, listItems, preparation } = state;
 
-      const invalidFields = [];
+      const invalidFields = {};
 
       if (title.trim() === "") {
-        invalidFields.push("title");
+        invalidFields.title = true;
       }
       if (about.trim() === "") {
-        invalidFields.push("about");
+        invalidFields.about = true;
       }
       if (category === "") {
-        invalidFields.push("category");
+        invalidFields.category = true;
       }
       if (time === "") {
-        invalidFields.push("time");
+        invalidFields.time = true;
       }
       if (listItems.length === 0) {
-        invalidFields.push("listItems");
+        invalidFields.listItems = true;
       }
       if (
         preparation.length === 0 ||
         (preparation.length === 1 && preparation[0].trim() === "")
       ) {
-        invalidFields.push("preparation");
+        invalidFields.preparation = true;
       }
 
-      state.isFormValid = invalidFields.length === 0;
+      state.isFormValid = Object.keys(invalidFields).length === 0;
       state.invalidFields = invalidFields;
     },
     setInvalidFields(state, action) {
       state.invalidFields = action.payload;
+    },
+    setIsClickDisabledButton(state, action) {
+      state.isClickDisabledButton = action.payload;
     },
     clearForm(state) {
       return {
@@ -77,6 +81,7 @@ const dataSlice = createSlice({
         preparation: [],
         isFormValid: false,
         invalidFields: [],
+        isClickDisabledButton: false,
       };
     },
   },
@@ -90,6 +95,7 @@ export const {
   setFormValidity,
   validateForm,
   setInvalidFields,
+  setIsClickDisabledButton,
   clearForm,
 } = dataSlice.actions;
 

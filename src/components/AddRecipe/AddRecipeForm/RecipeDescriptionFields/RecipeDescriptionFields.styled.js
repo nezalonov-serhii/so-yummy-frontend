@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 export const Container = styled.div`
   display: flex;
@@ -22,6 +22,11 @@ export const Input = styled.input`
   /* &:invalid {
     border: solid 1px red;
   } */
+  ${({ hasError }) =>
+    hasError &&
+    `
+    border: solid 1px red;
+  `}
   &:active,
   &:focus,
   &:hover {
