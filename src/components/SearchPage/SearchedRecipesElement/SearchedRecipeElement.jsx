@@ -7,11 +7,17 @@ export const SearchedRecipeElement = ({ title, recipeId, img, desc }) => {
    //                 {film.title ? film.title : film.name}
    //               </NavLink>
    return (
-      <>
-         <a href={`./recipe/:${recipeId}`}>
+      // <>
+      //    <a href={`./recipe/:${recipeId}`}>
+      //       <RecipeImage src={img} alt={desc} />
+      //       <RecipeTitle>{title}</RecipeTitle>
+      //    </a>
+      // </>
+
+         <NavLink href={`./recipe/:${recipeId}`}>
             <RecipeImage src={img} alt={desc} />
             <RecipeTitle>{title}</RecipeTitle>
-         </a>
-      </>
+         </NavLink>
+      
    );
 };

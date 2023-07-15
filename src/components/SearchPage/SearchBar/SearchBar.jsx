@@ -4,11 +4,11 @@ import { CustomButtonStyles, CustomSearchFormContainer } from "./SearchBar.style
 
 
 
-export const SearchBar = () => {
+export const SearchBar = ({ handleSearchFormInput }) => {
    return (
       <>
        
-       <CommonSearchForm 
+       <CommonSearchForm handleSearchFormInput ={handleSearchFormInput}
          CustomButtonComponent={CustomButtonStyles}
          SearchFormContainer={CustomSearchFormContainer}/>
          <SearchTypeSelector/>
