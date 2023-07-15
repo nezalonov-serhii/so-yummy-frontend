@@ -52,7 +52,7 @@ export const AddRecipeForm = () => {
         })
         .then(([blob, contentType]) => {
           const file = new File([blob], "image", { type: contentType });
-          formData.append("image", file);
+          formData.append("recipeImg", file);
           dispatch(fetchAddRecipe(formData));
         })
         .catch((error) => {
