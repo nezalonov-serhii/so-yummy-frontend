@@ -13,6 +13,7 @@ import BasketMob2x from "../../images/SearchPage/vegetableBasketMob@2x.webp";
 import BacketTabDesk from "../../images/SearchPage/vegetableBasketTabDesk.webp";
 import BacketTabDesk2x from "../../images/SearchPage/vegetableBasketTabDesk@2x.webp";
 
+
 const FavoritePage = () => {
   const [recipes, setRecipes] = useState([]);
   const [, setError] = useState(null);
@@ -33,6 +34,7 @@ const FavoritePage = () => {
       }
     };
     fetchFavoriteRecipes();
+  
   }, []);
 
   const hendleDeleteRecipeById = (id) => {
@@ -44,17 +46,18 @@ const FavoritePage = () => {
     <WrapPage>
       {isLoading && <Loader />}
       <Title>Favorites</Title>
-      {recipes ? (
+      {recipes.length === 0 ?  
+        (
         <BacketWrapper>
         <Emptytitle>Oops!!!</Emptytitle>
           <picture>
             <source
-              srcset={`${BacketTabDesk}, ${BacketTabDesk2x} 2x`}
+              srcSet={`${BacketTabDesk}, ${BacketTabDesk2x} 2x`}
               media="(min-width: 768px)"
               sizes="(min-width: 498px) 498px, 100vw"
             />
             <source
-              srcset={`${BasketMob}, ${BasketMob2x} 2x`}
+              srcSet={`${BasketMob}, ${BasketMob2x} 2x`}
               media="(max-width: 767px)"
               sizes="(min-width: 259px) 259px, 100vw"
             />
@@ -62,9 +65,9 @@ const FavoritePage = () => {
           </picture>
         <EmptyText>You don't have any favorite recipes. </EmptyText>
          </BacketWrapper>
-      ) : (
-        <FavoriteList recipes={recipes} onDelete={hendleDeleteRecipeById} />
-      )}
+      ): (
+         <FavoriteList recipes={recipes} onDelete={hendleDeleteRecipeById} />)}
+      {/* {recipes && <FavoriteList recipes={recipes} onDelete={hendleDeleteRecipeById} />} */}
     </WrapPage>
   );
 };
