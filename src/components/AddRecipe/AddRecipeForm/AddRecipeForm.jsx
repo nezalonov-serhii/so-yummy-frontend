@@ -36,6 +36,10 @@ export const AddRecipeForm = () => {
     measure: item.measure,
   }));
 
+  const handleNotValid = (event) => {
+    event.preventDefault();
+    console.log("NOT VALID");
+  };
   const handleSubmit = (event) => {
     event.preventDefault();
     // dispatch(fetchAddRecipe(data));
@@ -89,7 +93,10 @@ export const AddRecipeForm = () => {
         <RecipeDescriptionFields />
         <RecipeIngredientsFields />
         <RecipePreparationFields />
-        <Button onClick={handleSubmit} disabled={!isFormValid}>
+        <Button
+          onClick={isFormValid ? handleSubmit : handleNotValid}
+          isFormValid={isFormValid}
+        >
           Add
         </Button>
       </form>
