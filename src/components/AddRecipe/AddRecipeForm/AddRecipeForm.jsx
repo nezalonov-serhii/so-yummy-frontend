@@ -9,7 +9,10 @@ import { Toaster } from "react-hot-toast";
 
 import { fetchAddRecipe } from "../../../redux/thunk/addRecipe/operations";
 import { useNavigate } from "react-router";
-import { setInvalidFields } from "../../../redux/Slice/addRecipeSlice/addRecipeFormSlice";
+import {
+  clearForm,
+  setInvalidFields,
+} from "../../../redux/Slice/addRecipeSlice/addRecipeFormSlice";
 
 export const AddRecipeForm = () => {
   const dispatch = useDispatch();
@@ -76,6 +79,7 @@ export const AddRecipeForm = () => {
       dispatch(fetchAddRecipe(formData));
     }
     navigate("/my");
+    dispatch(clearForm());
   };
 
   return (

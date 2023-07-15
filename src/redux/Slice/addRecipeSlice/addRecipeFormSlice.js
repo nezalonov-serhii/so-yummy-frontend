@@ -65,6 +65,20 @@ const dataSlice = createSlice({
     setInvalidFields(state, action) {
       state.invalidFields = action.payload;
     },
+    clearForm(state) {
+      return {
+        ...state,
+        image: null,
+        title: "",
+        about: "",
+        category: "",
+        time: "",
+        listItems: [],
+        preparation: [],
+        isFormValid: false,
+        invalidFields: [],
+      };
+    },
   },
 });
 
@@ -76,6 +90,7 @@ export const {
   setFormValidity,
   validateForm,
   setInvalidFields,
+  clearForm,
 } = dataSlice.actions;
 
 export default dataSlice.reducer;
