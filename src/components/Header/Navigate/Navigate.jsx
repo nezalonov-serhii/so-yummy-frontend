@@ -1,12 +1,10 @@
-import { useState } from "react";
+
+import React, { useState } from "react";
 import { HiOutlineMenuAlt2 } from "react-icons/hi";
 import { FiSearch } from "react-icons/fi";
 import { CgClose } from "react-icons/cg";
-import { ModalEditProfile } from "../ModalEditProfile/ModalEditProfile";
-
 import { useSelector } from "react-redux";
 import { selectUser } from "../../../redux/selector/selectors";
-
 import {
   Nav,
   Line,
@@ -16,13 +14,15 @@ import {
   SearchText,
   Name,
   BoxName,
-  LogoAvatat
+  LogoAvatar,
 } from "./Navigate.styled";
-
+import { ModalEditProfile } from "../ModalEditProfile/ModalEditProfile";
+import { Logout } from "../Logout/Logout";
 
 export const Navigate = () => {
   const [nav, setNav] = useState(false);
   const [modalActive, setModalActive] = useState(false);
+  const [modalLogoutActive, setModalLogoutActive] = useState(false);
   const user = useSelector(selectUser);
 
   const handleAvatarClick = () => {
@@ -31,8 +31,8 @@ export const Navigate = () => {
 
   const closeModal = () => {
     setModalActive(false);
+    setModalLogoutActive(false);
   };
-
 
   return (
     <Nav>
@@ -63,14 +63,15 @@ export const Navigate = () => {
         <MobileBtn size={32} onClick={() => setNav(!nav)}>
           {nav ? <CgClose size={32} /> : <HiOutlineMenuAlt2 size={32} />}
         </MobileBtn>
-        
       </nav>
-      <BoxName onClick={handleAvatarClick}> 
-        <LogoAvatat />
+      {modalActive && <ModalEditProfile closeModal={closeModal} />}
+      <BoxName onClick={handleAvatarClick}>
+        <LogoAvatar />
         <Name>{user.name}</Name>
       </BoxName>
-      {modalActive && <ModalEditProfile closeModal={closeModal} />}
-      
+      {modalLogoutActive && <Logout closeModal={closeModal} />}
     </Nav>
   );
 };
+
+export default Navigate;

@@ -1,5 +1,10 @@
 import styled from "styled-components";
 
+export const Container =styled.div`
+padding: 0px 20px;
+    width: 1280px;
+`
+
 export const HeaderContainer = styled.header`
   width: 100%;
   height: 46px;
@@ -8,6 +13,7 @@ export const HeaderContainer = styled.header`
 `;
 
 export const Box = styled.div`
+
   display: flex;
   height: 100%;
   margin-left: 200px;
