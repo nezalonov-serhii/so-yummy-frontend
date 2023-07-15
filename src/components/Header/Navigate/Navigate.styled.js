@@ -115,6 +115,5 @@ export const Name = styled.p`
  export const Box = styled.div`
  display: flex;
  align-items: center;
- margin-left: 60px;
  position: relative;
  `
