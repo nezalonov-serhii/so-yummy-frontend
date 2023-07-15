@@ -9,9 +9,11 @@ export const SearchedRecipesList = ({listOfRecipes}) => {
    return (
       <RecipesList>
           {listOfRecipes ?(
-            listOfRecipes.map((recipe) => {
-           return (
-                  <RecipeItem key={recipe._id}>
+            listOfRecipes.map((recipe, index) => {
+               // const [id] = Object.values(recipe._id);
+
+               return (
+                  <RecipeItem key={index}>
                      <SearchedRecipeElement
                         title={recipe.title}
                         recipeId={recipe._id}
