@@ -50,9 +50,24 @@ const dataSlice = createSlice({
       if (time === "") {
         invalidFields.time = true;
       }
-      if (listItems.length === 0) {
+      if (
+        listItems.length === 0 ||
+        listItems.every((item) => item.selectedOption === null)
+      ) {
         invalidFields.listItems = true;
       }
+      // if (
+      //   listItems.length === 0 ||
+      //   listItems.every(
+      //     (item) =>
+      //       item.selectedOption === null ||
+      //       (item.selectedOption &&
+      //         (!item.measure || item.measure.trim() === ""))
+      //   )
+      // ) {
+      //   invalidFields.listItems = true;
+      // } else invalidFields.listItems = false;
+
       if (
         preparation.length === 0 ||
         (preparation.length === 1 && preparation[0].trim() === "")
