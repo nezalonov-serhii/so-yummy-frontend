@@ -3,17 +3,18 @@ import { Link } from "react-router-dom";
 import { PiForkKnifeBold } from "react-icons/pi";
 
 export const LogoIcon = styled(PiForkKnifeBold)`
+
   width: 30px;
   height: 30px;
   color: #8baa36;
   transition: all 0.5s var(  --cubic-bezier);
-  
 `;
 
 export const LogoBox = styled(Link)`
+
+
   display: flex;
-  position: absolute;
-  left: 16px;
+  left: 100px;
   top: 18px;
   justify-content: center;
   align-items: center;
@@ -22,4 +23,5 @@ export const LogoBox = styled(Link)`
   height: 40px;
   background-color: #8baa36;
   z-index: 999;
+
 `;

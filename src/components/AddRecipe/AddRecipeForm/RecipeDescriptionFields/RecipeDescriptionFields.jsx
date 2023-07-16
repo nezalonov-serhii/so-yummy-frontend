@@ -1,21 +1,35 @@
 // import categories from "../../../../categories.json";
+import { useEffect } from "react";
+import Select from "react-select";
+import { useDispatch, useSelector } from "react-redux";
+
+import { ImageRecipe } from "../ImageRecipe/ImageRecipe";
+
+import {
+  setDescription,
+  setFormValidity,
+  validateForm,
+} from "../../../../redux/Slice/addRecipeSlice/addRecipeFormSlice";
+import { fetchCategories } from "../../../../redux/thunk/addRecipe/operations";
+
 import {
   Container,
   Input,
   InputWrapper,
 } from "./RecipeDescriptionFields.styled";
-
-import Select from "react-select";
-import { ImageRecipe } from "../ImageRecipe/ImageRecipe";
-
-import { useDispatch, useSelector } from "react-redux";
-import { setDescription } from "../../../../redux/Slice/addRecipeSlice/addRecipeFormSlice";
-import { fetchCategories } from "../../../../redux/thunk/addRecipe/operations";
-import { useEffect } from "react";
+import { ErrorMessage } from "../AddRecipeForm.styled";
 
 export const RecipeDescriptionFields = () => {
   const dispatch = useDispatch();
-  const { title, about, category, time } = useSelector((state) => state.data);
+  const {
+    title,
+    about,
+    category,
+    time,
+    invalidFields,
+    isFormValid,
+    isClickDisabledButton,
+  } = useSelector((state) => state.data);
   const categories = useSelector((state) => state.addRecipe.categories.items);
 
   useEffect(() => {
@@ -25,6 +39,7 @@ export const RecipeDescriptionFields = () => {
   const handleChange = (event) => {
     const { name, value } = event.currentTarget;
     dispatch(setDescription({ [name]: value }));
+    dispatch(validateForm());
   };
 
   const handleSelectChange = (selectedOption, action) => {
@@ -33,6 +48,7 @@ export const RecipeDescriptionFields = () => {
     } else if (action.name === "time") {
       dispatch(setDescription({ time: selectedOption.value }));
     }
+    dispatch(validateForm());
   };
 
   const customStyles = {
@@ -57,13 +73,17 @@ export const RecipeDescriptionFields = () => {
       ...provided,
       justifyContent: "flex-end",
     }),
+    dropdownIndicator: (provided, state) => ({
+      ...provided,
+      color: "var(--accent-color)",
+    }),
   };
 
   return (
     <div>
       <ImageRecipe />
       <Container>
-        <InputWrapper>
+        <InputWrapper hasError={isClickDisabledButton && invalidFields.title}>
           <Input
             placeholder="Enter item title"
             type="text"
@@ -74,8 +94,11 @@ export const RecipeDescriptionFields = () => {
             title="Title may contain min 3 letters"
             required
           />
+          {isClickDisabledButton && invalidFields.title && (
+            <ErrorMessage>Please enter title</ErrorMessage>
+          )}
         </InputWrapper>
-        <InputWrapper>
+        <InputWrapper hasError={isClickDisabledButton && invalidFields.about}>
           <Input
             placeholder="Enter about recipe"
             type="text"
@@ -86,8 +109,13 @@ export const RecipeDescriptionFields = () => {
             title="Text may contain min 5 letters"
             required
           />
+          {isClickDisabledButton && invalidFields.about && (
+            <ErrorMessage>Please enter description</ErrorMessage>
+          )}
         </InputWrapper>
-        <InputWrapper>
+        <InputWrapper
+          hasError={isClickDisabledButton && invalidFields.category}
+        >
           <Input placeholder="Category" readOnly />
 
           <Select
@@ -103,9 +131,13 @@ export const RecipeDescriptionFields = () => {
             isSearchable
             components={{ IndicatorSeparator: () => null }}
             placeholder={null}
+            hasError={isClickDisabledButton && invalidFields.category}
           />
+          {isClickDisabledButton && invalidFields.category && (
+            <ErrorMessage>Please select a category</ErrorMessage>
+          )}
         </InputWrapper>
-        <InputWrapper>
+        <InputWrapper hasError={isClickDisabledButton && invalidFields.time}>
           <Input placeholder="Cooking time" readOnly />
           <Select
             styles={customStyles}
@@ -120,7 +152,11 @@ export const RecipeDescriptionFields = () => {
             isSearchable
             components={{ IndicatorSeparator: () => null }}
             placeholder={null}
+            hasError={isClickDisabledButton && invalidFields.time}
           />
+          {isClickDisabledButton && invalidFields.time && (
+            <ErrorMessage>Please select a cooking time</ErrorMessage>
+          )}
         </InputWrapper>
       </Container>
     </div>

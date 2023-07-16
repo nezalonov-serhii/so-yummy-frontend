@@ -49,7 +49,7 @@ export const PopularRecipe = () => {
             const recipeId = _id;
             return (
               <Item key={_id}>
-                <LinkId to={`./recipe/:${recipeId}`}>
+                <LinkId to={`/recipe/:${recipeId}`}>
                   <Image src={preview} />
                   <TextWrapper>
                     <SecondaryTitle>{name}</SecondaryTitle>

@@ -1,3 +1,4 @@
+
 import Container from "../Container";
 import { Logo } from "./Logo/Logo";
 import { Navigate } from "./Navigate/Navigate";
@@ -14,8 +15,9 @@ export const Header = () => {
   return (
     <Container>
       <HeaderContainer>
+      
         <Box>
-          <Logo />
+        <Logo />
           <Navigate />
           
           {/* <ThemeSwitch>

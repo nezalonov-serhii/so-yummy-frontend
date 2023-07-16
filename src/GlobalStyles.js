@@ -1,8 +1,6 @@
 import { createGlobalStyle } from "styled-components";
 
 const GlobalStyles = createGlobalStyle`
-@import-normalize;
-
   :root {
     /* White mode*/
     --text-primary: #3E4462;

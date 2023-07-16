@@ -1,15 +1,39 @@
-import { Box, Button } from "./ModalEditProfile.styled"
-import {logoutThunk} from '../../../redux/thunk/auth/authThunk'
-import { useDispatch } from "react-redux"
+import { RxPencil1 } from 'react-icons/rx';
+import React, { useState } from "react";
+import { Box, Button, Profile } from "./ModalEditProfile.styled";
+import { Logout } from "../Logout/Logout";
+import { UserProfile } from '../UserProfile/UserProfile';
+
+export const ModalEditProfile = () => {
+  const [modalLogoutActive, setModalLogoutActive] = useState(false);
+  const [userProfileActive, setUserProfileActive] = useState(false);
+
+  const handleLogoutClick = () => {
+    setModalLogoutActive(true);
+  };
+
+  const handleUserProfileClick = () => {
+    setUserProfileActive(true);
+  };
+
+  const closeUserProfile = () => {
+    setUserProfileActive(false);
+  };
+
+  const closeModal = () => {
+    setModalLogoutActive(false);
+  };
+
+  return (
+    <Box>
+      <Profile onClick={handleUserProfileClick}>
+        Edit profile <RxPencil1 />
+      </Profile>
+      <Button onClick={handleLogoutClick}>Log out</Button>
+      {modalLogoutActive && <Logout closeModal={closeModal} />}
+      {userProfileActive && <UserProfile closeModal={closeUserProfile} />} 
+    </Box>
+  );
+};
 
 
-export const ModalEditProfile =()=>{
-    const dispatch = useDispatch()
-
-    return(
-        <Box>
-            <p>Edit profile</p>
-            <Button onClick={()=> dispatch(logoutThunk())}>Log out</Button>
-        </Box>
-    )
-}

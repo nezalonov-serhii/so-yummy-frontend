@@ -6,7 +6,10 @@ import modalTab from "../../../images/Modal/modalLeafTab.png";
 
 export const Nav = styled.nav`
   display: flex;
-  align-items: flex-end;
+  @media (min-width: 1280px) {
+margin-left:150px;
+
+  }
 `;
 
 export const Line = styled.ul`
@@ -14,7 +17,6 @@ export const Line = styled.ul`
   align-items: center;
   font-size: 18px;
   line-height: 18px;
-  margin-bottom: 18px;
   font-family: Poppins;
   gap: 30px;
   @media (max-width: 480px) {
@@ -59,7 +61,8 @@ export const Line = styled.ul`
 `;
 
 export const MobileBtn = styled.div`
-  position: fixed;
+
+  margin-left:30px;
   right: 20px;
   top: 20px;
   display: flex;
@@ -71,6 +74,7 @@ export const MobileBtn = styled.div`
   z-index: 10;
   @media (min-width: 1268px) {
     display: none;
+    position: absolute;
   }
 `;
 export const StyledLink = styled(NavLink)`
@@ -94,11 +98,12 @@ export const SearchText = styled.p`
 `;
 export const BoxName = styled.div`
   display: flex;
-  position:relative;
-  margin-left: 100px;
   align-items: center;
+  @media (min-width: 1280px) {
+    margin-left: 100px;
+  }
 `;
-export const LogoAvatat = styled(RxAvatar)`
+export const LogoAvatar = styled(RxAvatar)`
   width: 44px;
   height: 44px;
 `;
@@ -107,3 +112,8 @@ export const Name = styled.p`
   margin-left: auto;
   padding-left: 10px;
 `;
+ export const Box = styled.div`
+ display: flex;
+ align-items: center;
+ position: relative;
+ `
