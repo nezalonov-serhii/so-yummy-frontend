@@ -13,7 +13,7 @@ const RecipeCard = ({ recipeId, imageSrc, name }) => {
   return (
     <ProductCard  onClick={handleRecipeClick}>
       <ProductImage src={imageSrc} alt={name} />
-      <ProductName>{name.length > 26 ? `${name.slice(0, 26)}...` : name}</ProductName>
+      <ProductName>{name.length > 26 ? `${name.slice(0, 30)}...` : name}</ProductName>
     </ProductCard>
   );
 };
