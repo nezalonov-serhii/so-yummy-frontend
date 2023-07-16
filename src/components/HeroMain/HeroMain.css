@@ -1,9 +1,0 @@
-.custom-button {
-    background: var(--button-background-secondary);
-    color: var(--background-primary);
-}
-
-.custom-button:hover,
-.custom-button:focus {
-  background-color: var(--button-background-primary);
-};

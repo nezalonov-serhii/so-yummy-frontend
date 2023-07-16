@@ -1,7 +1,11 @@
 import styled from "styled-components";
+import { FaPlus } from "react-icons/fa";
+import { FaMinus } from "react-icons/fa";
+import { VscChromeClose } from "react-icons/vsc";
 
 export const Container = styled.div`
   margin-bottom: 44px;
+  position: relative;
 `;
 
 export const WrapperCounter = styled.div`
@@ -20,10 +24,20 @@ export const Counter = styled.div`
 export const CounterButton = styled.button`
   background-color: inherit;
   border: none;
-  width: 14px;
-  height: 14px;
   padding: 0;
   color: rgba(51, 51, 51, 0.3);
+`;
+
+export const IconPlus = styled(FaPlus)`
+  width: 14px;
+  height: 14px;
+  color: var(--accent-color);
+`;
+
+export const IconMinus = styled(FaMinus)`
+  width: 14px;
+  height: 14px;
+  color: "#333333";
 `;
 
 export const List = styled.ul``;
@@ -35,6 +49,7 @@ export const Li = styled.li`
 
 export const SelectWrapper = styled.div`
   margin-right: 14px;
+  flex: 1;
 `;
 export const InputAmount = styled.input`
   background-color: rgba(245, 245, 245, 1);
@@ -48,5 +63,10 @@ export const DelButton = styled.button`
   background-color: inherit;
   border: none;
   padding: 0;
-  margin-left: auto;
+  margin-left: 33px;
+`;
+export const IconDelete = styled(VscChromeClose)`
+  width: 18px;
+  height: 18px;
+  color: #333333;
 `;

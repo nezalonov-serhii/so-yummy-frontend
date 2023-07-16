@@ -1,5 +1,6 @@
-import { Formik } from "formik";
+import { Formik} from "formik";
 import * as Yup from "yup";
+import { useDispatch} from "react-redux";
 
 import {
    SubscribeContainer,
@@ -15,8 +16,21 @@ import {
    ErrorMessageStyled,
    WrapField,
 } from "./SubscribeForm.Styled";
+import { subscribeThunk } from "../../../redux/thunk/auth/authThunk";
+
+
 
 export const SubscribeForm = () => {
+   const dispatch = useDispatch();
+
+  const handleSubmit = (values, actions) => { 
+    const newUser = {
+      email:  values.email,
+    }
+    dispatch(subscribeThunk(newUser));
+    actions.resetForm();
+  }
+   
    const validationSchema = Yup.object({
       email: Yup.string()
          .matches(
@@ -38,10 +52,7 @@ export const SubscribeForm = () => {
        <Formik
          initialValues={{ email: "" }}
          validationSchema={validationSchema}
-         onSubmit={(values, actions) => {
-           actions.resetForm();
-           console.log(values);
-         }}
+         onSubmit={handleSubmit }
        >
          {({ errors, touched }) => (
            <>
@@ -62,6 +73,7 @@ export const SubscribeForm = () => {
                        autoComplete="username"
                        invalid={errors.email && touched.email ? "invalid" : ""}
                        valid={!errors.email && touched.email ? "valid" : ""}
+                       
                      />
                    </WrapField>
                  </Label>

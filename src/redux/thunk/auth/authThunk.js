@@ -5,7 +5,9 @@ import {
    login,
    logout,
    signup,
+   subscribeUser
 } from "../../../service/api/apiAuth";
+
 
 export const signupThunk = createAsyncThunk("user/signup", (user) =>
    signup(user)
@@ -21,6 +23,7 @@ export const currentUserThunk = createAsyncThunk(
 );
 
 
+
 // export const updateUserNameThunk = createAsyncThunk(
 //    'user/updateUserName',
 //    async ({ token, name }) => {
@@ -32,3 +35,6 @@ export const currentUserThunk = createAsyncThunk(
 //      }
 //    }
 //  );
+
+export const subscribeThunk =  createAsyncThunk('user/subscribe', (user)=> subscribeUser(user))
+

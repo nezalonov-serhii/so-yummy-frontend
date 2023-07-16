@@ -7,6 +7,10 @@ export const Div = styled.div`
   margin-right: auto;
   max-width: 343px;
 
+  @media (min-width: 480px) {
+    max-width: 480px;
+  }
+
   @media (min-width: 768px) {
     padding: 0 32px;
     max-width: 704px;
