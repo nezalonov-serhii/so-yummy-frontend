@@ -6,11 +6,12 @@ import {
   setPreparation,
   validateForm,
 } from "../../../../redux/Slice/addRecipeSlice/addRecipeFormSlice";
+import { ErrorMessage } from "../AddRecipeForm.styled";
 
 export const RecipePreparationFields = () => {
   const dispatch = useDispatch();
 
-  const { invalidFields, isFormValid, preparation } = useSelector(
+  const { preparation, isClickDisabledButton, invalidFields } = useSelector(
     (state) => state.data
   );
   const [value, setValue] = useState(preparation.join("\n"));
@@ -32,11 +33,19 @@ export const RecipePreparationFields = () => {
     <Container>
       <Title>Recipe Preparation</Title>
       <Textarea
-        placeholder="Enter recipe"
+        placeholder={
+          isClickDisabledButton && invalidFields.preparation
+            ? "Please add the recipe"
+            : "Enter recipe"
+        }
         value={value}
         onChange={handleChange}
         onKeyDown={handleKeyDown}
+        hasError={isClickDisabledButton && invalidFields.preparation}
       />
+      {/* {isClickDisabledButton && invalidFields.preparation && (
+        <ErrorMessage>Please enter instructions</ErrorMessage>
+      )} */}
     </Container>
   );
 };
