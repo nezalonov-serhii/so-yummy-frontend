@@ -37,6 +37,7 @@ export const Navigate = () => {
 
   return (
     <Nav>
+      
         <Line nav={nav}>
           <li>
             <StyledLink to="/categories/breakfast">Categories</StyledLink>

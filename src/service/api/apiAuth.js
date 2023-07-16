@@ -58,3 +58,15 @@ export const currentUser = async (token) => {
       return Promise.reject(error.response.statusText);
    }
 };
+
+// export const updateUserName = async (token, name) => {
+//    try {
+//      const response = await axios.patch("/api/users/avatars", { name }, 
+//      dellToken(token)
+//      );
+ 
+//      return response.data;
+//    } catch (error) {
+//       return Promise.reject(error.response.data.message);
+//    }
+//  };

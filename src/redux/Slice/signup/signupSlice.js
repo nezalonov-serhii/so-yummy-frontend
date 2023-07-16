@@ -75,7 +75,7 @@ const signupSlice = createSlice({
          .addMatcher(
             isAnyOf(signupThunk.rejected, loginThunk.rejected),
             handleRejected
-         );
+         )
    },
 });
 
