@@ -18,6 +18,8 @@ export const Input = styled.input`
   font-weight: 400;
   line-height: normal;
   letter-spacing: -0.28px;
+  background-color: transparent;
+
   &:active,
   &:focus,
   &:hover {
@@ -26,9 +28,15 @@ export const Input = styled.input`
 `;
 
 export const InputWrapper = styled.div`
+  position: relative;
   display: flex;
   justify-content: space-between;
   border-bottom: solid 1px rgba(224, 224, 224, 1);
+  ${({ hasError }) =>
+    hasError &&
+    `
+    border: solid 1px red;
+  `}
   &:active,
   &:focus,
   &:hover {

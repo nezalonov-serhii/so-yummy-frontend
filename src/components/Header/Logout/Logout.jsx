@@ -1,27 +1,19 @@
-
-
-import React, { useState } from "react";
+import React from "react";
 import { useDispatch } from "react-redux";
 import { Box, Text, ButtonLogOut, BoxLogout, ButtonCancel, IconClose } from "./Logout.styled";
 import { logoutThunk } from "../../../redux/thunk/auth/authThunk";
 
 export const Logout = ({ closeModal }) => {
-  const [closeModalFlag, setCloseModalFlag] = useState(true);
-
   const dispatch = useDispatch();
 
   const handleLogout = () => {
     dispatch(logoutThunk());
-  };
-
-  const handleClose = () => {
-    setCloseModalFlag(false);
     closeModal();
   };
 
-  if (!closeModalFlag) {
-    return null;
-  }
+  const handleClose = () => {
+    closeModal();
+  };
 
   return (
     <Box>
@@ -34,5 +26,3 @@ export const Logout = ({ closeModal }) => {
     </Box>
   );
 };
-
-export default Logout;

@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
+  position: relative;
   margin-bottom: 18px;
 `;
 
@@ -12,4 +13,18 @@ export const Textarea = styled.textarea`
   margin-top: 24px;
   min-height: 154px;
   width: 100%;
+  ${({ hasError }) =>
+    hasError &&
+    `
+    border: solid 1px red;
+      &::placeholder {
+    color: red;
+  }
+    
+  `}
+  &:active,
+  &:focus,
+  &:hover {
+    outline: solid 2px rgb(241, 196, 15);
+  }
 `;
