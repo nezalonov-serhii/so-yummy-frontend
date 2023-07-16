@@ -2,23 +2,24 @@ import styled from "styled-components";
 
 
 export const HeaderContainer = styled.header`
-  width: 100%;
-  height: 46px;
-  margin-top: 18px;
-  margin-bottom: 10px;
-  
+   max-width: 480px;
+   padding:  15px;
+   @media screen and (min-width: 768px) {
+      max-width: 768px;
+   }
+   @media screen and (min-width: 1280px) {
+      max-width: 1280px;
+   }
 `;
 
 export const Box = styled.div`
 @media (max-width: 1279px) {
 display: flex;
-    height: 100%;
-    margin-right: auto;
     justify-content: space-between;
 }
 @media (min-width: 1280px) {
   display: flex;
-  height: 100%;
+ 
   
 }
 `;

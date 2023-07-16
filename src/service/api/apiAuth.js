@@ -60,6 +60,19 @@ export const currentUser = async (token) => {
 };
 
 
+// export const updateUserName = async (token, name) => {
+//    try {
+//      const response = await axios.patch("/api/users/avatars", { name }, 
+//      dellToken(token)
+//      );
+ 
+//      return response.data;
+//    } catch (error) {
+//       return Promise.reject(error.response.data.message);
+//    }
+//  };
+
+
 export const subscribeUser = async email => {
     try {
         const { data } = await axios.post('api/subscribe', email);
@@ -72,3 +85,4 @@ export const subscribeUser = async email => {
     }
     
 };
+
