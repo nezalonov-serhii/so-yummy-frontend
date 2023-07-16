@@ -4,53 +4,95 @@ import { RecipeIngredientsFields } from "./RecipeIngredientsFields/RecipeIngredi
 import { RecipePreparationFields } from "./RecipePreparationFields/RecipePreparationFields";
 import { RecipeDescriptionFields } from "./RecipeDescriptionFields/RecipeDescriptionFields";
 // import { fetchAddRecipe } from "../../../redux/operations";
-import { toast } from "react-hot-toast";
+
 import { Toaster } from "react-hot-toast";
 
 import { fetchAddRecipe } from "../../../redux/thunk/addRecipe/operations";
 import { useNavigate } from "react-router";
+import {
+  clearForm,
+  setFormValidity,
+  setInvalidFields,
+  setIsClickDisabledButton,
+  validateForm,
+} from "../../../redux/Slice/addRecipeSlice/addRecipeFormSlice";
 
 export const AddRecipeForm = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const data = useSelector((state) => state.data);
 
+  const {
+    image,
+    title,
+    about: description,
+    category,
+    time: numberTime,
+    listItems,
+    preparation: instructions,
+    isFormValid,
+    isClickDisabledButton,
+  } = data;
+  const time = numberTime.toString();
+  const ingredients = listItems.map((item) => ({
+    // id: item.selectedOption._id,
+    id: item.selectedOption?._id,
+    measure: item.measure,
+  }));
+
+  const handleNotValid = (event) => {
+    event.preventDefault();
+    console.log("NOT VALID");
+    dispatch(setIsClickDisabledButton(true));
+
+    dispatch(validateForm());
+  };
   const handleSubmit = (event) => {
     event.preventDefault();
     // dispatch(fetchAddRecipe(data));
     console.log(data); // видалити
-    toast.success("Add recipe"); // видалити
+    setFormValidity(true);
+    if (!isFormValid) {
+      const fields = [
+        "title",
+        "about",
+        "category",
+        "time",
+        "listItems",
+        "preparation",
+      ];
+      setInvalidFields(fields);
 
-    const newData = new FormData();
+      return;
+    }
 
-    newData.append("title", data.title);
-    newData.append("about", data.about);
-    newData.append("category", data.category);
-    newData.append("time", data.time);
-    newData.append("listItems", JSON.stringify(data.listItems));
-    newData.append("preparation", JSON.stringify(data.preparation));
+    const formData = new FormData();
+    formData.append("title", title);
+    formData.append("description", description);
+    formData.append("category", category);
+    formData.append("time", time);
+    formData.append("ingredients", JSON.stringify(ingredients));
+    formData.append("instructions", instructions);
 
-    if (data.image) {
-      fetch(data.image)
-        .then((res) => res.blob())
-        .then((blob) => {
-          const file = new File([blob], "image.jpg", { type: "image/jpeg" });
-          newData.append("image", file);
-          dispatch(
-            fetchAddRecipe({
-              ...data,
-              image: file,
-            })
-          );
+    if (image) {
+      fetch(image)
+        .then((res) => {
+          const contentType = res.headers.get("content-type");
+          return res.blob().then((blob) => [blob, contentType]);
+        })
+        .then(([blob, contentType]) => {
+          const file = new File([blob], "image", { type: contentType });
+          formData.append("recipeImg", file);
+          dispatch(fetchAddRecipe(formData));
+        })
+        .catch((error) => {
+          console.error(error);
         });
     } else {
-      dispatch(
-        fetchAddRecipe({
-          ...data,
-        })
-      );
+      dispatch(fetchAddRecipe(formData));
     }
     navigate("/my");
+    dispatch(clearForm());
   };
 
   return (
@@ -60,7 +102,12 @@ export const AddRecipeForm = () => {
         <RecipeDescriptionFields />
         <RecipeIngredientsFields />
         <RecipePreparationFields />
-        <Button onClick={handleSubmit}>Add </Button>
+        <Button
+          onClick={isFormValid ? handleSubmit : handleNotValid}
+          isFormValid={isFormValid}
+        >
+          Add
+        </Button>
       </form>
     </Container>
   );

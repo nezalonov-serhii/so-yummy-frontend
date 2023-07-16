@@ -7,13 +7,13 @@ const RecipeCard = ({ recipeId, imageSrc, name }) => {
   const navigate = useNavigate();
 
   const handleRecipeClick = () => {
-    navigate(`/recipes/${recipeId}`);
+    navigate(`/recipe/${recipeId}`);
   };
 
   return (
     <ProductCard  onClick={handleRecipeClick}>
       <ProductImage src={imageSrc} alt={name} />
-      <ProductName>{name}</ProductName>
+      <ProductName>{name.length > 26 ? `${name.slice(0, 26)}...` : name}</ProductName>
     </ProductCard>
   );
 };

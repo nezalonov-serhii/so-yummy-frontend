@@ -4,7 +4,6 @@ export const Box = styled.div`
 position:absolute;
 width:177px;
 height: 134px;
-right: 250px;
 top: 100px;
 z-index:9;
 padding:18px;
@@ -24,4 +23,9 @@ font-weight: 400;
 background-color:#8BAA36;
 border: 1px solid transparent;
 border-radius: 24px 44px;
+margin-top:40px;
+`
+export const Profile = styled.p`
+display:flex;
+justify-content: space-between;
 `

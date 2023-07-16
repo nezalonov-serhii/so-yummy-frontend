@@ -1,13 +1,12 @@
 import { useSearchParams } from "react-router-dom";
-import {
-   SearchFormBox,
-   SearchFormInput,
-   SearchFormButton,
-   ErrorText,
-} from "./CommonSearchForm.styled";
-// import { Formik, Form, Field, ErrorMessage } from 'formik';
+import { useEffect, useState, useRef } from "react";
+import { useDispatch } from "react-redux";
 import { Formik } from "formik";
 import * as Yup from "yup";
+
+import { setSearch } from "../../redux/Slice/searchSelectSlice/searchSelectSlice";
+
+import { SearchFormBox, SearchFormInput, ErrorText } from "./CommonSearchForm.styled";
 
 const userSchema = Yup.object({
    query: Yup.string()
@@ -15,49 +14,53 @@ const userSchema = Yup.object({
       .required("Please fill field"),
 });
 
-const initialValue = {
-   query: "",
-};
-export const CommonSearchForm = () => {
+export const CommonSearchForm = ({
+   CustomButtonComponent,
+   SearchFormContainer,
+   handleSearchFormInput,
+   initialQuery,
+}) => {
+   const dispatch = useDispatch();
    const [searchParams, setSearchParams] = useSearchParams();
+   const [query, setQuery] = useState("");
+   const submitButtonRef = useRef(null);
+
+   useEffect(() => {
+      const queryFromURL = searchParams.get("query");
+      setQuery(initialQuery || queryFromURL || "");
+   }, [searchParams, initialQuery]);
+
    const handleSubmit = (values, { resetForm }) => {
-      console.log(values);
+      dispatch(setSearch("Title"));
+      console.log("qwe");
 
+      setSearchParams({ query: values.query });
+      handleSearchFormInput(values.query);
       resetForm();
+      submitButtonRef.current.blur();
    };
-   //   const submitSearch = e => {
-   //   e.preventDefault();
-   //   const form = e.currentTarget;
-   //   setSearchParams({ query: form.elements.query.value });
-   //   form.reset();
-   // };
 
-   // const inputSearch = e => {
-
-   //   // e.preventDefault();
-   //   const input = e.currentTarget;
-   //   setSearchParams({ query: input.value });
-
-   // form.reset();
-   // };
-   const query = searchParams.get("query");
    return (
-      <Formik initialValues={initialValue} onSubmit={handleSubmit} validationSchema={userSchema}>
-         <SearchFormBox>
-            <SearchFormInput
-               type="text"
-               name="query"
-               placeholder="Enter the text"
-               value={query}
-
-               // onChange={this.handleStateInput}
-               // id="inputName"
-               // required
-            />
-
-            <ErrorText name="query" component="div" />
-            <SearchFormButton type="submit">Search</SearchFormButton>
-         </SearchFormBox>
-      </Formik>
+      <SearchFormContainer>
+         <Formik initialValues={{ query }} onSubmit={handleSubmit} validationSchema={userSchema}>
+            {({ values, handleChange, handleBlur }) => (
+               <SearchFormBox>
+                  <SearchFormInput
+                     type="text"
+                     name="query"
+                     placeholder="Enter the text"
+                     onChange={handleChange}
+                     onBlur={handleBlur}
+                     value={values.query}
+                     required
+                  />
+                  <ErrorText name="query" component="div" />
+                  <CustomButtonComponent type="submit" ref={submitButtonRef}>
+                     Search
+                  </CustomButtonComponent>
+               </SearchFormBox>
+            )}
+         </Formik>
+      </SearchFormContainer>
    );
 };

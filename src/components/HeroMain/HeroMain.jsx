@@ -1,18 +1,29 @@
 import React from "react";
-import Container from "../Container"
-import { CommonSearchForm } from "../CommonSearchForm/CommonSearchForm"
+import { useNavigate, useLocation } from "react-router-dom";
+// import styled from "styled-components";
+import Container from "../Container";
+import { CommonSearchForm } from "../CommonSearchForm/CommonSearchForm";
 import { useScreenWidth } from "../../hooks"
 import {
     Section,
     Title,
     Span,
     TextHero,
-    SearchFormStyles
+    CustomButtonStyles,
+    CustomSearchFormContainer
 } from "./HeroMain.styled"
+
 
 
 export const HeroMain = () => {
     const { mobile } = useScreenWidth();
+    const navigate = useNavigate();
+    const location = useLocation();
+    const handleSearchFormInput = (query) => {
+        navigate(`/search?query=${query}`);
+      };
+
+    const initialQuery = new URLSearchParams(location.search).get("query") || "";
 
     return(
         <Section>
@@ -35,12 +46,15 @@ export const HeroMain = () => {
                         save them for the future.
                         </TextHero>
                     )}
-                    <SearchFormStyles>
-                <CommonSearchForm />
-                    </SearchFormStyles>
+                <CommonSearchForm 
+                    CustomButtonComponent={CustomButtonStyles} 
+                    SearchFormContainer={CustomSearchFormContainer}
+                    handleSearchFormInput={handleSearchFormInput}
+                    initialQuery={initialQuery}
+                />
             </Container>
         </Section>
     )
-}
+};
 
 

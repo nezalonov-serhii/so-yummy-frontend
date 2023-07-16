@@ -12,7 +12,9 @@ const handlePending = (state, field) => {
 
 const handleRejected = (state, action, field) => {
   state[field].isLoading = false;
-  state[field].error = action.payload;
+
+  const { message, status, data } = action.payload;
+  state[field].error = { message, status, data };
 };
 
 const handleFulfilled = (state, action, field) => {

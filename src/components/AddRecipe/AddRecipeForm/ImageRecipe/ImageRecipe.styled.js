@@ -31,7 +31,7 @@ export const Image = styled.img`
 export const NewImage = styled.img`
   width: 100%;
   height: 100%;
-  background-color: white;
+  background-color: #fafafa;
   object-fit: cover;
 `;
 

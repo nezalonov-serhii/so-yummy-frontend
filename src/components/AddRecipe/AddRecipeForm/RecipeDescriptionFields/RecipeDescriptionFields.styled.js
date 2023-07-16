@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 export const Container = styled.div`
   display: flex;
@@ -18,13 +18,29 @@ export const Input = styled.input`
   font-weight: 400;
   line-height: normal;
   letter-spacing: -0.28px;
+  background-color: transparent;
+  /* &:invalid {
+    border: solid 1px red;
+  } */
+  ${({ hasError }) =>
+    hasError &&
+    `
+    border: solid 1px red;
+  `}
   &:active,
   &:focus,
   &:hover {
     outline: none;
   }
 `;
-
+export const ErrorMessage = styled.span`
+  background-color: green;
+  position: absolute;
+  bottom: -20px;
+  left: 0;
+  color: red;
+  font-size: 12px;
+`;
 export const InputWrapper = styled.div`
   display: flex;
   justify-content: space-between;
