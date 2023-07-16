@@ -29,7 +29,7 @@ const ChooseYourBreakfast = () => {
                 in one satisfying meal
               </TextSeeRecipe>
             )}
-            <TextLink to="/categories/Breakfast" >
+            <TextLink to="/categories/breakfast" >
               See recipes<IconSpanTextLink aria-label="go to breakfast"/>
             </TextLink>
         </SeeRecipe>

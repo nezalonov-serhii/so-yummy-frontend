@@ -43,6 +43,7 @@ const PreviewCategories = () => {
     };
 
     fetchData();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [dispatch]);
 
   const shuffleRecipes = (recipes) => {
@@ -68,7 +69,7 @@ const PreviewCategories = () => {
   };
 
   const handleOtherCategories = () => {
-    navigate("/categories");
+    navigate("/categories/breakfast");
   };
 
   return (
