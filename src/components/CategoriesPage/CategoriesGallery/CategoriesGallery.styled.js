@@ -6,7 +6,7 @@ export const List = styled.ul`
 
   @media (min-width: 768px) {
     display: flex;
-    margin: 0 auto;
+
     flex-wrap: wrap;
     gap: 32px;
     justify-content: center;
@@ -21,14 +21,22 @@ export const Item = styled.li`
   width: 343px;
   height: 323px;
   margin: 0 auto;
-  margin-bottom: 28px;
+  @media (max-width: 767px) {
+    &:not(:last-child) {
+      margin-bottom: 28px;
+    }
+  }
+
   @media (min-width: 768px) {
     width: 336px;
     margin: 0px;
   }
   @media (min-width: 1280px) {
     width: 300px;
-    margin-bottom: 86px;
+
+    &:not(:last-child) {
+      margin-bottom: 87px;
+    }
   }
 `;
 
@@ -50,9 +58,12 @@ export const Title = styled.p`
   padding-top: 16px;
   padding-left: 16px;
   padding-bottom: 16px;
+  display: flex;
+  align-items: center;
+
   border-radius: 8px;
   color: var(--text-primary);
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 500;
   @media (min-width: 768px) {
     width: 300px;
@@ -61,5 +72,6 @@ export const Title = styled.p`
     width: 268px;
     bottom: 16px;
     left: 16px;
+    font-size: 14px;
   }
 `;
