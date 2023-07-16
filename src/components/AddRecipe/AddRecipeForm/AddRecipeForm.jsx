@@ -31,27 +31,30 @@ export const AddRecipeForm = () => {
     listItems,
     preparation: instructions,
     isFormValid,
-    isClickDisabledButton,
   } = data;
   const time = numberTime.toString();
-  const ingredients = listItems.map((item) => ({
-    // id: item.selectedOption._id,
+  const newIngredients = listItems.map((item) => ({
     id: item.selectedOption?._id,
     measure: item.measure,
   }));
+  const ingredients = newIngredients.filter((obj) => {
+    for (let key in obj) {
+      if (obj[key] === null || obj[key] === undefined || obj[key] === "") {
+        return false;
+      }
+    }
+    return true;
+  });
 
   const handleNotValid = (event) => {
     event.preventDefault();
-    // console.log("NOT VALID");
     dispatch(setIsClickDisabledButton(true));
-
+    // dispatch(setFormValidity(true));
     dispatch(validateForm());
   };
   const handleSubmit = (event) => {
     event.preventDefault();
-    // dispatch(fetchAddRecipe(data));
-    console.log(data); // видалити
-    setFormValidity(true);
+
     if (!isFormValid) {
       const fields = [
         "title",

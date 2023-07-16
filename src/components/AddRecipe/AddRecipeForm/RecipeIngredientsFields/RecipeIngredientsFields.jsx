@@ -66,6 +66,7 @@ export const RecipeIngredientsFields = () => {
         )
       )
     );
+
     dispatch(validateForm());
   };
   const handleAmountChange = (index, value) => {
@@ -103,6 +104,7 @@ export const RecipeIngredientsFields = () => {
       color: "var(--accent-color)",
     }),
   };
+
   return (
     <Container>
       <WrapperCounter>
@@ -121,7 +123,9 @@ export const RecipeIngredientsFields = () => {
         {listItems.map((item, index) => {
           return (
             <Li key={index}>
-              <SelectWrapper>
+              <SelectWrapper
+                hasError={isClickDisabledButton && !item.selectedOption}
+              >
                 <Select
                   name={ingredients}
                   styles={customStyles}
@@ -140,6 +144,10 @@ export const RecipeIngredientsFields = () => {
                 placeholder="volume"
                 onChange={(event) =>
                   handleAmountChange(index, event.target.value)
+                }
+                hasError={
+                  isClickDisabledButton &&
+                  (!item.measure || item.measure.trim() === "")
                 }
               />
               <DelButton onClick={(event) => onDelButton(event, index)}>

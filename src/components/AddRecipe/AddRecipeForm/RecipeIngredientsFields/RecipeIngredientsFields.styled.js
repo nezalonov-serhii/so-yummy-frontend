@@ -50,13 +50,24 @@ export const Li = styled.li`
 export const SelectWrapper = styled.div`
   margin-right: 14px;
   flex: 1;
+  ${({ hasError }) =>
+    hasError &&
+    `
+    border: solid 1px red;
+  `}
 `;
 export const InputAmount = styled.input`
+  position: relative;
   background-color: rgba(245, 245, 245, 1);
   border-radius: 7px;
   padding: 16px;
   width: 84px;
   border: none;
+  ${({ hasError }) =>
+    hasError &&
+    `
+    border: solid 1px red;
+  `}
 `;
 
 export const DelButton = styled.button`
