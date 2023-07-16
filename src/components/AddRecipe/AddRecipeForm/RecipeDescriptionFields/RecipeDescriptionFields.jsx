@@ -1,22 +1,23 @@
 // import categories from "../../../../categories.json";
-import {
-  Container,
-  Input,
-  InputWrapper,
-  ErrorMessage,
-} from "./RecipeDescriptionFields.styled";
-
+import { useEffect } from "react";
 import Select from "react-select";
+import { useDispatch, useSelector } from "react-redux";
+
 import { ImageRecipe } from "../ImageRecipe/ImageRecipe";
 
-import { useDispatch, useSelector } from "react-redux";
 import {
   setDescription,
   setFormValidity,
   validateForm,
 } from "../../../../redux/Slice/addRecipeSlice/addRecipeFormSlice";
 import { fetchCategories } from "../../../../redux/thunk/addRecipe/operations";
-import { useEffect } from "react";
+
+import {
+  Container,
+  Input,
+  InputWrapper,
+} from "./RecipeDescriptionFields.styled";
+import { ErrorMessage } from "../AddRecipeForm.styled";
 
 export const RecipeDescriptionFields = () => {
   const dispatch = useDispatch();

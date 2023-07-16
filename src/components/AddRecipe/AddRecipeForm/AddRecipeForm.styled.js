@@ -21,3 +21,11 @@ export const Button = styled.button`
     background-color: var(--background-footer); */
   /* cursor: not-allowed; */
 `;
+
+export const ErrorMessage = styled.span`
+  position: absolute;
+  bottom: -20px;
+  left: 0;
+  color: red;
+  font-size: 12px;
+`;

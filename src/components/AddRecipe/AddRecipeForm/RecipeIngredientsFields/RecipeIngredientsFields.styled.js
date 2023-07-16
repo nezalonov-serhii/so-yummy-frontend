@@ -5,6 +5,7 @@ import { VscChromeClose } from "react-icons/vsc";
 
 export const Container = styled.div`
   margin-bottom: 44px;
+  position: relative;
 `;
 
 export const WrapperCounter = styled.div`
