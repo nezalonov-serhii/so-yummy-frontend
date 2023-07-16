@@ -58,3 +58,17 @@ export const currentUser = async (token) => {
       return Promise.reject(error.response.statusText);
    }
 };
+
+
+export const subscribeUser = async email => {
+    try {
+        const { data } = await axios.post('api/subscribe', email);
+        toast.success("You was successful sing up to newsletter!")
+    console.log(email)
+  return data;  
+    } catch (error) {
+       toast.error(error.response.data.message);
+      return Promise.reject(error.message); 
+    }
+    
+};

@@ -2,7 +2,7 @@ import axios from "axios";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { toast } from "react-hot-toast";
 
-// axios.defaults.baseURL = "http://localhost:3003";
+axios.defaults.baseURL = "http://localhost:3003";
 
 export const fetchIngredients = createAsyncThunk(
    "addRecipe/fetchIngredients",
@@ -64,3 +64,4 @@ export const fetchAddRecipe = createAsyncThunk(
   }
 
 );
+
