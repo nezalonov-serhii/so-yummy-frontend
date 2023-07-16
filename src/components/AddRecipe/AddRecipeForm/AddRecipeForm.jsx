@@ -42,7 +42,7 @@ export const AddRecipeForm = () => {
 
   const handleNotValid = (event) => {
     event.preventDefault();
-    console.log("NOT VALID");
+    // console.log("NOT VALID");
     dispatch(setIsClickDisabledButton(true));
 
     dispatch(validateForm());
@@ -72,7 +72,7 @@ export const AddRecipeForm = () => {
     formData.append("category", category);
     formData.append("time", time);
     formData.append("ingredients", JSON.stringify(ingredients));
-    formData.append("instructions", instructions);
+    formData.append("instructions", JSON.stringify(instructions));
 
     if (image) {
       fetch(image)

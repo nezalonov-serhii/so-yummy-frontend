@@ -34,7 +34,6 @@ export const Input = styled.input`
   }
 `;
 export const ErrorMessage = styled.span`
-  background-color: green;
   position: absolute;
   bottom: -20px;
   left: 0;
@@ -42,6 +41,7 @@ export const ErrorMessage = styled.span`
   font-size: 12px;
 `;
 export const InputWrapper = styled.div`
+  position: relative;
   display: flex;
   justify-content: space-between;
   border-bottom: solid 1px rgba(224, 224, 224, 1);
