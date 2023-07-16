@@ -8,10 +8,10 @@ import { fetchRecipesGallery } from "../../service/api/fetchRecipesGallery";
 import Loader from "../../components/Loader/Loader";
 
 
-let isLoading = false;
 
 const CategoriesPage = () => {
    const [gallery, setGallery] = useState([]);
+   const [isLoading, setIsLoading] = useState(false)
    const { categoryName } = useParams();
    const [selectedCategory, setSelectedCategory] = useState(
       categoryName[0].toUpperCase() + categoryName.slice(1)
@@ -19,20 +19,20 @@ const CategoriesPage = () => {
    const navigate = useNavigate();
 
    useEffect(() => {
-      isLoading = true;
-      fetchRecipesGallery(selectedCategory).then((res) => setGallery(res));
-      isLoading = false;
-   }, []);
+      setIsLoading(true)
+      fetchRecipesGallery(selectedCategory).then((res) => {
+         setGallery(res) 
+         setIsLoading(false)
+      });
+      
+   }, [selectedCategory]);
 
    const chooseCategory = async (categorynewName) => {
-      isLoading = true;
+     
       setSelectedCategory(categorynewName);
       navigate(`/categories/${categorynewName}`);
-      
-      const newGallery = await fetchRecipesGallery(categorynewName);
-      setGallery(newGallery);
-      isLoading = false;
-      return;
+      return 
+     
    };
 
    return (
