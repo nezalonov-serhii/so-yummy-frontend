@@ -20,11 +20,6 @@ export const Input = styled.input`
   letter-spacing: -0.28px;
   background-color: transparent;
 
-  ${({ hasError }) =>
-    hasError &&
-    `
-    border: solid 1px red;
-  `}
   &:active,
   &:focus,
   &:hover {
@@ -37,6 +32,11 @@ export const InputWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   border-bottom: solid 1px rgba(224, 224, 224, 1);
+  ${({ hasError }) =>
+    hasError &&
+    `
+    border: solid 1px red;
+  `}
   &:active,
   &:focus,
   &:hover {
