@@ -23,12 +23,15 @@ import {
 } from "../../../../redux/Slice/addRecipeSlice/addRecipeFormSlice";
 import { fetchIngredients } from "../../../../redux/thunk/addRecipe/operations";
 import { useEffect } from "react";
+import { ErrorMessage } from "../AddRecipeForm.styled";
 
 export const RecipeIngredientsFields = () => {
   const dispatch = useDispatch();
 
   const ingredients = useSelector((state) => state.addRecipe.ingredients.items);
-  const listItems = useSelector((state) => state.data.listItems);
+  const { listItems, isClickDisabledButton, invalidFields } = useSelector(
+    (state) => state.data
+  );
 
   useEffect(() => {
     dispatch(fetchIngredients());
@@ -146,6 +149,9 @@ export const RecipeIngredientsFields = () => {
           );
         })}
       </List>
+      {isClickDisabledButton && invalidFields.listItems && (
+        <ErrorMessage>Please add the ingredients</ErrorMessage>
+      )}
     </Container>
   );
 };
