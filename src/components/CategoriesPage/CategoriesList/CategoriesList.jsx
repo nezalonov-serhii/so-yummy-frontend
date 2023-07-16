@@ -1,23 +1,31 @@
-import {useState, useEffect} from "react"
+import { useState, useEffect } from "react";
 
-import { List, Button, Item  } from "./CategoriesList.styled";
+import { List, Button, Item } from "./CategoriesList.styled";
 import { fetchCategories } from "../../../service/api/fetchCategories";
 
+const CategoriesList = ({ onSubmit, selectedCategory }) => {
+  const [categories, setCategories] = useState([]);
 
+  useEffect(() => {
+    fetchCategories().then((res) => setCategories(res));
+  }, []);
 
-const CategoriesList = ({onSubmit, selectedCategory}) => {
-
-  const [categories,setCategories] = useState([]);
-
-  useEffect(()=> {
-    fetchCategories().then(res => setCategories(res))
-  }, [])
-console.log(selectedCategory)
-    return <>
-    <List>
-      {categories.map(category => <Item  key={category} selectedCategory ><Button name={category} onClick = {() => onSubmit(category)} isSelected={selectedCategory===category}>{category}</Button></Item> )}
-    </List>
+  return (
+    <>
+      <List>
+        {categories.map((category) => (
+          <Item key={category} selectedCategory>
+            <Button
+              name={category}
+              onClick={() => onSubmit(category)}
+              isSelected={selectedCategory === category}
+            >
+              {category}
+            </Button>
+          </Item>
+        ))}
+      </List>
     </>
-     
-  };
-  export default CategoriesList;
+  );
+};
+export default CategoriesList;
