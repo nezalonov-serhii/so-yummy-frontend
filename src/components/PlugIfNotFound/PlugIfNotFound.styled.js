@@ -13,7 +13,7 @@ export const PlugContainer = styled.div`
 `;
 
 export const NotFoundText = styled.p`
-  color: #000000;
+  color: var(--text-third);
   font-family: Poppins;
   font-size: 14px;
   font-style: normal;

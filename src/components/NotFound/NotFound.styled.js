@@ -13,7 +13,7 @@ export const NotFoundContainer = styled.div`
 `;
 
 export const NotFoundTitle = styled.h3`
-  color: #000000;
+  color: var(--text-other);
   font-family: Poppins;
   font-size: 18px;
   font-style: normal;
@@ -30,11 +30,11 @@ export const NotFoundTitle = styled.h3`
 `;
 
 export const NotFoundText = styled.p`
-  color: #000000;
+  color: var(--text-third);
   font-family: Poppins;
   font-size: 14px;
   font-style: normal;
-  font-weight: 600;
+  font-weight: 500;
   line-height: 18px;
   letter-spacing: -2%;
   width: 206px;
