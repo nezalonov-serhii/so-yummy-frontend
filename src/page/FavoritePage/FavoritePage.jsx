@@ -39,8 +39,9 @@ const FavoritePage = () => {
 
    return (
       <WrapPage>
-         {isLoading && <Loader />}
+        
          <Title>Favorites</Title>
+          {isLoading && <Loader />}
          {recipes.length === 0 ? (
             <BacketWrapper>
                <Emptytitle>Oops!!!</Emptytitle>

@@ -83,7 +83,7 @@ export const DeleteButton = styled.button`
    height: 24px;
 
    border-radius: 4px;
-   background-color: #ebf3d4;
+   background-color: var(--social-icon-hover);
 
    @media screen and (min-width: 768px) {
       padding: 8px;
@@ -103,6 +103,7 @@ export const StyledIcon = styled(RiDeleteBinLine)`
    justify-content: center;
    width: 14px;
    height: 14px;
+   fill: var(--central-point-title);
 
    @media screen and (min-width: 768px) {
       width: 22px;
@@ -144,7 +145,7 @@ export const TimeBox = styled.div`
    align-items: end;
 `;
 export const Time = styled.p`
-   color: var(--color-text-primary, #3e4462);
+   color: var(--text-primary);
    font-family: Poppins;
    font-size: 10px;
    font-style: normal;
