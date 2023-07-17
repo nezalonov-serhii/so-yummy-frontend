@@ -75,7 +75,7 @@ export const AddRecipeForm = () => {
     formData.append("category", category);
     formData.append("time", time);
     formData.append("ingredients", JSON.stringify(ingredients));
-    formData.append("instructions", instructions);
+    formData.append("instructions", JSON.stringify(instructions));
 
     if (image) {
       fetch(image)
