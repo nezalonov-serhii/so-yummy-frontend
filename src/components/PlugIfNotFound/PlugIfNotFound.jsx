@@ -15,12 +15,12 @@ const PlugIfNotFound = ({ children }) => {
       <PlugContainer>
         <picture>
           <source
-            srcset={`${VegetableBasketTabDesk}, ${VegetableBasketTabDesk2x} 2x`}
+            srcSet={`${VegetableBasketTabDesk}, ${VegetableBasketTabDesk2x} 2x`}
             media="(min-width: 768px)"
             sizes="(min-width: 350px) 350px, 100vw"
           />
           <source
-            srcset={`${VegetableBasketMob}, ${VegetableBasketMob2x} 2x`}
+            srcSet={`${VegetableBasketMob}, ${VegetableBasketMob2x} 2x`}
             media="(max-width: 767px)"
             sizes="(min-width: 208px) 208px, 100vw"
           />
