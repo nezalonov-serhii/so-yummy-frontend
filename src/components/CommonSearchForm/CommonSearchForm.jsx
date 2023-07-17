@@ -42,7 +42,13 @@ useEffect(() => {
  
 }, [queryValue]);
    
-   
+   const value = searchParams.get("query")
+
+   const handleSubmit = (values, { resetForm }) => {
+   //  console.log("onSubmit:",values.query)
+     handleSearchFormInput(value ?? values.query);
+      
+   };
 
 
    return (
