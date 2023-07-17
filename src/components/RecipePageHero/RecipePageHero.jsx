@@ -1,4 +1,5 @@
 import { useDispatch } from "react-redux";
+import { toast } from "react-toastify";
 import {
   addToFavorite,
   deleteFavorite,
@@ -22,10 +23,12 @@ const RecipePageHero = ({ title, description, time, recipeId, favorites }) => {
     }
     if (favorites.length !== 0) {
       dispatch(deleteFavorite(recipeId));
+      toast.success("Remove from favorites");
       return;
+    } else {
+      dispatch(addToFavorite(recipeId));
+      toast.success("Add to favorites");
     }
-
-    dispatch(addToFavorite(recipeId));
   };
 
   return (
@@ -38,8 +41,8 @@ const RecipePageHero = ({ title, description, time, recipeId, favorites }) => {
           : "Add to favorite recipes"}
       </FavoriteBtn>
       <СlockWrap>
-        <ClockIcon />
-        <Time>{time} min</Time>
+        {time && <ClockIcon />}
+        {time && <Time>{time} min</Time>}
       </СlockWrap>
     </Wrapper>
   );

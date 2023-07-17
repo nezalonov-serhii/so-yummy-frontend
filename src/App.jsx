@@ -6,9 +6,6 @@ import PublicRoute from "./service/route/PublicRoute";
 
 import SharedLayout from "./components/SharedLayout/SharedLayout";
 
-// import recipes from "./page/RecipePage/data/recipes.json";
-// import ingredients from "./page/RecipePage/data/ingredients.json";
-
 import { currentUserThunk } from "./redux/thunk/auth/authThunk";
 import { useDispatch, useSelector } from "react-redux";
 import { selectTheme, selectToken } from "./redux/selector/selectors";
@@ -17,14 +14,20 @@ import GlobalStyles from "./GlobalStyles";
 import "react-toastify/dist/ReactToastify.css";
 
 const AddRecipePage = lazy(() => import("./page/AddRecipePage/AddRecipePage"));
-const CategoriesPage = lazy(() => import("./page/CategoriesPage/CategoriesPage"));
+const CategoriesPage = lazy(() =>
+  import("./page/CategoriesPage/CategoriesPage")
+);
 const FavoritePage = lazy(() => import("./page/FavoritePage/FavoritePage"));
 const MainPage = lazy(() => import("./page/MainPage/MainPage"));
 const MyRecipesPage = lazy(() => import("./page/MyRecipesPage/MyRecipesPage"));
 const RecipePage = lazy(() => import("./page/RecipePage/RecipePage"));
 const SearchPage = lazy(() => import("./page/SearchPage/SearchPage"));
-const ShoppingListPage = lazy(() => import("./page/ShoppingListPage/ShoppingListPage"));
-const RegisterPage = lazy(() => import("./page/Auth/RegisterPage/RegisterPage"));
+const ShoppingListPage = lazy(() =>
+  import("./page/ShoppingListPage/ShoppingListPage")
+);
+const RegisterPage = lazy(() =>
+  import("./page/Auth/RegisterPage/RegisterPage")
+);
 const SigninPage = lazy(() => import("./page/Auth/SigninPage/SigninPage"));
 const WelcomePage = lazy(() => import("./page/WelcomePage/WelcomePage"));
 const ErrorPage = lazy(() => import("./page/ErrorPage/ErrorPage"));

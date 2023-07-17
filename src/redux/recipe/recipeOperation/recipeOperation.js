@@ -39,11 +39,9 @@ export const deleteFavorite = createAsyncThunk(
 
 // export const addToShopping = createAsyncThunk(
 //   "ingredient/addToShopping",
-//   async ({ ingredient }, thunkAPI) => {
-//     console.log(ingredient);
+//   async (data, thunkAPI) => {
 //     try {
-//       const response = await axios.post(`api/shopping-list/`, ingredient);
-//       console.log(response.data);
+//       const response = await axios.post(`api/shopping-list/`, data);
 //       return response.data;
 //     } catch (error) {
 //       return thunkAPI.rejectWithValue(error.message);

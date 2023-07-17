@@ -12,8 +12,15 @@ import {
 
 const RecipePreparation = ({ instructions, title, thumb }) => {
   let instructionsArry = [];
-  if (instructions) {
-    instructionsArry = instructions.join("").split("\r\n");
+
+  if (instructions === undefined) {
+    return;
+  } else {
+    if (instructions.join("").includes("\r\n")) {
+      instructionsArry = instructions.join("").split("\r\n");
+    } else {
+      instructionsArry = instructions.join("").split(".");
+    }
   }
 
   let counter = 0;
