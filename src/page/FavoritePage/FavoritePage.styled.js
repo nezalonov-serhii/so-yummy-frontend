@@ -21,7 +21,7 @@ display: flex;
   margin-bottom: 50px;
 `
 export const Emptytitle = styled.h3`
-color: var(--color-text-primary, #3e4462);
+color: var(--title);
 font-family: Poppins;
 font-size: 14px;
 font-style: normal;
@@ -35,7 +35,7 @@ margin-bottom: 20px;
    line-height: 24px;
 }`;
 export const EmptyText =styled.p`
-color: #23262a;
+   color: var(--text-third);
    text-overflow: ellipsis;
    font-family: Poppins;
    font-size: 8px;
