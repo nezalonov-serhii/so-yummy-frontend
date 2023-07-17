@@ -2,7 +2,7 @@ import { FavCard } from "../FavCard/FavCard";
 import { FavList } from "./FavopiteList.styled";
 
 export const FavoriteList = ({ recipes, onDelete }) => {
-   console.log(recipes);
+   console.log("recipes:", recipes);
    return (
       <FavList>
          {recipes?.favoriteRecipes?.map(({ _id, title, preview, description, time }) => (
