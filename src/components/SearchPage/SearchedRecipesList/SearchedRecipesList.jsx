@@ -1,6 +1,5 @@
 import { SearchedRecipeElement } from "../SearchedRecipesElement/SearchedRecipeElement";
 import { RecipesList, RecipeItem } from "./SearchedRecipesList.styled";
-import { NoRecipes } from "../NoRecipes/NoRecipes";
 import PluginNotFound from "../../PlugIfNotFound/PlugIfNotFound"
 
 export const SearchedRecipesList = ({listOfRecipes}) => {
