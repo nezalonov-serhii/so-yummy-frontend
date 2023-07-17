@@ -35,6 +35,7 @@ const GlobalStyles = createGlobalStyle`
       --social-icon: #FAFAFA;
       --social-icon-hover: #1E1F28;
 
+
       --navlink-hover: #1E1F28;
     `;
        } else {

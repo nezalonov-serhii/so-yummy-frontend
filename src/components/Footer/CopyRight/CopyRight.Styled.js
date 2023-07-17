@@ -19,7 +19,7 @@ export const RightsText = styled.div`
   justify-content: center;
   flex-direction: row;
   gap: 14px;
-  color: #22252a;
+  color: var(--central-point-title);
   font-size: 10px;
   font-style: normal;
   font-weight: 500;
@@ -39,7 +39,7 @@ export const RightsText = styled.div`
 `;
 
 export const Span = styled.div`
-  color: #22252a;
+  color: var(--central-point-title);
   font-family: Poppins;
   font-size: 10px;
   font-style: normal;
