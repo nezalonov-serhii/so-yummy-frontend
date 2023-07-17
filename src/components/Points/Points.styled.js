@@ -5,26 +5,26 @@ export const Container = styled.div`
    top: 0;
 `;
 export const CentralPoint = styled.div`
-position: absolute;
-width: 6px;
-height: 6px;
-transform: rotate(-25deg);
-flex-shrink: 0;
-border-radius: 3px;
-background: var(--accent-color)
-top: 20px;
-left: 247px;
+   position: absolute;
+   width: 6px;
+   height: 6px;
+   transform: rotate(-25deg);
+   flex-shrink: 0;
+   border-radius: 3px;
+   background: var(--central-point-title);
+   top: 20px;
+   left: 247px;
 
-@media screen and (min-width: 768px) {
-   width: 12px;
-   height: 12px;
-   top: 23px;
-   left: 453px; 
-}
-@media screen and (min-width: 1280px){
-   top: 38px;
-   left: 707px;
-}
+   @media screen and (min-width: 768px) {
+      width: 12px;
+      height: 12px;
+      top: 23px;
+      left: 453px;
+   }
+   @media screen and (min-width: 1280px) {
+      top: 38px;
+      left: 707px;
+   }
 `;
 export const LeftPoint = styled.div`
    position: absolute;
@@ -53,7 +53,7 @@ export const RightPoint = styled.div`
    position: absolute;
    width: 8px;
    height: 8px;
-   background: #8baa36;
+   background: var(--accent-color);
    border-radius: 3px;
    transform: rotate(-25deg);
    flex-shrink: 0;
