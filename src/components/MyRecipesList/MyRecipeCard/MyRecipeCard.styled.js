@@ -4,7 +4,7 @@ import styled from "styled-components";
 export const CardWrapper = styled.li`
   display: flex;
   border-radius: 8px;
-  background-color: #fff;
+  background-color: var(--background-secondary);
   padding: 9px 14px;
   gap: 14px;
   margin-bottom: 18px;
@@ -14,7 +14,7 @@ export const CardWrapper = styled.li`
 
   @media screen and (min-width: 768px) {
     padding: 24px 28px;
-    gap: 40px; //8?
+    gap: 40px;
     &:not(:last-child) {
       margin-bottom: 40px;
     }
@@ -63,7 +63,7 @@ export const TitleBox = styled.div`
   }
 `;
 export const Title = styled.h3`
-  color: var(--color-text-primary, #3e4462);
+  color: var(--text-primary);
   font-family: Poppins;
   font-size: 14px;
   font-style: normal;
@@ -83,7 +83,7 @@ export const DeleteButton = styled.button`
   height: 24px;
 
   border-radius: 4px;
-  background-color: var(--accent-color);
+  background-color: var(--button-background-other);
 
   @media screen and (min-width: 768px) {
     padding: 8px;
@@ -118,7 +118,7 @@ export const StyledIcon = styled(RiDeleteBinLine)`
 export const DescriptionBox = styled.div``;
 export const Description = styled.p`
   overflow: hidden;
-  color: #23262a;
+  color: var(--text-recipe-card);
   text-overflow: ellipsis;
   font-family: Poppins;
   font-size: 8px;
@@ -145,7 +145,7 @@ export const TimeBox = styled.div`
   align-items: end;
 `;
 export const Time = styled.p`
-  color: var(--color-text-primary, #3e4462);
+  color: var(--text-primary);
   font-family: Poppins;
   font-size: 10px;
   font-style: normal;

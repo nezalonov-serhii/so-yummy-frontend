@@ -3,8 +3,6 @@ import { MyRecipesListStyled } from "./MyRecipesList.styled";
 
 export const MyRecipesList = ({recipes, onDelete }) => {
 
-    // const { ownRecipes } = recipes;
-
   return (
     <MyRecipesListStyled>
       {recipes?.map(

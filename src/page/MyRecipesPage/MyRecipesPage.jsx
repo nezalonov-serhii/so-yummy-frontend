@@ -34,11 +34,13 @@ const MyRecipesPage = () => {
   
   return (
     <WrapPage>
-      {isLoading && <Loader />}
       <Title>My recipes</Title>
-      {!recipes.length ? (
+      {isLoading && <Loader />}
+      {!recipes.length&&!isLoading ? (
         <PlugIfNotFound>There are not recipes yet</PlugIfNotFound>
-      ) : <MyRecipesList recipes={recipes} onDelete={DeleteMyRecipeById} />}
+      ) : (
+        <MyRecipesList recipes={recipes} onDelete={DeleteMyRecipeById} />
+      )}
     </WrapPage>
   );
 };

@@ -1,5 +1,4 @@
 import axios from "axios";
-import { toast } from "react-toastify";
 
 axios.defaults.baseURL = "https://so-yummy-426w.onrender.com";
 // axios.defaults.baseURL = "http://localhost:3003";
@@ -10,7 +9,6 @@ const getMyRecipes = async () => {
 
     return data.data;
   } catch (error) {
-    toast.error(error.response.data.message);
     return Promise.reject(error.response.statusText);
   }
 };
@@ -21,7 +19,6 @@ const deleteMyRecipe = async (id) => {
 
     return data;
   } catch (error) {
-    toast.error(error.response.data.message);
     return Promise.reject(error.response.statusText);
   }
 };

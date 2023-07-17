@@ -10,6 +10,7 @@ const GlobalStyles = createGlobalStyle`
       --text-secondary: #FAFAFA;
       --text-third: rgba(250, 250, 250, 0.5);
       --text-light: #FAFAFA;
+      --text-other: #FAFAFA;
 
       --accent-color: #8BAA36;
       --title: #FAFAFA;
@@ -29,6 +30,7 @@ const GlobalStyles = createGlobalStyle`
 
       --button-background-primary: #8BAA36;
       --button-background-secondary: #8BAA36;
+      --button-background-other: #1E1F28;
       
       --social-icon: #FAFAFA;
       --social-icon-hover: #1E1F28;
@@ -41,6 +43,7 @@ const GlobalStyles = createGlobalStyle`
       --text-secondary: #23262A;
       --text-third: rgba(0, 0, 0, 0.5);
       --text-light: #FAFAFA;
+      --text-other: #000000;
 
       --accent-color: #8BAA36;
       --title: #001833;
@@ -60,6 +63,7 @@ const GlobalStyles = createGlobalStyle`
 
       --button-background-primary: #8BAA36;
       --button-background-secondary: #22252A;
+      --button-background-other: #8BAA36;
 
       --social-icon: #8BAA36;
       --social-icon-hover: #FAFAFA;
