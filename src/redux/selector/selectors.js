@@ -7,3 +7,4 @@ export const selectIsRefreshing = (state) => state.auth.isRefreshing;
 
 export const selectSearchValue = (state) => state.searchSelect.search;
 
+export const selectTheme = (state) => state.switcherTheme.darkThem;

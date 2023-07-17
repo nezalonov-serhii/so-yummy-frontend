@@ -11,7 +11,7 @@ import SharedLayout from "./components/SharedLayout/SharedLayout";
 
 import { currentUserThunk } from "./redux/thunk/auth/authThunk";
 import { useDispatch, useSelector } from "react-redux";
-import { selectToken } from "./redux/selector/selectors";
+import { selectTheme, selectToken } from "./redux/selector/selectors";
 
 import GlobalStyles from "./GlobalStyles";
 import "react-toastify/dist/ReactToastify.css";
@@ -35,10 +35,11 @@ function App() {
    useEffect(() => {
       token && dispatch(currentUserThunk(token));
    }, [dispatch, token]);
+   const theme = useSelector(selectTheme);
 
    return (
       <>
-         <GlobalStyles />
+         <GlobalStyles darkThem={theme} />
          <ToastContainer />
          <Routes>
             <Route path="/" element={<SharedLayout />}>

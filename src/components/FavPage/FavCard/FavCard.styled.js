@@ -4,7 +4,7 @@ import styled from "styled-components";
 export const CardWrapper = styled.li`
    display: flex;
    border-radius: 8px;
-   background-color: #fff;
+   background-color: var(--background-recipe-card);
    padding: 9px 14px;
    gap: 14px;
    margin-bottom: 18px;
@@ -63,7 +63,7 @@ export const TitleBox = styled.div`
    }
 `;
 export const Title = styled.h3`
-   color: var(--color-text-primary, #3e4462);
+   color: var(--text-primary);
    font-family: Poppins;
    font-size: 14px;
    font-style: normal;
@@ -117,7 +117,7 @@ export const StyledIcon = styled(RiDeleteBinLine)`
 export const DescriptionBox = styled.div``;
 export const Description = styled.p`
    overflow: hidden;
-   color: #23262a;
+   color: var(--text-recipe-card);
    text-overflow: ellipsis;
    font-family: Poppins;
    font-size: 8px;

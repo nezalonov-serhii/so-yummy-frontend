@@ -2,39 +2,61 @@ import { createGlobalStyle } from "styled-components";
 
 const GlobalStyles = createGlobalStyle`
   :root {
-    /* White mode*/
-    --text-primary: #3E4462;
-    --text-secondary: #23262A;
-    --text-third: rgba(0, 0, 0, 0.5);
-    --text-light: #FAFAFA;
+    ${({ darkThem }) => {
+       console.log(darkThem);
+       if (darkThem) {
+          return `
+      --text-primary: #FAFAFA;
+      --text-secondary: #FAFAFA;
+      --text-third: rgba(250, 250, 250, 0.5);
+      --text-light: #FAFAFA;
 
-    --accent-color: #8BAA36;
+      --accent-color: #8BAA36;
 
-    --title: #001833;
+      --title: #FAFAFA;
 
-    --background-primary: #FAFAFA;
-    --background-secondary: #FFFFFF;
-    --background-footer: #22252A;
-    --background-modal: #2A2C36;
+      --background-primary: #1E1F28;
+      --background-secondary: #2A2C36;
+      --background-footer: #8BAA36;
+      --background-modal: #2A2C36;
 
-    --button-background-primary: #8BAA36;
-    --button-background-secondary: #22252A;
+      --background-recipe-card: #2A2C36;
+      --text-recipe-card: rgba(250, 250, 250, 0.60);
 
-    /* Dark mode*/
-    --dark-text-primary: #FAFAFA;
-    --dark-text-secondary: #FAFAFA;
-    --dark-text-third: rgba(250, 250, 250, 0.5);
+      --background-ingredient-card: #EBF3D4;
+      --text-ingredient-card: #23262A;
 
-    --dark-title: #FAFAFA;
+      --button-background-primary: #8BAA36;
+      --button-background-secondary: #8BAA36;
+    `;
+       } else {
+          return `
+      --text-primary: #3E4462;
+      --text-secondary: #23262A;
+      --text-third: rgba(0, 0, 0, 0.5);
+      --text-light: #FAFAFA;
 
-    --dark-background-primary: #1E1F28;
-    --dark-background-secondary: #2A2C36;
-    --dark-background-footer: #8BAA36;
+      --accent-color: #8BAA36;
+      --title: #001833;
+      
+      --background-primary: #FAFAFA;
+      --background-secondary: #FFFFFF;
+      --background-footer: #22252A;
+      --background-modal: #2A2C36;
 
-    --button-dark-background-primary: #8BAA36;
-    --button-dark-background-secondary: #8BAA36;
+      --background-recipe-card: #FFF;
+      --text-recipe-card: #23262A;
 
-    /*Transition*/
+
+      --background-ingredient-card: #2A2C36;
+      --text-ingredient-card: #23262A;
+
+      --button-background-primary: #8BAA36;
+      --button-background-secondary: #22252A;
+    `;
+       }
+    }}
+
     --cubic-bezier: cubic-bezier(0.4, 0, 0.2, 1);
   }
 
