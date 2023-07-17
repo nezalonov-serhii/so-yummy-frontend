@@ -4,7 +4,7 @@ import { FaMinus } from "react-icons/fa";
 import { VscChromeClose } from "react-icons/vsc";
 
 export const Container = styled.div`
-  margin-bottom: 44px;
+  margin-top: 44px;
   position: relative;
   @media screen and (min-width: 768px) {
     margin-top: 104px;

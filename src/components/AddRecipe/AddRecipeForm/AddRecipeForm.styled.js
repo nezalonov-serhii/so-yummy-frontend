@@ -10,6 +10,7 @@ export const Container = styled.div`
 export const Button = styled.button`
   color: var(--text-light);
   border-radius: 15px 30px 15px 30px;
+  margin-top: 18px;
   padding: 12px 48px;
   border: none;
   font-size: 16px;
@@ -20,6 +21,7 @@ export const Button = styled.button`
 
   @media screen and (min-width: 768px) {
     padding: 14px 64px;
+    margin-top: 32px;
   }
 `;
 

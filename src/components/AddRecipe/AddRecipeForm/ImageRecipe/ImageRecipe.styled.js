@@ -7,7 +7,6 @@ export const ImageWrapper = styled.div`
   border-radius: 8px;
   margin-right: auto;
   margin-left: auto;
-  margin-bottom: 32px;
   background-color: var(--button-background-primary);
   display: flex;
   justify-content: center;

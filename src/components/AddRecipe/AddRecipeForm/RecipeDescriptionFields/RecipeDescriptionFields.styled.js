@@ -1,13 +1,16 @@
 import styled from "styled-components";
 
 export const Wrapper = styled.div`
+  margin-top: 72px;
   @media screen and (min-width: 768px) and (max-width: 1279px) {
+    margin-top: 100px;
     display: flex;
     gap: 32px;
   }
   @media screen and (min-width: 1280px) {
     display: flex;
     gap: 50px;
+    margin-top: 100px;
   }
 `;
 
@@ -17,10 +20,10 @@ export const Container = styled.div`
   flex-direction: column;
   justify-content: space-between;
   gap: 24px;
-  margin-bottom: 44px;
+  margin-top: 32px;
   padding-bottom: 23px;
   @media screen and (min-width: 768px) and (max-width: 1279px) {
-    margin-bottom: 0;
+    margin-top: 0;
     padding-bottom: 0;
   }
   @media screen and (min-width: 1280px) {
