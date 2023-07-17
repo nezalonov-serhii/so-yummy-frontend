@@ -9,7 +9,7 @@ import {
 const heandleFulfilledAdd = (state, {payload}) => {
     console.log('payload add item', payload);
     state.shopping.isLoading = false;
-    state.shopping.items.push(payload);
+    state.shopping.items = [...payload];
     state.shopping.error = '';
 }
 
@@ -24,13 +24,13 @@ const handleRejected = (state, { payload }) => {
 };
 
 const handleFulfilledGet = (state, { payload }) => {
-    console.log('payload GET: ', payload);
     state.shopping.isLoading = false;
-    state.shopping.items = [...payload];
+    state.shopping.items = payload || state.shopping.items;
     state.shopping.error = '';
 };
 const handleFulfilledDel = (state, { payload }) => {
     console.log('payload DELETE:', payload);
+
     state.shopping.isLoading = false;
     state.shopping.items = state.shopping.items.filter(el => el._id !== payload);
     state.shopping.error = '';
