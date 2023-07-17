@@ -15,7 +15,7 @@ export const searchByTitle = async (query) => {
 };
 export const searchByIngridients = async (query) => {
    try {
-      const data = await axios.post("/api/ingridients", query);
+      const data = await axios.post("/api/ingredients", query);
 
       toast.success("Search successfully");
       return data;
