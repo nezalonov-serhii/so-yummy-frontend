@@ -4,27 +4,27 @@ import { BiUser } from "react-icons/bi";
 import { VscClose } from "react-icons/vsc";
 
 export const Box = styled.div`
-  position: absolute;
-  width: 330px;
-  height: 327px;
-  right: 1px;
-  top: 380px;
-  z-index: 9;
-  padding: 24px;
-  background-color: white;
-  border-radius: 10px;
+position: fixed;
+width: 100%;
+max-width: 330px;
+height: 327px;
+left: 50%;
+top: 50%;
+transform: translate(-50%, -50%);
+z-index: 9;
+padding: 24px;
+background-color: white;
+border-radius: 10px;
+box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 4px;
+}
   @media (min-width: 768px) {
     width: 480px;
     height: 402px;
-    right: 0;
-    top: 250px;
     padding: 50px;
   }
   @media (min-width: 1280px) {
     width: 500px;
     height: 425px;
-    right: 370px;
-    top: 0;
     padding: 50px;
   }
 `;
@@ -75,7 +75,7 @@ export const InputWrapper = styled.div`
 
 export const Input = styled.input`
   position: relative;
-  width: 282px;
+  width: 100%;
   height: 48px;
   border: 1px solid #d9d9d9;
   border-radius: 5px;
@@ -97,7 +97,7 @@ export const Input = styled.input`
 `;
 
 export const Button = styled.button`
-  width: 282px;
+  width: 100%;
   height: 49px;
   color: white;
   margin-top: 30px;
