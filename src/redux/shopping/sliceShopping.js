@@ -29,8 +29,6 @@ const handleFulfilledGet = (state, { payload }) => {
     state.shopping.error = '';
 };
 const handleFulfilledDel = (state, { payload }) => {
-    console.log('payload DELETE:', payload);
-
     state.shopping.isLoading = false;
     state.shopping.items = state.shopping.items.filter(el => el._id !== payload);
     state.shopping.error = '';

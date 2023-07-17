@@ -8,10 +8,10 @@ import {
   StyledImageCardThumb,
   StyledImage,
   StyledQuantity,
+  StyledFlexRow,
   StyledFlexQuantity,
   StyledListContainerIngridient,
   StyledCloseIcon,
-  
 } from "./StyledIngredientsShoppingList";
 import {  BacketWrapper, Emptytitle, EmptyText } from "../../page/FavoritePage/FavoritePage.styled";
 
@@ -23,7 +23,9 @@ import BacketTabDesk2x from "../../images/SearchPage/vegetable-fruit-basket-tab-
 import {getShoppingThunk,deleteShoppingThunk} from "../../redux/shopping/thunkShopping"
 import { useEffect } from "react";
 
-
+const lol = "123g/r/n223g";
+const ok = lol.split('/r/n')
+console.log(ok)
 
 const IngredientsShoppingList = () => {
     const dispatch = useDispatch();
@@ -79,9 +81,14 @@ const IngredientsShoppingList = () => {
                             <p>{item.ingredient.name}</p>
                         </StyledImageCardThumb>
                         <StyledFlexQuantity>
-                            <StyledQuantity>
-                                <p>{item.measure.replace(/\/r\/n/g,' ')}</p>
-                            </StyledQuantity>
+                                <StyledFlexRow>
+                                    {item.measure.split('/r/n').map(el=>(
+                                        <StyledQuantity>
+                                            <p>{el}</p>
+                                        </StyledQuantity>
+                                    )
+                                    )}
+                                </StyledFlexRow>
                             <StyledCloseIcon onClick={()=>heandleDeleteButton(item._id)}/>
                         </StyledFlexQuantity>
                     </StyledIngridientsItem>
