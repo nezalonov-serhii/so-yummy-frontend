@@ -9,41 +9,41 @@ import {
 export const FacebokIcon = styled(RiFacebookCircleFill)`
   width: 20px;
   height: 20px;
-  color: var(--button-dark-background-primary);
+  color: var(--social-icon);
   transition: var(--cubic-bezier) 250ms;
   cursor: pointer;
   &:hover {
-    color: var(--text-light);
+    color: var(--social-icon-hover);
   }
 `;
 export const YouTubeIcon = styled(AiFillYoutube)`
   width: 20px;
   height: 20px;
-  color: var(--button-dark-background-primary);
+  color: var(--social-icon);
   cursor: pointer;
   transition: var(--cubic-bezier) 250ms;
   &:hover {
-    color: var(--text-light);
+    color: var(--social-icon-hover);
   }
 `;
 export const TwitterIcon = styled(AiOutlineTwitter)`
   width: 20px;
   height: 20px;
-  color: var(--button-dark-background-primary);
+  color: var(--social-icon);
   transition: var(--cubic-bezier) 250ms;
   cursor: pointer;
   &:hover {
-    color: var(--text-light);
+    color: var(--social-icon-hover);
   }
 `;
 export const InstaIcon = styled(AiOutlineInstagram)`
   width: 20px;
   height: 20px;
-  color: var(--button-dark-background-primary);
+  color: var(--social-icon);
   transition: var(--cubic-bezier) 250ms;
   cursor: pointer;
   &:hover {
-    color: var(--text-light);
+    color: var(--social-icon-hover);
   }
 `;
 

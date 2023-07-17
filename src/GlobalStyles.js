@@ -28,6 +28,9 @@ const GlobalStyles = createGlobalStyle`
 
       --button-background-primary: #8BAA36;
       --button-background-secondary: #8BAA36;
+      
+      --social-icon: #FAFAFA;
+      --social-icon-hover: #1E1F28;
     `;
        } else {
           return `
@@ -53,6 +56,9 @@ const GlobalStyles = createGlobalStyle`
 
       --button-background-primary: #8BAA36;
       --button-background-secondary: #22252A;
+
+      --social-icon: #8BAA36;
+       --social-icon-hover: #FAFAFA;
     `;
        }
     }}
