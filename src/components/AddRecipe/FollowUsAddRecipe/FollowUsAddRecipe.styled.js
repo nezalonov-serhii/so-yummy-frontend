@@ -29,7 +29,7 @@ export const FacebookIcon = styled(RiFacebookCircleFill)`
   width: 26px;
   height: 100%;
 
-  color: var(--button-dark-background-primary);
+  color: var(--accent-color);
   transition: var(--cubic-bezier) 250ms;
   cursor: pointer;
   &:hover {
@@ -40,7 +40,7 @@ export const YouTubeIcon = styled(AiFillYoutube)`
   width: 28px;
   height: 100%;
 
-  color: var(--button-dark-background-primary);
+  color: var(--accent-color);
   cursor: pointer;
   transition: var(--cubic-bezier) 250ms;
   &:hover {
@@ -51,7 +51,7 @@ export const TwitterIcon = styled(AiOutlineTwitter)`
   width: 25px;
   height: 100%;
 
-  color: var(--button-dark-background-primary);
+  color: var(--accent-color);
   transition: var(--cubic-bezier) 250ms;
   cursor: pointer;
   &:hover {
@@ -62,7 +62,7 @@ export const InstaIcon = styled(AiOutlineInstagram)`
   width: 24px;
   height: 100%;
 
-  color: var(--button-dark-background-primary);
+  color: var(--accent-color);
   transition: var(--cubic-bezier) 250ms;
   cursor: pointer;
   &:hover {
