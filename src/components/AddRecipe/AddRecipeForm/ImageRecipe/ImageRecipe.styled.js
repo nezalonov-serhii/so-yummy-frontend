@@ -7,11 +7,18 @@ export const ImageWrapper = styled.div`
   border-radius: 8px;
   margin-right: auto;
   margin-left: auto;
-  margin-bottom: 32px;
-  background-color: rgba(139, 170, 54, 1);
+  background-color: var(--button-background-primary);
   display: flex;
   justify-content: center;
   align-items: center;
+  @media screen and (min-width: 768px) and (max-width: 1279px) {
+    margin: 0;
+  }
+  @media screen and (min-width: 1280px) {
+    width: 357px;
+    height: 344px;
+    margin: 0;
+  }
 `;
 export const InputImage = styled.input`
   position: absolute;

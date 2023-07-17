@@ -16,6 +16,7 @@ import {
   Container,
   Input,
   InputWrapper,
+  Wrapper,
 } from "./RecipeDescriptionFields.styled";
 import { ErrorMessage } from "../AddRecipeForm.styled";
 
@@ -61,13 +62,29 @@ export const RecipeDescriptionFields = () => {
     }),
     menuList: (provided, state) => ({
       ...provided,
-      maxHeight: "210px",
+      padding: "8px 14px",
+      maxHeight: "144px",
       backgroundColor: "transparent",
+      "@media screen and (min-width: 768px) and (max-width: 1279px)": {
+        maxHeight: "162px",
+      },
     }),
     option: (provided, state) => ({
       ...provided,
       backgroundColor: "transparent",
       color: "black",
+      fontSize: "12px",
+      fontWeight: 400,
+      lineHeight: "normal",
+      letterSpacing: "-0.24px",
+      margin: "4px 0",
+      padding: "0px",
+      "@media screen and (min-width: 768px) and (max-width: 1279px)": {
+        fontSize: "14px",
+        letterSpacing: "-0.28px",
+      },
+      // marginTop: "4px",
+      // padding: "0px",
     }),
     valueContainer: (provided, state) => ({
       ...provided,
@@ -80,7 +97,7 @@ export const RecipeDescriptionFields = () => {
   };
 
   return (
-    <div>
+    <Wrapper>
       <ImageRecipe />
       <Container>
         <InputWrapper hasError={isClickDisabledButton && invalidFields.title}>
@@ -159,6 +176,6 @@ export const RecipeDescriptionFields = () => {
           )}
         </InputWrapper>
       </Container>
-    </div>
+    </Wrapper>
   );
 };

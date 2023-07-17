@@ -40,25 +40,31 @@ export const PopularRecipe = () => {
         <Paragraph>There are no popular recipes at the moment.</Paragraph>
       ) : (
         <List>
-          {recipes.map(({ _id, preview, title, description }) => {
-            const name = title.length < 26 ? title : title.slice(0, 21) + "...";
-            const paragraph =
-              description.length < 100
-                ? description
-                : description.slice(0, 80) + "...";
-            const recipeId = _id;
-            return (
-              <Item key={_id}>
-                <LinkId to={`/recipe/:${recipeId}`}>
-                  <Image src={preview} />
-                  <TextWrapper>
-                    <SecondaryTitle>{name}</SecondaryTitle>
-                    <Text>{paragraph}</Text>
-                  </TextWrapper>
-                </LinkId>
-              </Item>
-            );
-          })}
+          {recipes
+            .slice(
+              0,
+              window.innerWidth >= 768 && window.innerWidth <= 1279 ? 2 : 4
+            )
+            .map(({ _id, preview, title, description }) => {
+              const name =
+                title.length < 23 ? title : title.slice(0, 18) + "...";
+              const paragraph =
+                description.length < 100
+                  ? description
+                  : description.slice(0, 80) + "...";
+              const recipeId = _id;
+              return (
+                <Item key={_id}>
+                  <LinkId to={`/recipe/:${recipeId}`}>
+                    <Image src={preview} />
+                    <TextWrapper>
+                      <SecondaryTitle>{name}</SecondaryTitle>
+                      <Text>{paragraph}</Text>
+                    </TextWrapper>
+                  </LinkId>
+                </Item>
+              );
+            })}
         </List>
       )}
     </Container>

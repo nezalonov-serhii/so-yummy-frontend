@@ -141,7 +141,7 @@ export const RecipeIngredientsFields = () => {
                 />
               </SelectWrapper>
               <InputAmount
-                placeholder="volume"
+                placeholder="quantity"
                 onChange={(event) =>
                   handleAmountChange(index, event.target.value)
                 }

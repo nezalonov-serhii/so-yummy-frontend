@@ -1,8 +1,16 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
+  margin-top: 44px;
   position: relative;
-  margin-bottom: 18px;
+  @media screen and (min-width: 768px) and (max-width: 1279px) {
+    margin-top: 100px;
+    padding-right: 199px;
+  }
+  @media screen and (min-width: 1280px) {
+    margin-top: 100px;
+    padding-right: 295px;
+  }
 `;
 
 export const Textarea = styled.textarea`
@@ -26,5 +34,11 @@ export const Textarea = styled.textarea`
   &:focus,
   &:hover {
     outline: solid 2px rgb(241, 196, 15);
+  }
+
+  @media screen and (min-width: 768px) {
+    margin-top: 32px;
+    padding: 16px 23px;
+    min-height: 224px;
   }
 `;
