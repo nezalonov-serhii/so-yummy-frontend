@@ -52,7 +52,7 @@ export const AddRecipeForm = () => {
     // dispatch(setFormValidity(true));
     dispatch(validateForm());
   };
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
 
     if (!isFormValid) {
@@ -76,26 +76,22 @@ export const AddRecipeForm = () => {
     formData.append("time", time);
     formData.append("ingredients", JSON.stringify(ingredients));
     formData.append("instructions", JSON.stringify(instructions));
-
-    if (image) {
-      fetch(image)
-        .then((res) => {
-          const contentType = res.headers.get("content-type");
-          return res.blob().then((blob) => [blob, contentType]);
-        })
-        .then(([blob, contentType]) => {
-          const file = new File([blob], "image", { type: contentType });
-          formData.append("recipeImg", file);
-          dispatch(fetchAddRecipe(formData));
-        })
-        .catch((error) => {
-          console.error(error);
-        });
-    } else {
-      dispatch(fetchAddRecipe(formData));
+    try {
+      if (image) {
+        const res = await fetch(image);
+        const contentType = res.headers.get("content-type");
+        const blob = await res.blob();
+        const file = new File([blob], "image", { type: contentType });
+        formData.append("recipeImg", file);
+        await dispatch(fetchAddRecipe(formData));
+      } else {
+        await dispatch(fetchAddRecipe(formData));
+      }
+      navigate("/my");
+      dispatch(clearForm());
+    } catch (error) {
+      console.error(error);
     }
-    navigate("/my");
-    dispatch(clearForm());
   };
 
   return (
