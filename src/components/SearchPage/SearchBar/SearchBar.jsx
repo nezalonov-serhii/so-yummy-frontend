@@ -4,11 +4,11 @@ import { SearchTypeSelector } from "../SearchTypeSelector/SearchTypeSelector";
 import { CustomButtonStyles, CustomSearchFormContainer } from "./SearchBar.styled";
 
 export const SearchBar = ({ handleSearchFormInput, initialQuery }) => {
-  const [query, setQuery] = useState(initialQuery);
+  // const [query, setQuery] = useState(initialQuery);
   
-  useEffect(() => {
-    setQuery(initialQuery);
-  }, [initialQuery]);
+  // useEffect(() => {
+  //   setQuery(initialQuery);
+  // }, [initialQuery]);
 
   return (
     <>
@@ -16,7 +16,7 @@ export const SearchBar = ({ handleSearchFormInput, initialQuery }) => {
         handleSearchFormInput={handleSearchFormInput}
         CustomButtonComponent={CustomButtonStyles}
         SearchFormContainer={CustomSearchFormContainer}
-        initialQuery={query}
+        // initialQuery={query}
       />
       <SearchTypeSelector />
     </>
