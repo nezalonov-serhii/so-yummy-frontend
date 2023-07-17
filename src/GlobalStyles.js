@@ -12,8 +12,8 @@ const GlobalStyles = createGlobalStyle`
       --text-light: #FAFAFA;
 
       --accent-color: #8BAA36;
-
       --title: #FAFAFA;
+      --central-point-title: #22252A;
 
       --background-primary: #1E1F28;
       --background-secondary: #2A2C36;
@@ -38,6 +38,7 @@ const GlobalStyles = createGlobalStyle`
 
       --accent-color: #8BAA36;
       --title: #001833;
+      --central-point-title: #FAFAFA;
       
       --background-primary: #FAFAFA;
       --background-secondary: #FFFFFF;
