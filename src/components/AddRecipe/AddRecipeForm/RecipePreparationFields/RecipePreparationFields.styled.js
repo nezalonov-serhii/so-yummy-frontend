@@ -21,6 +21,7 @@ export const Textarea = styled.textarea`
   margin-top: 24px;
   min-height: 154px;
   width: 100%;
+  resize: none;
   ${({ hasError }) =>
     hasError &&
     `
