@@ -1,15 +1,6 @@
-import { useState, useEffect } from "react";
-
 import { List, Button, Item } from "./CategoriesList.styled";
-import { fetchCategories } from "../../../service/api/fetchCategories";
 
-const CategoriesList = ({ onSubmit, selectedCategory }) => {
-  const [categories, setCategories] = useState([]);
-
-  useEffect(() => {
-    fetchCategories().then((res) => setCategories(res));
-  }, []);
-
+const CategoriesList = ({ onSubmit, selectedCategory, categories }) => {
   return (
     <>
       <List>
