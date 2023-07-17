@@ -19,14 +19,14 @@ const SearchPage = () => {
 
   const [recipeList, setRecipeList] = useState([]);
   
-  useEffect(() => {
-    const searchParams = new URLSearchParams(location.search);
-    const query = searchParams.get("query");
+  // useEffect(() => {
+  //   const searchParams = new URLSearchParams(location.search);
+  //   const query = searchParams.get("query");
     
-    if (query) {
-      setSearchFormValue(query);
-    }
-  }, [location.search]);
+  //   if (query) {
+  //     setSearchFormValue(query);
+  //   }
+  // }, [location.search]);
   
   useEffect(() => {
     if (searchFormValue === "") {

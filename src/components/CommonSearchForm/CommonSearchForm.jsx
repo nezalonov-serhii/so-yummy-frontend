@@ -10,6 +10,7 @@ import { SearchFormBox, SearchFormInput, ErrorText } from "./CommonSearchForm.st
 
 const userSchema = Yup.object({
    query: Yup.string()
+      .min(3,"At least 3 characters")
       .matches(/^[A-Za-z\s_-]+$/, "Invalid query")
       .required("Please fill field"),
 });
