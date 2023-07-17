@@ -142,6 +142,7 @@ export const StyledCloseIcon = styled(MdClear)`
 const StyledFlexRow= styled.div`
   display:flex;
   flex-direction: column;
+  flex-wrap: wrap;
 `
 
 export {
