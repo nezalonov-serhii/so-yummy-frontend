@@ -32,6 +32,8 @@ const GlobalStyles = createGlobalStyle`
       
       --social-icon: #FAFAFA;
       --social-icon-hover: #1E1F28;
+
+      --navlink-hover: #1E1F28;
     `;
        } else {
           return `
@@ -60,7 +62,9 @@ const GlobalStyles = createGlobalStyle`
       --button-background-secondary: #22252A;
 
       --social-icon: #8BAA36;
-       --social-icon-hover: #FAFAFA;
+      --social-icon-hover: #FAFAFA;
+
+      --navlink-hover: #8BAA36;
     `;
        }
     }}
