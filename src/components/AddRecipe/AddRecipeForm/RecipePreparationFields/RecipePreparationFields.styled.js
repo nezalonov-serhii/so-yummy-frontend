@@ -3,6 +3,10 @@ import styled from "styled-components";
 export const Container = styled.div`
   position: relative;
   margin-bottom: 18px;
+  @media screen and (min-width: 768px) and (max-width: 1279px) {
+  }
+  @media screen and (min-width: 1280px) {
+  }
 `;
 
 export const Textarea = styled.textarea`
