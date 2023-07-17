@@ -16,6 +16,10 @@ const RecipePage = () => {
   const recipes = useSelector(selectRecipe);
 
   useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+
+  useEffect(() => {
     dispatch(fetchRecipeById(recipeId));
   }, [dispatch, recipeId]);
 

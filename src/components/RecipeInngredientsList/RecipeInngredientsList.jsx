@@ -1,4 +1,4 @@
-// import { useDispatch, useSelector } from "react-redux";
+// import { useDispatch } from "react-redux";
 // import { useEffect } from "react";
 // import { addToShopping } from "../../redux/recipe/recipeOperation/recipeOperation";
 import Food from "../../images/RecipePage/svg/food.svg";
@@ -18,13 +18,10 @@ import {
 } from "./RecipeInngredientsList.styled";
 
 const RecipeInngredientsList = ({ ingredients }) => {
-  // console.log(ingredients);
-
   // const dispatch = useDispatch();
 
-  // const handleClickCheckbox = (_id, name, img, measure, isChecked) => {
-  //   const data = { _id, name, img, measure };
-  //   console.log(data);
+  // const handleClickCheckbox = (_id, measure) => {
+  //   const data = { ingredient: _id, measure };
   //   dispatch(addToShopping(data));
   // };
 
@@ -41,7 +38,7 @@ const RecipeInngredientsList = ({ ingredients }) => {
         {ingredients &&
           ingredients.map(({ id: { _id, name, img }, measure, id }) => {
             return (
-              <Item key={_id || id}>
+              <Item key={_id}>
                 <Ingredient>
                   <Image src={img || Food} alt={name} />
                   <IngredientTitle>{name}</IngredientTitle>
@@ -51,7 +48,7 @@ const RecipeInngredientsList = ({ ingredients }) => {
                   <Checkbox
                     type="checkbox"
                     // checked={isChecked}
-                    // onClick={() => handleClickCheckbox(_id, name, img, measure)}
+                    // onChange={() => handleClickCheckbox(_id, measure)}
                   />
                 </ItemWrapper>
               </Item>

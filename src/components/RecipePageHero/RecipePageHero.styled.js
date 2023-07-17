@@ -107,8 +107,6 @@ export const FavoriteBtn = styled.button`
   border-radius: 24px 44px;
   background-color: transparent;
   color: var(--button-background-secondary);
-  border-radius: 24px 44px;
-  border: 1px solid var(--button-background-primary);
   transition: all 250ms linear;
   @media (min-width: 768px) {
     width: 278px;
@@ -125,8 +123,7 @@ export const FavoriteBtn = styled.button`
     font-size: 16px;
   }
 
-  &:hover,
-  &:focus {
+  &:hover {
     background-color: var(--button-background-primary);
     border: 1px solid var(--button-background-primary);
   }

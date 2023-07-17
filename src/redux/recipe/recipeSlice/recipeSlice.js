@@ -57,7 +57,7 @@ const recipesSlice = createSlice({
     // .addCase(addToShopping.fulfilled, (state, { payload }) => {
     //   state.isLoading = false;
     //   state.error = null;
-    //   state.ingredientsList = payload;
+    //   state.ingredientsList = payload.data;
     // })
     // .addCase(addToShopping.rejected, handleRejected);
   },
