@@ -18,17 +18,17 @@ const NotFound = ({ children }) => {
     <NotFoundContainer>
       <picture>
         <source
-          srcset={`${NotFoundDesk}, ${NotFoundDesk2x} 2x`}
+          srcSet={`${NotFoundDesk}, ${NotFoundDesk2x} 2x`}
           media="(min-width: 1280px)"
           sizes="(min-width: 498px) 498px, 100vw"
         />
         <source
-          srcset={`${NotFoundTab}, ${NotFoundTab2x} 2x`}
+          srcSet={`${NotFoundTab}, ${NotFoundTab2x} 2x`}
           media="(min-width: 768px)"
           sizes="(min-width: 498px) 498px, 100vw"
         />
         <source
-          srcset={`${NotFoundMob}, ${NotFoundMob2x} 2x`}
+          srcSet={`${NotFoundMob}, ${NotFoundMob2x} 2x`}
           media="(max-width: 767px)"
           sizes="(min-width: 259px) 259px, 100vw"
         />
