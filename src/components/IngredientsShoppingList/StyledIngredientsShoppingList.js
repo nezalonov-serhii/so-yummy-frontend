@@ -87,6 +87,7 @@ const StyledQuantity = styled.div`
   align-items: center;
   min-width: 37px;
   height: 23px;
+  margin-bottom: 4px;
   color: #fafafa;
   font-size: 10px;
   font-style: normal;
@@ -138,8 +139,13 @@ export const StyledCloseIcon = styled(MdClear)`
     background-color: rgb(139, 170, 54);
   }
 `;
+const StyledFlexRow= styled.div`
+  display:flex;
+  flex-direction: column;
+`
 
 export {
+  StyledFlexRow,
   StyledIngridientsHeader,
   StyledIngridientsItem,
   StyledIngrsHeadThumb,
