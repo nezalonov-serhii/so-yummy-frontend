@@ -6,41 +6,70 @@ import { useParams, useNavigate } from "react-router-dom";
 import { Container } from "./CategoriesPage.styled";
 import { fetchRecipesGallery } from "../../service/api/fetchRecipesGallery";
 import Loader from "../../components/Loader/Loader";
-
-
+import { fetchCategories } from "../../service/api/fetchCategories";
 
 const CategoriesPage = () => {
-   const [gallery, setGallery] = useState([]);
-   const [isLoading, setIsLoading] = useState(false)
-   const { categoryName } = useParams();
-   const [selectedCategory, setSelectedCategory] = useState(
-      categoryName[0].toUpperCase() + categoryName.slice(1)
-   );
-   const navigate = useNavigate();
+  const [gallery, setGallery] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const [isGalleryLoading, setIsGalletLoading] = useState(false);
+  const { categoryName } = useParams();
+  const [selectedCategory, setSelectedCategory] = useState(
+    categoryName[0].toUpperCase() + categoryName.slice(1)
+  );
+  const navigate = useNavigate();
 
-   useEffect(() => {
-      setIsLoading(true)
-      fetchRecipesGallery(selectedCategory).then((res) => {
-         setGallery(res) 
-         setIsLoading(false)
-      });
-      
-   }, [selectedCategory]);
+  const [categories, setCategories] = useState([]);
 
-   const chooseCategory = async (categorynewName) => {
-     
-      setSelectedCategory(categorynewName);
-      navigate(`/categories/${categorynewName}`);
-      return 
-     
-   };
+  useEffect(() => {
+    setIsLoading(true);
+    fetchCategories().then((res) => {
+      setCategories(res);
+      setIsLoading(false);
+    });
+  }, []);
 
-   return (
-      <Container>
-         <Title>Categories</Title>
-         {isLoading? <Loader/> : <><CategoriesList onSubmit={chooseCategory} selectedCategory={selectedCategory} /> <CategoriesGallery recipes={gallery} /></>}
-       
-      </Container>
-   );
+  useEffect(() => {
+    setIsGalletLoading(true);
+    fetchRecipesGallery(selectedCategory).then((res) => {
+      setGallery(res);
+      setIsGalletLoading(false);
+    });
+  }, [selectedCategory]);
+
+  // useEffect(()=>{
+  //    setIsGalletLoading(true)
+  //    fetchRecipesGallery(selectedCategory).then((res) => {
+  //       setGallery(res)
+  //       setIsGalletLoading(false)
+  //    });
+  // }, [])
+
+  const chooseCategory = async (categorynewName) => {
+    setSelectedCategory(categorynewName);
+    navigate(`/categories/${categorynewName}`);
+    return;
+  };
+
+  return (
+    <Container>
+      <Title>Categories</Title>
+      {isLoading ? (
+        <Loader />
+      ) : (
+        <>
+          <CategoriesList
+            onSubmit={chooseCategory}
+            selectedCategory={selectedCategory}
+            categories={categories}
+          />
+          {isGalleryLoading ? (
+            <Loader />
+          ) : (
+            <CategoriesGallery recipes={gallery} />
+          )}
+        </>
+      )}
+    </Container>
+  );
 };
 export default CategoriesPage;
