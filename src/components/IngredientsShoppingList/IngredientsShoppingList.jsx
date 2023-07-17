@@ -19,14 +19,14 @@ import { useEffect } from "react";
 
 
 const IngredientsShoppingList = () => {
-  const {shopping} = useSelector(state=>{
-    return state.shopping
-  })
-  const dispatch = useDispatch();
-  useEffect(()=>{
-       dispatch(getShoppingThunk())
-  },[dispatch])
-
+    const dispatch = useDispatch();
+    useEffect(()=>{
+        dispatch(getShoppingThunk())
+    },[dispatch])
+    
+    const {shopping} = useSelector(state=>{
+      return state.shopping
+    })
   console.log("ingridientssssssssss",shopping)
 
    console.log("ingridients.items",shopping.items)
@@ -47,16 +47,16 @@ const IngredientsShoppingList = () => {
             </StyledIngrsHeadThumb>
         </StyledIngridientsHeader>
         {shopping.isLoading ? <Loader/> : <StyledListContainerIngridient>
-            {shopping?.items?.map(item =>{
+            {shopping.items?.map(item =>{
                 return (
-                    <StyledIngridientsItem key={item._id}>
+                    <StyledIngridientsItem key={item.ingredient._id}>
                         <StyledImageCardThumb>
-                            <StyledImage src={item.img} alt={item.desc} height="60"/>
-                            <p>{item.name}</p>
+                            <StyledImage src={item.ingredient.img} alt={item.desc} height="60"/>
+                            <p>{item.ingredient.name}</p>
                         </StyledImageCardThumb>
                         <StyledFlexQuantity>
                             <StyledQuantity>
-                                <p>5</p>
+                                <p>{item.measure}</p>
                             </StyledQuantity>
                             <StyledCloseIcon onClick={()=>heandleDeleteButton(item._id)}/>
                         </StyledFlexQuantity>

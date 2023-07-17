@@ -24,7 +24,7 @@ const handleRejected = (state, { payload }) => {
 };
 
 const handleFulfilledGet = (state, { payload }) => {
-    console.log('payload GET:', payload);
+    console.log('payload GET: ', payload);
     state.shopping.isLoading = false;
     state.shopping.items = [...payload];
     state.shopping.error = '';
