@@ -24,9 +24,10 @@ const IngredientsShoppingList = () => {
   })
   const dispatch = useDispatch();
   useEffect(()=>{
-       console.log("get.-ingridients",dispatch(getShoppingThunk()))
+       dispatch(getShoppingThunk())
   },[dispatch])
-  console.log("ingridients",shopping)
+
+  console.log("ingridientssssssssss",shopping)
 
    console.log("ingridients.items",shopping.items)
    console.log("isLoading",shopping.isLoading)
@@ -46,7 +47,7 @@ const IngredientsShoppingList = () => {
             </StyledIngrsHeadThumb>
         </StyledIngridientsHeader>
         {shopping.isLoading ? <Loader/> : <StyledListContainerIngridient>
-            {shopping.items?.map(item =>{
+            {shopping?.items?.map(item =>{
                 return (
                     <StyledIngridientsItem key={item._id}>
                         <StyledImageCardThumb>
