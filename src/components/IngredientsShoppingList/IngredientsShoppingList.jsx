@@ -22,6 +22,7 @@ import BacketTabDesk2x from "../../images/SearchPage/vegetable-fruit-basket-tab-
 
 import {getShoppingThunk,deleteShoppingThunk} from "../../redux/shopping/thunkShopping"
 import { useEffect } from "react";
+import { nanoid } from "@reduxjs/toolkit";
 
 const lol = "123g/r/n223g";
 const ok = lol.split('/r/n')
@@ -36,7 +37,6 @@ const IngredientsShoppingList = () => {
     const {shopping} = useSelector(state=>{
       return state.shopping
     })
-  console.log("ingridientssssssssss",shopping)
 
    const heandleDeleteButton=(id)=>{
       dispatch(deleteShoppingThunk(id))
@@ -75,7 +75,7 @@ const IngredientsShoppingList = () => {
             :
             shopping.items?.map(item =>{
                 return (
-                    <StyledIngridientsItem key={item.ingredient._id}>
+                    <StyledIngridientsItem key={item._id}>
                         <StyledImageCardThumb>
                             <StyledImage src={item.ingredient.img} alt={item.desc} height="60"/>
                             <p>{item.ingredient.name}</p>
@@ -83,7 +83,7 @@ const IngredientsShoppingList = () => {
                         <StyledFlexQuantity>
                                 <StyledFlexRow>
                                     {item.measure.split('/r/n').map(el=>(
-                                        <StyledQuantity>
+                                        <StyledQuantity key={nanoid()}>
                                             <p>{el}</p>
                                         </StyledQuantity>
                                     )
