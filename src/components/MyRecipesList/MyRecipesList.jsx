@@ -3,13 +3,13 @@ import { MyRecipesListStyled } from "./MyRecipesList.styled";
 
 export const MyRecipesList = ({recipes, onDelete }) => {
 
-    const { ownRecipes } = recipes;
+    // const { ownRecipes } = recipes;
 
   return (
     <MyRecipesListStyled>
-      {ownRecipes?.map(
+      {recipes?.map(
         ({
-              _id: { _id, title, preview, description, time },
+               _id, title, preview, description, time,
             }
         ) => (
           <MyRecipeCard
