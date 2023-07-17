@@ -5,7 +5,7 @@ export const FavoriteList = ({ recipes, onDelete }) => {
    console.log(recipes);
    return (
       <FavList>
-         {recipes?.favoriteRecipes?.map(({ _id, title, preview, description, time }) => (
+         {recipes.favoriteRecipes.map(({ _id, title, preview, description, time, thumb }) => (
             <FavCard
                id={_id}
                key={_id}
@@ -13,6 +13,7 @@ export const FavoriteList = ({ recipes, onDelete }) => {
                preview={preview}
                description={description}
                time={time}
+               thumb={thumb}
                onDelete={onDelete}
             />
          ))}

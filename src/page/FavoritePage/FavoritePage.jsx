@@ -34,7 +34,7 @@ const FavoritePage = () => {
 
    const hendleDeleteRecipeById = (id) => {
       deleteRecipeFromFavorite(id);
-      setRecipes(recipes.filter((recipe) => recipe._id !== id));
+      setRecipes(recipes.favoriteRecipes.filter((recipe) => recipe._id !== id));
    };
 
    return (
