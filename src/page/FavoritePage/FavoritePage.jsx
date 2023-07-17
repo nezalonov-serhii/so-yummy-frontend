@@ -22,7 +22,7 @@ const FavoritePage = () => {
             setIsLoading(true);
             const response = await getFavoriteRecipes();
 
-            setRecipes(response);
+            setRecipes(response.favoriteRecipes);
          } catch (error) {
             setError(error);
          } finally {
@@ -34,7 +34,7 @@ const FavoritePage = () => {
 
    const hendleDeleteRecipeById = (id) => {
       deleteRecipeFromFavorite(id);
-      setRecipes(recipes.favoriteRecipes.filter((recipe) => recipe._id !== id));
+      setRecipes(recipes.filter((recipe) => recipe._id !== id));
    };
 
    return (
