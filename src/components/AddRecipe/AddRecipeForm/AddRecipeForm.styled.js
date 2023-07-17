@@ -6,6 +6,11 @@ export const Container = styled.div`
   @media screen and (min-width: 768px) {
     margin-top: 100px;
   }
+  @media screen and (min-width: 1280px) {
+    width: 100%;
+    margin-top: 0;
+    flex: 1;
+  }
 `;
 export const Button = styled.button`
   color: var(--text-light);

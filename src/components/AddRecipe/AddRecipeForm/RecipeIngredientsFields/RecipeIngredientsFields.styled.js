@@ -6,8 +6,12 @@ import { VscChromeClose } from "react-icons/vsc";
 export const Container = styled.div`
   margin-top: 44px;
   position: relative;
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 768px) and (max-width: 1279px) {
     margin-top: 104px;
+  }
+  @media screen and (min-width: 1280px) {
+    margin-top: 104px;
+    padding-right: 191px;
   }
 `;
 

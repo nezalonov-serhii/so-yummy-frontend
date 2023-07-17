@@ -3,8 +3,13 @@ import styled from "styled-components";
 export const Container = styled.div`
   margin-top: 44px;
   position: relative;
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 768px) and (max-width: 1279px) {
     margin-top: 100px;
+    padding-right: 199px;
+  }
+  @media screen and (min-width: 1280px) {
+    margin-top: 100px;
+    padding-right: 295px;
   }
 `;
 

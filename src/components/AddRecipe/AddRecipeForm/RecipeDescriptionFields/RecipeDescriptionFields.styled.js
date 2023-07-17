@@ -12,6 +12,9 @@ export const Wrapper = styled.div`
     gap: 50px;
     margin-top: 100px;
   }
+  @media screen and (min-width: 1280px) {
+    margin-top: 0;
+  }
 `;
 
 export const Container = styled.div`
