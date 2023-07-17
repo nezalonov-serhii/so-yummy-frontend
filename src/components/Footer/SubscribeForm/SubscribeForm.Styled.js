@@ -149,7 +149,7 @@ export const Btn = styled.button`
   border: none;
   border-radius: 6px;
   outline: rgba(0, 0, 0, 0.2);
-  background-color: var(--button-background-primary);
+  background-color: var(--button-background-other);
   color: var(--text-light);
   font-size: 14px;
   line-height: 1.14;

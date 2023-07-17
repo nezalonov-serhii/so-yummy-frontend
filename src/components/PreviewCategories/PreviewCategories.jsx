@@ -13,6 +13,7 @@ import {
 } from "./PreviewCategories.styled";
 import useScreenWidth from "../../hooks/useScreenWidth";
 import { useNavigate } from "react-router-dom";
+import defaultImage from "../../images/DefaultImage/defaultImage.svg"
 
 const PreviewCategories = () => {
   const dispatch = useDispatch();
@@ -43,6 +44,7 @@ const PreviewCategories = () => {
     };
 
     fetchData();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [dispatch]);
 
   const shuffleRecipes = (recipes) => {
@@ -68,7 +70,7 @@ const PreviewCategories = () => {
   };
 
   const handleOtherCategories = () => {
-    navigate("/categories");
+    navigate("/categories/breakfast");
   };
 
   return (
@@ -84,7 +86,7 @@ const PreviewCategories = () => {
               <CategoryItem key={recipe.id}>
                 <RecipeCard
                   name={recipe.title}
-                  imageSrc={recipe.preview}
+                  imageSrc={recipe.thumb || defaultImage}
                   recipeId={recipe.id}
                 />
               </CategoryItem>

@@ -4,10 +4,10 @@ import {
     NotFoundText,
 } from "./PlugIfNotFound.styled";
 
-import VegetableBasketMob from "../../images/SearchPage/vegetableBasketMob.webp";
-import VegetableBasketMob2x from "../../images/SearchPage/vegetableBasketMob@2x.webp";
-import VegetableBasketTabDesk from "../../images/SearchPage/vegetableBasketTabDesk.webp";
-import VegetableBasketTabDesk2x from "../../images/SearchPage/vegetableBasketTabDesk@2x.webp";
+import VegetableBasketMob from "../../images/SearchPage/vegetable-fruit-basket-mob.png";
+import VegetableBasketMob2x from "../../images/SearchPage/vegetable-fruit-basket-mob@2x.png";
+import VegetableBasketTabDesk from "../../images/SearchPage/vegetable-fruit-basket-tab-desk.png";
+import VegetableBasketTabDesk2x from "../../images/SearchPage/vegetable-fruit-basket-tab-desk@2x.png";
 import VegetableBasket from "../../images/SearchPage/vegetable-fruit-basket.png";
 
 const PlugIfNotFound = ({ children }) => {

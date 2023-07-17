@@ -3,39 +3,73 @@ import CategoriesGallery from "../../components/CategoriesPage/CategoriesGallery
 import CategoriesList from "../../components/CategoriesPage/CategoriesList/CategoriesList";
 import { Title } from "../../components/Title/Title";
 import { useParams, useNavigate } from "react-router-dom";
-
 import { Container } from "./CategoriesPage.styled";
 import { fetchRecipesGallery } from "../../service/api/fetchRecipesGallery";
+import Loader from "../../components/Loader/Loader";
+import { fetchCategories } from "../../service/api/fetchCategories";
 
 const CategoriesPage = () => {
-   const [gallery, setGallery] = useState([]);
-   const { categoryName } = useParams();
-   const [selectedCategory, setSelectedCategory] = useState(
-      categoryName[0].toUpperCase() + categoryName.slice(1)
-   );
-   const navigate = useNavigate();
+  const [gallery, setGallery] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const [isGalleryLoading, setIsGalletLoading] = useState(false);
+  const { categoryName } = useParams();
+  const [selectedCategory, setSelectedCategory] = useState(
+    categoryName[0].toUpperCase() + categoryName.slice(1)
+  );
+  const navigate = useNavigate();
 
-   useEffect(() => {
-      fetchRecipesGallery(selectedCategory).then((res) => setGallery(res));
-   }, [selectedCategory]);
+  const [categories, setCategories] = useState([]);
 
-   const chooseCategory = async (categorynewName) => {
-      setSelectedCategory(categorynewName);
+  useEffect(() => {
+    setIsLoading(true);
+    fetchCategories().then((res) => {
+      setCategories(res);
+      setIsLoading(false);
+    });
+  }, []);
 
-      navigate(`/categories/${categorynewName}`);
+  useEffect(() => {
+    setIsGalletLoading(true);
+    fetchRecipesGallery(selectedCategory).then((res) => {
+      setGallery(res);
+      setIsGalletLoading(false);
+    });
+  }, [selectedCategory]);
 
-      const newGallery = await fetchRecipesGallery(categorynewName);
-      setGallery(newGallery);
+  // useEffect(()=>{
+  //    setIsGalletLoading(true)
+  //    fetchRecipesGallery(selectedCategory).then((res) => {
+  //       setGallery(res)
+  //       setIsGalletLoading(false)
+  //    });
+  // }, [])
 
-      return;
-   };
+  const chooseCategory = async (categorynewName) => {
+    setSelectedCategory(categorynewName);
+    navigate(`/categories/${categorynewName}`);
+    return;
+  };
 
-   return (
-      <Container>
-         <Title>Categories</Title>
-         <CategoriesList onSubmit={chooseCategory} selectedCategory={selectedCategory} />
-         <CategoriesGallery recipes={gallery} />
-      </Container>
-   );
+  return (
+    <Container>
+      <Title>Categories</Title>
+      {isLoading ? (
+        <Loader />
+      ) : (
+        <>
+          <CategoriesList
+            onSubmit={chooseCategory}
+            selectedCategory={selectedCategory}
+            categories={categories}
+          />
+          {isGalleryLoading ? (
+            <Loader />
+          ) : (
+            <CategoriesGallery recipes={gallery} />
+          )}
+        </>
+      )}
+    </Container>
+  );
 };
 export default CategoriesPage;

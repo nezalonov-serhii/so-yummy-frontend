@@ -1,32 +1,67 @@
 import styled from "styled-components";
 import { RxAvatar, RxPencil1 } from "react-icons/rx";
+import { BiUser } from "react-icons/bi";
+import { VscClose } from "react-icons/vsc";
 
 export const Box = styled.div`
-@media (min-width: 1280px) {
   position: absolute;
-  width: 500px;
-  height: 425px;
-  right: 370px;
-  top: 0;
+  width: 330px;
+  height: 327px;
+  right: 1px;
+  top: 380px;
   z-index: 9;
-  padding: 50px;
+  padding: 24px;
   background-color: white;
   border-radius: 10px;
-}
+  @media (min-width: 768px) {
+    width: 480px;
+    height: 402px;
+    right: 0;
+    top: 250px;
+    padding: 50px;
+  }
+  @media (min-width: 1280px) {
+    width: 500px;
+    height: 425px;
+    right: 370px;
+    top: 0;
+    padding: 50px;
+  }
+`;
+export const Icon = styled(BiUser)`
+  width: 16px;
+  height: 18px;
+  position: absolute;
+  top: 65px;
+  left: 20px;
+  transform: translate(-50%, -50%);
+  z-index: 999;
+  @media (min-width: 768px) {
+    top: 78px;
+  }
+  @media (min-width: 1280px) {
+    top: 78px;
+  }
 `;
 
 export const Avatar = styled(RxAvatar)`
-@media (min-width: 1280px) {
   display: flex;
-  width: 103px;
-  height: 103px;
+  width: 88px;
+  height: 88px;
   color: #c4c4c4;
   background-color: #d9d9d9;
   border-radius: 50px;
   margin-left: auto;
   margin-right: auto;
   margin-top: 10px;
-}
+  @media (min-width: 768px) {
+    width: 103px;
+    height: 103px;
+  }
+  @media (min-width: 1280px) {
+    width: 103px;
+    height: 103px;
+  }
 `;
 
 export const Form = styled.form`
@@ -39,35 +74,75 @@ export const InputWrapper = styled.div`
 `;
 
 export const Input = styled.input`
-@media (min-width: 1280px) {
   position: relative;
-  width: 405px;
-  height: 58px;
+  width: 282px;
+  height: 48px;
   border: 1px solid #d9d9d9;
   border-radius: 5px;
-  margin-top: 50px;
+  margin-top: 40px;
   padding: 0 15px;
-}
+  padding-left: 40px;
+  color: black;
+  font-family: Poppins;
+  @media (min-width: 768px) {
+    width: 405px;
+    height: 58px;
+    margin-top: 50px;
+  }
+  @media (min-width: 1280px) {
+    width: 405px;
+    height: 58px;
+    margin-top: 50px;
+  }
 `;
 
 export const Button = styled.button`
-@media (min-width: 1280px) {
-  width: 400px;
-  height: 59px;
+  width: 282px;
+  height: 49px;
   color: white;
   margin-top: 30px;
   background-color: #8baa36;
   border: none;
   border-radius: 6px;
-}
+  @media (min-width: 760px) {
+    width: 400px;
+    height: 59px;
+  }
+  @media (min-width: 1280px) {
+    width: 400px;
+    height: 59px;
+    margin-top: 40px;
+  }
 `;
 
 export const Pencil = styled(RxPencil1)`
-@media (min-width: 1280px) {
   position: absolute;
-  top: 80px;
+  top: 65px;
   right: 15px;
   transform: translateY(-50%);
-  color: #23262A;
-}
+  color: #23262a;
+  @media (min-width: 768px) {
+    top: 80px;
+    right: 0;
+  }
+  @media (min-width: 1280px) {
+    top: 80px;
+    right: 15px;
+  }
+`;
+
+export const IconClose = styled(VscClose)`
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  @media (min-width: 768px) {
+    width: 24px;
+    height: 24px;
+  }
+  @media (min-width: 1280px) {
+    width: 24px;
+    height: 24px;
+  }
 `;

@@ -6,7 +6,6 @@ import modalTab from "../../../images/Modal/modalLeafTab.png";
 
 export const Nav = styled.nav`
   display: flex;
-  align-items: flex-end;
   @media (min-width: 1280px) {
 margin-left:150px;
 
@@ -18,7 +17,6 @@ export const Line = styled.ul`
   align-items: center;
   font-size: 18px;
   line-height: 18px;
-  margin-bottom: 18px;
   font-family: Poppins;
   gap: 30px;
   @media (max-width: 480px) {
@@ -100,8 +98,10 @@ export const SearchText = styled.p`
 `;
 export const BoxName = styled.div`
   display: flex;
-  margin-left: 100px;
   align-items: center;
+  @media (min-width: 1280px) {
+    margin-left: 100px;
+  }
 `;
 export const LogoAvatar = styled(RxAvatar)`
   width: 44px;

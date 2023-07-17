@@ -5,8 +5,8 @@ export const Container = styled.div`
   margin-bottom: 72px;
 `;
 export const Button = styled.button`
-  background-color: rgba(34, 37, 42, 1);
-  color: rgba(250, 250, 250, 1);
+  /* background-color: var(--accent-color); */
+  color: var(--text-light);
   border-radius: 15px 30px 15px 30px;
   padding: 12px 48px;
   border: none;
@@ -15,4 +15,17 @@ export const Button = styled.button`
   font-style: normal;
   font-weight: 400;
   line-height: normal;
+  background-color: ${(props) =>
+    props.isFormValid ? "var(--accent-color)" : "var(--background-footer)"};
+  /* &:disabled {
+    background-color: var(--background-footer); */
+  /* cursor: not-allowed; */
+`;
+
+export const ErrorMessage = styled.span`
+  position: absolute;
+  bottom: -20px;
+  left: 0;
+  color: red;
+  font-size: 12px;
 `;

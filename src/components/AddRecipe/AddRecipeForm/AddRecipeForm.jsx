@@ -4,37 +4,70 @@ import { RecipeIngredientsFields } from "./RecipeIngredientsFields/RecipeIngredi
 import { RecipePreparationFields } from "./RecipePreparationFields/RecipePreparationFields";
 import { RecipeDescriptionFields } from "./RecipeDescriptionFields/RecipeDescriptionFields";
 // import { fetchAddRecipe } from "../../../redux/operations";
-import { toast } from "react-hot-toast";
+
 import { Toaster } from "react-hot-toast";
 
 import { fetchAddRecipe } from "../../../redux/thunk/addRecipe/operations";
 import { useNavigate } from "react-router";
+import {
+  clearForm,
+  setFormValidity,
+  setInvalidFields,
+  setIsClickDisabledButton,
+  validateForm,
+} from "../../../redux/Slice/addRecipeSlice/addRecipeFormSlice";
 
 export const AddRecipeForm = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const data = useSelector((state) => state.data);
 
+  const {
+    image,
+    title,
+    about: description,
+    category,
+    time: numberTime,
+    listItems,
+    preparation: instructions,
+    isFormValid,
+  } = data;
+  const time = numberTime.toString();
+  const newIngredients = listItems.map((item) => ({
+    id: item.selectedOption?._id,
+    measure: item.measure,
+  }));
+  const ingredients = newIngredients.filter((obj) => {
+    for (let key in obj) {
+      if (obj[key] === null || obj[key] === undefined || obj[key] === "") {
+        return false;
+      }
+    }
+    return true;
+  });
+
+  const handleNotValid = (event) => {
+    event.preventDefault();
+    dispatch(setIsClickDisabledButton(true));
+    // dispatch(setFormValidity(true));
+    dispatch(validateForm());
+  };
   const handleSubmit = (event) => {
     event.preventDefault();
-    // dispatch(fetchAddRecipe(data));
-    console.log(data); // видалити
-    toast.success("Add recipe"); // видалити
 
-    const {
-      image,
-      title,
-      about: description,
-      category,
-      time: numberTime,
-      listItems,
-      preparation: instructions,
-    } = data;
-    const time = numberTime.toString();
-    const ingredients = listItems.map((item) => ({
-      id: item.selectedOption._id,
-      measure: item.measure,
-    }));
+    if (!isFormValid) {
+      const fields = [
+        "title",
+        "about",
+        "category",
+        "time",
+        "listItems",
+        "preparation",
+      ];
+      setInvalidFields(fields);
+
+      return;
+    }
 
     const formData = new FormData();
     formData.append("title", title);
@@ -62,6 +95,7 @@ export const AddRecipeForm = () => {
       dispatch(fetchAddRecipe(formData));
     }
     navigate("/my");
+    dispatch(clearForm());
   };
 
   return (
@@ -71,7 +105,12 @@ export const AddRecipeForm = () => {
         <RecipeDescriptionFields />
         <RecipeIngredientsFields />
         <RecipePreparationFields />
-        <Button onClick={handleSubmit}>Add </Button>
+        <Button
+          onClick={isFormValid ? handleSubmit : handleNotValid}
+          isFormValid={isFormValid}
+        >
+          Add
+        </Button>
       </form>
     </Container>
   );

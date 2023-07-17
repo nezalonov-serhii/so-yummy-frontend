@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const TitleText = styled.h2`
    font-family: Poppins;
-   color: #001833;
+   color: var(--title);
    font-weight: 600;
    font-size: 28px;
    font-style: normal;

@@ -17,15 +17,21 @@ import {
 
 import { Title } from "../../AddRecipe.styled";
 import { useDispatch, useSelector } from "react-redux";
-import { setAddIngredients } from "../../../../redux/Slice/addRecipeSlice/addRecipeFormSlice";
+import {
+  setAddIngredients,
+  validateForm,
+} from "../../../../redux/Slice/addRecipeSlice/addRecipeFormSlice";
 import { fetchIngredients } from "../../../../redux/thunk/addRecipe/operations";
 import { useEffect } from "react";
+import { ErrorMessage } from "../AddRecipeForm.styled";
 
 export const RecipeIngredientsFields = () => {
   const dispatch = useDispatch();
 
   const ingredients = useSelector((state) => state.addRecipe.ingredients.items);
-  const listItems = useSelector((state) => state.data.listItems);
+  const { listItems, isClickDisabledButton, invalidFields } = useSelector(
+    (state) => state.data
+  );
 
   useEffect(() => {
     dispatch(fetchIngredients());
@@ -60,6 +66,8 @@ export const RecipeIngredientsFields = () => {
         )
       )
     );
+
+    dispatch(validateForm());
   };
   const handleAmountChange = (index, value) => {
     dispatch(
@@ -96,6 +104,7 @@ export const RecipeIngredientsFields = () => {
       color: "var(--accent-color)",
     }),
   };
+
   return (
     <Container>
       <WrapperCounter>
@@ -114,7 +123,9 @@ export const RecipeIngredientsFields = () => {
         {listItems.map((item, index) => {
           return (
             <Li key={index}>
-              <SelectWrapper>
+              <SelectWrapper
+                hasError={isClickDisabledButton && !item.selectedOption}
+              >
                 <Select
                   name={ingredients}
                   styles={customStyles}
@@ -134,6 +145,10 @@ export const RecipeIngredientsFields = () => {
                 onChange={(event) =>
                   handleAmountChange(index, event.target.value)
                 }
+                hasError={
+                  isClickDisabledButton &&
+                  (!item.measure || item.measure.trim() === "")
+                }
               />
               <DelButton onClick={(event) => onDelButton(event, index)}>
                 <IconDelete />
@@ -142,6 +157,9 @@ export const RecipeIngredientsFields = () => {
           );
         })}
       </List>
+      {isClickDisabledButton && invalidFields.listItems && (
+        <ErrorMessage>Please add the ingredients</ErrorMessage>
+      )}
     </Container>
   );
 };

@@ -4,7 +4,7 @@ import { Box, Button, Profile } from "./ModalEditProfile.styled";
 import { Logout } from "../Logout/Logout";
 import { UserProfile } from '../UserProfile/UserProfile';
 
-export const ModalEditProfile = ({ closeModal }) => {
+export const ModalEditProfile = () => {
   const [modalLogoutActive, setModalLogoutActive] = useState(false);
   const [userProfileActive, setUserProfileActive] = useState(false);
 
@@ -20,6 +20,10 @@ export const ModalEditProfile = ({ closeModal }) => {
     setUserProfileActive(false);
   };
 
+  const closeModal = () => {
+    setModalLogoutActive(false);
+  };
+
   return (
     <Box>
       <Profile onClick={handleUserProfileClick}>
@@ -27,12 +31,9 @@ export const ModalEditProfile = ({ closeModal }) => {
       </Profile>
       <Button onClick={handleLogoutClick}>Log out</Button>
       {modalLogoutActive && <Logout closeModal={closeModal} />}
-      {userProfileActive && (
-        <UserProfile closeUserProfile={closeUserProfile} />
-      )}
+      {userProfileActive && <UserProfile closeModal={closeUserProfile} />} 
     </Box>
   );
 };
 
-export default ModalEditProfile;
 

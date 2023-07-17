@@ -1,10 +1,13 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
+
 import {
    currentUser,
    login,
    logout,
    signup,
+   subscribeUser
 } from "../../../service/api/apiAuth";
+
 
 export const signupThunk = createAsyncThunk("user/signup", (user) =>
    signup(user)
@@ -18,3 +21,20 @@ export const currentUserThunk = createAsyncThunk(
    "user/currentUser",
    async (token) => currentUser(token)
 );
+
+
+
+// export const updateUserNameThunk = createAsyncThunk(
+//    'user/updateUserName',
+//    async ({ token, name }) => {
+//      try {
+//        const response = await updateUserName(token, name);
+//        return response;
+//      } catch (error) {
+//        throw new Error(error.message);
+//      }
+//    }
+//  );
+
+export const subscribeThunk =  createAsyncThunk('user/subscribe', (user)=> subscribeUser(user))
+

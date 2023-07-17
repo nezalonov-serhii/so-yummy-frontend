@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import Food from "../../../images/RecipePage/svg/food.svg";
 import {
    CardWrapper,
    ImgWrapper,
@@ -16,13 +17,13 @@ import {
 } from "./FavCard.styled";
 
 export const FavCard = (recipe) => {
-   const { id, title, preview, description, time, onDelete } = recipe;
+   const { id, title, thumb, description, time, onDelete } = recipe;
 
    return (
       <>
          <CardWrapper key={id}>
             <ImgWrapper>
-               <Img src={preview} alt={title} />
+               <Img src={thumb || Food} alt={title} />
             </ImgWrapper>
             <InfoWrapper>
                <div>
