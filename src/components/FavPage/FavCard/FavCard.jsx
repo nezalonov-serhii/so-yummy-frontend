@@ -17,13 +17,13 @@ import {
 } from "./FavCard.styled";
 
 export const FavCard = (recipe) => {
-   const { id, title, thumb, description, time, onDelete } = recipe;
+   const { id, title, preview, description, time, onDelete } = recipe;
 
    return (
       <>
          <CardWrapper key={id}>
             <ImgWrapper>
-               <Img src={thumb || Food} alt={title} />
+               <Img src={preview || Food} alt={title} />
             </ImgWrapper>
             <InfoWrapper>
                <div>
