@@ -1,19 +1,18 @@
 import { SearchedRecipeElement } from "../SearchedRecipesElement/SearchedRecipeElement";
 import { RecipesList, RecipeItem } from "./SearchedRecipesList.styled";
-import { NoRecipes } from "../NoRecipes/NoRecipes";
-
+import PluginNotFound from "../../PlugIfNotFound/PlugIfNotFound"
 
 export const SearchedRecipesList = ({listOfRecipes}) => {
 
 
    return (
       <RecipesList>
-          {listOfRecipes ?(
-            listOfRecipes.map((recipe, index) => {
-               // const [id] = Object.values(recipe._id);
+          {listOfRecipes.length !==0 ?(
+            listOfRecipes.map((recipe) => {
+              
 
                return (
-                  <RecipeItem key={index}>
+                   <RecipeItem key={recipe._id}>
                      <SearchedRecipeElement
                         title={recipe.title}
                         recipeId={recipe._id}
@@ -22,7 +21,9 @@ export const SearchedRecipesList = ({listOfRecipes}) => {
                      />
                   </RecipeItem>
                );
-            })) :(<NoRecipes/>)
+            })) : (<PluginNotFound>
+               Try looking for something else..
+            </PluginNotFound>)
             }
       </RecipesList>
    );

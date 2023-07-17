@@ -10,48 +10,63 @@ import { SearchFormBox, SearchFormInput, ErrorText } from "./CommonSearchForm.st
 
 const userSchema = Yup.object({
    query: Yup.string()
+      .min(3,"At least 3 characters")
       .matches(/^[A-Za-z\s_-]+$/, "Invalid query")
       .required("Please fill field"),
 });
+const initialValue = {
+   query: "",
+};
 
 export const CommonSearchForm = ({
    CustomButtonComponent,
    SearchFormContainer,
    handleSearchFormInput,
-   initialQuery,
-}) => {
-   const dispatch = useDispatch();
-   const [searchParams, setSearchParams] = useSearchParams();
-   const [query, setQuery] = useState("");
-   const submitButtonRef = useRef(null);
 
-   useEffect(() => {
-      const queryFromURL = searchParams.get("query");
-      setQuery(initialQuery || queryFromURL || "");
-   }, [searchParams, initialQuery]);
+}) => {
+   
+   const [searchParams, setSearchParams] = useSearchParams();
+   const [queryValue, setQueryValue] = useState("");
+   const submitButtonRef = useRef(null);
+  
+useEffect(() => {
+    const valueInput = searchParams.get("query")
+   
+      setQueryValue(valueInput)
+      //  setQueryValue(valueInput??queryValue)
+      if (queryValue&&queryValue.length>=3) {
+         console.log("CommonSearchForm useEffect:",queryValue)
+         handleSearchFormInput(queryValue);
+       
+        }
+ 
+}, [queryValue]);
+   
+   const value = searchParams.get("query")
 
    const handleSubmit = (values, { resetForm }) => {
-      dispatch(setSearch("Title"));
-      console.log("qwe");
-
-      setSearchParams({ query: values.query });
-      handleSearchFormInput(values.query);
-      resetForm();
-      submitButtonRef.current.blur();
+   //  console.log("onSubmit:",values.query)
+     handleSearchFormInput(value ?? values.query);
+      
    };
+
 
    return (
       <SearchFormContainer>
-         <Formik initialValues={{ query }} onSubmit={handleSubmit} validationSchema={userSchema}>
+         <Formik initialValues={initialValue} onSubmit={handleSubmit} validationSchema={userSchema}>
             {({ values, handleChange, handleBlur }) => (
                <SearchFormBox>
                   <SearchFormInput
                      type="text"
                      name="query"
                      placeholder="Enter the text"
-                     onChange={handleChange}
+                     onChange={(e) => {
+                        
+                        setSearchParams({query:e.target.value })
+                        handleChange(e)
+                     }}
                      onBlur={handleBlur}
-                     value={values.query}
+                     value={value??values.query}
                      required
                   />
                   <ErrorText name="query" component="div" />
