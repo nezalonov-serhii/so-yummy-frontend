@@ -53,16 +53,20 @@ useEffect(() => {
 
    return (
       <SearchFormContainer>
-         <Formik initialValues={{ query }} onSubmit={handleSubmit} validationSchema={userSchema}>
+         <Formik initialValues={initialValue} onSubmit={handleSubmit} validationSchema={userSchema}>
             {({ values, handleChange, handleBlur }) => (
                <SearchFormBox>
                   <SearchFormInput
                      type="text"
                      name="query"
                      placeholder="Enter the text"
-                     onChange={handleChange}
+                     onChange={(e) => {
+                        
+                        setSearchParams({query:e.target.value })
+                        handleChange(e)
+                     }}
                      onBlur={handleBlur}
-                     value={values.query}
+                     value={value??values.query}
                      required
                   />
                   <ErrorText name="query" component="div" />
