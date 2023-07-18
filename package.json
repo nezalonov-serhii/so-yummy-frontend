@@ -1,6 +1,7 @@
 {
    "name": "so-yummy-frontend",
    "version": "0.1.0",
+   "homepage": "https://nezalonov-serhii.github.io/so-yummy-frontend",
    "private": true,
    "dependencies": {
       "@emotion/react": "^11.11.1",
