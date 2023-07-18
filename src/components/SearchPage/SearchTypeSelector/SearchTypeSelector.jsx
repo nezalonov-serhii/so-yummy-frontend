@@ -34,7 +34,7 @@ dispatch(setSearch(e.target.value));
         
         >
           <SelectorOption value="Title" >Title</SelectorOption>
-          <SelectorOption  value="Ingridients">Ingridients</SelectorOption>
+          <SelectorOption  value="Ingredients">Ingredients</SelectorOption>
           
                     </SearchSelect>
                     </StyledFormControl>

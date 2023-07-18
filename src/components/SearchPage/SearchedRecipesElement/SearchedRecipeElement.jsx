@@ -1,6 +1,6 @@
 import { RecipeImage, RecipeTitle } from "./SearchedRecipeElement.styled";
 import { NavLink } from "react-router-dom";
-import { useLocation } from "react-router-dom";
+
 export const SearchedRecipeElement = ({ title, recipeId, img, desc }) => {
 
    return (

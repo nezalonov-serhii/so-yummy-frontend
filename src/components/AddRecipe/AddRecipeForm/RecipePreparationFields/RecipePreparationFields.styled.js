@@ -26,9 +26,6 @@ export const Textarea = styled.textarea`
     hasError &&
     `
     border: solid 1px red;
-      &::placeholder {
-    color: red;
-  }
     
   `}
   &:active,
@@ -42,4 +39,12 @@ export const Textarea = styled.textarea`
     padding: 16px 23px;
     min-height: 224px;
   }
+`;
+
+export const ErrorMessagePreparation = styled.span`
+  position: absolute;
+  top: 30px;
+  left: 0;
+  color: red;
+  font-size: 12px;
 `;

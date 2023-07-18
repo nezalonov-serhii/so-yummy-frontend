@@ -26,12 +26,14 @@ const handleFulfilledGet = (state, { payload }) => {
   state.shopping.error = "";
 };
 const handleFulfilledDel = (state, { payload }) => {
+
   state.shopping.isLoading = false;
   state.shopping.items = state.shopping.items.filter(
     (el) => el.ingredientId !== payload
   );
   state.shopping.error = "";
 };
+
 
 export const shoppingSlice = createSlice({
   name: "shopping",

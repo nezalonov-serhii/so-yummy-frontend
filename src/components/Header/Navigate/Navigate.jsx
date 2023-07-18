@@ -24,7 +24,7 @@ import { switcherTheme } from "../../../redux/Slice/themeSwitcherSlice/themeSwit
 import { useScreenWidth } from "../../../hooks";
 import { useEffect } from "react";
 
-export const Navigate = () => {
+export const Navigate = ({ page }) => {
    const theme = useSelector(selectTheme);
    const dispatch = useDispatch();
    const screenWidth = useScreenWidth();
@@ -69,7 +69,7 @@ export const Navigate = () => {
 
    return (
       <Nav>
-         <Line nav={nav}>
+         <Line nav={nav} page={page}>
             <li>
                <StyledLink to="/categories/breakfast">Categories</StyledLink>
             </li>
@@ -107,7 +107,7 @@ export const Navigate = () => {
          <Box>
             <BoxName onClick={handleAvatarClick}>
                <LogoAvatar src={user?.avatarURL} />
-               <Name>{user?.name}</Name>
+               <Name page={page}>{user?.name}</Name>
             </BoxName>
             <MobileBtn size={32} onClick={() => setNav(!nav)}>
                {nav ? <CgClose size={32} /> : <HiOutlineMenuAlt2 size={32} />}
