@@ -102,6 +102,10 @@ const GlobalStyles = createGlobalStyle`
     background-color: var(--background-primary);
   }
 
+  main {
+    min-height: 100vh;
+  }
+
   h1,
   h2,
   h3,

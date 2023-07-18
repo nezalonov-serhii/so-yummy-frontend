@@ -1,13 +1,13 @@
 import styled from "styled-components";
 
 const Container = styled.div`
-    width: 100%;
+    width: 375px;
     margin: 0 auto;
-
-    @media (min-width: 480px) {
-        width: 480px;
-        padding: 0 16px;
-    }
+    padding: 0 16px;
+    // @media (min-width: 480px) {
+    //     width: 480px;
+        
+    // }
     @media (min-width: 768px) {
         padding: 0 32px;
         width: 768px;

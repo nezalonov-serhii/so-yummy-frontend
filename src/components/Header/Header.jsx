@@ -7,7 +7,7 @@ import { selectTheme } from "../../redux/selector/selectors";
 import { switcherTheme } from "../../redux/Slice/themeSwitcherSlice/themeSwitcherSlice";
 import { useScreenWidth } from "../../hooks";
 
-export const Header = () => {
+export const Header = ({ page }) => {
    const theme = useSelector(selectTheme);
    const dispatch = useDispatch();
 
@@ -19,7 +19,7 @@ export const Header = () => {
             <Box>
                <Logo />
                <WrapThemeSwitcher>
-                  <Navigate />
+                  <Navigate page={page} />
                   {screenWidth.desktop && (
                      <ThemeSwitch
                         darkThem={theme}

@@ -59,14 +59,16 @@ opacity: 1;
 
 export const CategoryContainer = styled.div`
 display: flex;
-margin-top: 100px;
+margin-top: 32px;
 flex-direction: column;
 justify-content: space-between;
 `;
 
 export const CategoryTitle = styled.h2`
+color: var(--title);
 font-family: Poppins;
 font-size: 28px;
+margin-bottom: 32px;
 @media (min-width: 768px) {
     font-size: 44px;
 }
@@ -81,7 +83,7 @@ export const OtherCategoriesButton = styled.button`
   color: var(--background-footer);
   border-radius: 24px 44px;
   justify-content: center;
-  margin-top: 14px;
+  margin-top: 40px;
   margin-bottom: 118px;
   line-height: 1.5;
   letter-spacing: -0.02em;

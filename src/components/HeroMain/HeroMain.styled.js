@@ -14,10 +14,11 @@ import leafsDesktopX2 from "../../images/MainPage/HeroMain-leafs-desktop-2x.webp
 
 export const Section = styled.div`
   width: 100%;
-  height: 777px;
+  height: 840px;
+  padding-top: 132px;
   background-image: url(${leafsMobileX1}), url(${pathToDishMobileX1});
   background-size: 55px auto, 375px auto;
-  background-position: 0px 20px, 100% 0px;
+  background-position: 0px 100px, 100% 130px;
   background-repeat: no-repeat;
   text-align: center;
   @media (min-device-pixel-ratio: 2),
@@ -26,11 +27,11 @@ export const Section = styled.div`
     background-image:url(${leafsMobileX2}), url(${pathToDishMobileX2});
   }
   @media (min-width: 768px) {
-    height: 640px;
+    height: 712px;
     background-image:url(${leafsTabletX1}),url(${pathToDishTabletX1});
     text-align:start;
     background-size: 55px auto, 580px auto;
-    background-position: 0px 0px, top right;
+    background-position: 0px 130px, right 70px;
   @media (min-device-pixel-ratio: 2),
     (min-resolution: 192dpi),
     (min-resolution: 2dppx) {
@@ -38,10 +39,11 @@ export const Section = styled.div`
   }
   }
   @media (min-width: 1280px) {
-    height: 800px;
+    height: 900px;
+    padding-top: 226px;
     background-image: url(${leafsDesktopX1}),url(${pathToDishDesktopX1});
     background-size: 100px auto, 907px auto;
-    background-position: 0px 0px, top right;  
+    background-position: left 160px, right 74px; 
     @media (min-device-pixel-ratio: 2),
       (min-resolution: 192dpi),
       (min-resolution: 2dppx) {
