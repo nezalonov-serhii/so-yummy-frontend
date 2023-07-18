@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/so-yummy-frontend/static/css/main.da61c166.css",
-    "main.js": "/so-yummy-frontend/static/js/main.b1b3d108.js",
+    "main.js": "/so-yummy-frontend/static/js/main.9f71d842.js",
     "static/js/510.c900b04c.chunk.js": "/so-yummy-frontend/static/js/510.c900b04c.chunk.js",
     "static/js/118.65ee56fd.chunk.js": "/so-yummy-frontend/static/js/118.65ee56fd.chunk.js",
     "static/js/683.059a3653.chunk.js": "/so-yummy-frontend/static/js/683.059a3653.chunk.js",
@@ -20,7 +20,7 @@
     "static/js/963.1ed8a0a7.chunk.js": "/so-yummy-frontend/static/js/963.1ed8a0a7.chunk.js",
     "static/js/856.51ede46b.chunk.js": "/so-yummy-frontend/static/js/856.51ede46b.chunk.js",
     "static/js/444.d86e7573.chunk.js": "/so-yummy-frontend/static/js/444.d86e7573.chunk.js",
-    "static/js/265.bc740f6a.chunk.js": "/so-yummy-frontend/static/js/265.bc740f6a.chunk.js",
+    "static/js/265.a41d3022.chunk.js": "/so-yummy-frontend/static/js/265.a41d3022.chunk.js",
     "static/media/vegetable-fruit-basket-tab-desk@2x.png": "/so-yummy-frontend/static/media/vegetable-fruit-basket-tab-desk@2x.fb5229fd610efcf8df80.png",
     "static/media/vegetable-fruit-basket.png": "/so-yummy-frontend/static/media/vegetable-fruit-basket.fb5229fd610efcf8df80.png",
     "static/media/startDesk@2x.webp": "/so-yummy-frontend/static/media/startDesk@2x.133cf6c0ba6640055db1.webp",
@@ -73,10 +73,10 @@
     "static/media/clock.svg": "/so-yummy-frontend/static/media/clock.06846a9b006e4f38e889842511c2e8ff.svg",
     "static/media/bg-tab.svg": "/so-yummy-frontend/static/media/bg-tab.d2cd391b390dfb3f10c2a7ec8e0fb35b.svg",
     "static/media/сheck.svg": "/so-yummy-frontend/static/media/сheck.4fb75c4f5f795f0dc42642d360390712.svg",
-    "static/media/bg-desk.svg": "/so-yummy-frontend/static/media/bg-desk.b392fbe027e92fba16a4f575e57f1067.svg",
+    "static/media/bg-desk.svg": "/so-yummy-frontend/static/media/bg-desk.6a470e963663c64e8d0b337648754eae.svg",
     "static/media/bg-mob.svg": "/so-yummy-frontend/static/media/bg-mob.25407eb2a5581e208606adb8cc4a8411.svg",
     "main.da61c166.css.map": "/so-yummy-frontend/static/css/main.da61c166.css.map",
-    "main.b1b3d108.js.map": "/so-yummy-frontend/static/js/main.b1b3d108.js.map",
+    "main.9f71d842.js.map": "/so-yummy-frontend/static/js/main.9f71d842.js.map",
     "510.c900b04c.chunk.js.map": "/so-yummy-frontend/static/js/510.c900b04c.chunk.js.map",
     "118.65ee56fd.chunk.js.map": "/so-yummy-frontend/static/js/118.65ee56fd.chunk.js.map",
     "683.059a3653.chunk.js.map": "/so-yummy-frontend/static/js/683.059a3653.chunk.js.map",
@@ -95,10 +95,10 @@
     "963.1ed8a0a7.chunk.js.map": "/so-yummy-frontend/static/js/963.1ed8a0a7.chunk.js.map",
     "856.51ede46b.chunk.js.map": "/so-yummy-frontend/static/js/856.51ede46b.chunk.js.map",
     "444.d86e7573.chunk.js.map": "/so-yummy-frontend/static/js/444.d86e7573.chunk.js.map",
-    "265.bc740f6a.chunk.js.map": "/so-yummy-frontend/static/js/265.bc740f6a.chunk.js.map"
+    "265.a41d3022.chunk.js.map": "/so-yummy-frontend/static/js/265.a41d3022.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.da61c166.css",
-    "static/js/main.b1b3d108.js"
+    "static/js/main.9f71d842.js"
   ]
 }
