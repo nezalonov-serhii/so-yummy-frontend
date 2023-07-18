@@ -1,6 +1,7 @@
 import axios from "axios";
 
 axios.defaults.baseURL = "https://so-yummy-426w.onrender.com";
+// axios.defaults.baseURL = "http://localhost:3003";
 
 const getMyRecipes = async () => {
    try {
