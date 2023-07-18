@@ -1,6 +1,8 @@
 import { useDispatch } from "react-redux";
-import { Nav, Styledlink, ItemNav } from "./NavBar.Styled";
+
 import { setSearch } from "../../../redux/Slice/searchSelectSlice/searchSelectSlice";
+
+import { Nav, Styledlink, ItemNav } from "./NavBar.Styled";
 
 export const NavBar = () => {
    const dispatch = useDispatch();
@@ -17,7 +19,7 @@ export const NavBar = () => {
                   state="ingredient"
                   onClick={() => {
                      scrollToTop();
-                     dispatch(setSearch("Ingridients"));
+                     dispatch(setSearch("Ingredients"));
                   }}
                >
                   Ingredients

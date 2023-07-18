@@ -37,10 +37,7 @@ export const Line = styled.ul`
    }
 
    @media (max-width: 1280px) {
-      /* transform: translateY(-100%); */
       ${({ nav }) => {
-         console.log(nav);
-
          if (nav) {
             return `
       transform: translateY(0%);
@@ -52,7 +49,6 @@ export const Line = styled.ul`
          }
       }}
 
-      /* display: ${(props) => (props.nav ? "flex" : "none")}; */
       flex-direction: column;
       justify-content: center;
       font-size: 22px;
@@ -68,6 +64,12 @@ export const Line = styled.ul`
       z-index: 10;
       background-color: var(--background-primary);
       padding: 20px;
+   }
+
+   & a {
+      ${({ page }) => {
+         if (page.includes("/recipe")) return "color: var(--text-dark);";
+      }}
    }
 `;
 
@@ -95,6 +97,7 @@ export const StyledLink = styled(NavLink)`
    display: flex;
    align-items: center;
 
+   font-size: 18px;
    font-style: normal;
    font-weight: 500;
    line-height: 1.6;
@@ -105,6 +108,13 @@ export const StyledLink = styled(NavLink)`
    }
    &:hover {
       color: var(--accent-color);
+   }
+
+   @media (min-width: 780px) {
+      font-size: 24px;
+   }
+   @media (min-width: 1280px) {
+      font-size: 14px;
    }
 `;
 export const Search = styled.li`
@@ -126,10 +136,17 @@ export const BoxName = styled.div`
       margin-left: 150px;
    }
 `;
-export const LogoAvatar = styled.img`
+
+export const LogoAvatarWrapper = styled.div`
    width: 44px;
    height: 44px;
    border-radius: 50%;
+`;
+export const LogoAvatar = styled.img`
+   width: 100%;
+   height: 100%;
+   border-radius: 50%;
+   object-fit: cover;
 `;
 
 export const Name = styled.p`
@@ -141,8 +158,12 @@ export const Name = styled.p`
    line-height: 1.7;
 
    @media (min-width: 1280px) {
-      color: var(--text-dark);
    }
+
+   ${({ page }) => {
+      if (page === "/main") return "color: var(--text-dark);";
+      if (page.includes("/recipe")) return "color: var(--text-dark);";
+   }}
 `;
 export const Box = styled.div`
    display: flex;

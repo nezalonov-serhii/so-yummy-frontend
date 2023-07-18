@@ -1,18 +1,15 @@
 import { SearchedRecipeElement } from "../SearchedRecipesElement/SearchedRecipeElement";
+import PluginNotFound from "../../PlugIfNotFound/PlugIfNotFound";
+
 import { RecipesList, RecipeItem } from "./SearchedRecipesList.styled";
-import PluginNotFound from "../../PlugIfNotFound/PlugIfNotFound"
 
-export const SearchedRecipesList = ({listOfRecipes}) => {
-
-
+export const SearchedRecipesList = ({ listOfRecipes }) => {
    return (
       <RecipesList>
-          {listOfRecipes.length !==0 ?(
+         {listOfRecipes.length !== 0 ? (
             listOfRecipes.map((recipe) => {
-              
-
                return (
-                   <RecipeItem key={recipe._id}>
+                  <RecipeItem key={recipe._id}>
                      <SearchedRecipeElement
                         title={recipe.title}
                         recipeId={recipe._id}
@@ -21,10 +18,10 @@ export const SearchedRecipesList = ({listOfRecipes}) => {
                      />
                   </RecipeItem>
                );
-            })) : (<PluginNotFound>
-               Try looking for something else..
-            </PluginNotFound>)
-            }
+            })
+         ) : (
+            <PluginNotFound>Try looking for something else..</PluginNotFound>
+         )}
       </RecipesList>
    );
 };

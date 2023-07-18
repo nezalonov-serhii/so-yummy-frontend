@@ -1,9 +1,17 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+
+import { selectTheme, selectUser } from "../../../redux/selector/selectors";
+import { switcherTheme } from "../../../redux/Slice/themeSwitcherSlice/themeSwitcherSlice";
+import { useScreenWidth } from "../../../hooks";
+
 import { HiOutlineMenuAlt2 } from "react-icons/hi";
 import { FiSearch } from "react-icons/fi";
 import { CgClose } from "react-icons/cg";
-import { useDispatch, useSelector } from "react-redux";
-import { selectTheme, selectUser } from "../../../redux/selector/selectors";
+import { ModalEditProfile } from "../ModalEditProfile/ModalEditProfile";
+import { UserProfile } from "../UserProfile/UserProfile";
+import { Logout } from "../Logout/Logout";
+
 import {
    Nav,
    Line,
@@ -15,16 +23,11 @@ import {
    BoxName,
    LogoAvatar,
    Box,
+   LogoAvatarWrapper,
 } from "./Navigate.styled";
-import { ModalEditProfile } from "../ModalEditProfile/ModalEditProfile";
-import { Logout } from "../Logout/Logout";
-import { UserProfile } from "../UserProfile/UserProfile";
 import { ThemeSwitch, ThemeToggle, WrapThemeSwitchMobile } from "../styled";
-import { switcherTheme } from "../../../redux/Slice/themeSwitcherSlice/themeSwitcherSlice";
-import { useScreenWidth } from "../../../hooks";
-import { useEffect } from "react";
 
-export const Navigate = () => {
+export const Navigate = ({ page }) => {
    const theme = useSelector(selectTheme);
    const dispatch = useDispatch();
    const screenWidth = useScreenWidth();
@@ -69,21 +72,56 @@ export const Navigate = () => {
 
    return (
       <Nav>
-         <Line nav={nav}>
+         <Line nav={nav} page={page}>
             <li>
-               <StyledLink to="/categories/breakfast">Categories</StyledLink>
+               <StyledLink
+                  to="/categories/breakfast"
+                  onClick={() => {
+                     if (!screenWidth.desktop) setNav(!nav);
+                  }}
+               >
+                  Categories
+               </StyledLink>
             </li>
             <li>
-               <StyledLink to="/add">Add Recipe</StyledLink>
+               <StyledLink
+                  to="/add"
+                  onClick={() => {
+                     if (!screenWidth.desktop) setNav(!nav);
+                  }}
+               >
+                  Add Recipe
+               </StyledLink>
             </li>
             <li>
-               <StyledLink to="/my">My Recipe</StyledLink>
+               <StyledLink
+                  to="/my"
+                  onClick={() => {
+                     if (!screenWidth.desktop) setNav(!nav);
+                  }}
+               >
+                  My Recipe
+               </StyledLink>
             </li>
             <li>
-               <StyledLink to="/favorite">Favorite</StyledLink>
+               <StyledLink
+                  to="/favorite"
+                  onClick={() => {
+                     if (!screenWidth.desktop) setNav(!nav);
+                  }}
+               >
+                  Favorite
+               </StyledLink>
             </li>
             <li>
-               <StyledLink to="/shopping-list">Shopping list</StyledLink>
+               <StyledLink
+                  to="/shopping-list"
+                  onClick={() => {
+                     if (!screenWidth.desktop) setNav(!nav);
+                  }}
+               >
+                  Shopping list
+               </StyledLink>
             </li>
             <Search>
                <StyledLink to="/search">
@@ -106,8 +144,10 @@ export const Navigate = () => {
          </Line>
          <Box>
             <BoxName onClick={handleAvatarClick}>
-               <LogoAvatar src={user?.avatarURL} />
-               <Name>{user?.name}</Name>
+               <LogoAvatarWrapper>
+                  <LogoAvatar src={user?.avatarURL} />
+               </LogoAvatarWrapper>
+               <Name page={page}>{user?.name}</Name>
             </BoxName>
             <MobileBtn size={32} onClick={() => setNav(!nav)}>
                {nav ? <CgClose size={32} /> : <HiOutlineMenuAlt2 size={32} />}

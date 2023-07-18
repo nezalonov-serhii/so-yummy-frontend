@@ -1,5 +1,4 @@
 import {
-   Avatar,
    Box,
    Input,
    Button,
@@ -8,29 +7,70 @@ import {
    InputWrapper,
    Icon,
    IconClose,
+   AvatarWrapper,
+   InputImage,
+   ImgContainer,
+   Image,
+   NewImage,
 } from "./UserProfile.styled";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { selectUser } from "../../../redux/selector/selectors";
 
 import { useState } from "react";
+import { fetchChangeUser } from "../../../redux/thunk/changeUser/operation";
+import { updateName, updateAvatarURL } from "../../../redux/Slice/signup/signupSlice";
 
 export const UserProfile = ({ closeModal }) => {
+   const dispatch = useDispatch();
    const user = useSelector(selectUser);
    const [name, setName] = useState(user?.name || "");
+   const [image, setImage] = useState(user?.avatarURL || "");
 
-   const handleSubmit = (e) => {
-      e.preventDefault();
+   const handleSubmit = async (event) => {
+      event.preventDefault();
+      const formData = new FormData();
+      formData.append("name", name);
+      try {
+         if (image) {
+            const res = await fetch(image);
+            const contentType = res.headers.get("content-type");
+            const blob = await res.blob();
+            const file = new File([blob], "image", { type: contentType });
+            formData.append("avatar", file);
+            await fetchChangeUser(formData);
+         } else {
+            await fetchChangeUser(formData);
+         }
+         closeModal();
+
+         dispatch(updateName(name));
+         dispatch(updateAvatarURL(image));
+         closeModal();
+      } catch (error) {
+         console.error(error);
+      }
    };
 
-   const handleNameChange = (e) => {
-      setName(e.target.value);
+   const handleNameChange = (event) => {
+      setName(event.target.value);
    };
 
+   const handleFileSelect = (event) => {
+      if (event.target.files.length > 0) {
+         setImage(URL.createObjectURL(event.target.files[0]));
+      }
+   };
    return (
       <Box>
          <IconClose onClick={closeModal} />
-         <Avatar src={user?.avatarURL} />
+
          <Form onSubmit={handleSubmit}>
+            <AvatarWrapper>
+               <InputImage type="file" id="fileElem" accept="image/*" onChange={handleFileSelect} />
+               <ImgContainer id="fileSelect">
+                  {!image ? <Image /> : <NewImage src={image} alt="userPhoto" />}
+               </ImgContainer>
+            </AvatarWrapper>
             <InputWrapper>
                <Icon />
                <Input

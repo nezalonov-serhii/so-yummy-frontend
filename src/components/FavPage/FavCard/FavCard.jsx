@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom";
+
 import Food from "../../../images/RecipePage/svg/food.svg";
+
 import {
    CardWrapper,
    ImgWrapper,

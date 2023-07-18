@@ -1,11 +1,7 @@
 import { createSlice, isAnyOf } from "@reduxjs/toolkit";
 import { signupInitialState } from "../../initialState/initialState";
-import {
-   currentUserThunk,
-   loginThunk,
-   logoutThunk,
-   signupThunk,
-} from "../../thunk/auth/authThunk";
+
+import { currentUserThunk, loginThunk, logoutThunk, signupThunk } from "../../thunk/auth/authThunk";
 
 const handlePending = (state) => {
    state.isAuthLoading = true;
@@ -42,11 +38,16 @@ const signupSlice = createSlice({
       logout(state) {
          handleLogout(state);
       },
+      updateName(state, action) {
+         state.user.name = action.payload;
+      },
+      updateAvatarURL(state, action) {
+         state.user.avatarURL = action.payload;
+      },
    },
 
    extraReducers: (builder) => {
       builder
-
          .addCase(currentUserThunk.fulfilled, (state, { payload }) => {
             state.error = null;
             state.user = payload;
@@ -55,10 +56,7 @@ const signupSlice = createSlice({
             state.isAuthLoading = false;
          })
          .addCase(logoutThunk.rejected, handleLogout)
-         .addMatcher(
-            isAnyOf(logoutThunk.fulfilled, currentUserThunk.rejected),
-            handleLogout
-         )
+         .addMatcher(isAnyOf(logoutThunk.fulfilled, currentUserThunk.rejected), handleLogout)
          .addMatcher(
             isAnyOf(
                signupThunk.pending,
@@ -68,15 +66,10 @@ const signupSlice = createSlice({
             ),
             handlePending
          )
-         .addMatcher(
-            isAnyOf(loginThunk.fulfilled, signupThunk.fulfilled),
-            handleFulfilled
-         )
-         .addMatcher(
-            isAnyOf(signupThunk.rejected, loginThunk.rejected),
-            handleRejected
-         )
+         .addMatcher(isAnyOf(loginThunk.fulfilled, signupThunk.fulfilled), handleFulfilled)
+         .addMatcher(isAnyOf(signupThunk.rejected, loginThunk.rejected), handleRejected);
    },
 });
 
+export const { updateName, updateAvatarURL } = signupSlice.actions;
 export const signupReducer = signupSlice.reducer;

@@ -13,7 +13,7 @@ export const searchByTitle = async (query) => {
       return Promise.reject(error.message);
    }
 };
-export const searchByIngridients = async (query) => {
+export const searchByIngredients = async (query) => {
    try {
       const data = await axios.post("/api/ingredients", query);
 
