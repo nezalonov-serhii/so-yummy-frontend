@@ -1,6 +1,6 @@
 import React from "react";
-import { useNavigate, useLocation } from "react-router-dom";
-// import styled from "styled-components";
+import { useNavigate} from "react-router-dom";
+
 import Container from "../Container";
 import { CommonSearchForm } from "../CommonSearchForm/CommonSearchForm";
 import { useScreenWidth } from "../../hooks"
@@ -18,12 +18,12 @@ import {
 export const HeroMain = () => {
     const { mobile } = useScreenWidth();
     const navigate = useNavigate();
-    const location = useLocation();
+   
     const handleSearchFormInput = (query) => {
         navigate(`/search?query=${query}`);
       };
 
-    const initialQuery = new URLSearchParams(location.search).get("query") || "";
+    
 
     return(
         <Section>
@@ -50,7 +50,7 @@ export const HeroMain = () => {
                     CustomButtonComponent={CustomButtonStyles} 
                     SearchFormContainer={CustomSearchFormContainer}
                     handleSearchFormInput={handleSearchFormInput}
-                    initialQuery={initialQuery}
+                    
                 />
             </Container>
         </Section>

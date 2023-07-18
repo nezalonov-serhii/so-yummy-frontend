@@ -1,10 +1,10 @@
 import { useSearchParams } from "react-router-dom";
 import { useEffect, useState, useRef } from "react";
-import { useDispatch } from "react-redux";
+
 import { Formik } from "formik";
 import * as Yup from "yup";
 
-import { setSearch } from "../../redux/Slice/searchSelectSlice/searchSelectSlice";
+
 
 import { SearchFormBox, SearchFormInput, ErrorText } from "./CommonSearchForm.styled";
 
