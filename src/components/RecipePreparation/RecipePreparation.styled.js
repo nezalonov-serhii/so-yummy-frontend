@@ -89,7 +89,7 @@ export const Text = styled.p`
    font-size: 12px;
    line-height: 1.17;
    letter-spacing: -0.02em;
-   color: var(--text-light);
+   color: var(--text-primary);
    @media (min-width: 768px) {
       font-size: 14px;
       line-height: 1.29;
