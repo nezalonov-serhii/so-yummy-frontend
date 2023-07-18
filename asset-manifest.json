@@ -1,11 +1,11 @@
 {
   "files": {
     "main.css": "/so-yummy-frontend/static/css/main.da61c166.css",
-    "main.js": "/so-yummy-frontend/static/js/main.d183f40e.js",
+    "main.js": "/so-yummy-frontend/static/js/main.33335f4e.js",
     "static/js/510.1ddead70.chunk.js": "/so-yummy-frontend/static/js/510.1ddead70.chunk.js",
     "static/js/118.791dd40a.chunk.js": "/so-yummy-frontend/static/js/118.791dd40a.chunk.js",
     "static/js/683.98986466.chunk.js": "/so-yummy-frontend/static/js/683.98986466.chunk.js",
-    "static/js/727.5b5aa15e.chunk.js": "/so-yummy-frontend/static/js/727.5b5aa15e.chunk.js",
+    "static/js/727.f30c834d.chunk.js": "/so-yummy-frontend/static/js/727.f30c834d.chunk.js",
     "static/js/51.4c5ffd1d.chunk.js": "/so-yummy-frontend/static/js/51.4c5ffd1d.chunk.js",
     "static/js/399.d133d136.chunk.js": "/so-yummy-frontend/static/js/399.d133d136.chunk.js",
     "static/js/823.d50dbd8b.chunk.js": "/so-yummy-frontend/static/js/823.d50dbd8b.chunk.js",
@@ -76,11 +76,11 @@
     "static/media/bg-desk.svg": "/so-yummy-frontend/static/media/bg-desk.b392fbe027e92fba16a4f575e57f1067.svg",
     "static/media/bg-mob.svg": "/so-yummy-frontend/static/media/bg-mob.25407eb2a5581e208606adb8cc4a8411.svg",
     "main.da61c166.css.map": "/so-yummy-frontend/static/css/main.da61c166.css.map",
-    "main.d183f40e.js.map": "/so-yummy-frontend/static/js/main.d183f40e.js.map",
+    "main.33335f4e.js.map": "/so-yummy-frontend/static/js/main.33335f4e.js.map",
     "510.1ddead70.chunk.js.map": "/so-yummy-frontend/static/js/510.1ddead70.chunk.js.map",
     "118.791dd40a.chunk.js.map": "/so-yummy-frontend/static/js/118.791dd40a.chunk.js.map",
     "683.98986466.chunk.js.map": "/so-yummy-frontend/static/js/683.98986466.chunk.js.map",
-    "727.5b5aa15e.chunk.js.map": "/so-yummy-frontend/static/js/727.5b5aa15e.chunk.js.map",
+    "727.f30c834d.chunk.js.map": "/so-yummy-frontend/static/js/727.f30c834d.chunk.js.map",
     "51.4c5ffd1d.chunk.js.map": "/so-yummy-frontend/static/js/51.4c5ffd1d.chunk.js.map",
     "399.d133d136.chunk.js.map": "/so-yummy-frontend/static/js/399.d133d136.chunk.js.map",
     "823.d50dbd8b.chunk.js.map": "/so-yummy-frontend/static/js/823.d50dbd8b.chunk.js.map",
@@ -99,6 +99,6 @@
   },
   "entrypoints": [
     "static/css/main.da61c166.css",
-    "static/js/main.d183f40e.js"
+    "static/js/main.33335f4e.js"
   ]
 }
