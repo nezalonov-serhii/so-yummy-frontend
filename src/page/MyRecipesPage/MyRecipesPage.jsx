@@ -31,7 +31,6 @@ const MyRecipesPage = () => {
     setRecipes(recipes.filter((recipe) => recipe._id !== id));
   };
 
-  
   return (
     <WrapPage>
       <Title>My recipes</Title>
