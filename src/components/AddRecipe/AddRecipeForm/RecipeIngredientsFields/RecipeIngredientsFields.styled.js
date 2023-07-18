@@ -27,7 +27,7 @@ export const Counter = styled.div`
    gap: 14px;
    padding: 4px 14px;
    border-radius: 18px;
-   border: 1px solid rgba(51, 51, 51, 0.3);
+   border: 1px solid var(--text-primary);
    @media screen and (min-width: 768px) {
       padding: 4px 15px;
    }
@@ -36,6 +36,10 @@ export const Counter = styled.div`
    }
 `;
 export const CounterButton = styled.button`
+   display: flex;
+   align-items: center;
+   justify-content: center;
+
    background-color: inherit;
    border: none;
    padding: 0;
@@ -51,7 +55,7 @@ export const IconPlus = styled(FaPlus)`
 export const IconMinus = styled(FaMinus)`
    width: 14px;
    height: 14px;
-   color: "#333333";
+   color: var(--text-primary);
 `;
 
 export const List = styled.ul``;

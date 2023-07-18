@@ -8,7 +8,7 @@ const GlobalStyles = createGlobalStyle`
           return `
       --text-primary: #FAFAFA;
       --text-secondary: #FAFAFA;
-      --text-third: rgba(250, 250, 250, 0.5);
+      --text-third: #fff;
       --text-light: #FAFAFA;
       --text-other: #FAFAFA;
       --text-dark: #3E4462;

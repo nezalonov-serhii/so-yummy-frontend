@@ -62,6 +62,10 @@ export const Input = styled.input`
    letter-spacing: -0.28px;
    background-color: transparent;
 
+   &::placeholder {
+      color: var(--text-third);
+   }
+
    &:active,
    &:focus,
    &:hover {
