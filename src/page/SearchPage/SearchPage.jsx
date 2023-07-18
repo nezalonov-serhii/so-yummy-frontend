@@ -5,7 +5,7 @@ import { Title } from "../../components/Title/Title";
 import { SearchBar } from "../../components/SearchPage/SearchBar/SearchBar";
 import { SearchedRecipesList } from "../../components/SearchPage/SearchedRecipesList/SearchedRecipesList";
 import { SearchPageContainer } from "./SearchPage.styled";
-import { searchByTitle, searchByIngridients } from "../../service/api/apiSearch";
+import { searchByTitle, searchByIngredients } from "../../service/api/apiSearch";
 import { selectSearchValue } from '../../redux/selector/selectors';
 
 const SearchPage = () => {
@@ -40,7 +40,7 @@ const SearchPage = () => {
         .finally(() => setSearchFormValue(""));
     } else {
       console.log("Search By Ingredients", searchFormValue);
-      searchByIngridients({ query: searchFormValue })
+      searchByIngredients({ query: searchFormValue })
         .then(({ data }) => setRecipeList(data.data))
         .finally(() => setSearchFormValue(""));
     }
