@@ -89,7 +89,7 @@ const IngredientsShoppingList = () => {
                                     )
                                     )}
                                 </StyledFlexRow>
-                            <StyledCloseIcon onClick={()=>heandleDeleteButton(item._id)}/>
+                            <StyledCloseIcon onClick={()=>heandleDeleteButton(item.ingredient._id)}/>
                         </StyledFlexQuantity>
                     </StyledIngridientsItem>
                 )
