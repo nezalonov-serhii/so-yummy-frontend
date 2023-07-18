@@ -83,6 +83,8 @@ const StyledImage = styled.img`
 
 const StyledQuantity = styled.div`
   display: flex;
+  padding-left: 2px;
+  padding-right: 2px;
   justify-content: center;
   align-items: center;
   min-width: 37px;

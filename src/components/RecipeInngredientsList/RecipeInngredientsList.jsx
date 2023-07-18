@@ -1,6 +1,6 @@
-// import { useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 // import { useEffect } from "react";
-// import { addToShopping } from "../../redux/recipe/recipeOperation/recipeOperation";
+import { addShoppingThunk,deleteShoppingThunk } from "../../redux/shopping/thunkShopping";
 import Food from "../../images/RecipePage/svg/food.svg";
 import {
   Checkbox,
@@ -18,12 +18,15 @@ import {
 } from "./RecipeInngredientsList.styled";
 
 const RecipeInngredientsList = ({ ingredients }) => {
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
-  // const handleClickCheckbox = (_id, measure) => {
-  //   const data = { ingredient: _id, measure };
-  //   dispatch(addToShopping(data));
-  // };
+  const handleClickCheckbox = (_id, measure) => {
+    const data = { ingredient: _id, measure };
+    dispatch(addShoppingThunk(data));
+  };
+  const handleDeleteCheckbox =(_id)=>{
+    dispatch(deleteShoppingThunk(_id))
+  }
 
   return (
     <Div>
@@ -48,8 +51,14 @@ const RecipeInngredientsList = ({ ingredients }) => {
                   <Checkbox
                     type="checkbox"
                     // checked={isChecked}
-                    // onChange={() => handleClickCheckbox(_id, measure)}
-                  />
+                    onChange={(e) => {
+                      console.log(e.target.checked)
+                        if(!e.target.checked){
+                          return handleDeleteCheckbox(_id)
+                        }
+                        return handleClickCheckbox(_id, measure)}
+                      }
+                        />
                 </ItemWrapper>
               </Item>
             );

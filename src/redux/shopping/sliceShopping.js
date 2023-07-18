@@ -7,7 +7,6 @@ import {
 
 
 const heandleFulfilledAdd = (state, {payload}) => {
-    console.log('payload add item', payload);
     state.shopping.isLoading = false;
     state.shopping.items = [...payload];
     state.shopping.error = '';
