@@ -25,6 +25,11 @@ const authPersistConfig = {
    whitelist: ["token"],
 };
 
+const switcherThemePersistConfig = {
+   key: "switcherTheme",
+   storage,
+};
+
 export const store = configureStore({
    reducer: {
       auth: persistReducer(authPersistConfig, signupReducer),
@@ -33,7 +38,7 @@ export const store = configureStore({
       data: dataReducer,
       recipes: recipesReducer,
       searchSelect: searchSelectReducer,
-      switcherTheme: themeSwitcherReducer,
+      switcherTheme: persistReducer(switcherThemePersistConfig, themeSwitcherReducer),
    },
    middleware: (getDefaultMiddleware) =>
       getDefaultMiddleware({
