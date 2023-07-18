@@ -1,6 +1,10 @@
-import { useDispatch } from "react-redux";
-// import { useEffect } from "react";
-import { addShoppingThunk,deleteShoppingThunk } from "../../redux/shopping/thunkShopping";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  addShoppingThunk,
+  deleteShoppingThunk,
+  getShoppingThunk,
+} from "../../redux/shopping/thunkShopping";
+import { selectShoppingList } from "../../redux/recipe/recipeSelectors/recipeSelectors";
 import Food from "../../images/RecipePage/svg/food.svg";
 import {
   Checkbox,
@@ -16,17 +20,27 @@ import {
   Image,
   Div,
 } from "./RecipeInngredientsList.styled";
+import { useEffect } from "react";
 
 const RecipeInngredientsList = ({ ingredients }) => {
   const dispatch = useDispatch();
 
-  const handleClickCheckbox = (_id, measure) => {
+  const shoppingList = useSelector(selectShoppingList);
+  const [ingredient] = [shoppingList];
+
+  useEffect(() => {
+    dispatch(getShoppingThunk());
+  }, [dispatch]);
+
+  const handleClickCheckbox = (_id, measure, isChecked) => {
     const data = { ingredient: _id, measure };
-    dispatch(addShoppingThunk(data));
+    if (!isChecked) {
+      dispatch(addShoppingThunk(data));
+    }
+    if (isChecked) {
+      dispatch(deleteShoppingThunk(_id));
+    }
   };
-  const handleDeleteCheckbox =(_id)=>{
-    dispatch(deleteShoppingThunk(_id))
-  }
 
   return (
     <Div>
@@ -40,6 +54,9 @@ const RecipeInngredientsList = ({ ingredients }) => {
       <List>
         {ingredients &&
           ingredients.map(({ id: { _id, name, img }, measure, id }) => {
+            const isChecked = ingredient.some(
+              (int) => int.ingredientId === _id
+            );
             return (
               <Item key={_id}>
                 <Ingredient>
@@ -50,15 +67,11 @@ const RecipeInngredientsList = ({ ingredients }) => {
                   <Measure>{measure}</Measure>
                   <Checkbox
                     type="checkbox"
-                    // checked={isChecked}
-                    onChange={(e) => {
-                      console.log(e.target.checked)
-                        if(!e.target.checked){
-                          return handleDeleteCheckbox(_id)
-                        }
-                        return handleClickCheckbox(_id, measure)}
-                      }
-                        />
+                    checked={isChecked}
+                    onChange={() =>
+                      handleClickCheckbox(_id, measure, isChecked)
+                    }
+                  />
                 </ItemWrapper>
               </Item>
             );
