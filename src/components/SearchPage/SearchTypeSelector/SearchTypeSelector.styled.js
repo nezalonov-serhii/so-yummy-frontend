@@ -2,8 +2,8 @@ import { styled } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import Select from "@mui/material/Select";
 import MenuItem from "@mui/material/MenuItem";
+import { outlinedInputClasses, selectClasses } from "@mui/material";
 import FormHelperText from "@mui/material/FormHelperText";
-// import FormControl from "@mui/material/FormControl";
 
 const SearchSelectorBox = styled(Box)`
   display: flex;
@@ -27,7 +27,6 @@ const StyledFormControl = styled("div")`
   width: 100%;
 `;
 const SearchSelect = styled(Select)`
-  /* display: inline-block; */
   width: 146px;
   height: 34px;
   background-color: rgba(217, 217, 217, 15.7%);
@@ -45,9 +44,12 @@ const SearchSelect = styled(Select)`
   text-align: left;
 
   color: var(--text-other);
-  &:before {
-    border-color: red;
+  & .${selectClasses.icon} {
+    color: #8baa36;
   }
+  /* &:before {
+    border-color: red;/
+  } */
   :hover {
     border: 1px solid #23262a33;
   }
@@ -65,21 +67,6 @@ const SearchSelect = styled(Select)`
     width: 198px;
     height: 49px;
   }
-  /* & option {
-    display: block;
-    outline: none;
-    border: transparent;
-    appearance: unset;
-    padding: 14px;
-    background-color: #fafafa;
-    font-family: Poppins;
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 1.5;
-    letter-spacing: -0.02em;
-    text-align: left;
-    color: #000000;
-  } */
 `;
 
 const StyledHelperText = styled(FormHelperText)`
