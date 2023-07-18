@@ -107,6 +107,7 @@ export const DelButton = styled.button`
    border: none;
    padding: 0;
    margin-left: 33px;
+
    @media screen and (min-width: 768px) and (max-width: 1279px) {
       margin-left: 157px;
       width: 20px;
@@ -121,7 +122,7 @@ export const DelButton = styled.button`
 export const IconDelete = styled(VscChromeClose)`
    width: 18px;
    height: 18px;
-   color: #333333;
+   color: var(--text-primary);
    @media screen and (min-width: 768px) {
       width: 20px;
       height: 20px;
