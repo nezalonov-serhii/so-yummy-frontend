@@ -13,13 +13,18 @@ import {
   Image,
   NewImage,
 } from "./UserProfile.styled";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { selectUser } from "../../../redux/selector/selectors";
 
 import { useState } from "react";
 import { fetchChangeUser } from "../../../redux/thunk/changeUser/operation";
+import {
+  updateName,
+  updateAvatarURL,
+} from "../../../redux/Slice/signup/signupSlice";
 
 export const UserProfile = ({ closeModal }) => {
+  const dispatch = useDispatch();
   const user = useSelector(selectUser);
   const [name, setName] = useState(user?.name || "");
   const [image, setImage] = useState(user?.avatarURL || "");
@@ -39,8 +44,8 @@ export const UserProfile = ({ closeModal }) => {
       } else {
         await fetchChangeUser(formData);
       }
-      console.log(image);
-      console.log(name);
+      dispatch(updateName(name));
+      dispatch(updateAvatarURL(image));
       closeModal();
     } catch (error) {
       console.error(error);

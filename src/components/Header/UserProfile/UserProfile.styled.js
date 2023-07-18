@@ -59,6 +59,7 @@ export const AvatarWrapper = styled.div`
     margin-bottom: 54px;
   }
 `;
+
 export const InputImage = styled.input`
   position: absolute;
   top: 0;
