@@ -28,6 +28,8 @@ const RecipePageHero = ({ title, description, time, recipeId, favorites }) => {
       return false;
    }
 
+   console.log(checkFavorites());
+
    const handleClickBtn = () => {
       if (favorites === undefined) {
          return;
@@ -47,9 +49,7 @@ const RecipePageHero = ({ title, description, time, recipeId, favorites }) => {
          <HeroTitle>{title}</HeroTitle>
          <Descr>{description}</Descr>
          <FavoriteBtn type="button" onClick={handleClickBtn}>
-            {favorites && favorites.length !== 0
-               ? "Remove from favorite"
-               : "Add to favorite recipes"}
+            {checkFavorites() ? "Remove from favorite" : "Add to favorite recipes"}
          </FavoriteBtn>
          <СlockWrap>
             {time && <ClockIcon />}
