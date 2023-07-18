@@ -118,3 +118,29 @@ export const IconDelete = styled(VscChromeClose)`
     height: 20px;
   }
 `;
+
+export const customStyles = {
+  control: (baseStyles, state) => ({
+    // width: 198,
+    backgroundColor: "rgba(245, 245, 245, 1)",
+    padding: 6,
+    border: "none",
+    borderRadius: 7,
+    cursor: "pointer",
+    display: "flex",
+  }),
+  menuList: (provided, state) => ({
+    ...provided,
+    maxHeight: "210px",
+    backgroundColor: "transparent",
+  }),
+  option: (provided, state) => ({
+    ...provided,
+    backgroundColor: "transparent",
+    color: "black",
+  }),
+  dropdownIndicator: (provided, state) => ({
+    ...provided,
+    color: "var(--accent-color)",
+  }),
+};

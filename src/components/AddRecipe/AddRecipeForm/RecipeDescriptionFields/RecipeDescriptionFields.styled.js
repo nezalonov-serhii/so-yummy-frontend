@@ -72,3 +72,47 @@ export const Input = styled.input`
     letter-spacing: -0.32px;
   }
 `;
+
+export const customStyles = {
+  control: (baseStyles, state) => ({
+    width: 160,
+    backgroundColor: "transparent",
+    border: "none",
+    cursor: "pointer",
+    display: "flex",
+  }),
+  menuList: (provided, state) => ({
+    ...provided,
+    padding: "8px 14px",
+    maxHeight: "144px",
+    backgroundColor: "transparent",
+    "@media screen and (min-width: 768px) and (max-width: 1279px)": {
+      maxHeight: "162px",
+    },
+  }),
+  option: (provided, state) => ({
+    ...provided,
+    backgroundColor: "transparent",
+    color: "black",
+    fontSize: "12px",
+    fontWeight: 400,
+    lineHeight: "normal",
+    letterSpacing: "-0.24px",
+    margin: "4px 0",
+    padding: "0px",
+    "@media screen and (min-width: 768px) and (max-width: 1279px)": {
+      fontSize: "14px",
+      letterSpacing: "-0.28px",
+    },
+    // marginTop: "4px",
+    // padding: "0px",
+  }),
+  valueContainer: (provided, state) => ({
+    ...provided,
+    justifyContent: "flex-end",
+  }),
+  dropdownIndicator: (provided, state) => ({
+    ...provided,
+    color: "var(--accent-color)",
+  }),
+};

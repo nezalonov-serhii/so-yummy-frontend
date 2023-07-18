@@ -1,12 +1,15 @@
 import { useState } from "react";
-import { Container, Textarea } from "./RecipePreparationFields.styled";
+import {
+  Container,
+  ErrorMessagePreparation,
+  Textarea,
+} from "./RecipePreparationFields.styled";
 import { Title } from "../../AddRecipe.styled";
 import { useDispatch, useSelector } from "react-redux";
 import {
   setPreparation,
   validateForm,
 } from "../../../../redux/Slice/addRecipeSlice/addRecipeFormSlice";
-import { ErrorMessage } from "../AddRecipeForm.styled";
 
 export const RecipePreparationFields = () => {
   const dispatch = useDispatch();
@@ -43,9 +46,11 @@ export const RecipePreparationFields = () => {
         onKeyDown={handleKeyDown}
         hasError={isClickDisabledButton && invalidFields.preparation}
       />
-      {/* {isClickDisabledButton && invalidFields.preparation && (
-        <ErrorMessage>Please enter instructions</ErrorMessage>
-      )} */}
+      {isClickDisabledButton && invalidFields.preparation && (
+        <ErrorMessagePreparation>
+          Please enter instructions
+        </ErrorMessagePreparation>
+      )}
     </Container>
   );
 };
