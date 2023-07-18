@@ -22,7 +22,7 @@ import { fetchChangeUser } from "../../../redux/thunk/changeUser/operation";
 export const UserProfile = ({ closeModal }) => {
   const user = useSelector(selectUser);
   const [name, setName] = useState(user?.name || "");
-  const [image, setImage] = useState(user?.image || "");
+  const [image, setImage] = useState(user?.avatarURL || "");
 
   const handleSubmit = async (event) => {
     event.preventDefault();
