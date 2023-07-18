@@ -147,7 +147,9 @@ export const Navigate = ({ page }) => {
                <LogoAvatarWrapper>
                   <LogoAvatar src={user?.avatarURL} />
                </LogoAvatarWrapper>
-               <Name page={page}>{user?.name}</Name>
+               <Name page={page} screen={screenWidth}>
+                  {user?.name}
+               </Name>
             </BoxName>
             <MobileBtn size={32} onClick={() => setNav(!nav)}>
                {nav ? <CgClose size={32} /> : <HiOutlineMenuAlt2 size={32} />}

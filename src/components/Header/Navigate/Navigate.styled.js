@@ -44,7 +44,7 @@ export const Line = styled.ul`
       display: flex;`;
          } else {
             return `
-      transform: translateY(-100%);
+      transform: translateY(-150%);
        `;
          }
       }}
@@ -160,8 +160,8 @@ export const Name = styled.p`
    @media (min-width: 1280px) {
    }
 
-   ${({ page }) => {
-      if (page === "/main") return "color: var(--text-dark);";
+   ${({ page, screen }) => {
+      if (page === "/main" && screen.desktop) return "color: var(--text-dark);";
       if (page.includes("/recipe")) return "color: var(--text-dark);";
    }}
 `;
