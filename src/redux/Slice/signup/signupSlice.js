@@ -1,11 +1,6 @@
 import { createSlice, isAnyOf } from "@reduxjs/toolkit";
 import { signupInitialState } from "../../initialState/initialState";
-import {
-   currentUserThunk,
-   loginThunk,
-   logoutThunk,
-   signupThunk,
-} from "../../thunk/auth/authThunk";
+import { currentUserThunk, loginThunk, logoutThunk, signupThunk } from "../../thunk/auth/authThunk";
 
 const handlePending = (state) => {
    state.isAuthLoading = true;
@@ -55,10 +50,7 @@ const signupSlice = createSlice({
             state.isAuthLoading = false;
          })
          .addCase(logoutThunk.rejected, handleLogout)
-         .addMatcher(
-            isAnyOf(logoutThunk.fulfilled, currentUserThunk.rejected),
-            handleLogout
-         )
+         .addMatcher(isAnyOf(logoutThunk.fulfilled, currentUserThunk.rejected), handleLogout)
          .addMatcher(
             isAnyOf(
                signupThunk.pending,
@@ -68,14 +60,8 @@ const signupSlice = createSlice({
             ),
             handlePending
          )
-         .addMatcher(
-            isAnyOf(loginThunk.fulfilled, signupThunk.fulfilled),
-            handleFulfilled
-         )
-         .addMatcher(
-            isAnyOf(signupThunk.rejected, loginThunk.rejected),
-            handleRejected
-         )
+         .addMatcher(isAnyOf(loginThunk.fulfilled, signupThunk.fulfilled), handleFulfilled)
+         .addMatcher(isAnyOf(signupThunk.rejected, loginThunk.rejected), handleRejected);
    },
 });
 

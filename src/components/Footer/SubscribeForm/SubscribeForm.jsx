@@ -1,6 +1,8 @@
-import { Formik} from "formik";
+import { Formik } from "formik";
 import * as Yup from "yup";
-import { useDispatch} from "react-redux";
+import { useDispatch } from "react-redux";
+
+import { subscribeThunk } from "../../../redux/thunk/auth/authThunk";
 
 import {
    SubscribeContainer,
@@ -16,21 +18,18 @@ import {
    ErrorMessageStyled,
    WrapField,
 } from "./SubscribeForm.Styled";
-import { subscribeThunk } from "../../../redux/thunk/auth/authThunk";
-
-
 
 export const SubscribeForm = () => {
    const dispatch = useDispatch();
 
-  const handleSubmit = (values, actions) => { 
-    const newUser = {
-      email:  values.email,
-    }
-    dispatch(subscribeThunk(newUser));
-    actions.resetForm();
-  }
-   
+   const handleSubmit = (values, actions) => {
+      const newUser = {
+         email: values.email,
+      };
+      dispatch(subscribeThunk(newUser));
+      actions.resetForm();
+   };
+
    const validationSchema = Yup.object({
       email: Yup.string()
          .matches(
@@ -40,52 +39,51 @@ export const SubscribeForm = () => {
          .required("Email is required"),
    });
    return (
-     <SubscribeContainer>
-       <SubscribeBox>
-         <SubscribeTitle>Subscribe to our Newsletter</SubscribeTitle>
-         <SubscribeText>
-           Subscribe up to our newsletter. Be in touch with <br></br>latest news
-           and special offers, etc.
-         </SubscribeText>
-       </SubscribeBox>
+      <SubscribeContainer>
+         <SubscribeBox>
+            <SubscribeTitle>Subscribe to our Newsletter</SubscribeTitle>
+            <SubscribeText>
+               Subscribe up to our newsletter. Be in touch with <br></br>latest news and special
+               offers, etc.
+            </SubscribeText>
+         </SubscribeBox>
 
-       <Formik
-         initialValues={{ email: "" }}
-         validationSchema={validationSchema}
-         onSubmit={handleSubmit }
-       >
-         {({ errors, touched }) => (
-           <>
-             <AuthForm>
-               <div>
-                 <Label htmlFor="email">
-                   <InputIcon>
-                     <Icon
-                       invalid={errors.email && touched.email ? "invalid" : ""}
-                       valid={!errors.email && touched.email ? "valid" : ""}
-                     />
-                   </InputIcon>
-                   <WrapField>
-                     <Input
-                       type="email"
-                       name="email"
-                       placeholder="Email"
-                       autoComplete="username"
-                       invalid={errors.email && touched.email ? "invalid" : ""}
-                       valid={!errors.email && touched.email ? "valid" : ""}
-                       
-                     />
-                   </WrapField>
-                 </Label>
-                 {errors.email && touched.email && (
-                   <ErrorMessageStyled>{errors.email}</ErrorMessageStyled>
-                 )}
-               </div>
-               <Btn type="submit">Subscribe</Btn>
-             </AuthForm>
-           </>
-         )}
-       </Formik>
-     </SubscribeContainer>
+         <Formik
+            initialValues={{ email: "" }}
+            validationSchema={validationSchema}
+            onSubmit={handleSubmit}
+         >
+            {({ errors, touched }) => (
+               <>
+                  <AuthForm>
+                     <div>
+                        <Label htmlFor="email">
+                           <InputIcon>
+                              <Icon
+                                 invalid={errors.email && touched.email ? "invalid" : ""}
+                                 valid={!errors.email && touched.email ? "valid" : ""}
+                              />
+                           </InputIcon>
+                           <WrapField>
+                              <Input
+                                 type="email"
+                                 name="email"
+                                 placeholder="Email"
+                                 autoComplete="username"
+                                 invalid={errors.email && touched.email ? "invalid" : ""}
+                                 valid={!errors.email && touched.email ? "valid" : ""}
+                              />
+                           </WrapField>
+                        </Label>
+                        {errors.email && touched.email && (
+                           <ErrorMessageStyled>{errors.email}</ErrorMessageStyled>
+                        )}
+                     </div>
+                     <Btn type="submit">Subscribe</Btn>
+                  </AuthForm>
+               </>
+            )}
+         </Formik>
+      </SubscribeContainer>
    );
 };

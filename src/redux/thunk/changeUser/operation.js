@@ -1,8 +1,5 @@
 import axios from "axios";
 
-axios.defaults.baseURL = "https://so-yummy-426w.onrender.com";
-// axios.defaults.baseURL = "http://localhost:3003";
-
 export const fetchChangeUser = async (formData) => {
    try {
       const response = await axios.patch("/api/users/avatars", formData, {
