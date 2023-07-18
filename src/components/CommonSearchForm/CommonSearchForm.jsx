@@ -8,15 +8,10 @@ import * as Yup from "yup";
 
 import { SearchFormBox, SearchFormInput, ErrorText } from "./CommonSearchForm.styled";
 
-const userSchema = Yup.object({
-   query: Yup.string()
-      .min(3,"At least 3 characters")
-      .matches(/^[A-Za-z\s_-]+$/, "Invalid query")
-      .required("Please fill field"),
-});
-const initialValue = {
-   query: "",
-};
+
+// const initialValue = {
+//    query: "",
+// };
 
 export const CommonSearchForm = ({
    CustomButtonComponent,
@@ -24,8 +19,19 @@ export const CommonSearchForm = ({
    handleSearchFormInput,
 
 }) => {
+const [searchParams, setSearchParams] = useSearchParams();
+
+   const userSchema = Yup.object({
+      query: Yup.string()
+      .default(searchParams.get("query"))
+      .min(3,"At least 3 characters")
+      .matches(/^[A-Za-z\s_-]+$/, "Invalid query")
+      .required("Please fill field"),
+});   
+
+
+
    
-   const [searchParams, setSearchParams] = useSearchParams();
    const [queryValue, setQueryValue] = useState("");
    const submitButtonRef = useRef(null);
   
@@ -53,7 +59,7 @@ useEffect(() => {
 
    return (
       <SearchFormContainer>
-         <Formik initialValues={initialValue} onSubmit={handleSubmit} validationSchema={userSchema}>
+         <Formik initialValues={{query:""}} onSubmit={handleSubmit} validationSchema={userSchema}>
             {({ values, handleChange, handleBlur }) => (
                <SearchFormBox>
                   <SearchFormInput
