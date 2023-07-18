@@ -1,4 +1,3 @@
-// import styled from "styled-components";
 import { styled } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import Select from "@mui/material/Select";
@@ -45,7 +44,7 @@ const SearchSelect = styled(Select)`
   letter-spacing: -0.02em;
   text-align: left;
 
-  color: #000000;
+  color: var(--text-other);
   &:before {
     border-color: red;
   }
@@ -91,7 +90,8 @@ const StyledHelperText = styled(FormHelperText)`
   letter-spacing: -0.23999999463558197px;
   text-align: left;
   min-width: fit-content;
-  color: #001833;
+
+  color: var(--title);
   @media (min-width: 768px) {
     font-size: 14px;
   }
@@ -107,19 +107,19 @@ const SelectorOption = styled(MenuItem)`
   border: transparent;
   appearance: unset;
   padding: 14px;
-  background-color: #fafafa;
+  background-color: var(--select-option);
   font-family: Poppins;
   font-size: 14px;
   font-weight: 400;
   line-height: 1.5;
   letter-spacing: -0.02em;
   text-align: left;
-  color: #000000;
+  color: var(--text-other);
   :hover {
-    background-color: #fafafa;
+    background-color: var(--select-option);
   }
   :focus {
-    background-color: #fafafa;
+    background-color: var(--select-option);
   }
 `;
 
