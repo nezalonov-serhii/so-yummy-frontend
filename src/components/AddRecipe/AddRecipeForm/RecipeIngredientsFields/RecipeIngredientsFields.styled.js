@@ -154,4 +154,8 @@ export const customStyles = {
       ...provided,
       color: "var(--accent-color)",
    }),
+   singleValue: (provided, state) => ({
+      ...provided,
+      color: "var(--text-primary)",
+   }),
 };
