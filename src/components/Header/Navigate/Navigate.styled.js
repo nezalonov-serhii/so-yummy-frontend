@@ -69,6 +69,12 @@ export const Line = styled.ul`
       background-color: var(--background-primary);
       padding: 20px;
    }
+
+   & a {
+      ${({ page }) => {
+         if (page.includes("/recipe")) return "color: var(--text-dark);";
+      }}
+   }
 `;
 
 export const MobileBtn = styled.div`
@@ -141,8 +147,12 @@ export const Name = styled.p`
    line-height: 1.7;
 
    @media (min-width: 1280px) {
-      color: var(--text-dark);
    }
+
+   ${({ page }) => {
+      if (page === "/main") return "color: var(--text-dark);";
+      if (page.includes("/recipe")) return "color: var(--text-dark);";
+   }}
 `;
 export const Box = styled.div`
    display: flex;

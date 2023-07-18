@@ -1,5 +1,5 @@
 import { Suspense } from "react";
-import { Outlet, useParams } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 import { Header } from "../Header/Header";
 import Loader from "../Loader/Loader";
 import Background from "../Background";
@@ -8,20 +8,22 @@ import { selectToken } from "../../redux/selector/selectors";
 
 import Footer from "../Footer/Footer";
 import { useState } from "react";
+import { useEffect } from "react";
 
 const SharedLayout = () => {
    const isAuthorize = useSelector(selectToken);
    const [currentPage, setCurrentPage] = useState("");
+   const { pathname } = useLocation();
 
-   const { page } = useParams();
-
-   console.log(page);
+   useEffect(() => {
+      setCurrentPage(pathname);
+   }, [pathname]);
 
    return (
       <>
          {isAuthorize && (
             <Background>
-               <Header />
+               <Header page={currentPage} />
                <main>
                   <Suspense fallback={<Loader />}>
                      <Outlet />
