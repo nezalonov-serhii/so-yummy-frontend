@@ -4,9 +4,9 @@ const GlobalStyles = createGlobalStyle`
 
   :root {
     ${({ darkThem }) => {
-       console.log(darkThem);
-       if (darkThem) {
-          return `
+      console.log(darkThem);
+      if (darkThem) {
+        return `
       --text-primary: #FAFAFA;
       --text-secondary: #FAFAFA;
       --text-third: rgba(250, 250, 250, 0.5);
@@ -40,9 +40,11 @@ const GlobalStyles = createGlobalStyle`
       --toggle-them: #8BAA36;
 
       --navlink-hover: #1E1F28;
+
+      --select-option:#8BAA36;
     `;
-       } else {
-          return `
+      } else {
+        return `
       --text-primary: #3E4462;
       --text-secondary: #23262A;
       --text-third: rgba(0, 0, 0, 0.5);
@@ -76,8 +78,10 @@ const GlobalStyles = createGlobalStyle`
       --toggle-them: #FAFAFA;
 
       --navlink-hover: #8BAA36;
+
+      --select-option:#FAFAFA;;
     `;
-       }
+      }
     }}
 
     --cubic-bezier: cubic-bezier(0.4, 0, 0.2, 1);

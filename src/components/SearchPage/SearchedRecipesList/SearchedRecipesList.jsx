@@ -2,6 +2,7 @@ import { SearchedRecipeElement } from "../SearchedRecipesElement/SearchedRecipeE
 import { RecipesList, RecipeItem } from "./SearchedRecipesList.styled";
 import PluginNotFound from "../../PlugIfNotFound/PlugIfNotFound";
 
+
 export const SearchedRecipesList = ({ listOfRecipes }) => {
   return (
     <RecipesList>
