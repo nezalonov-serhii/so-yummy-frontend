@@ -67,13 +67,17 @@ const PreviewCategories = () => {
       return shuffled;
    };
 
-   const handleSeeAll = (category) => {
-      navigate(`/categories/${category}`);
-   };
 
-   const handleOtherCategories = () => {
-      navigate("/categories/breakfast");
-   };
+  const handleSeeAll = (category) => {
+    window.scrollTo(0, 0); 
+    navigate(`/categories/${category}`);
+  };
+
+  const handleOtherCategories = () => {
+    window.scrollTo(0, 0); 
+    navigate("/categories/breakfast");
+  };
+
 
    return (
       <Container>

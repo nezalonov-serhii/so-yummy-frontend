@@ -1,4 +1,4 @@
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
 
 import { addToFavorite, deleteFavorite } from "../../redux/recipe/recipeOperation/recipeOperation";
@@ -12,15 +12,29 @@ import {
    FavoriteBtn,
    HeroTitle,
 } from "./RecipePageHero.styled";
+import { selectUser } from "../../redux/selector/selectors";
 
 const RecipePageHero = ({ title, description, time, recipeId, favorites }) => {
    const dispatch = useDispatch();
+
+   const user = useSelector(selectUser);
+
+   function checkFavorites() {
+      for (let i = 0; i < user._id?.length; i++) {
+         if (favorites?.includes(user._id)) {
+            return true;
+         }
+      }
+      return false;
+   }
+
+   console.log(checkFavorites());
 
    const handleClickBtn = () => {
       if (favorites === undefined) {
          return;
       }
-      if (favorites.length !== 0) {
+      if (checkFavorites()) {
          dispatch(deleteFavorite(recipeId));
          toast.success("Remove from favorites");
          return;
@@ -35,9 +49,7 @@ const RecipePageHero = ({ title, description, time, recipeId, favorites }) => {
          <HeroTitle>{title}</HeroTitle>
          <Descr>{description}</Descr>
          <FavoriteBtn type="button" onClick={handleClickBtn}>
-            {favorites && favorites.length !== 0
-               ? "Remove from favorite"
-               : "Add to favorite recipes"}
+            {checkFavorites() ? "Remove from favorite" : "Add to favorite recipes"}
          </FavoriteBtn>
          <СlockWrap>
             {time && <ClockIcon />}

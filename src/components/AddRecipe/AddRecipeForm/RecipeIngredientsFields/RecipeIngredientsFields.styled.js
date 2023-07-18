@@ -27,15 +27,20 @@ export const Counter = styled.div`
    gap: 14px;
    padding: 4px 14px;
    border-radius: 18px;
-   border: 1px solid rgba(51, 51, 51, 0.3);
+   border: 1px solid var(--text-primary);
    @media screen and (min-width: 768px) {
       padding: 4px 15px;
    }
+   overflow: hidden;
    & p {
       color: var(--text-third);
    }
 `;
 export const CounterButton = styled.button`
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   background-color: transparent;
    background-color: inherit;
    border: none;
    padding: 0;
@@ -51,7 +56,7 @@ export const IconPlus = styled(FaPlus)`
 export const IconMinus = styled(FaMinus)`
    width: 14px;
    height: 14px;
-   color: "#333333";
+   color: var(--text-primary);
 `;
 
 export const List = styled.ul``;
@@ -82,11 +87,12 @@ export const SelectWrapper = styled.div`
 `;
 export const InputAmount = styled.input`
    position: relative;
-   background-color: rgba(245, 245, 245, 1);
+   background-color: var(--background-input-secondary);
    border-radius: 7px;
    padding: 16px;
    width: 84px;
-   border: none;
+   border: 1px solid var(--border-input);
+   color: var(--text-primary);
    ${({ hasError }) =>
       hasError &&
       `
@@ -101,6 +107,7 @@ export const DelButton = styled.button`
    border: none;
    padding: 0;
    margin-left: 33px;
+
    @media screen and (min-width: 768px) and (max-width: 1279px) {
       margin-left: 157px;
       width: 20px;
@@ -115,7 +122,7 @@ export const DelButton = styled.button`
 export const IconDelete = styled(VscChromeClose)`
    width: 18px;
    height: 18px;
-   color: #333333;
+   color: var(--text-primary);
    @media screen and (min-width: 768px) {
       width: 20px;
       height: 20px;
@@ -125,9 +132,10 @@ export const IconDelete = styled(VscChromeClose)`
 export const customStyles = {
    control: (baseStyles, state) => ({
       // width: 198,
-      backgroundColor: "rgba(245, 245, 245, 1)",
+      backgroundColor: "var( --background-input-secondary)",
+      border: "1px solid var(--border-input)",
+
       padding: 6,
-      border: "none",
       borderRadius: 7,
       cursor: "pointer",
       display: "flex",
@@ -135,15 +143,20 @@ export const customStyles = {
    menuList: (provided, state) => ({
       ...provided,
       maxHeight: "210px",
-      backgroundColor: "transparent",
+      color: "var(--text-primary)",
+      backgroundColor: "var(--background-input)",
    }),
    option: (provided, state) => ({
       ...provided,
       backgroundColor: "transparent",
-      color: "black",
+      color: "var(--text-primary)",
    }),
    dropdownIndicator: (provided, state) => ({
       ...provided,
       color: "var(--accent-color)",
+   }),
+   singleValue: (provided, state) => ({
+      ...provided,
+      color: "var(--text-primary)",
    }),
 };

@@ -8,7 +8,7 @@ const GlobalStyles = createGlobalStyle`
           return `
       --text-primary: #FAFAFA;
       --text-secondary: #FAFAFA;
-      --text-third: rgba(250, 250, 250, 0.5);
+      --text-third: #fff;
       --text-light: #FAFAFA;
       --text-other: #FAFAFA;
       --text-dark: #3E4462;
@@ -17,6 +17,9 @@ const GlobalStyles = createGlobalStyle`
       --title: #FAFAFA;
       --central-point-title: #FAFAFA;
 
+      --border-input:  #FAFAFA;
+      --background-input: #8BAA36;
+      --background-input-secondary: transparent;
 
       --background-primary: #1E1F28;
       --background-secondary: #2A2C36;
@@ -55,6 +58,10 @@ const GlobalStyles = createGlobalStyle`
       --title: #001833;
       --central-point-title: #22252A;
       
+      --border-input: transparent;
+      --background-input: #FAFAFA;
+      --background-input-secondary: #D9D9D9;
+
       --background-primary: #FAFAFA;
       --background-secondary: #FFFFFF;
       --background-footer: #22252A;
