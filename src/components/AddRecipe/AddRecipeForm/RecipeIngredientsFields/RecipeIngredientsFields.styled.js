@@ -31,6 +31,7 @@ export const Counter = styled.div`
    @media screen and (min-width: 768px) {
       padding: 4px 15px;
    }
+   overflow: hidden;
    & p {
       color: var(--text-third);
    }
@@ -39,7 +40,7 @@ export const CounterButton = styled.button`
    display: flex;
    align-items: center;
    justify-content: center;
-
+   background-color: transparent;
    background-color: inherit;
    border: none;
    padding: 0;
@@ -86,11 +87,12 @@ export const SelectWrapper = styled.div`
 `;
 export const InputAmount = styled.input`
    position: relative;
-   background-color: rgba(245, 245, 245, 1);
+   background-color: var(--background-input-secondary);
    border-radius: 7px;
    padding: 16px;
    width: 84px;
-   border: none;
+   border: 1px solid var(--border-input);
+   color: var(--text-primary);
    ${({ hasError }) =>
       hasError &&
       `
@@ -129,9 +131,10 @@ export const IconDelete = styled(VscChromeClose)`
 export const customStyles = {
    control: (baseStyles, state) => ({
       // width: 198,
-      backgroundColor: "rgba(245, 245, 245, 1)",
+      backgroundColor: "var( --background-input-secondary)",
+      border: "1px solid var(--border-input)",
+
       padding: 6,
-      border: "none",
       borderRadius: 7,
       cursor: "pointer",
       display: "flex",
@@ -139,12 +142,13 @@ export const customStyles = {
    menuList: (provided, state) => ({
       ...provided,
       maxHeight: "210px",
-      backgroundColor: "transparent",
+      color: "var(--text-primary)",
+      backgroundColor: "var(--background-input)",
    }),
    option: (provided, state) => ({
       ...provided,
       backgroundColor: "transparent",
-      color: "black",
+      color: "var(--text-primary)",
    }),
    dropdownIndicator: (provided, state) => ({
       ...provided,

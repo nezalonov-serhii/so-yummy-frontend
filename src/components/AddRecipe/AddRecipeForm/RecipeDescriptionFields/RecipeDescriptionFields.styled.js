@@ -89,7 +89,7 @@ export const customStyles = {
       ...provided,
       padding: "8px 14px",
       maxHeight: "144px",
-      backgroundColor: "transparent",
+      backgroundColor: "var(--background-input)",
       "@media screen and (min-width: 768px) and (max-width: 1279px)": {
          maxHeight: "162px",
       },
@@ -97,7 +97,7 @@ export const customStyles = {
    option: (provided, state) => ({
       ...provided,
       backgroundColor: "transparent",
-      color: "black",
+      color: "var(--text-primary)",
       fontSize: "12px",
       fontWeight: 400,
       lineHeight: "normal",
