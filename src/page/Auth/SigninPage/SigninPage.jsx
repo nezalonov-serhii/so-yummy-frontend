@@ -1,6 +1,12 @@
 import { useDispatch, useSelector } from "react-redux";
 import { Formik } from "formik";
 import * as Yup from "yup";
+
+import { loginThunk } from "../../../redux/thunk/auth/authThunk";
+import { selectIsLoadingAuth } from "../../../redux/selector/selectors";
+
+import Loader from "../../../components/Loader/Loader";
+
 import {
    Button,
    Container,
@@ -12,15 +18,11 @@ import {
    AuthLink,
    ErrorMessageStyled,
    WrapFields,
-   NameIcon,
    LockIcon,
    MailIcon,
    ValidCheckIcon,
    InvalidCheckIcon,
 } from "../AuthPage.styled";
-import { loginThunk } from "../../../redux/thunk/auth/authThunk";
-import { selectIsLoadingAuth } from "../../../redux/selector/selectors";
-import Loader from "../../../components/Loader/Loader";
 
 const LoginPage = () => {
    const dispatch = useDispatch();
@@ -31,8 +33,6 @@ const LoginPage = () => {
          email: values.email,
          password: values.password,
       };
-
-      console.log(user);
 
       dispatch(loginThunk(user));
       actions.resetForm();

@@ -1,14 +1,17 @@
+import { useEffect, useState } from "react";
+
 import { Title } from "../../components/Title/Title";
 import { FavoriteList } from "../../components/FavPage/FavList/FavoriteList";
-import { useEffect, useState } from "react";
 import Loader from "../../components/Loader/Loader";
+
 import { deleteRecipeFromFavorite, getFavoriteRecipes } from "../../service/api/Favorite-Api";
-import { WrapPage, BacketWrapper, Emptytitle, EmptyText } from "./FavoritePage.styled";
 
 import BasketMob from "../../images/SearchPage/vegetable-fruit-basket-mob.png";
 import BasketMob2x from "../../images/SearchPage/vegetable-fruit-basket-mob@2x.png";
 import BacketTabDesk from "../../images/SearchPage/vegetable-fruit-basket-tab-desk.png";
 import BacketTabDesk2x from "../../images/SearchPage/vegetable-fruit-basket-tab-desk@2x.png";
+
+import { WrapPage, BacketWrapper, Emptytitle, EmptyText } from "./FavoritePage.styled";
 
 const FavoritePage = () => {
    const [recipes, setRecipes] = useState([]);
@@ -39,9 +42,8 @@ const FavoritePage = () => {
 
    return (
       <WrapPage>
-        
          <Title>Favorites</Title>
-          {isLoading && <Loader />}
+         {isLoading && <Loader />}
          {recipes.length === 0 ? (
             <BacketWrapper>
                <Emptytitle>Oops!!!</Emptytitle>

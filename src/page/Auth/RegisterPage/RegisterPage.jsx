@@ -1,6 +1,12 @@
 import { useDispatch, useSelector } from "react-redux";
 import { Formik } from "formik";
 import * as Yup from "yup";
+
+import { signupThunk } from "../../../redux/thunk/auth/authThunk";
+import { selectIsLoadingAuth } from "../../../redux/selector/selectors";
+
+import Loader from "../../../components/Loader/Loader";
+
 import {
    Button,
    Container,
@@ -18,9 +24,6 @@ import {
    ValidCheckIcon,
    InvalidCheckIcon,
 } from "../AuthPage.styled";
-import { signupThunk } from "../../../redux/thunk/auth/authThunk";
-import { selectIsLoadingAuth } from "../../../redux/selector/selectors";
-import Loader from "../../../components/Loader/Loader";
 
 const RegisterPage = () => {
    const dispatch = useDispatch();

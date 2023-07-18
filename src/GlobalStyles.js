@@ -4,7 +4,6 @@ const GlobalStyles = createGlobalStyle`
 
   :root {
     ${({ darkThem }) => {
-       console.log(darkThem);
        if (darkThem) {
           return `
       --text-primary: #FAFAFA;
@@ -40,6 +39,8 @@ const GlobalStyles = createGlobalStyle`
       --toggle-them: #8BAA36;
 
       --navlink-hover: #1E1F28;
+
+      --select-option:#8BAA36;
     `;
        } else {
           return `
@@ -76,6 +77,8 @@ const GlobalStyles = createGlobalStyle`
       --toggle-them: #FAFAFA;
 
       --navlink-hover: #8BAA36;
+
+      --select-option:#FAFAFA;;
     `;
        }
     }}

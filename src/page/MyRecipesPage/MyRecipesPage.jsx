@@ -1,46 +1,49 @@
-import { Title } from "../../components/Title/Title";
-import { useEffect, useState} from "react";
-import Loader from "../../components/Loader/Loader";
+import { useEffect, useState } from "react";
+
 import { getMyRecipes, deleteMyRecipe } from "../../service/api/fetchMyRecipes";
-import { WrapPage } from "./MyRecipesPage.styled";
+
+import { Title } from "../../components/Title/Title";
+import Loader from "../../components/Loader/Loader";
 import PlugIfNotFound from "../../components/PlugIfNotFound/PlugIfNotFound";
 import { MyRecipesList } from "../../components/MyRecipesList/MyRecipesList";
 
+import { WrapPage } from "./MyRecipesPage.styled";
+
 const MyRecipesPage = () => {
-  const [recipes, setRecipes] = useState([]);
-  const [, setError] = useState(null);
-  const [isLoading, setIsLoading] = useState(false);
+   const [recipes, setRecipes] = useState([]);
+   const [, setError] = useState(null);
+   const [isLoading, setIsLoading] = useState(false);
 
-  useEffect(() => {
-    const fetchMyRecipes = async () => {
-      try {
-        setIsLoading(true);
-        const response = await getMyRecipes();
-        setRecipes(response);
-      } catch (error) {
-        setError(error);
-      } finally {
-        setIsLoading(false);
-      }
-    };
-    fetchMyRecipes();
-  }, []);
+   useEffect(() => {
+      const fetchMyRecipes = async () => {
+         try {
+            setIsLoading(true);
+            const response = await getMyRecipes();
+            setRecipes(response);
+         } catch (error) {
+            setError(error);
+         } finally {
+            setIsLoading(false);
+         }
+      };
+      fetchMyRecipes();
+   }, []);
 
-  const DeleteMyRecipeById = (id) => {
-    deleteMyRecipe(id);
-    setRecipes(recipes.filter((recipe) => recipe._id !== id));
-  };
+   const DeleteMyRecipeById = (id) => {
+      deleteMyRecipe(id);
+      setRecipes(recipes.filter((recipe) => recipe._id !== id));
+   };
 
-  return (
-    <WrapPage>
-      <Title>My recipes</Title>
-      {isLoading && <Loader />}
-      {!recipes.length&&!isLoading ? (
-        <PlugIfNotFound>There are not recipes yet</PlugIfNotFound>
-      ) : (
-        <MyRecipesList recipes={recipes} onDelete={DeleteMyRecipeById} />
-      )}
-    </WrapPage>
-  );
+   return (
+      <WrapPage>
+         <Title>My recipes</Title>
+         {isLoading && <Loader />}
+         {!recipes.length && !isLoading ? (
+            <PlugIfNotFound>There are not recipes yet</PlugIfNotFound>
+         ) : (
+            <MyRecipesList recipes={recipes} onDelete={DeleteMyRecipeById} />
+         )}
+      </WrapPage>
+   );
 };
 export default MyRecipesPage;
