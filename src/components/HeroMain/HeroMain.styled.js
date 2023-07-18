@@ -15,6 +15,7 @@ import leafsDesktopX2 from "../../images/MainPage/HeroMain-leafs-desktop-2x.webp
 export const Section = styled.div`
   width: 100%;
   height: 777px;
+  margin-top: 132px;
   background-image: url(${leafsMobileX1}), url(${pathToDishMobileX1});
   background-size: 55px auto, 375px auto;
   background-position: 0px 20px, 100% 0px;
