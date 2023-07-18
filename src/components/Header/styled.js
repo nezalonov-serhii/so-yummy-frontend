@@ -1,62 +1,94 @@
 import styled from "styled-components";
 
-
 export const HeaderContainer = styled.header`
-   max-width: 480px;
-   padding:  15px;
-   @media screen and (min-width: 768px) {
-      max-width: 768px;
-   }
-   @media screen and (min-width: 1280px) {
-      max-width: 1280px;
-   }
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 100vw;
+   padding: 18px 0;
+   display: flex;
+   justify-content: space-between;
 `;
 
 export const Box = styled.div`
-@media (max-width: 1279px) {
-display: flex;
-    justify-content: space-between;
-}
-@media (min-width: 1280px) {
-  display: flex;
- 
-  
-}
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+
+   @media (max-width: 479px) {
+      padding: 0 16px;
+   }
 `;
 
-// export const ThemeSwitch = styled.div`
-// @media (max-width: 768px) {
-//   display: flex;
-//   margin-left: 20px;
-//   align-items: flex-end;
-// flex-direction: column-reverse;
-// }
-// `;
+export const ThemeSwitch = styled.div`
+   width: 61px;
+   height: 27px;
+   border-radius: 27px;
+   background-color: var(--toggle-them);
+   box-shadow: 1px 3px 9px 4px rgba(52, 52, 52, 0.2) inset;
 
-// export const ThemeToggle = styled.input`
-// @media (max-width: 768px) {
-//   width: 40px;
-//   height: 20px;
-//   appearance: none;
-//   z-index:999;
-//   background-color: #ccc;
-//   outline: none;
-//   border-radius: 10px;
-//   position: relative;
-//   cursor: pointer;
-//   transition: background-color 0.3s;
-//   &:checked {
-//     background-color: #8baa36;
-//   }
-//   &:before {
-//     content: "";
-//     width: 16px;
-//     height: 16px;
-//     background-color: #fff;
-//     border-radius: 50%;
-//     position: absolute;
-//     bottom: 2px;
-//     left: ${props => (props.checked ? "22px" : "2px")};
-//     transition: left 0.3s;
-//   }}
-// `;
+   position: absolute;
+   bottom: 16px;
+   left: 16px;
+
+   @media (min-width: 768px) {
+      bottom: 32px;
+      left: 32px;
+   }
+
+   @media (min-width: 1280px) {
+      position: relative;
+      bottom: 0;
+      left: 0;
+   }
+`;
+
+export const WrapThemeSwitchMobile = styled.div`
+   position: absolute;
+   bottom: 0;
+   left: 50%;
+   transform: translateX(-50%);
+
+   width: 100%;
+
+   @media (min-width: 480px) {
+      width: 480px;
+   }
+
+   @media (min-width: 768px) {
+      width: 768px;
+   }
+`;
+
+export const WrapThemeSwitcher = styled.div`
+   display: flex;
+   align-items: center;
+   gap: 50px;
+`;
+
+export const ThemeToggle = styled.div`
+   position: relative;
+   width: 20px;
+   height: 20px;
+   border-radius: 50%;
+   background-color: var(--text-light);
+   box-shadow: 0px 0px 6px 2px rgba(52, 52, 52, 0.3);
+
+   transition: all 250ms linear;
+
+   ${({ darkThem }) => {
+      if (!darkThem) {
+         return `
+           top: 50%;
+           left: 0%;
+           transform: translate(3px, -50%);
+           `;
+      } else {
+         return ` 
+           top: 50%;
+           left: 100%;
+           transform: translate(calc(-100% - 3px), -50%);
+          `;
+      }
+   }}
+`;

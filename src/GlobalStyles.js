@@ -1,6 +1,7 @@
 import { createGlobalStyle } from "styled-components";
 
 const GlobalStyles = createGlobalStyle`
+
   :root {
     ${({ darkThem }) => {
        console.log(darkThem);
@@ -11,6 +12,7 @@ const GlobalStyles = createGlobalStyle`
       --text-third: rgba(250, 250, 250, 0.5);
       --text-light: #FAFAFA;
       --text-other: #FAFAFA;
+      --text-dark: #3E4462;
 
       --accent-color: #8BAA36;
       --title: #FAFAFA;
@@ -35,6 +37,7 @@ const GlobalStyles = createGlobalStyle`
       --social-icon: #FAFAFA;
       --social-icon-hover: #1E1F28;
 
+      --toggle-them: #8BAA36;
 
       --navlink-hover: #1E1F28;
     `;
@@ -45,6 +48,7 @@ const GlobalStyles = createGlobalStyle`
       --text-third: rgba(0, 0, 0, 0.5);
       --text-light: #FAFAFA;
       --text-other: #000000;
+      --text-dark: #3E4462;
 
       --accent-color: #8BAA36;
       --title: #001833;
@@ -69,6 +73,8 @@ const GlobalStyles = createGlobalStyle`
       --social-icon: #8BAA36;
       --social-icon-hover: #FAFAFA;
 
+      --toggle-them: #FAFAFA;
+
       --navlink-hover: #8BAA36;
     `;
        }
@@ -81,6 +87,9 @@ const GlobalStyles = createGlobalStyle`
   ::after,
   ::before {
     box-sizing: border-box;
+
+        transition: color 250ms var(--cubic-bezier),
+            background-color 250ms var(--cubic-bezier);
   }
 
   body {

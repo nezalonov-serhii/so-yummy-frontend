@@ -22,15 +22,15 @@ export const TitleText = styled.h2`
 `;
 
 export const Section = styled.section`
-   padding-top: 50px;
+   padding-top: 130px;
    padding-bottom: 50px;
 
    @media screen and (min-width: 768px) {
-      padding-top: 72px;
+      padding-top: 152px;
       padding-bottom: 100px;
    }
-   @mediascreen and (min-width: 1280px) {
-      padding-top: 102px;
+   @media screen and (min-width: 1280px) {
+      padding-top: 182px;
    }
 `;
 

@@ -4,145 +4,126 @@ import { BiUser } from "react-icons/bi";
 import { VscClose } from "react-icons/vsc";
 
 export const Box = styled.div`
-position: fixed;
-width: 100%;
-max-width: 330px;
-height: 327px;
-left: 50%;
-top: 50%;
-transform: translate(-50%, -50%);
-z-index: 9;
-padding: 24px;
-background-color: white;
-border-radius: 10px;
-box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 4px;
-}
-  @media (min-width: 768px) {
-    width: 480px;
-    height: 402px;
-    padding: 50px;
-  }
-  @media (min-width: 1280px) {
-    width: 500px;
-    height: 425px;
-    padding: 50px;
-  }
+   position: fixed;
+   width: 100%;
+   height: 327px;
+   left: 50%;
+   top: 50%;
+   transform: translate(-50%, -50%);
+   z-index: 9;
+   padding: 24px;
+   background-color: var(--background-recipe-card);
+   border-radius: 10px;
+   box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 4px;
+
+   @media (min-width: 768px) {
+      width: 480px;
+      height: 402px;
+      padding: 50px;
+   }
+   @media (min-width: 1280px) {
+      width: 500px;
+      height: 425px;
+      padding: 50px;
+   }
 `;
 export const Icon = styled(BiUser)`
-  width: 16px;
-  height: 18px;
-  position: absolute;
-  top: 65px;
-  left: 20px;
-  transform: translate(-50%, -50%);
-  z-index: 999;
-  @media (min-width: 768px) {
-    top: 78px;
-  }
-  @media (min-width: 1280px) {
-    top: 78px;
-  }
+   width: 16px;
+   height: 18px;
+   position: absolute;
+   top: 50%;
+   left: 14px;
+   transform: translateY(-50%);
+   z-index: 999;
+   @media (min-width: 768px) {
+      left: 19px;
+   }
 `;
 
-export const Avatar = styled(RxAvatar)`
-  display: flex;
-  width: 88px;
-  height: 88px;
-  color: #c4c4c4;
-  background-color: #d9d9d9;
-  border-radius: 50px;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 10px;
-  @media (min-width: 768px) {
-    width: 103px;
-    height: 103px;
-  }
-  @media (min-width: 1280px) {
-    width: 103px;
-    height: 103px;
-  }
+export const Avatar = styled.img`
+   width: 88px;
+   height: 88px;
+   border-radius: 50px;
+   margin: 0 auto;
+   margin-bottom: 40px;
+   @media (min-width: 768px) {
+      width: 103px;
+      height: 103px;
+      margin-bottom: 50px;
+   }
+   @media (min-width: 1280px) {
+      width: 103px;
+      height: 103px;
+      margin-bottom: 50px;
+   }
 `;
 
 export const Form = styled.form`
-  margin-left: auto;
-  margin-right: auto;
+   margin-left: auto;
+   margin-right: auto;
 `;
 
 export const InputWrapper = styled.div`
-  position: relative;
+   position: relative;
+   color: var(--text-primary);
 `;
 
 export const Input = styled.input`
-  position: relative;
-  width: 100%;
-  height: 48px;
-  border: 1px solid #d9d9d9;
-  border-radius: 5px;
-  margin-top: 40px;
-  padding: 0 15px;
-  padding-left: 40px;
-  color: black;
-  font-family: Poppins;
-  @media (min-width: 768px) {
-    width: 405px;
-    height: 58px;
-    margin-top: 50px;
-  }
-  @media (min-width: 1280px) {
-    width: 405px;
-    height: 58px;
-    margin-top: 50px;
-  }
+   width: 100%;
+   background-color: var(--background-recipe-card);
+   color: inherit;
+
+   border: 1px solid #d9d9d9;
+   border-radius: 5px;
+   padding: 16px 15px;
+   padding-left: 40px;
+   font-family: Poppins;
 `;
 
 export const Button = styled.button`
-  width: 100%;
-  height: 49px;
-  color: white;
-  margin-top: 30px;
-  background-color: #8baa36;
-  border: none;
-  border-radius: 6px;
-  @media (min-width: 760px) {
-    width: 400px;
-    height: 59px;
-  }
-  @media (min-width: 1280px) {
-    width: 400px;
-    height: 59px;
-    margin-top: 40px;
-  }
+   width: 100%;
+   height: 49px;
+   color: white;
+   margin-top: 30px;
+   background-color: #8baa36;
+   border: none;
+   border-radius: 6px;
+   font-size: 14px;
+   @media (min-width: 768px) {
+      font-size: 16px;
+   }
+   @media (min-width: 1280px) {
+      font-size: 16px;
+      margin-top: 40px;
+   }
 `;
 
 export const Pencil = styled(RxPencil1)`
-  position: absolute;
-  top: 65px;
-  right: 15px;
-  transform: translateY(-50%);
-  color: #23262a;
-  @media (min-width: 768px) {
-    top: 80px;
-    right: 0;
-  }
-  @media (min-width: 1280px) {
-    top: 80px;
-    right: 15px;
-  }
+   position: absolute;
+   top: 50%;
+   right: 50%;
+   transform: translateY(-50%);
+   @media (min-width: 768px) {
+      right: 15px;
+   }
+   @media (min-width: 1280px) {
+      right: 15px;
+   }
 `;
 
 export const IconClose = styled(VscClose)`
-  width: 20px;
-  height: 20px;
-  position: absolute;
-  top: 15px;
-  right: 15px;
-  @media (min-width: 768px) {
-    width: 24px;
-    height: 24px;
-  }
-  @media (min-width: 1280px) {
-    width: 24px;
-    height: 24px;
-  }
+   width: 20px;
+   height: 20px;
+   position: absolute;
+   top: 24px;
+   right: 24px;
+   color: var(--text-primary);
+   @media (min-width: 768px) {
+      width: 24px;
+      height: 24px;
+   }
+   @media (min-width: 1280px) {
+      width: 24px;
+      height: 24px;
+   }
 `;
