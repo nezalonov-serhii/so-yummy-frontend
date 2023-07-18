@@ -3,6 +3,7 @@ import { RxPencil1 } from "react-icons/rx";
 import { BiUser } from "react-icons/bi";
 import { VscClose } from "react-icons/vsc";
 import { FiUser } from "react-icons/fi";
+import PlusIcon from "../../../images/Modal/plus-icon.svg";
 
 export const Box = styled.div`
   position: fixed;
@@ -11,7 +12,7 @@ export const Box = styled.div`
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  z-index: 9;
+  z-index: 200;
   padding: 24px;
   background-color: var(--background-recipe-card);
   border-radius: 10px;
@@ -53,6 +54,17 @@ export const AvatarWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  &:after {
+    position: absolute;
+    content: url(${PlusIcon});
+    right: 0;
+    bottom: -5%;
+    transform: translateX(-50%);
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+  }
+
   @media (min-width: 768px) {
     width: 103px;
     height: 103px;
