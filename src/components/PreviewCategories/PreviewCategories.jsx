@@ -66,10 +66,12 @@ const PreviewCategories = () => {
   };
 
   const handleSeeAll = (category) => {
+    window.scrollTo(0, 0); 
     navigate(`/categories/${category}`);
   };
 
   const handleOtherCategories = () => {
+    window.scrollTo(0, 0); 
     navigate("/categories/breakfast");
   };
 
