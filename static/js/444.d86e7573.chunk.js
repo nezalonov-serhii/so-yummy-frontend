@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkso_yummy_frontend=self.webpackChunkso_yummy_frontend||[]).push([[444],{8444:function(e,s,a){a(2791);s.Z=a.p+"static/media/food.2b14a09862d90cca988e39bfad56194a.svg"}}]);
+//# sourceMappingURL=444.d86e7573.chunk.js.map
