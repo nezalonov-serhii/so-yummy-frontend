@@ -10,41 +10,39 @@ import { MyRecipesList } from "../../components/MyRecipesList/MyRecipesList";
 import { Container, WrapPage } from "./MyRecipesPage.styled";
 
 const MyRecipesPage = () => {
-   const [recipes, setRecipes] = useState([]);
-   const [, setError] = useState(null);
-   const [isLoading, setIsLoading] = useState(false);
+  const [recipes, setRecipes] = useState([]);
+  const [, setError] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
 
-   useEffect(() => {
-      const fetchMyRecipes = async () => {
-         try {
-            setIsLoading(true);
-            const response = await getMyRecipes();
-            setRecipes(response);
-         } catch (error) {
-            setError(error);
-         } finally {
-            setIsLoading(false);
-         }
-      };
-      fetchMyRecipes();
-   }, []);
+  useEffect(() => {
+    const fetchMyRecipes = async () => {
+      try {
+        setIsLoading(true);
+        const response = await getMyRecipes();
+        setRecipes(response);
+      } catch (error) {
+        setError(error);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+    fetchMyRecipes();
+  }, []);
 
    const DeleteMyRecipeById = (id) => {
       deleteMyRecipe(id);
-      setRecipes(recipes.filter((recipe) => recipe.ownRecipes._id !== id));
+      setRecipes(recipes.filter((recipe) => recipe._id !== id));
    };
 
    return (
       <WrapPage>
          <Title>My recipes</Title>
-         <Container>
-            {isLoading && <Loader />}
-            {!recipes.length && !isLoading ? (
-               <PlugIfNotFound>There are not recipes yet</PlugIfNotFound>
-            ) : (
-               <MyRecipesList recipes={recipes} onDelete={DeleteMyRecipeById} />
-            )}
-         </Container>
+         {isLoading && <Loader />}
+         {!recipes.length && !isLoading ? (
+            <PlugIfNotFound>There are not recipes yet</PlugIfNotFound>
+         ) : (
+            <MyRecipesList recipes={recipes} onDelete={DeleteMyRecipeById} />
+         )}
       </WrapPage>
    );
 };
