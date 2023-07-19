@@ -69,66 +69,83 @@ export const Input = styled.input`
     letter-spacing: -0.32px;
   }
 
+  &::placeholder {
+    color: var(--text-third);
+  }
 
-   &::placeholder {
-      color: var(--text-third);
-   }
-
-   &:active,
-   &:focus,
-   &:hover {
-      outline: none;
-   }
-   @media screen and (min-width: 768px) {
-      font-size: 16px;
-      letter-spacing: -0.32px;
-   }
+  &:active,
+  &:focus,
+  &:hover {
+    outline: none;
+  }
+  @media screen and (min-width: 768px) {
+    font-size: 16px;
+    letter-spacing: -0.32px;
+  }
 `;
 
 export const customStyles = {
-   control: (baseStyles, state) => ({
-      width: 160,
-      backgroundColor: "transparent",
-      border: "none",
-      cursor: "pointer",
-      display: "flex",
-   }),
-   menuList: (provided, state) => ({
-      ...provided,
-      padding: "8px 14px",
-      maxHeight: "144px",
-      backgroundColor: "var(--background-input)",
-      "@media screen and (min-width: 768px) and (max-width: 1279px)": {
-         maxHeight: "162px",
-      },
-   }),
-   option: (provided, state) => ({
-      ...provided,
-      backgroundColor: "transparent",
-      color: "var(--text-primary)",
-      fontSize: "12px",
-      fontWeight: 400,
-      lineHeight: "normal",
-      letterSpacing: "-0.24px",
+  control: (baseStyles, state) => ({
+    width: 160,
+    backgroundColor: "transparent",
+    border: "none",
+    cursor: "pointer",
+    display: "flex",
+  }),
+  menu: (provided, state) => ({
+    ...provided,
+    borderRadius: "6px",
+    backgroundColor: "var(--background-input)",
+  }),
+  menuList: (provided, state) => ({
+    ...provided,
+    "::-webkit-scrollbar": {
+      width: "6px",
+    },
+    "::-webkit-scrollbar-track": {
       margin: "4px 0",
-      padding: "0px",
-      "@media screen and (min-width: 768px) and (max-width: 1279px)": {
-         fontSize: "14px",
-         letterSpacing: "-0.28px",
-      },
-      // marginTop: "4px",
-      // padding: "0px",
-   }),
-   valueContainer: (provided, state) => ({
-      ...provided,
-      justifyContent: "flex-end",
-   }),
-   dropdownIndicator: (provided, state) => ({
-      ...provided,
-      color: "var(--accent-color)",
-   }),
-   singleValue: (provided, state) => ({
-      ...provided,
-      color: "var(--text-primary)",
-   }),
+    },
+    borderRadius: "12px",
+    "::-webkit-scrollbar-thumb": {
+      backgroundColor: "var(--scroll-color)",
+      borderRadius: "12px",
+    },
+    margin: "0 4px",
+    padding: "8px 14px",
+    maxHeight: "144px",
+    backgroundColor: "var(--background-input)",
+    "@media screen and (min-width: 768px) and (max-width: 1279px)": {
+      maxHeight: "162px",
+    },
+    borderRadius: "6px",
+  }),
+  option: (provided, state) => ({
+    ...provided,
+    backgroundColor: "transparent",
+    color: "var(--text-primary)",
+    fontSize: "12px",
+    fontWeight: 400,
+    lineHeight: "normal",
+    letterSpacing: "-0.24px",
+    margin: "4px 0",
+    padding: "0px",
+    "@media screen and (min-width: 768px) and (max-width: 1279px)": {
+      fontSize: "14px",
+      letterSpacing: "-0.28px",
+    },
+    // marginTop: "4px",
+    // padding: "0px",
+  }),
+  valueContainer: (provided, state) => ({
+    ...provided,
+    justifyContent: "flex-end",
+  }),
+  dropdownIndicator: (provided, state) => ({
+    ...provided,
+    color: "var(--accent-color)",
+  }),
+  singleValue: (provided, state) => ({
+    ...provided,
+    color: "var(--text-primary)",
+  }),
 };
