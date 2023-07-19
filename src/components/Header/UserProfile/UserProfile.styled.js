@@ -167,6 +167,10 @@ export const Button = styled.button`
       font-size: 16px;
       margin-top: 40px;
    }
+
+   &:disabled {
+      opacity: 0.4;
+   }
 `;
 
 export const Pencil = styled(RxPencil1)`

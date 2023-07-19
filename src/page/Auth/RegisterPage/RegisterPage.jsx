@@ -133,7 +133,7 @@ const RegisterPage = () => {
                            </WrapField>
                         </WrapFields>
                         <Button type="submit" disabled={isLoading}>
-                           {isLoading && <Loader size={"20"} color={"#22252a"} />}
+                           {isLoading && <Loader size={"20"} color={"var(--text-dark)"} />}
                            {!isLoading && "Sign up"}
                         </Button>
                      </AuthForm>
