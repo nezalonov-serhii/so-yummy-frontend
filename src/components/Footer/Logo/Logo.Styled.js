@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 import { PiForkKnifeBold } from "react-icons/pi";
 
 export const LogoIcon = styled(PiForkKnifeBold)`
@@ -42,6 +43,8 @@ export const Title = styled.h2`
     margin-left: 12px;
   }
 `;
+
+export const LogoLink = styled(Link)``;
 
 export const LogoWrapper = styled.div`
   display: flex;
