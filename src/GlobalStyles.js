@@ -4,8 +4,9 @@ const GlobalStyles = createGlobalStyle`
 
   :root {
     ${({ darkThem }) => {
-       if (darkThem) {
-          return `
+      if (darkThem) {
+        return `
+          --scroll-color:#1E1F28;
       --text-primary: #FAFAFA;
       --text-secondary: #FAFAFA;
       --text-third: #fff;
@@ -45,8 +46,9 @@ const GlobalStyles = createGlobalStyle`
 
       --select-option:#8BAA36;
     `;
-       } else {
-          return `
+      } else {
+        return `
+          --scroll-color:#E7E5E5;
       --text-primary: #3E4462;
       --text-secondary: #23262A;
       --text-third: rgba(0, 0, 0, 0.5);
@@ -87,7 +89,7 @@ const GlobalStyles = createGlobalStyle`
 
       --select-option:#FAFAFA;;
     `;
-       }
+      }
     }}
 
     --cubic-bezier: cubic-bezier(0.4, 0, 0.2, 1);
