@@ -125,7 +125,12 @@ export const Navigate = ({ page }) => {
                </StyledLink>
             </li>
             <Search>
-               <StyledLinkSearch to="/search">
+               <StyledLinkSearch
+                  to="/search"
+                  onClick={() => {
+                     if (!screenWidth.desktop) setNav(!nav);
+                  }}
+               >
                   <FiSearch width={"24"} height={"24"} />
                   <SearchText>Search</SearchText>
                </StyledLinkSearch>
