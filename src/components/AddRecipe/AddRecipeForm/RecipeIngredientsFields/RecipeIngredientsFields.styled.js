@@ -177,6 +177,7 @@ export const customStyles = {
     letterSpacing: "-0.24px",
     margin: "4px 0",
     padding: "0px",
+    cursor: "pointer",
     "@media screen and (min-width: 768px) and (max-width: 1279px)": {
       fontSize: "14px",
       letterSpacing: "-0.28px",
