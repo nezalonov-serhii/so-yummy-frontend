@@ -9,7 +9,7 @@ import { SearchBar } from "../../components/SearchPage/SearchBar/SearchBar";
 import { SearchedRecipesList } from "../../components/SearchPage/SearchedRecipesList/SearchedRecipesList";
 import Loader from "../../components/Loader/Loader";
 
-import { SearchPageContainer } from "./SearchPage.styled";
+import { Container, SearchPageContainer } from "./SearchPage.styled";
 
 const SearchPage = () => {
    const valueSelector = useSelector(selectSearchValue);
@@ -50,8 +50,13 @@ const SearchPage = () => {
       <SearchPageContainer>
          <Title>Search</Title>
 
-         <SearchBar handleSearchFormInput={handleSearchFormInput} initialQuery={searchFormValue} />
-         {isLoading ? <Loader /> : <SearchedRecipesList listOfRecipes={recipeList} />}
+         <Container>
+            <SearchBar
+               handleSearchFormInput={handleSearchFormInput}
+               initialQuery={searchFormValue}
+            />
+            {isLoading ? <Loader /> : <SearchedRecipesList listOfRecipes={recipeList} />}
+         </Container>
       </SearchPageContainer>
    );
 };

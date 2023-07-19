@@ -7,7 +7,7 @@ import Loader from "../../components/Loader/Loader";
 import PlugIfNotFound from "../../components/PlugIfNotFound/PlugIfNotFound";
 import { MyRecipesList } from "../../components/MyRecipesList/MyRecipesList";
 
-import { WrapPage } from "./MyRecipesPage.styled";
+import { Container, WrapPage } from "./MyRecipesPage.styled";
 
 const MyRecipesPage = () => {
    const [recipes, setRecipes] = useState([]);
@@ -37,12 +37,14 @@ const MyRecipesPage = () => {
    return (
       <WrapPage>
          <Title>My recipes</Title>
-         {isLoading && <Loader />}
-         {!recipes.length && !isLoading ? (
-            <PlugIfNotFound>There are not recipes yet</PlugIfNotFound>
-         ) : (
-            <MyRecipesList recipes={recipes} onDelete={DeleteMyRecipeById} />
-         )}
+         <Container>
+            {isLoading && <Loader />}
+            {!recipes.length && !isLoading ? (
+               <PlugIfNotFound>There are not recipes yet</PlugIfNotFound>
+            ) : (
+               <MyRecipesList recipes={recipes} onDelete={DeleteMyRecipeById} />
+            )}
+         </Container>
       </WrapPage>
    );
 };

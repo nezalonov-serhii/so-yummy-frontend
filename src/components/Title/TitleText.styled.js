@@ -23,11 +23,9 @@ export const TitleText = styled.h2`
 
 export const Section = styled.section`
    padding-top: 130px;
-   padding-bottom: 50px;
 
    @media screen and (min-width: 768px) {
       padding-top: 152px;
-      padding-bottom: 100px;
    }
    @media screen and (min-width: 1280px) {
       padding-top: 182px;
@@ -35,14 +33,12 @@ export const Section = styled.section`
 `;
 
 export const Wrapper = styled.div`
-   max-width: 480px;
+   /* max-width: 480px;
    // margin: 0 auto;
-   padding: 0 15px;
-
    @media screen and (min-width: 768px) {
       max-width: 768px;
    }
    @media screen and (min-width: 1280px) {
       max-width: 1280px;
-   }
+   } */
 `;

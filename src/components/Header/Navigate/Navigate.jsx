@@ -24,6 +24,7 @@ import {
    LogoAvatar,
    Box,
    LogoAvatarWrapper,
+   StyledLinkSearch,
 } from "./Navigate.styled";
 import { ThemeSwitch, ThemeToggle, WrapThemeSwitchMobile } from "../styled";
 
@@ -124,10 +125,10 @@ export const Navigate = ({ page }) => {
                </StyledLink>
             </li>
             <Search>
-               <StyledLink to="/search">
-                  <FiSearch width={24} height={24} />
+               <StyledLinkSearch to="/search">
+                  <FiSearch width={"24"} height={"24"} />
                   <SearchText>Search</SearchText>
-               </StyledLink>
+               </StyledLinkSearch>
             </Search>
             {!screenWidth.desktop && (
                <WrapThemeSwitchMobile>

@@ -18,10 +18,10 @@ export const Wrapper = styled.div`
    }
 
    @media (min-width: 1280px) {
-      padding: 0 100px;
       display: flex;
+      justify-content: space-between;
       gap: 50px;
-      max-width: 1240px;
+      max-width: 1280px;
    }
 `;
 

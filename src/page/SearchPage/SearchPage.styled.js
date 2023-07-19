@@ -3,10 +3,12 @@ import styled from "styled-components";
 const SearchPageContainer = styled.div`
    margin: 0 auto;
    max-width: 480px;
-   padding-left: 15px;
-   padding-right: 15px;
+
+   padding: 0 16px;
    padding-bottom: 100px;
+
    @media (min-width: 768px) {
+      padding: 0 32px;
       max-width: 768px;
    }
 
@@ -15,4 +17,16 @@ const SearchPageContainer = styled.div`
    }
 `;
 
-export { SearchPageContainer };
+const Container = styled.div`
+   padding-top: 50px;
+
+   @media (min-width: 768px) {
+      padding-top: 40px;
+   }
+
+   @media (min-width: 1280px) {
+      padding-top: 50px;
+   }
+`;
+
+export { SearchPageContainer, Container };

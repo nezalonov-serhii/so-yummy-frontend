@@ -7,34 +7,36 @@ export const WrapPage = styled.div`
 
    @media screen and (min-width: 768px) {
       max-width: 768px;
+      padding: 0 32px;
    }
    @media screen and (min-width: 1280px) {
       max-width: 1280px;
    }
 `;
-export const BacketWrapper= styled.div`
-display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin: 0 auto;
-  margin-bottom: 50px;
-`
+export const BacketWrapper = styled.div`
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   margin: 0 auto;
+   margin-bottom: 50px;
+`;
 export const Emptytitle = styled.h3`
-color: var(--title);
-font-family: Poppins;
-font-size: 14px;
-font-style: normal;
-font-weight: 500;
-line-height: 14px;
-letter-spacing: -0.24px;
-margin-bottom: 20px;
+   color: var(--title);
+   font-family: Poppins;
+   font-size: 14px;
+   font-style: normal;
+   font-weight: 500;
+   line-height: 14px;
+   letter-spacing: -0.24px;
+   margin-bottom: 20px;
 
-@media screen and (min-width: 768px) {
-   font-size: 24px;
-   line-height: 24px;
-}`;
-export const EmptyText =styled.p`
+   @media screen and (min-width: 768px) {
+      font-size: 24px;
+      line-height: 24px;
+   }
+`;
+export const EmptyText = styled.p`
    color: var(--text-third);
    text-overflow: ellipsis;
    font-family: Poppins;
@@ -56,4 +58,4 @@ export const EmptyText =styled.p`
       line-height: 24px;
       letter-spacing: -0.36px;
    }
-`
+`;

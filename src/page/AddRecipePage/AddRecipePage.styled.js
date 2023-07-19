@@ -25,7 +25,7 @@ export const Wrapper = styled.div`
 export const Container = styled.div`
    @media screen and (min-width: 1280px) {
       display: flex;
-      margin-top: 100px;
+      padding-top: 100px;
    }
 `;
 

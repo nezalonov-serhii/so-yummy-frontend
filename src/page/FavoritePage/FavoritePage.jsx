@@ -12,6 +12,7 @@ import BacketTabDesk from "../../images/SearchPage/vegetable-fruit-basket-tab-de
 import BacketTabDesk2x from "../../images/SearchPage/vegetable-fruit-basket-tab-desk@2x.png";
 
 import { WrapPage, BacketWrapper, Emptytitle, EmptyText } from "./FavoritePage.styled";
+import { Container } from "../MyRecipesPage/MyRecipesPage.styled";
 
 const FavoritePage = () => {
    const [recipes, setRecipes] = useState([]);
@@ -43,29 +44,31 @@ const FavoritePage = () => {
    return (
       <WrapPage>
          <Title>Favorites</Title>
-         {isLoading && <Loader />}
-         {recipes.length === 0 ? (
-            <BacketWrapper>
-               <Emptytitle>Oops!!!</Emptytitle>
-               <picture>
-                  <source
-                     srcSet={`${BacketTabDesk}, ${BacketTabDesk2x} 2x`}
-                     media="(min-width: 768px)"
-                     sizes="(min-width: 498px) 498px, 100vw"
-                  />
-                  <source
-                     srcSet={`${BasketMob}, ${BasketMob2x} 2x`}
-                     media="(max-width: 767px)"
-                     sizes="(min-width: 259px) 259px, 100vw"
-                  />
-                  <img src={BasketMob} alt="No reecipe" />
-               </picture>
-               <EmptyText>You don't have any favorite recipes. </EmptyText>
-            </BacketWrapper>
-         ) : (
-            <FavoriteList recipes={recipes} onDelete={hendleDeleteRecipeById} />
-         )}
-         {/* {recipes && <FavoriteList recipes={recipes} onDelete={hendleDeleteRecipeById} />} */}
+         <Container>
+            {isLoading && <Loader />}
+            {recipes.length === 0 ? (
+               <BacketWrapper>
+                  <Emptytitle>Oops!!!</Emptytitle>
+                  <picture>
+                     <source
+                        srcSet={`${BacketTabDesk}, ${BacketTabDesk2x} 2x`}
+                        media="(min-width: 768px)"
+                        sizes="(min-width: 498px) 498px, 100vw"
+                     />
+                     <source
+                        srcSet={`${BasketMob}, ${BasketMob2x} 2x`}
+                        media="(max-width: 767px)"
+                        sizes="(min-width: 259px) 259px, 100vw"
+                     />
+                     <img src={BasketMob} alt="No reecipe" />
+                  </picture>
+                  <EmptyText>You don't have any favorite recipes. </EmptyText>
+               </BacketWrapper>
+            ) : (
+               <FavoriteList recipes={recipes} onDelete={hendleDeleteRecipeById} />
+            )}
+            {/* {recipes && <FavoriteList recipes={recipes} onDelete={hendleDeleteRecipeById} />} */}
+         </Container>
       </WrapPage>
    );
 };

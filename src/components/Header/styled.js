@@ -14,10 +14,6 @@ export const Box = styled.div`
    display: flex;
    justify-content: space-between;
    align-items: center;
-
-   @media (max-width: 479px) {
-      padding: 0 16px;
-   }
 `;
 
 export const ThemeSwitch = styled.div`

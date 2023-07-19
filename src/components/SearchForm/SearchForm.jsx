@@ -21,7 +21,6 @@ const SearchForm = ({ CustomButtonComponent, SearchFormContainer }) => {
 
    const handleSubmit = (event) => {
       event.preventDefault();
-      console.log("Search term:", searchTerm);
 
       if (searchTerm) {
          navigate(`/search?query=${searchTerm}`);

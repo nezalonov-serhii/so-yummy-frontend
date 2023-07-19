@@ -27,7 +27,6 @@ import {
 
 const lol = "123g/r/n223g";
 const ok = lol.split("/r/n");
-console.log(ok);
 
 const IngredientsShoppingList = () => {
    const dispatch = useDispatch();

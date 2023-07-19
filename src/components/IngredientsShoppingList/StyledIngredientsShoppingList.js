@@ -9,6 +9,11 @@ const StyledListContainerIngridient = styled.ul`
 
 const StyledIngridientsContainer = styled.div`
    width: 100%;
+   padding-top: 50px;
+
+   @media (min-width: 768px) {
+      padding-top: 72px;
+   }
 `;
 const StyledIngridientsHeader = styled.div`
    display: flex;
@@ -138,9 +143,15 @@ const StyledIngridientsItem = styled.li`
 export const StyledCloseIcon = styled(MdClear)`
    width: 20px;
    height: 20px;
-   border-radius: 8px;
+   border-radius: 50%;
    cursor: pointer;
+   padding: 3px;
+   color: var(--text-primary);
+
+   transition: color 250ms var(--cubic-bezier), background-color 250ms var(--cubic-bezier);
+
    &:hover {
+      color: var(--background-primary);
       background-color: rgb(139, 170, 54);
    }
 `;

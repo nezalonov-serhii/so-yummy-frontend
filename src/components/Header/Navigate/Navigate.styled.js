@@ -17,16 +17,15 @@ export const Line = styled.ul`
    font-family: Poppins;
    gap: 30px;
    transition: all 250ms linear;
+   background-color: var(--background-mobile-modal);
 
-   @media (max-width: 480px) {
-      padding-left: 20px;
+   @media (max-width: 479px) {
       background-image: url(${modalMOb});
       background-position: left bottom;
       background-repeat: no-repeat;
       background-size: contain;
-      padding-left: 0;
    }
-   @media (max-width: 1280px) {
+   @media (max-width: 1279px) {
       padding-left: 20px;
       background-image: url(${modalTab});
       background-position: right bottom;
@@ -34,9 +33,7 @@ export const Line = styled.ul`
       background-size: contain;
       width: 100vw;
       padding-left: 0;
-   }
 
-   @media (max-width: 1280px) {
       ${({ nav }) => {
          if (nav) {
             return `
@@ -53,7 +50,6 @@ export const Line = styled.ul`
       justify-content: center;
       font-size: 22px;
       line-height: 20px;
-      align-items: center;
 
       position: absolute;
       left: 0;
@@ -62,8 +58,12 @@ export const Line = styled.ul`
       width: 100vw;
       height: 101vh;
       z-index: 10;
-      background-color: var(--background-primary);
       padding: 20px;
+   }
+
+   @media (min-width: 1280px) {
+      align-items: center;
+      background-color: transparent;
    }
 
    & a {
@@ -117,6 +117,22 @@ export const StyledLink = styled(NavLink)`
       font-size: 14px;
    }
 `;
+
+export const StyledLinkSearch = styled(NavLink)`
+   color: var(--text-primary);
+   font-size: 24px;
+   display: flex;
+   align-items: center;
+
+   transition: color 250ms linear;
+   &.active {
+      color: var(--accent-color);
+   }
+   &:hover {
+      color: var(--accent-color);
+   }
+`;
+
 export const Search = styled.li`
    display: flex;
    justify-content: center;

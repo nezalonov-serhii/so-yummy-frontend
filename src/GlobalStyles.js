@@ -4,9 +4,9 @@ const GlobalStyles = createGlobalStyle`
 
   :root {
     ${({ darkThem }) => {
-      if (darkThem) {
-        return `
-          --scroll-color:#1E1F28;
+       if (darkThem) {
+          return `
+      --scroll-color:#1E1F28;
       --text-primary: #FAFAFA;
       --text-secondary: #FAFAFA;
       --text-third: #fff;
@@ -33,6 +33,8 @@ const GlobalStyles = createGlobalStyle`
       --background-ingredient-card: #EBF3D4;
       --text-ingredient-card: #23262A;
 
+      --background-mobile-modal:  #1E1F28;
+
       --button-background-primary: #8BAA36;
       --button-background-secondary: #8BAA36;
       --button-background-other: #1E1F28;
@@ -49,8 +51,8 @@ const GlobalStyles = createGlobalStyle`
       --border-input-footer:#FAFAFA;
 
     `;
-      } else {
-        return `
+       } else {
+          return `
           --scroll-color:#E7E5E5;
       --text-primary: #3E4462;
       --text-secondary: #23262A;
@@ -66,6 +68,8 @@ const GlobalStyles = createGlobalStyle`
       --border-input: transparent;
       --background-input: #FAFAFA;
       --background-input-secondary: #D9D9D9;
+
+      --background-mobile-modal:  #EBF3D4;;
 
       --background-primary: #FAFAFA;
       --background-secondary: #FFFFFF;
@@ -94,7 +98,7 @@ const GlobalStyles = createGlobalStyle`
 
       --border-input-footer:#FAFAFA;
     `;
-      }
+       }
     }}
 
     --cubic-bezier: cubic-bezier(0.4, 0, 0.2, 1);
@@ -105,14 +109,15 @@ const GlobalStyles = createGlobalStyle`
   ::before {
     box-sizing: border-box;
 
-        transition: color 250ms var(--cubic-bezier),
-            background-color 250ms var(--cubic-bezier);
+        
   }
 
   body {
     font-family: 'Poppins', sans-serif;
     margin: 0;
     background-color: var(--background-primary);
+    transition: color 250ms var(--cubic-bezier),
+            background-color 250ms var(--cubic-bezier);
   }
 
   main {
