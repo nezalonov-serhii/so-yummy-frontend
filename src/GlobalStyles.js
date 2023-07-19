@@ -45,11 +45,10 @@ const GlobalStyles = createGlobalStyle`
 
       --select-option:#8BAA36;
 
-<<<<<<< Updated upstream
+
       --border-input-footer:#FAFAFA;
       
-=======
->>>>>>> Stashed changes
+
     `;
        } else {
           return `
@@ -93,7 +92,7 @@ const GlobalStyles = createGlobalStyle`
 
       --select-option:#FAFAFA;
 
-      --border-input-footer:#707070;
+      --border-input-footer:#FAFAFA;
     `;
        }
     }}
