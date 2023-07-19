@@ -12,7 +12,10 @@ import {
   ImgContainer,
   Image,
   NewImage,
+  IconAdd,
+  Label,
 } from "./UserProfile.styled";
+import PlusIcon from "../../../images/Modal/plus-icon.svg";
 import { useDispatch, useSelector } from "react-redux";
 import { selectUser } from "../../../redux/selector/selectors";
 
@@ -73,16 +76,20 @@ export const UserProfile = ({ closeModal }) => {
 
       <Form onSubmit={handleSubmit}>
         <AvatarWrapper>
-          <InputImage
-            type="file"
-            id="fileElem"
-            accept="image/*"
-            onChange={handleFileSelect}
-          />
-          <ImgContainer id="fileSelect">
-            {!image ? <Image /> : <NewImage src={image} alt="userPhoto" />}
-          </ImgContainer>
+          <Label htmlFor="fileElem">
+            <InputImage
+              type="file"
+              id="fileElem"
+              accept="image/*"
+              onChange={handleFileSelect}
+            />
+            <ImgContainer id="fileSelect">
+              {!image ? <Image /> : <NewImage src={image} alt="userPhoto" />}
+            </ImgContainer>
+            <IconAdd src={PlusIcon} alt="Add Icon" />
+          </Label>
         </AvatarWrapper>
+
         <InputWrapper>
           <Icon />
           <Input
