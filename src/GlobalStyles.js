@@ -45,6 +45,11 @@ const GlobalStyles = createGlobalStyle`
       --navlink-hover: #1E1F28;
 
       --select-option:#8BAA36;
+
+
+      --border-input-footer:#FAFAFA;
+      
+
     `;
       } else {
         return `
@@ -87,7 +92,9 @@ const GlobalStyles = createGlobalStyle`
 
       --navlink-hover: #8BAA36;
 
-      --select-option:#FAFAFA;;
+      --select-option:#FAFAFA;
+
+      --border-input-footer:#FAFAFA;
     `;
       }
     }}
