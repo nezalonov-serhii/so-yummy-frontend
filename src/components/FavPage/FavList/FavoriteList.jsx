@@ -4,7 +4,7 @@ import { FavList } from "./FavopiteList.styled";
 export const FavoriteList = ({ recipes, onDelete }) => {
    return (
       <FavList>
-         {recipes?.map(({ _id, title, preview, description, time, thumb }) => (
+         {recipes?.map(({favorites: { _id, title, preview, description, time, thumb }}) => (
             <FavCard
                id={_id}
                key={_id}

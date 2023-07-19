@@ -5,7 +5,8 @@ axios.defaults.baseURL = "https://so-yummy-426w.onrender.com";
 
 const getMyRecipes = async () => {
    try {
-      const { data } = await axios.get("api/own-recipes");
+     const { data } = await axios.get("/api/own-recipes");
+
       return data.data;
    } catch (error) {
       return Promise.reject(error.response.statusText);
@@ -14,7 +15,7 @@ const getMyRecipes = async () => {
 
 const deleteMyRecipe = async (id) => {
    try {
-      const { data } = await axios.patch(`api/own-recipes/${id}`);
+      const { data } = await axios.patch(`/api/own-recipes/${id}`);
       return data;
    } catch (error) {
       return Promise.reject(error.response.statusText);

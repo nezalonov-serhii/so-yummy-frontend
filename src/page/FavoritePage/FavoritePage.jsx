@@ -25,7 +25,7 @@ const FavoritePage = () => {
             setIsLoading(true);
             const response = await getFavoriteRecipes();
 
-            setRecipes(response.favoriteRecipes);
+            setRecipes(response);
          } catch (error) {
             setError(error);
          } finally {

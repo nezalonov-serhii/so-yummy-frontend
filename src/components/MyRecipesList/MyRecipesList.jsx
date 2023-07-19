@@ -5,7 +5,7 @@ import { MyRecipesListStyled } from "./MyRecipesList.styled";
 export const MyRecipesList = ({ recipes, onDelete }) => {
    return (
       <MyRecipesListStyled>
-         {recipes?.map(({ _id, title, preview, description, time }) => (
+         {recipes?.map(({ownRecipes: { _id, title, preview, description, time }}) => (
             <MyRecipeCard
                id={_id}
                key={_id}

@@ -7,7 +7,7 @@ export const fetchChangeUser = async (formData) => {
             "Content-Type": "multipart/form-data",
          },
       });
-      console.log(response.data);
+
       return await response.data;
    } catch (error) {
       return Promise.reject(error.message);
