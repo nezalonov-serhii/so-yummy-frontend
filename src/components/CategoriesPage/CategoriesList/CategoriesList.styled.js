@@ -54,6 +54,11 @@ export const Button = styled.button`
    border-bottom: ${(props) =>
       props.isSelected ? " 2px solid var( --button-background-primary)" : "none"};
 
+   transition: color 250ms var(--cubic-bezier);
+   &:hover {
+      color: var(--accent-color);
+   }
+
    @media (min-width: 768px) {
       font-size: 18px;
       padding-bottom: 28px;

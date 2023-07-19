@@ -151,6 +151,10 @@ export const BoxName = styled.div`
    @media (min-width: 1280px) {
       margin-left: 150px;
    }
+
+   &:hover p {
+      color: var(--accent-color);
+   }
 `;
 
 export const LogoAvatarWrapper = styled.div`
@@ -173,13 +177,12 @@ export const Name = styled.p`
    font-weight: 600;
    line-height: 1.7;
 
-   @media (min-width: 1280px) {
-   }
+   transition: color 250ms var(--cubic-bezier);
 
    ${({ page, screen }) => {
       if (page === "/main" && screen.desktop) return "color: var(--text-dark);";
       if (page.includes("/recipe")) return "color: var(--text-dark);";
-   }}
+   }};
 `;
 export const Box = styled.div`
    display: flex;

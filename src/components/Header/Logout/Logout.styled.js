@@ -81,6 +81,7 @@ export const ButtonCancel = styled.button`
    }
 `;
 export const IconClose = styled(VscClose)`
+   cursor: pointer;
    width: 20px;
    height: 20px;
    position: absolute;

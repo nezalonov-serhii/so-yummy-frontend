@@ -10,7 +10,7 @@ import BasketMob2x from "../../images/SearchPage/vegetable-fruit-basket-mob@2x.p
 import BacketTabDesk from "../../images/SearchPage/vegetable-fruit-basket-tab-desk.png";
 import BacketTabDesk2x from "../../images/SearchPage/vegetable-fruit-basket-tab-desk@2x.png";
 
-import { BacketWrapper, Emptytitle, EmptyText } from "../../page/FavoritePage/FavoritePage.styled";
+import { BacketWrapper, EmptyText } from "../../page/FavoritePage/FavoritePage.styled";
 import {
    StyledIngridientsHeader,
    StyledIngridientsItem,
@@ -44,60 +44,68 @@ const IngredientsShoppingList = () => {
 
    return (
       <StyledIngridientsContainer>
-         <StyledIngridientsHeader>
-            <p>Product</p>
-            <StyledIngrsHeadThumb>
-               <p>Number</p>
-               <p>Remove</p>
-            </StyledIngrsHeadThumb>
-         </StyledIngridientsHeader>
          {shopping.isLoading ? (
             <Loader />
          ) : (
-            <StyledListContainerIngridient>
-               {shopping.items.length === 0 ? (
-                  <BacketWrapper>
-                     <Emptytitle>Oops!!!</Emptytitle>
-                     <picture>
-                        <source
-                           srcSet={`${BacketTabDesk}, ${BacketTabDesk2x} 2x`}
-                           media="(min-width: 768px)"
-                           sizes="(min-width: 498px) 498px, 100vw"
-                        />
-                        <source
-                           srcSet={`${BasketMob}, ${BasketMob2x} 2x`}
-                           media="(max-width: 767px)"
-                           sizes="(min-width: 259px) 259px, 100vw"
-                        />
-                        <img src={BasketMob} alt="No reecipe" />
-                     </picture>
-                     <EmptyText>Shopping list is empty. </EmptyText>
-                  </BacketWrapper>
-               ) : (
-                  shopping.items?.map((item) => {
-                     return (
-                        <StyledIngridientsItem key={item.ingredientId}>
-                           <StyledImageCardThumb>
-                              <StyledImage src={item.ingredient.img} alt={item.desc} height="60" />
-                              <p>{item.ingredient.name}</p>
-                           </StyledImageCardThumb>
-                           <StyledFlexQuantity>
-                              <StyledFlexRow>
-                                 {item.measure.split("/r/n").map((el) => (
-                                    <StyledQuantity key={nanoid()}>
-                                       <p>{el}</p>
-                                    </StyledQuantity>
-                                 ))}
-                              </StyledFlexRow>
-                              <StyledCloseIcon
-                                 onClick={() => heandleDeleteButton(item.ingredientId)}
-                              />
-                           </StyledFlexQuantity>
-                        </StyledIngridientsItem>
-                     );
-                  })
+            <>
+               {shopping.items.length > 0 && (
+                  <StyledIngridientsHeader>
+                     <p>Product</p>
+                     <StyledIngrsHeadThumb>
+                        <p>Number</p>
+                        <p>Remove</p>
+                     </StyledIngrsHeadThumb>
+                  </StyledIngridientsHeader>
                )}
-            </StyledListContainerIngridient>
+
+               <StyledListContainerIngridient>
+                  {shopping.items.length === 0 ? (
+                     <BacketWrapper>
+                        <picture>
+                           <source
+                              srcSet={`${BacketTabDesk}, ${BacketTabDesk2x} 2x`}
+                              media="(min-width: 768px)"
+                              sizes="(min-width: 498px) 498px, 100vw"
+                           />
+                           <source
+                              srcSet={`${BasketMob}, ${BasketMob2x} 2x`}
+                              media="(max-width: 767px)"
+                              sizes="(min-width: 259px) 259px, 100vw"
+                           />
+                           <img src={BasketMob} alt="No reecipe" />
+                        </picture>
+                        <EmptyText>Shopping list is empty. </EmptyText>
+                     </BacketWrapper>
+                  ) : (
+                     shopping.items?.map((item) => {
+                        return (
+                           <StyledIngridientsItem key={item.ingredientId}>
+                              <StyledImageCardThumb>
+                                 <StyledImage
+                                    src={item.ingredient.img}
+                                    alt={item.desc}
+                                    height="60"
+                                 />
+                                 <p>{item.ingredient.name}</p>
+                              </StyledImageCardThumb>
+                              <StyledFlexQuantity>
+                                 <StyledFlexRow>
+                                    {item.measure.split("/r/n").map((el) => (
+                                       <StyledQuantity key={nanoid()}>
+                                          <p>{el}</p>
+                                       </StyledQuantity>
+                                    ))}
+                                 </StyledFlexRow>
+                                 <StyledCloseIcon
+                                    onClick={() => heandleDeleteButton(item.ingredientId)}
+                                 />
+                              </StyledFlexQuantity>
+                           </StyledIngridientsItem>
+                        );
+                     })
+                  )}
+               </StyledListContainerIngridient>
+            </>
          )}
       </StyledIngridientsContainer>
    );

@@ -27,6 +27,8 @@ export const ThemeSwitch = styled.div`
    bottom: 16px;
    left: 16px;
 
+   cursor: pointer;
+
    @media (min-width: 768px) {
       bottom: 32px;
       left: 32px;

@@ -11,7 +11,7 @@ import BasketMob2x from "../../images/SearchPage/vegetable-fruit-basket-mob@2x.p
 import BacketTabDesk from "../../images/SearchPage/vegetable-fruit-basket-tab-desk.png";
 import BacketTabDesk2x from "../../images/SearchPage/vegetable-fruit-basket-tab-desk@2x.png";
 
-import { WrapPage, BacketWrapper, Emptytitle, EmptyText } from "./FavoritePage.styled";
+import { WrapPage, BacketWrapper, EmptyText } from "./FavoritePage.styled";
 import { Container } from "../MyRecipesPage/MyRecipesPage.styled";
 
 const FavoritePage = () => {
@@ -41,14 +41,15 @@ const FavoritePage = () => {
       setRecipes(recipes.filter((recipe) => recipe.favorites._id !== id));
    };
 
+   console.log(isLoading);
+
    return (
       <WrapPage>
          <Title>Favorites</Title>
          <Container>
             {isLoading && <Loader />}
-            {recipes.length === 0 ? (
+            {recipes.length === 0 && !isLoading ? (
                <BacketWrapper>
-                  <Emptytitle>Oops!!!</Emptytitle>
                   <picture>
                      <source
                         srcSet={`${BacketTabDesk}, ${BacketTabDesk2x} 2x`}

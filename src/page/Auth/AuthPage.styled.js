@@ -98,8 +98,10 @@ export const AuthForm = styled(Form)`
    border-radius: 30px;
    background-color: var(--background-modal);
 
-   @media screen and (max-width: 479px) {
-      max-width: 335px;
+   width: 288px;
+
+   @media screen and (min-width: 367px) {
+      width: 335px;
    }
 
    @media screen and (min-width: 768px) and (max-width: 1279px) {
@@ -279,9 +281,9 @@ export const Button = styled.button`
    font-size: 16px;
    text-align: center;
    color: #fafafa;
-   transition: var(--cubic-bezier) 250ms;
    cursor: pointer;
 
+   transition: color 250ms var(--cubic-bezier);
    &:hover {
       color: #22252a;
    }
@@ -303,6 +305,11 @@ export const AuthLink = styled(Link)`
    font-weight: 400;
    line-height: normal;
    text-decoration-line: underline;
+
+   transition: color 250ms var(--cubic-bezier);
+   &:hover {
+      color: var(--accent-color);
+   }
 
    @media screen and (min-width: 768px) {
       font-size: 16px;

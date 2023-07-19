@@ -21,21 +21,7 @@ export const BacketWrapper = styled.div`
    margin: 0 auto;
    margin-bottom: 50px;
 `;
-export const Emptytitle = styled.h3`
-   color: var(--title);
-   font-family: Poppins;
-   font-size: 14px;
-   font-style: normal;
-   font-weight: 500;
-   line-height: 14px;
-   letter-spacing: -0.24px;
-   margin-bottom: 20px;
 
-   @media screen and (min-width: 768px) {
-      font-size: 24px;
-      line-height: 24px;
-   }
-`;
 export const EmptyText = styled.p`
    color: var(--text-third);
    text-overflow: ellipsis;
