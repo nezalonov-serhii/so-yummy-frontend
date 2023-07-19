@@ -32,8 +32,10 @@ export const Button = styled.button`
 
 export const ErrorMessage = styled.span`
   position: absolute;
-  bottom: -20px;
+  bottom: -22px;
   left: 0;
-  color: red;
-  font-size: 12px;
+  color: #e74a3b;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: normal;
 `;
