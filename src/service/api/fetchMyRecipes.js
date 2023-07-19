@@ -3,9 +3,9 @@ import axios from "axios";
 axios.defaults.baseURL = "https://so-yummy-426w.onrender.com";
 // axios.defaults.baseURL = "http://localhost:3003";
 
-const getMyRecipes = async () => {
+const getMyRecipes = async (page=2) => {
    try {
-     const { data } = await axios.get("/api/own-recipes");
+     const { data } = await axios.get("/api/own-recipes?page=2&limit=6");
 
       return data.data;
    } catch (error) {
