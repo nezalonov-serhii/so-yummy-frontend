@@ -146,7 +146,7 @@ export const Input = styled(Field)`
 export const Btn = styled.button`
   width: 204px;
   height: 38px;
-  border: none;
+  border: 1px solid var(--button-background-other);
   border-radius: 6px;
   outline: rgba(0, 0, 0, 0.2);
   background-color: var(--button-background-other);
@@ -154,11 +154,13 @@ export const Btn = styled.button`
   font-size: 14px;
   line-height: 1.14;
   margin-top: 18px;
-  transition: var(--cubic-bezier) 250ms;
+  box-shadow: inset 0 0 0 0 var(--background-footer);
+  -webkit-transition: ease-out 0.4s;
+  -moz-transition: ease-out 0.4s;
+  transition: ease-out 0.4s;
 
   &:hover {
-    opacity: 0.9;
-    cursor: ${(props) => (props.disabled ? "not-allowed" : "pointer")};
+    box-shadow: inset 400px 0 0 0 var(--background-footer);
   }
 
   @media screen and (min-width: 768px) {
