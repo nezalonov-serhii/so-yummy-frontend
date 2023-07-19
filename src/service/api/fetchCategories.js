@@ -3,7 +3,7 @@ import { toast } from "react-toastify";
 
 export const fetchCategories = async () => {
    try {
-      const { data } = await axios.get("api/recipes/category-list");
+      const { data } = await axios.get("/api/recipes/category-list");
 
       return data.data;
    } catch (error) {

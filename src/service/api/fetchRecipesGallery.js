@@ -4,7 +4,7 @@ import { toast } from "react-toastify";
 export const fetchRecipesGallery = async (categoryName) => {
   try {
     const { data } = await axios.get(
-      `api/recipes/${categoryName}`,
+      `/api/recipes/${categoryName}`,
       categoryName
     );
 

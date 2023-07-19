@@ -2,6 +2,7 @@ import axios from "axios";
 import { toast } from "react-toastify";
 
 axios.defaults.baseURL = "https://so-yummy-426w.onrender.com";
+// axios.defaults.baseURL = "http://localhost:3003";
 
 const setToken = (token) => {
    axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
@@ -13,7 +14,7 @@ const dellToken = () => {
 
 export const signup = async (contact) => {
    try {
-      const { data } = await axios.post("api/users/register", contact);
+      const { data } = await axios.post("/api/users/register", contact);
       setToken(data.token);
 
       return data.data;
@@ -25,7 +26,7 @@ export const signup = async (contact) => {
 
 export const login = async (contact) => {
    try {
-      const { data } = await axios.post("api/users/login", contact);
+      const { data } = await axios.post("/api/users/login", contact);
       setToken(data.token);
 
       return data;
@@ -37,7 +38,7 @@ export const login = async (contact) => {
 
 export const logout = async () => {
    try {
-      await axios.post("api/users/logout");
+      await axios.post("/api/users/logout");
       dellToken();
    } catch (error) {
       toast.error(error.response.data.message);
@@ -48,7 +49,7 @@ export const logout = async () => {
 export const currentUser = async (token) => {
    setToken(token);
    try {
-      const { data } = await axios.get("api/users");
+      const { data } = await axios.get("/api/users");
 
       return data;
    } catch (error) {
@@ -72,7 +73,7 @@ export const currentUser = async (token) => {
 
 export const subscribeUser = async (email) => {
    try {
-      const { data } = await axios.post("api/subscribe", email);
+      const { data } = await axios.post("/api/subscribe", email);
       toast.success("You was successful sing up to newsletter!");
       console.log(email);
       return data;
