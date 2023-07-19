@@ -9,6 +9,7 @@ const CategoriesGallery = ({ recipes }) => {
       e.target.src = defaultImage;
    };
 
+   
    return (
       <List>
          {recipes.map((recipe) => {
