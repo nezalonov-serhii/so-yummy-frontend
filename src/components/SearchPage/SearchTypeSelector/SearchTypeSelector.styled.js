@@ -9,10 +9,10 @@ const SearchSelectorBox = styled(Box)`
   display: flex;
   width: 223px;
   align-items: center;
-  margin: 24px auto 50px;
+  margin: 24px auto 42px;
 
   @media (min-width: 768px) {
-    margin: 28px auto 74px;
+    margin: 28px auto 42px;
     width: 265px;
   }
 
@@ -31,11 +31,10 @@ const SearchSelect = styled(Select)`
   height: 34px;
   background-color: rgba(217, 217, 217, 15.7%);
   margin-left: 8px;
-  border: 1px solid transparent;
+
   border-radius: 6px;
 
   font-family: Poppins;
-  padding: 8px 14px;
 
   font-size: 12px;
   font-weight: 400;
@@ -43,27 +42,29 @@ const SearchSelect = styled(Select)`
   letter-spacing: -0.02em;
   text-align: left;
 
-  color: var(--text-other);
+  color: var(--text-third);
+
   & .${selectClasses.icon} {
     color: #8baa36;
   }
-  /* &:before {
-    border-color: red;/
-  } */
-  :hover {
-    border: 1px solid #23262a33;
+
+  & .${outlinedInputClasses.notchedOutline} {
+    border: 1px solid transparent;
   }
-  :focus {
-    border: 1px solid yellow;
+  &:hover .${outlinedInputClasses.notchedOutline} {
+    border: 1px solid #8baa36;
   }
+  &.${outlinedInputClasses.focused} .${outlinedInputClasses.notchedOutline} {
+    border: 1px solid #8baa36;
+  }
+
   @media (min-width: 768px) {
     font-size: 14px;
     width: 175px;
     height: 41px;
-    padding: 10px 14px;
   }
 
-  @media (min-width: 1024px) {
+  @media (min-width: 1280px) {
     width: 198px;
     height: 49px;
   }
@@ -93,7 +94,9 @@ const SelectorOption = styled(MenuItem)`
   outline: none;
   border: transparent;
   appearance: unset;
-  padding: 14px;
+  padding-left: 13px;
+  padding-top: 7px;
+  padding-bottom: 7px;
   background-color: var(--select-option);
   font-family: Poppins;
   font-size: 14px;
@@ -101,10 +104,13 @@ const SelectorOption = styled(MenuItem)`
   line-height: 1.5;
   letter-spacing: -0.02em;
   text-align: left;
-  color: var(--text-other);
-  :hover {
-    background-color: var(--select-option);
+  color: var(--text-third);
+  @media (min-width: 768px) {
+    padding-top: 10px;
+    padding-bottom: 10px;
   }
+
+  :hover,
   :focus {
     background-color: var(--select-option);
   }

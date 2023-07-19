@@ -25,7 +25,20 @@ export const SearchTypeSelector = () => {
             <StyledFormControl>
                <StyledHelperText id="username-helper">Search by:</StyledHelperText>
 
-               <SearchSelect onChange={handleChange} defaultValue={"Title"} value={valueSelector}>
+               <SearchSelect onChange={handleChange} defaultValue={"Title"} value={valueSelector}
+                MenuProps={{
+              sx: {
+                "&& .Mui-selected, && .Mui-selected:hover, && .Mui-selected:focus":
+                  {
+                    backgroundColor: "var(--select-option)",
+                  },
+                "&& .MuiMenu-list": {
+                  paddingTop: "0",
+                  paddingBottom: "0",
+                },
+              },
+            }}
+               >
                   <SelectorOption value="Title">Title</SelectorOption>
                   <SelectorOption value="Ingredients">Ingredients</SelectorOption>
                </SearchSelect>
