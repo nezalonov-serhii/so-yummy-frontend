@@ -31,7 +31,7 @@ const MyRecipesPage = () => {
 
    const DeleteMyRecipeById = (id) => {
       deleteMyRecipe(id);
-      setRecipes(recipes.filter((recipe) => recipe._id !== id));
+      setRecipes(recipes.filter((recipe) => recipe.ownRecipes._id !== id));
    };
 
    return (
