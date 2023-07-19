@@ -46,9 +46,7 @@ const GlobalStyles = createGlobalStyle`
 
       --select-option:#8BAA36;
 
-
       --border-input-footer:#FAFAFA;
-      
 
     `;
       } else {
