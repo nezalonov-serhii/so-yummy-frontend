@@ -69,7 +69,7 @@ export const InputIcon = styled.span`
 export const Icon = styled(AiOutlineMail)`
   width: 16px;
   height: 12px;
-  color: var(--background-primary);
+  color: var(--border-input-footer);
   ${(props) => {
     if (props.invalid === "invalid") return "color: #E74A3B;";
     else return "";
@@ -88,7 +88,7 @@ export const Icon = styled(AiOutlineMail)`
 export const Input = styled(Field)`
   width: 204px;
   height: 38px;
-  border: 1px solid var(--background-primary);
+  border: 1px solid var(--border-input-footer);
   border-radius: 6px;
   outline: rgba(0, 0, 0, 0.2);
   background-color: transparent;
