@@ -5,7 +5,7 @@ axios.defaults.baseURL = "https://so-yummy-426w.onrender.com";
 
 const getMyRecipes = async (page) => {
    try {
-     const { data } = await axios.get(`/api/own-recipes?page=${page}`);
+     const { data } = await axios.get(`/api/own-recipes?page=${page}&limit=4`);
 
       return data;
    } catch (error) {

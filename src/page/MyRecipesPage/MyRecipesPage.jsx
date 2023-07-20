@@ -53,8 +53,11 @@ const MyRecipesPage = () => {
         ) : (
           <MyRecipesList recipes={recipes} onDelete={DeleteMyRecipeById} />
         )}
-        {recipes.length > 4 && recipes.length < total && (
-          <LoadMoreButton onClick={handleLoadMore}>Load more</LoadMoreButton>
+        {total > 4 && recipes.length < total && (
+          <LoadMoreButton onClick={handleLoadMore} isDisabled={isLoading}>
+            {isLoading &&<Loader size={"20"} color={"var(--text-primary)"} />}
+            {!isLoading && "Load more"}
+          </LoadMoreButton>
         )}
       </Container>
     </WrapPage>
