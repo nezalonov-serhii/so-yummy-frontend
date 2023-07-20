@@ -1,20 +1,23 @@
 import styled from "styled-components";
 
 const RecipeImage = styled.img`
+   height: 323px;
+   min-width: 100%;
    border-radius: 8px;
-   width: 100%;
+   object-fit: cover;
 `;
 
 const RecipeTitle = styled.p`
-   width: 307px;
+   width: calc(100% - 32px);
 
    padding: 16px 0 16px 16px;
 
    border-radius: 8px;
 
    position: absolute;
-   left: 50%;
-   transform: translate(-50%);
+   left: 16px;
+   bottom: 0;
+   /* transform: translate(-50%); */
 
    bottom: 26px;
 
@@ -28,12 +31,8 @@ const RecipeTitle = styled.p`
    text-align: left;
 
    color: var(--text-primary);
-   @media (min-width: 768px) {
-      width: 300px;
-   }
 
-   @media (min-width: 1024px) {
-      width: 268px;
+   @media (min-width: 1280px) {
       bottom: 24px;
    }
 `;

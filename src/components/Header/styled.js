@@ -4,7 +4,7 @@ export const HeaderContainer = styled.header`
    position: absolute;
    top: 0;
    left: 0;
-   width: 100vw;
+   width: 100%;
    padding: 18px 0;
    display: flex;
    justify-content: space-between;

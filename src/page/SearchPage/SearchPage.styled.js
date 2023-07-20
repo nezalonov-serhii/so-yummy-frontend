@@ -5,7 +5,6 @@ const SearchPageContainer = styled.div`
    max-width: 480px;
 
    padding: 0 16px;
-   padding-bottom: 100px;
 
    @media (min-width: 768px) {
       padding: 0 32px;
@@ -19,9 +18,11 @@ const SearchPageContainer = styled.div`
 
 const Container = styled.div`
    padding-top: 50px;
+   padding-bottom: 100px;
 
    @media (min-width: 768px) {
       padding-top: 40px;
+      padding-bottom: 200px;
    }
 
    @media (min-width: 1280px) {
