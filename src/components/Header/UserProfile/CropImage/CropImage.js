@@ -9,9 +9,12 @@ import {
   SliderContainer,
   SliderLabel,
   StyledSlider,
+  Input,
+  Wrapper,
+  CropWrapper,
 } from "./styles";
 
-const CropImage = ({ image, setImage, onSaveCroppedImage }) => {
+const CropImage = ({ image, setImage, onSaveCroppedImage, className }) => {
   const [imageSrc, setImageSrc] = useState(null);
   const [crop, setCrop] = useState({ x: 0, y: 0 });
   const [rotation, setRotation] = useState(0);
@@ -40,13 +43,14 @@ const CropImage = ({ image, setImage, onSaveCroppedImage }) => {
 
   const onClose = useCallback(() => {
     setCroppedImage(null);
+    setShowCropImage(false);
   }, []);
   const onSave = useCallback(() => {
-    // Виконуємо якісь дії для збереження обрізаного зображення
     console.log("Обрізане зображення збережено!", croppedImage);
     setCroppedImage(null);
     setShowCropImage(false);
     onSaveCroppedImage(croppedImage);
+    //відправила в UserProfile
   }, [croppedImage, image, croppedAreaPixels, onSaveCroppedImage]);
 
   const onFileChange = async (e) => {
@@ -59,53 +63,46 @@ const CropImage = ({ image, setImage, onSaveCroppedImage }) => {
   };
 
   return (
-    <div>
+    <Wrapper>
       {showCropImage && imageSrc ? (
         <React.Fragment>
-          <CropContainer>
-            <Cropper
-              image={imageSrc}
-              crop={crop}
-              rotation={rotation}
-              zoom={zoom}
-              aspect={4 / 3}
-              onCropChange={setCrop}
-              onRotationChange={setRotation}
-              onCropComplete={onCropComplete}
-              onZoomChange={setZoom}
-            />
-          </CropContainer>
-          <Controls>
-            <SliderContainer>
-              <SliderLabel variant="overline">Zoom</SliderLabel>
-              <StyledSlider
-                value={zoom}
-                min={1}
-                max={3}
-                step={0.1}
-                aria-label="Zoom"
-                onChange={(e, zoom) => setZoom(zoom)}
+          <CropWrapper>
+            <CropContainer>
+              <Cropper
+                image={imageSrc}
+                crop={crop}
+                rotation={rotation}
+                zoom={zoom}
+                aspect={1}
+                cropShape="round"
+                onCropChange={setCrop}
+                onRotationChange={setRotation}
+                onCropComplete={onCropComplete}
+                onZoomChange={setZoom}
               />
-            </SliderContainer>
-            <SliderContainer>
-              <SliderLabel variant="overline">Rotation</SliderLabel>
-              <StyledSlider
-                value={rotation}
-                min={0}
-                max={360}
-                step={1}
-                aria-label="Rotation"
-                onChange={(e, rotation) => setRotation(rotation)}
-              />
-            </SliderContainer>
-            <CropButton
-              onClick={showCroppedImage}
-              variant="contained"
-              color="primary"
-            >
-              Show Result
-            </CropButton>
-          </Controls>
+            </CropContainer>
+            <Controls>
+              <SliderContainer>
+                <SliderLabel variant="overline">Zoom</SliderLabel>
+                <StyledSlider
+                  value={zoom}
+                  min={1}
+                  max={3}
+                  step={0.1}
+                  aria-label="Zoom"
+                  onChange={(e, zoom) => setZoom(zoom)}
+                />
+              </SliderContainer>
+
+              <CropButton
+                onClick={showCroppedImage}
+                variant="contained"
+                color="primary"
+              >
+                Show Result
+              </CropButton>
+            </Controls>
+          </CropWrapper>
           <ImgDialog
             img={croppedImage}
             onClose={onClose}
@@ -114,9 +111,9 @@ const CropImage = ({ image, setImage, onSaveCroppedImage }) => {
           />
         </React.Fragment>
       ) : (
-        <input type="file" onChange={onFileChange} accept="image/*" />
+        <Input type="file" onChange={onFileChange} accept="image/*" />
       )}
-    </div>
+    </Wrapper>
   );
 };
 

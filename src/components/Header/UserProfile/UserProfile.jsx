@@ -14,6 +14,8 @@ import {
   NewImage,
   IconAdd,
   Label,
+  CropAvatarWrapper,
+  CropAvatar,
 } from "./UserProfile.styled";
 import PlusIcon from "../../../images/Modal/plus-icon.svg";
 import { useDispatch, useSelector } from "react-redux";
@@ -28,6 +30,7 @@ import {
 import { toast } from "react-toastify";
 import { ErrorMessage } from "../../AddRecipe/AddRecipeForm/AddRecipeForm.styled";
 import Loader from "../../Loader/Loader";
+import StyledCropAvatar from "./CropImage/CropImage";
 import CropImage from "./CropImage/CropImage";
 
 export const UserProfile = ({ closeModal }) => {
@@ -47,15 +50,15 @@ export const UserProfile = ({ closeModal }) => {
       return;
     }
     try {
-      if (image) {
+      if (croppedImage) {
         setIsLoading(true);
-        const res = await fetch(image);
+        const res = await fetch(croppedImage);
         const contentType = res.headers.get("content-type");
         const blob = await res.blob();
         const file = new File([blob], "image", { type: contentType });
         formData.append("avatar", file);
         await fetchChangeUser(formData);
-        dispatch(updateAvatarURL(image));
+        dispatch(updateAvatarURL(croppedImage));
       } else {
         await fetchChangeUser(formData);
       }
@@ -86,22 +89,22 @@ export const UserProfile = ({ closeModal }) => {
 
   return (
     <Box>
-      <CropImage
-        image={image}
-        setImage={setImage}
-        onSaveCroppedImage={onSaveCroppedImage}
-      />
       <IconClose onClick={closeModal} />
 
       <Form onSubmit={handleSubmit}>
         <AvatarWrapper>
           <Label htmlFor="fileElem">
-            <InputImage
+            <CropImage
+              image={image}
+              setImage={setImage}
+              onSaveCroppedImage={onSaveCroppedImage}
+            />
+            {/* <InputImage
               type="file"
               id="fileElem"
               accept="image/*"
               onChange={handleFileSelect}
-            />
+            /> */}
             <ImgContainer id="fileSelect">
               {croppedImage ? (
                 <NewImage src={croppedImage} alt="userPhoto" />
