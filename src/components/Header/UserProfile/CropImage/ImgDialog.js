@@ -25,24 +25,26 @@ const ImgDialogContainer = styled("div")`
   }
 `;
 
+const ContainerPreview = styled("div")`
+  height: 90vh;
+`;
 const Toolbar = styled("div")`
   display: flex;
   padding: 15px;
 `;
 
 const ImageContainer = styled("div")`
-  outline: solid 1px red;
-
-  position: relative;
-
-  padding: 160px 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  margin-top: 100px;
+  max-width: 100%;
+  max-height: 100%;
 `;
 
 const Image = styled("img")`
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
   border-radius: 50%;
+  max-width: 350px;
 `;
 
 const ImgDialog = ({ img, onClose, onSave }) => {
@@ -54,7 +56,7 @@ const ImgDialog = ({ img, onClose, onSave }) => {
         onClose={onClose}
         TransitionComponent={Transition}
       >
-        <div>
+        <ContainerPreview>
           <AppBar>
             <Toolbar>
               <button onClick={onClose} aria-label="Close">
@@ -76,7 +78,7 @@ const ImgDialog = ({ img, onClose, onSave }) => {
           <ImageContainer>
             <Image src={img} alt="Cropped" />
           </ImageContainer>
-        </div>
+        </ContainerPreview>
       </Dialog>
     </ImgDialogContainer>
   );
