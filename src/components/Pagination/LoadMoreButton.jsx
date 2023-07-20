@@ -1,7 +1,10 @@
+import { PaginationButton } from "./LoadMoreButton.styled";
+
 export const LoadMoreButton = ({ onClick }) => {
   return (
-    <button style={{ margin: "20px auto" }} onClick={onClick}>
+    <PaginationButton onClick={onClick}>
       Load more
-    </button>
+    </PaginationButton>
   );
 };
+
