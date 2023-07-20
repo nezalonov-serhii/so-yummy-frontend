@@ -26,8 +26,11 @@ export const SearchTypeSelector = () => {
                <StyledHelperText id="username-helper">Search by:</StyledHelperText>
 
                <SearchSelect onChange={handleChange} defaultValue={"Title"} value={valueSelector}
-                MenuProps={{
-              sx: {
+                  MenuProps={{
+                     style: { position: 'absolute'}
+              ,
+                   disableScrollLock: true
+              ,sx: {
                 "&& .Mui-selected, && .Mui-selected:hover, && .Mui-selected:focus":
                   {
                     backgroundColor: "var(--select-option)",
