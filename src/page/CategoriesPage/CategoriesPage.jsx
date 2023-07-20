@@ -8,7 +8,7 @@ import CategoriesGallery from "../../components/CategoriesPage/CategoriesGallery
 import CategoriesList from "../../components/CategoriesPage/CategoriesList/CategoriesList";
 import { Title } from "../../components/Title/Title";
 import Loader from "../../components/Loader/Loader";
-import { LoadMoreButton } from "../../components/Pagination/LoadMoreButton";
+import { LoadMoreButton } from "../../components/CategoriesPage/LoadMoreButton/LoadMoreButton";
 
 import { Container } from "./CategoriesPage.styled";
 
@@ -56,13 +56,6 @@ const CategoriesPage = () => {
       // eslint-disable-next-line
    }, [page]);
 
-   // useEffect(()=>{
-   //    setIsGalletLoading(true)
-   //    fetchRecipesGallery(selectedCategory).then((res) => {
-   //       setGallery(res)
-   //       setIsGalletLoading(false)
-   //    });
-   // }, [])
    const handleLoadMore = () => {
       setPage((prevPage) => prevPage + 1);
    };
@@ -89,7 +82,7 @@ const CategoriesPage = () => {
             </>
          )}
          {total > 8 && gallery.length < total && (
-            <LoadMoreButton onClick={handleLoadMore} isDisabled={isGalleryLoading}>
+            <LoadMoreButton onClick={handleLoadMore} isDisabled={isGalleryLoading} >
                {isGalleryLoading && <Loader size={"20"} color={"var(--text-primary)"} />}
                {!isGalleryLoading && "Load more"}
             </LoadMoreButton>

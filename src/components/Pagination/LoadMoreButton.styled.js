@@ -6,7 +6,7 @@ export const PaginationButton = styled.button`
    border: 2px solid var(--button-background-primary);
    padding: 6px 14px;
    margin-top: 40px;
-   margin-bottom: 118px;
+   margin-bottom: 90px;
    margin-left: auto;
    margin-right: auto;
    font-size: 10px;
