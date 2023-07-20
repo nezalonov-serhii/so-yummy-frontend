@@ -11,7 +11,7 @@ import {
   StyledSlider,
 } from "./styles";
 
-const CropImage = () => {
+const CropImage = ({ image, setImage, onSaveCroppedImage }) => {
   const [imageSrc, setImageSrc] = useState(null);
   const [crop, setCrop] = useState({ x: 0, y: 0 });
   const [rotation, setRotation] = useState(0);
@@ -46,7 +46,8 @@ const CropImage = () => {
     console.log("Обрізане зображення збережено!", croppedImage);
     setCroppedImage(null);
     setShowCropImage(false);
-  }, [croppedImage]);
+    onSaveCroppedImage(croppedImage);
+  }, [croppedImage, image, croppedAreaPixels, onSaveCroppedImage]);
 
   const onFileChange = async (e) => {
     if (e.target.files && e.target.files.length > 0) {

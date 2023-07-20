@@ -35,6 +35,7 @@ export const UserProfile = ({ closeModal }) => {
   const user = useSelector(selectUser);
   const [name, setName] = useState(user?.name || "");
   const [image, setImage] = useState(user?.avatarURL || "");
+  const [croppedImage, setCroppedImage] = useState(null);
 
   const [isLoading, setIsLoading] = useState(false);
 
@@ -77,9 +78,19 @@ export const UserProfile = ({ closeModal }) => {
       setImage(URL.createObjectURL(event.target.files[0]));
     }
   };
+  const onSaveCroppedImage = (croppedImage) => {
+    // Отримане обрізане зображення зберігаємо або використовуємо для подальших дій
+    console.log("Обрізане зображення збережено!", croppedImage);
+    setCroppedImage(croppedImage);
+  };
+
   return (
     <Box>
-      <CropImage />
+      <CropImage
+        image={image}
+        setImage={setImage}
+        onSaveCroppedImage={onSaveCroppedImage}
+      />
       <IconClose onClick={closeModal} />
 
       <Form onSubmit={handleSubmit}>
@@ -92,7 +103,13 @@ export const UserProfile = ({ closeModal }) => {
               onChange={handleFileSelect}
             />
             <ImgContainer id="fileSelect">
-              {!image ? <Image /> : <NewImage src={image} alt="userPhoto" />}
+              {croppedImage ? (
+                <NewImage src={croppedImage} alt="userPhoto" />
+              ) : !image ? (
+                <Image />
+              ) : (
+                <NewImage src={image} alt="userPhoto" />
+              )}
             </ImgContainer>
             <IconAdd src={PlusIcon} alt="Add Icon" />
           </Label>
@@ -121,3 +138,24 @@ export const UserProfile = ({ closeModal }) => {
     </Box>
   );
 };
+
+// <div>
+//   {!croppedImage ? (
+//     <React.Fragment>
+//       <input type="file" onChange={handleFileSelect} accept="image/*" />
+//       {image && (
+//         <CropImage
+//           image={image}
+//           setImage={setImage}
+//           onSaveCroppedImage={onSaveCroppedImage}
+//         />
+//       )}
+//     </React.Fragment>
+//   ) : (
+//     <div>
+//       {/* Відображаємо обрізане зображення, якщо воно є */}
+//       <img src={croppedImage} alt="Cropped" />
+//       {/* Інші дії з обрізаним зображенням... */}
+//     </div>
+//   )}
+// </div>;
