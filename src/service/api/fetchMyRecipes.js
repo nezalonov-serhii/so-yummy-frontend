@@ -3,11 +3,11 @@ import axios from "axios";
 axios.defaults.baseURL = "https://so-yummy-426w.onrender.com";
 // axios.defaults.baseURL = "http://localhost:3003";
 
-const getMyRecipes = async () => {
+const getMyRecipes = async (page) => {
    try {
-     const { data } = await axios.get("/api/own-recipes");
+     const { data } = await axios.get(`/api/own-recipes?page=${page}`);
 
-      return data.data;
+      return data;
    } catch (error) {
       return Promise.reject(error.response.statusText);
    }
