@@ -10,7 +10,7 @@ import BasketMob from "../../images/SearchPage/vegetable-fruit-basket-mob.png";
 import BasketMob2x from "../../images/SearchPage/vegetable-fruit-basket-mob@2x.png";
 import BacketTabDesk from "../../images/SearchPage/vegetable-fruit-basket-tab-desk.png";
 import BacketTabDesk2x from "../../images/SearchPage/vegetable-fruit-basket-tab-desk@2x.png";
-
+import { LoadMoreButton } from "../../components/Pagination/LoadMoreButton";
 import { WrapPage, BacketWrapper, EmptyText } from "./FavoritePage.styled";
 import { Container } from "../MyRecipesPage/MyRecipesPage.styled";
 
@@ -18,59 +18,68 @@ const FavoritePage = () => {
    const [recipes, setRecipes] = useState([]);
    const [, setError] = useState(null);
    const [isLoading, setIsLoading] = useState(false);
-   //  const [page, setPage] = useState(1);
+   const [page, setPage] = useState(1);
+   const [total, setTotal] = useState(0);
 
    useEffect(() => {
-      const fetchFavoriteRecipes = async () => {
+      const fetchFavoriteRecipes = async (page) => {
          try {
             setIsLoading(true);
-            const response = await getFavoriteRecipes();
-
-            setRecipes(response);
+            const response = await getFavoriteRecipes(page);
+            const recipesList = response.data;
+            const totalHits = response.qty.total;
+            setTotal(totalHits);
+            setRecipes((prevRecipes) => [...prevRecipes, ...recipesList]);
          } catch (error) {
             setError(error);
          } finally {
             setIsLoading(false);
          }
       };
-      fetchFavoriteRecipes();
-   }, []);
+      fetchFavoriteRecipes(page);
+   }, [page]);
 
    const hendleDeleteRecipeById = (id) => {
       deleteRecipeFromFavorite(id);
       setRecipes(recipes.filter((recipe) => recipe.favorites._id !== id));
    };
 
+       const handleLoadMore = () => {
+         setPage((prevPage) => prevPage + 1);
+       };
+
    console.log(isLoading);
 
    return (
-      <WrapPage>
-         <Title>Favorites</Title>
-         <Container>
-            {isLoading && <Loader />}
-            {recipes.length === 0 && !isLoading ? (
-               <BacketWrapper>
-                  <picture>
-                     <source
-                        srcSet={`${BacketTabDesk}, ${BacketTabDesk2x} 2x`}
-                        media="(min-width: 768px)"
-                        sizes="(min-width: 498px) 498px, 100vw"
-                     />
-                     <source
-                        srcSet={`${BasketMob}, ${BasketMob2x} 2x`}
-                        media="(max-width: 767px)"
-                        sizes="(min-width: 259px) 259px, 100vw"
-                     />
-                     <img src={BasketMob} alt="No reecipe" />
-                  </picture>
-                  <EmptyText>You don't have any favorite recipes. </EmptyText>
-               </BacketWrapper>
-            ) : (
-               <FavoriteList recipes={recipes} onDelete={hendleDeleteRecipeById} />
-            )}
-            {/* {recipes && <FavoriteList recipes={recipes} onDelete={hendleDeleteRecipeById} />} */}
-         </Container>
-      </WrapPage>
+     <WrapPage>
+       <Title>Favorites</Title>
+       <Container>
+         {isLoading && <Loader />}
+         {recipes.length === 0 && !isLoading ? (
+           <BacketWrapper>
+             <picture>
+               <source
+                 srcSet={`${BacketTabDesk}, ${BacketTabDesk2x} 2x`}
+                 media="(min-width: 768px)"
+                 sizes="(min-width: 498px) 498px, 100vw"
+               />
+               <source
+                 srcSet={`${BasketMob}, ${BasketMob2x} 2x`}
+                 media="(max-width: 767px)"
+                 sizes="(min-width: 259px) 259px, 100vw"
+               />
+               <img src={BasketMob} alt="No reecipe" />
+             </picture>
+             <EmptyText>You don't have any favorite recipes. </EmptyText>
+           </BacketWrapper>
+         ) : (
+           <FavoriteList recipes={recipes} onDelete={hendleDeleteRecipeById} />
+         )}
+         {recipes.length > 4 && recipes.length < total && (
+           <LoadMoreButton onClick={handleLoadMore}>Load more</LoadMoreButton>
+         )}
+       </Container>
+     </WrapPage>
    );
 };
 export default FavoritePage;

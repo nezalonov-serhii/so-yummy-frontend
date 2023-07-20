@@ -1,11 +1,11 @@
 import axios from "axios";
 import { toast } from "react-toastify";
 
-export const getFavoriteRecipes = async () => {
+export const getFavoriteRecipes = async (page) => {
    try {
-      const { data } = await axios.get("/api/favorite");
+      const { data } = await axios.get(`/api/favorite?page=${page}`);
 
-      return data.data;
+      return data;
    } catch (error) {
       toast.error(error.response.data.message);
       return Promise.reject(error.response.statusText);

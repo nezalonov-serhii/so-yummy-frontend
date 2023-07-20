@@ -14,7 +14,6 @@ const MyRecipesPage = () => {
   const [recipes, setRecipes] = useState([]);
   const [, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
-  // const lastRecipeIndex = recipes.length - 1;
   const [total, setTotal] = useState(0);
 
   useEffect(() => {
@@ -25,11 +24,7 @@ const MyRecipesPage = () => {
         const recipesList = response.data;
         const totalHits = response.qty.total;
         setTotal(totalHits);
-        // if (page = 1) {
-          // setRecipes(recipesList)
-        // } else {
           setRecipes((prevRecipes) => [...prevRecipes, ...recipesList]);
-        // } 
       } catch (error) {
         setError(error);
       } finally {
@@ -38,11 +33,6 @@ const MyRecipesPage = () => {
     };
     fetchMyRecipes(page);
   }, [page]);
-
-    // useEffect(() => {
-    //   setRecipes([]);
-    //   setPage(1);
-    // }, []);
 
   const DeleteMyRecipeById = (id) => {
     deleteMyRecipe(id);
