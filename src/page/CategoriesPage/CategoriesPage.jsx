@@ -16,8 +16,8 @@ const CategoriesPage = () => {
    const [gallery, setGallery] = useState([]);
    const [isLoading, setIsLoading] = useState(false);
    const [isGalleryLoading, setIsGalletLoading] = useState(false);
-      const [page, setPage] = useState(1);
-      const [total, setTotal] = useState(0);
+   const [page, setPage] = useState(1);
+   const [total, setTotal] = useState(0);
    const { categoryName } = useParams();
    const [selectedCategory, setSelectedCategory] = useState(
       categoryName[0].toUpperCase() + categoryName.slice(1)
@@ -44,17 +44,17 @@ const CategoriesPage = () => {
       });
    }, [selectedCategory]);
 
-      useEffect(() => {
-        setIsGalletLoading(true);
-        fetchRecipesGallery(selectedCategory, page).then((res) => {
-          page > 1
+   useEffect(() => {
+      setIsGalletLoading(true);
+      fetchRecipesGallery(selectedCategory, page).then((res) => {
+         page > 1
             ? setGallery((prevGallery) => [...prevGallery, ...res.data])
             : setGallery(res.data);
-          setTotal(res.qty.total);
-          setIsGalletLoading(false);
-        });
-        // eslint-disable-next-line
-      }, [page]);
+         setTotal(res.qty.total);
+         setIsGalletLoading(false);
+      });
+      // eslint-disable-next-line
+   }, [page]);
 
    // useEffect(()=>{
    //    setIsGalletLoading(true)
@@ -63,39 +63,38 @@ const CategoriesPage = () => {
    //       setIsGalletLoading(false)
    //    });
    // }, [])
-          const handleLoadMore = () => {
-            setPage((prevPage) => prevPage + 1);
-          };
+   const handleLoadMore = () => {
+      setPage((prevPage) => prevPage + 1);
+   };
 
    const chooseCategory = async (categorynewName) => {
       setSelectedCategory(categorynewName);
       navigate(`/categories/${categorynewName}`);
       return;
    };
-
+   console.log(isGalleryLoading);
    return (
-     <Container>
-       <Title>Categories</Title>
-       {isLoading ? (
-         <Loader />
-       ) : (
-         <>
-           <CategoriesList
-             onSubmit={chooseCategory}
-             selectedCategory={selectedCategory}
-             categories={categories}
-           />
-           {isGalleryLoading ? (
-             <Loader />
-           ) : (
-             <CategoriesGallery recipes={gallery} />
-           )}
-         </>
-       )}
-       {total>8 && gallery.length<total && (
-         <LoadMoreButton onClick={handleLoadMore}>Load more</LoadMoreButton>
-       )}
-     </Container>
+      <Container>
+         <Title>Categories</Title>
+         {isLoading ? (
+            <Loader />
+         ) : (
+            <>
+               <CategoriesList
+                  onSubmit={chooseCategory}
+                  selectedCategory={selectedCategory}
+                  categories={categories}
+               />
+               {isLoading ? <Loader /> : <CategoriesGallery recipes={gallery} />}
+            </>
+         )}
+         {total > 8 && gallery.length < total && (
+            <LoadMoreButton onClick={handleLoadMore} isDisabled={isGalleryLoading}>
+               {isGalleryLoading && <Loader size={"20"} color={"#fff"} />}
+               {!isGalleryLoading && "Load more"}
+            </LoadMoreButton>
+         )}
+      </Container>
    );
 };
 export default CategoriesPage;
