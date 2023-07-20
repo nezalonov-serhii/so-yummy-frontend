@@ -3,7 +3,7 @@ import { toast } from "react-toastify";
 
 export const getFavoriteRecipes = async (page) => {
    try {
-      const { data } = await axios.get(`/api/favorite?page=${page}`);
+      const { data } = await axios.get(`/api/favorite?page=${page}&limit=4`);
 
       return data;
    } catch (error) {

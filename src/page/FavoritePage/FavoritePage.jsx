@@ -75,7 +75,7 @@ const FavoritePage = () => {
          ) : (
            <FavoriteList recipes={recipes} onDelete={hendleDeleteRecipeById} />
          )}
-         {recipes.length > 4 && recipes.length < total && (
+         {total > 4 && recipes.length < total && (
            <LoadMoreButton onClick={handleLoadMore}>Load more</LoadMoreButton>
          )}
        </Container>
