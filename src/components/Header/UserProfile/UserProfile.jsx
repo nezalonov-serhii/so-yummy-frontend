@@ -8,14 +8,11 @@ import {
   Icon,
   IconClose,
   AvatarWrapper,
-  InputImage,
   ImgContainer,
   Image,
   NewImage,
   IconAdd,
   Label,
-  CropAvatarWrapper,
-  CropAvatar,
 } from "./UserProfile.styled";
 import PlusIcon from "../../../images/Modal/plus-icon.svg";
 import { useDispatch, useSelector } from "react-redux";
@@ -30,7 +27,6 @@ import {
 import { toast } from "react-toastify";
 import { ErrorMessage } from "../../AddRecipe/AddRecipeForm/AddRecipeForm.styled";
 import Loader from "../../Loader/Loader";
-import StyledCropAvatar from "./CropImage/CropImage";
 import CropImage from "./CropImage/CropImage";
 
 export const UserProfile = ({ closeModal }) => {
@@ -76,14 +72,7 @@ export const UserProfile = ({ closeModal }) => {
     setName(event.target.value);
   };
 
-  const handleFileSelect = (event) => {
-    if (event.target.files.length > 0) {
-      setImage(URL.createObjectURL(event.target.files[0]));
-    }
-  };
   const onSaveCroppedImage = (croppedImage) => {
-    // Отримане обрізане зображення зберігаємо або використовуємо для подальших дій
-    console.log("Обрізане зображення збережено!", croppedImage);
     setCroppedImage(croppedImage);
   };
 
@@ -99,12 +88,6 @@ export const UserProfile = ({ closeModal }) => {
               setImage={setImage}
               onSaveCroppedImage={onSaveCroppedImage}
             />
-            {/* <InputImage
-              type="file"
-              id="fileElem"
-              accept="image/*"
-              onChange={handleFileSelect}
-            /> */}
             <ImgContainer id="fileSelect">
               {croppedImage ? (
                 <NewImage src={croppedImage} alt="userPhoto" />
@@ -141,24 +124,3 @@ export const UserProfile = ({ closeModal }) => {
     </Box>
   );
 };
-
-// <div>
-//   {!croppedImage ? (
-//     <React.Fragment>
-//       <input type="file" onChange={handleFileSelect} accept="image/*" />
-//       {image && (
-//         <CropImage
-//           image={image}
-//           setImage={setImage}
-//           onSaveCroppedImage={onSaveCroppedImage}
-//         />
-//       )}
-//     </React.Fragment>
-//   ) : (
-//     <div>
-//       {/* Відображаємо обрізане зображення, якщо воно є */}
-//       <img src={croppedImage} alt="Cropped" />
-//       {/* Інші дії з обрізаним зображенням... */}
-//     </div>
-//   )}
-// </div>;

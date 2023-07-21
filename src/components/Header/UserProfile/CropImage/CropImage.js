@@ -1,6 +1,5 @@
 import React, { useState, useCallback } from "react";
 import Cropper from "react-easy-crop";
-import ImgDialog from "./ImgDialog";
 import { getCroppedImg } from "./canvasUtils";
 import {
   CropContainer,
@@ -14,7 +13,7 @@ import {
   CropWrapper,
 } from "./styles";
 
-const CropImage = ({ image, setImage, onSaveCroppedImage, className }) => {
+const CropImage = ({ onSaveCroppedImage }) => {
   const [imageSrc, setImageSrc] = useState(null);
   const [crop, setCrop] = useState({ x: 0, y: 0 });
   const [rotation, setRotation] = useState(0);
@@ -27,31 +26,31 @@ const CropImage = ({ image, setImage, onSaveCroppedImage, className }) => {
     setCroppedAreaPixels(croppedAreaPixels);
   }, []);
 
-  const showCroppedImage = useCallback(async () => {
+  const cropImage = useCallback(async () => {
     try {
       const croppedImage = await getCroppedImg(
         imageSrc,
         croppedAreaPixels,
         rotation
       );
-      console.log("donee", { croppedImage });
       setCroppedImage(croppedImage);
+      return croppedImage;
     } catch (e) {
       console.error(e);
     }
   }, [imageSrc, croppedAreaPixels, rotation]);
 
+  const showCroppedImageAndSave = useCallback(async () => {
+    const croppedImage = await cropImage();
+
+    setShowCropImage(false);
+    onSaveCroppedImage(croppedImage);
+  }, [onSaveCroppedImage, cropImage]);
+
   const onClose = useCallback(() => {
     setCroppedImage(null);
     setShowCropImage(false);
   }, []);
-  const onSave = useCallback(() => {
-    console.log("Обрізане зображення збережено!", croppedImage);
-    setCroppedImage(null);
-    setShowCropImage(false);
-    onSaveCroppedImage(croppedImage);
-    //відправила в UserProfile
-  }, [croppedImage, image, croppedAreaPixels, onSaveCroppedImage]);
 
   const onFileChange = async (e) => {
     if (e.target.files && e.target.files.length > 0) {
@@ -95,20 +94,17 @@ const CropImage = ({ image, setImage, onSaveCroppedImage, className }) => {
               </SliderContainer>
 
               <CropButton
-                onClick={showCroppedImage}
+                onClick={showCroppedImageAndSave}
                 variant="contained"
                 color="primary"
               >
-                Show Result
+                Save
+              </CropButton>
+              <CropButton onClick={onClose} variant="contained" color="primary">
+                Close
               </CropButton>
             </Controls>
           </CropWrapper>
-          <ImgDialog
-            img={croppedImage}
-            onClose={onClose}
-            onSave={onSave}
-            showCropImage={showCropImage}
-          />
         </React.Fragment>
       ) : (
         <Input type="file" onChange={onFileChange} accept="image/*" />
