@@ -28,8 +28,6 @@ const RecipePageHero = ({ title, description, time, recipeId, favorites }) => {
       return false;
    }
 
-   console.log(checkFavorites());
-
    const handleClickBtn = () => {
       if (favorites === undefined) {
          return;

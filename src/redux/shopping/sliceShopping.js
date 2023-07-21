@@ -11,7 +11,6 @@ const handlePending = (state) => {
    state.shopping.isLoading = true;
 };
 const handleRejected = (state, { payload }) => {
-   console.log("payload rejected", payload);
    state.shopping.isLoading = false;
    state.shopping.error = payload;
 };

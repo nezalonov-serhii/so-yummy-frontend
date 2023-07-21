@@ -65,7 +65,6 @@ const CategoriesPage = () => {
       navigate(`/categories/${categorynewName}`);
       return;
    };
-   console.log(isGalleryLoading);
    return (
       <Container>
          <Title>Categories</Title>
@@ -82,7 +81,7 @@ const CategoriesPage = () => {
             </>
          )}
          {total > 8 && gallery.length < total && (
-            <LoadMoreButton onClick={handleLoadMore} isDisabled={isGalleryLoading} >
+            <LoadMoreButton onClick={handleLoadMore} isDisabled={isGalleryLoading}>
                {isGalleryLoading && <Loader size={"20"} color={"var(--text-primary)"} />}
                {!isGalleryLoading && "Load more"}
             </LoadMoreButton>
