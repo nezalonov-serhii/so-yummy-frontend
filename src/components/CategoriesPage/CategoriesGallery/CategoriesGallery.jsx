@@ -9,7 +9,6 @@ const CategoriesGallery = ({ recipes }) => {
       e.target.src = defaultImage;
    };
 
-   
    return (
       <List>
          {recipes.map((recipe) => {
@@ -19,6 +18,7 @@ const CategoriesGallery = ({ recipes }) => {
                      <Title>{recipe.title}</Title>
                      <Picture
                         src={recipe.preview ? recipe.preview : defaultImage}
+                        alt={recipe?.title}
                         onError={onImageError}
                      />
                   </Link>
