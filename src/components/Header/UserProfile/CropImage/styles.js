@@ -59,6 +59,7 @@ export const Controls = styled.div`
   flex-direction: row;
   align-items: center;
   gap: 16px;
+  padding-bottom: 70px;
 `;
 
 export const SliderContainer = styled.div`
